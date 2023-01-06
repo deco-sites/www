@@ -5,98 +5,38 @@
 import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
 import * as $0 from "./routes/[...catchall].tsx";
-import * as $1 from "./routes/_app.tsx";
-import * as $2 from "./routes/_middleware.ts";
-import * as $3 from "./routes/index.tsx";
+import * as $1 from "./routes/_404.tsx";
+import * as $2 from "./routes/_500.tsx";
+import * as $3 from "./routes/_app.tsx";
+import * as $4 from "./routes/_middleware.ts";
+import * as $5 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$$0 from "./sections/GetStarted.tsx";
-import * as $$$1 from "./sections/Head.tsx";
-import * as $$$2 from "./sections/Markdown.tsx";
-import * as $$$3 from "./sections/QuillText.tsx";
+import * as $$1 from "./islands/TeamSlide.tsx";
+import * as $$$0 from "./sections/Markdown.tsx";
+import * as $$$1 from "./sections/Pricing.tsx";
+import * as $$$2 from "./sections/QuillText.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 
 const manifest: DecoManifest = {
   routes: {
     "./routes/[...catchall].tsx": $0,
-    "./routes/_app.tsx": $1,
-    "./routes/_middleware.ts": $2,
-    "./routes/index.tsx": $3,
+    "./routes/_404.tsx": $1,
+    "./routes/_500.tsx": $2,
+    "./routes/_app.tsx": $3,
+    "./routes/_middleware.ts": $4,
+    "./routes/index.tsx": $5,
   },
-  islands: { "./islands/LiveControls.tsx": $$0 },
+  islands: {
+    "./islands/LiveControls.tsx": $$0,
+    "./islands/TeamSlide.tsx": $$1,
+  },
   sections: {
-    "./sections/GetStarted.tsx": $$$0,
-    "./sections/Head.tsx": $$$1,
-    "./sections/Markdown.tsx": $$$2,
-    "./sections/QuillText.tsx": $$$3,
+    "./sections/Markdown.tsx": $$$0,
+    "./sections/Pricing.tsx": $$$1,
+    "./sections/QuillText.tsx": $$$2,
   },
   functions: { "./functions/LoadGitHubRaw.ts": $$$$0 },
   schemas: {
-    "./sections/GetStarted.tsx": {
-      "inputSchema": {
-        "title": " Get Started",
-        "type": "object",
-        "properties": {
-          "enableInspectVSCode": {
-            "type": [
-              "boolean",
-              "null",
-            ],
-            "title": "Enable Inspect V S Code",
-          },
-        },
-        "required": [],
-      },
-      "outputSchema": null,
-    },
-    "./sections/Head.tsx": {
-      "inputSchema": {
-        "title": " Head",
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "title": "Title",
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-          },
-          "url": {
-            "type": "string",
-            "title": "Url",
-          },
-          "imageUrl": {
-            "type": "string",
-            "title": "Image Url",
-          },
-          "faviconUrl": {
-            "type": "string",
-            "title": "Favicon Url",
-          },
-          "styleUrls": {
-            "type": "array",
-            "items": {
-              "type": "string",
-            },
-            "title": "Style Urls",
-          },
-          "themeColor": {
-            "type": "string",
-            "title": "Theme Color",
-          },
-        },
-        "required": [
-          "title",
-          "description",
-          "url",
-          "imageUrl",
-          "faviconUrl",
-          "styleUrls",
-          "themeColor",
-        ],
-      },
-      "outputSchema": null,
-    },
     "./sections/Markdown.tsx": {
       "inputSchema": {
         "title": " Markdown",
@@ -111,6 +51,27 @@ const manifest: DecoManifest = {
         },
         "required": [
           "text",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Pricing.tsx": {
+      "inputSchema": {
+        "title": " Pricing",
+        "type": "object",
+        "properties": {
+          "pricingTableId": {
+            "type": "string",
+            "title": "Pricing Table Id",
+          },
+          "publishableKey": {
+            "type": "string",
+            "title": "Publishable Key",
+          },
+        },
+        "required": [
+          "pricingTableId",
+          "publishableKey",
         ],
       },
       "outputSchema": null,

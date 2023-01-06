@@ -1,5 +1,8 @@
-import Markdown, { Props } from "$live/std/ui/components/Markdown.tsx";
-export * from "$live/std/ui/components/Markdown.tsx";
+import { LoaderReturnType } from "$live/std/types.ts";
+import Markdown from "$live/std/ui/components/Markdown.tsx";
+export type Props = {
+  text: LoaderReturnType<string>;
+};
 
 export default function MarkdownContainer(props: Props) {
   return (

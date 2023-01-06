@@ -1,24 +1,64 @@
 import { asset, Head } from "$fresh/runtime.ts";
 
-export interface Props {
+export interface HeadProps {
   title: string;
   description: string;
-  url: string;
+  url: URL;
   imageUrl: string;
   faviconUrl: string;
   styleUrls: string[];
   themeColor: string;
+  origin?: string;
 }
 
-export default function HeadComponent({
-  title = "deco.cx — starter site",
-  description = "Deliver complete commerce experiences — start here!",
-  url = "https://start.deco.site",
-  imageUrl = "https://deco.cx/images/deco-logo-light.png",
-  faviconUrl = "",
-  styleUrls = [],
-  themeColor = "#003232",
-}: Props) {
+export const defaultProps: HeadProps = {
+  title: "deco.cx — frictionless commerce experience",
+  description:
+    "A plataforma para construir e evoluir commerce experiences da próxima geração.",
+  url: new URL("https://deco.cx"),
+  imageUrl: "/images/meta-social-deco.png",
+  faviconUrl: "",
+  styleUrls: [],
+  themeColor: "#003232",
+};
+
+export const schema = {
+  type: "object",
+  properties: {
+    title: {
+      title: "Título da Página",
+      type: "string",
+    },
+    description: {
+      title: "Descrição",
+      type: "string",
+    },
+    faviconUrl: {
+      title: "Favicon URL",
+      type: "string",
+    },
+    url: {
+      title: "URL",
+      type: "string",
+    },
+  },
+  required: ["description", "faviconUrl", "title", "url"],
+  title: "HEAD",
+};
+
+export default function HeadComponent(props: Partial<HeadProps>) {
+  const {
+    title,
+    description,
+    url,
+    imageUrl,
+    faviconUrl,
+    styleUrls,
+    themeColor,
+  } = { ...defaultProps, ...props };
+
+  const _imageUrl = asset(`${url.origin ?? ""}${imageUrl}`);
+
   return (
     <Head>
       <title>{title}</title>
@@ -27,11 +67,16 @@ export default function HeadComponent({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={url.href} />
       <meta
         property="og:image"
-        content={imageUrl}
+        content={_imageUrl}
       />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="twitter:card" content="summary_large_image" />
+
+      <link rel="canonical" href={url.href} />
       <link
         rel="shortcut icon"
         href={faviconUrl}

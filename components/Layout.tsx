@@ -1,13 +1,22 @@
-import { ComponentChildren } from "preact";
+import LiveAnalytics from "$live/components/LiveAnalytics.tsx";
+import type { JSX } from "preact";
 
-interface Props {
-  children: ComponentChildren;
+interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
+  pathname: string;
 }
 
-export default function Layout(props: Props) {
+export default function Layout(
+  { pathname, class: className = "", children, ...otherProps }: Props,
+) {
   return (
-    <div class="min-h-screen bg-primary-light text-primary-dark">
-      {props.children}
-    </div>
+    <>
+      <LiveAnalytics path={pathname} />
+      <div
+        class={`min-h-screen bg-[#67CE87] dark:bg-primary-dark text-primary-dark ${className}`}
+        {...otherProps}
+      >
+        {children}
+      </div>
+    </>
   );
 }

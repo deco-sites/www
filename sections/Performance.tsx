@@ -7,33 +7,24 @@ import TargetAudienceContentWrapper from "$deco/components/ui/TargetAudienceCont
 
 export interface Props {
   customersLabel: string;
-  obssesion: string;
+  obsession: string;
   highlight: string;
   subTitle1: string;
   subTitle2: string;
-  contentTitle1: string;
-  contentText1: string;
-  contentTitle2: string;
-  contentText2: string;
-  contentTitle3: string;
-  contentText3: string;
+  sections: Array<{ title: string; text: string }>;
 }
 
 export default function Performance(
   {
     customersLabel,
-    obssesion,
+    obsession,
     highlight,
     subTitle1,
     subTitle2,
-    contentTitle1,
-    contentText1,
-    contentTitle2,
-    contentText2,
-    contentTitle3,
-    contentText3,
+    sections,
   }: Props,
 ) {
+  const [content1, content2, content3] = sections || [];
   return (
     <div class="bg-radial from-[#DAFAEE] to-white text-black relative overflow-hidden -mt-4">
       <BottomTriangle class="bg-primary-light" />
@@ -51,7 +42,7 @@ export default function Performance(
         />
 
         <ContentTitle
-          title={obssesion}
+          title={obsession}
           titleClass="text-secondary-dark md:text-[64px] md:leading-[77px]"
           highlight={highlight}
           hightlightClass="text-primary"
@@ -90,22 +81,22 @@ export default function Performance(
 
           <div class="pb-12 flex flex-col md:p-20 xl:p-0 xl:w-1/2 md:pt-12 xl:pt-0 xl:pl-16 text-secondary-dark">
             <ContentWrapper
-              title={contentTitle1}
+              title={content1?.title}
               titleClass="md:text-2xl"
-              content={contentText1}
+              content={content1?.text}
               contentClass="md:text-xl"
               contentWrapperClass="pt-10 md:pt-0"
             />
             <ContentWrapper
-              title={contentTitle2}
+              title={content2?.title}
               titleClass="md:text-2xl"
-              content={contentText2}
+              content={content2?.text}
               contentClass="md:text-xl"
             />
             <ContentWrapper
-              title={contentTitle3}
+              title={content3?.title}
               titleClass="md:text-2xl"
-              content={contentText3}
+              content={content3?.text}
               contentClass="md:text-xl"
               contentWrapperClass="md:pb-0"
             />

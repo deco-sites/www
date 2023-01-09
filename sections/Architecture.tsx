@@ -5,9 +5,7 @@ export interface Props {
   title1: string;
   title2: string;
   title3: string;
-  text1: string;
-  text2: string;
-  text3: string;
+  sections: Array<{ text: string }>;
 }
 
 interface ArchitectureContentWrapperProps {
@@ -25,8 +23,9 @@ function ArchitectureContentWrapper(
 }
 
 export default function Architecture(
-  { title1, title2, title3, text1, text2, text3 }: Props,
+  { title1, title2, title3, sections }: Props,
 ) {
+  const [content1, content2, content3] = sections || [];
   return (
     <div class="bg-primary-light text-black relative overflow-hidden flex -mt-4">
       {/* triangle */}
@@ -56,13 +55,13 @@ export default function Architecture(
               </div>
               <div class="py-12 px-2.5 xl:px-0 md:p-20 font-light text-2xl">
                 <ArchitectureContentWrapper
-                  paragraphContent={text1}
+                  paragraphContent={content1?.text}
                 />
                 <ArchitectureContentWrapper
-                  paragraphContent={text2}
+                  paragraphContent={content2?.text}
                 />
                 <ArchitectureContentWrapper
-                  paragraphContent={text3}
+                  paragraphContent={content3.text}
                 />
               </div>
             </div>

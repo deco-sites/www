@@ -82,26 +82,28 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Title3",
           },
-          "text1": {
-            "type": "string",
-            "title": "Text1",
-          },
-          "text2": {
-            "type": "string",
-            "title": "Text2",
-          },
-          "text3": {
-            "type": "string",
-            "title": "Text3",
+          "sections": {
+            "title": "Sections",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                },
+              },
+              "required": [
+                "text",
+              ],
+            },
           },
         },
         "required": [
           "title1",
           "title2",
           "title3",
-          "text1",
-          "text2",
-          "text3",
+          "sections",
         ],
       },
       "outputSchema": null,
@@ -336,9 +338,9 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Customers Label",
           },
-          "obssesion": {
+          "obsession": {
             "type": "string",
-            "title": "Obssesion",
+            "title": "Obsession",
           },
           "highlight": {
             "type": "string",
@@ -352,43 +354,35 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Sub Title2",
           },
-          "contentTitle1": {
-            "type": "string",
-            "title": "Content Title1",
-          },
-          "contentText1": {
-            "type": "string",
-            "title": "Content Text1",
-          },
-          "contentTitle2": {
-            "type": "string",
-            "title": "Content Title2",
-          },
-          "contentText2": {
-            "type": "string",
-            "title": "Content Text2",
-          },
-          "contentTitle3": {
-            "type": "string",
-            "title": "Content Title3",
-          },
-          "contentText3": {
-            "type": "string",
-            "title": "Content Text3",
+          "sections": {
+            "title": "Sections",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                },
+              },
+              "required": [
+                "title",
+                "text",
+              ],
+            },
           },
         },
         "required": [
           "customersLabel",
-          "obssesion",
+          "obsession",
           "highlight",
           "subTitle1",
           "subTitle2",
-          "contentTitle1",
-          "contentText1",
-          "contentTitle2",
-          "contentText2",
-          "contentTitle3",
-          "contentText3",
+          "sections",
         ],
       },
       "outputSchema": null,

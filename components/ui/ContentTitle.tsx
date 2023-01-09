@@ -16,7 +16,7 @@ export default function ContentTitle(
 ) {
   return (
     <h2
-      class={`font-semibold text-primary text-[44px] text-center leading-[44px] xl:w-full m-auto w-11/12 tracking-tighter ${titleClassName}`}
+      class={`font-semibold text-[44px] text-center leading-[44px] xl:w-full m-auto w-11/12 tracking-tighter ${titleClassName}`}
     >
       {title}{" "}
       <span class={`${hightlightClassName}`}>

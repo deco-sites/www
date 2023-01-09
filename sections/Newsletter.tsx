@@ -5,10 +5,10 @@ import { t } from "$deco/i18n/runtime.ts";
 export interface Props {
   title: string;
   highlight: string;
-  name: string;
-  email: string;
-  position: string;
-  linkedin: string;
+  nameLabel: string;
+  emailLabel: string;
+  positionLabel: string;
+  linkedinLabel: string;
   schedule: string;
 }
 
@@ -36,7 +36,15 @@ function Input(
 }
 
 export default function Newsletter(
-  { title, highlight, name, position, email, linkedin, schedule }: Props,
+  {
+    title,
+    highlight,
+    nameLabel,
+    positionLabel,
+    emailLabel,
+    linkedinLabel,
+    schedule,
+  }: Props,
 ) {
   return (
     <div class="relative overflow-hidden text-black bg-primary -mt-4">
@@ -59,14 +67,14 @@ export default function Newsletter(
             class="flex flex-col p-2.5 md:pt-8 mx-auto"
           >
             <Input
-              label={name}
+              label={nameLabel}
               id="name"
               name="userName"
               placeholder="Ex: Maria das Graças"
               required
             />
             <Input
-              label={email}
+              label={emailLabel}
               id="email"
               name="userEmail"
               placeholder="Ex: maria@empresa.com.br"
@@ -74,13 +82,13 @@ export default function Newsletter(
               required
             />
             <Input
-              label={position}
+              label={positionLabel}
               id="role"
               name="userRole"
               placeholder={t("admin.placeHolder.positon")}
             />
             <Input
-              label={linkedin}
+              label={linkedinLabel}
               id="linkedin"
               name="userLinkedin"
               placeholder="Ex: https://www.linkedin.com/in/maria"

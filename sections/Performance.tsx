@@ -4,7 +4,6 @@ import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
 import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
 import ContentSubtitle from "$deco/components/ui/ContentSubtitle.tsx";
 import TargetAudienceContentWrapper from "$deco/components/ui/TargetAudienceContentWrapper.tsx";
-import { t } from "$deco/i18n/runtime.ts";
 
 export interface Props {
   customersLabel: string;

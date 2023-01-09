@@ -294,21 +294,21 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Highlight",
           },
-          "name": {
+          "nameLabel": {
             "type": "string",
-            "title": "Name",
+            "title": "Name Label",
           },
-          "email": {
+          "emailLabel": {
             "type": "string",
-            "title": "Email",
+            "title": "Email Label",
           },
-          "position": {
+          "positionLabel": {
             "type": "string",
-            "title": "Position",
+            "title": "Position Label",
           },
-          "linkedin": {
+          "linkedinLabel": {
             "type": "string",
-            "title": "Linkedin",
+            "title": "Linkedin Label",
           },
           "schedule": {
             "type": "string",
@@ -318,10 +318,10 @@ const manifest: DecoManifest = {
         "required": [
           "title",
           "highlight",
-          "name",
-          "email",
-          "position",
-          "linkedin",
+          "nameLabel",
+          "emailLabel",
+          "positionLabel",
+          "linkedinLabel",
           "schedule",
         ],
       },

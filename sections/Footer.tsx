@@ -2,7 +2,6 @@ import { h } from "preact";
 import GitHubIcon from "$deco/components/ui/icons/GitHubIcon.tsx";
 import LinkedInIcon from "$deco/components/ui/icons/LinkedInIcon.tsx";
 import LogoDeco from "$deco/components/ui/icons/LogoDeco.tsx";
-// import { t } from "$deco/i18n/runtime.ts";
 
 export interface Props {
   anchor: string;

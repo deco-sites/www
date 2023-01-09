@@ -1,18 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-// import Layout from "../components/Layout.tsx";
-// import Header from "../components/Header.tsx";
 import HeadComponent from "../components/Head.tsx";
-// import Hero from "../components/home/Hero.tsx";
-// import Platform from "../components/home/Platform.tsx";
-// import Performance from "../components/home/Performance.tsx";
-// import Architecture from "$start/components/home/Architecture.tsx";
-// import Newsletter from "../components/home/Newsletter.tsx";
-// import Footer from "../components/home/Footer.tsx";
-// import Edit from "../components/home/Edit.tsx";
 import getSupabaseClient from "$live/supabase.ts";
-// import TeamSection from "../components/home/TeamSection.tsx";
 import type { LiveState } from "$live/types.ts";
-import { t } from "$deco/i18n/runtime.ts";
 
 export const handler: Handlers<null, LiveState> = {
   POST: async (req) => {

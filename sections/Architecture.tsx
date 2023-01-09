@@ -1,7 +1,5 @@
-// import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
 import BiggerLineIcon from "$deco/components/ui/icons/BiggerLineIcon.tsx";
 import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
-// import { t } from "$deco/i18n/runtime.ts";
 
 export interface Props {
   title1: string;

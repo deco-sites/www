@@ -2,7 +2,6 @@ import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
 import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
 import TeamSlide from "$deco/islands/TeamSlide.tsx";
 import GeometricShapes from "$deco/components/ui/GeometricShapes.tsx";
-import { t } from "$deco/i18n/runtime.ts";
 
 export interface Props {
   title: string;

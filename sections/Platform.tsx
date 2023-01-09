@@ -1,11 +1,23 @@
-import BiggerLineIcon from "../ui/icons/BiggerLineIcon.tsx";
-import ContentWrapper from "../ui/ContentWrapper.tsx";
-import BottomTriangle from "../ui/BottomTriangle.tsx";
-import ContentTitle from "../ui/ContentTitle.tsx";
-import TargetAudienceContentWrapper from "../ui/TargetAudienceContentWrapper.tsx";
-import { t } from "$deco/i18n/runtime.ts";
+import BiggerLineIcon from "$deco/components/ui/icons/BiggerLineIcon.tsx";
+import ContentWrapper from "$deco/components/ui/ContentWrapper.tsx";
+import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
+import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
+import TargetAudienceContentWrapper from "$deco/components/ui/TargetAudienceContentWrapper.tsx";
 
-export default function Platform() {
+export interface Props {
+  title: string;
+  titleHighlight: string;
+  forDevs: string;
+  sections: Array<{ title: string; text: string }>;
+}
+
+export default function Platform({
+  title,
+  titleHighlight,
+  forDevs,
+  sections,
+}: Props) {
+  const [content1, content2, content3, content4] = sections ?? [];
   return (
     <div class="w-full bg-gradient-to-b from-[#003232] to-[#0A4E4E] relative overflow-hidden -mt-4">
       <BottomTriangle class="bg-primary" />
@@ -14,9 +26,9 @@ export default function Platform() {
         class="container max-w-[1536px] mx-auto px-4 pt-20 pb-14 md:pt-44 max-w-7xl"
       >
         <ContentTitle
-          title={t("landing.platform.title")}
+          title={title}
           titleClass="text-white text-center md:text-8xl lg:text-7xl xl:text-8xl md:leading-[96px] md:w-full"
-          highlight={t("landing.platform.highlight")}
+          highlight={titleHighlight}
           titleContinuation=""
           hightlightClass="block text-primary"
         />
@@ -28,7 +40,7 @@ export default function Platform() {
           to="#ffffff"
           number="1"
           numberClass="from-white to-primary-light px-4 py-1.5 text-black"
-          targetAudienceTextContent={t("landing.platform.forDevs")}
+          targetAudienceTextContent={forDevs}
           targetAudienceClass="pb-5 py-4 text-white"
         />
 
@@ -59,44 +71,44 @@ export default function Platform() {
 
           <div class="py-12 flex-col xl:w-1/2 xl:pt-0 xl:pb-0 xl:pl-16">
             <ContentWrapper
-              title={t("landing.platform.contentTitle1")}
+              title={content1?.title}
               titleClass="md:text-3xl text-white"
-              content={t("landing.platform.contentText1")}
+              content={content1?.text}
               contentClass="text-primary-light"
               contentWrapperClass="pt-10 md:pt-0 hidden md:block"
             />
             <ContentWrapper
-              title={t("landing.platform.contentTitle2")}
+              title={content1?.title}
               titleClass="text-white"
-              content={t("landing.platform.contentText2")}
+              content={content1?.text}
               contentClass="text-primary-light"
               contentWrapperClass="md:hidden"
             />
             <ContentWrapper
-              title={t("landing.platform.contentTitle3")}
+              title={content2?.title}
               titleClass="md:text-3xl text-white"
-              content={t("landing.platform.contentText3")}
+              content={content2?.text}
               contentClass="text-primary-light"
               contentWrapperClass="hidden md:block"
             />
             <ContentWrapper
-              title={t("landing.platform.contentTitle4")}
+              title={content2?.title}
               titleClass="md:text-3xl text-white"
-              content={t("landing.platform.contentText4")}
+              content={content2?.text}
               contentClass="text-primary-light"
               contentWrapperClass="md:hidden"
             />
             <ContentWrapper
-              title={t("landing.platform.contentTitle5")}
+              title={content3?.title}
               titleClass="md:text-3xl text-white"
-              content={t("landing.platform.contentText5")}
+              content={content3?.text}
               contentClass="text-primary-light"
               contentWrapperClass="hidden md:block"
             />
             <ContentWrapper
-              title={t("landing.platform.contentTitle6")}
+              title={content4?.title}
               titleClass="md:text-3xl text-white"
-              content={t("landing.platform.contentText6")}
+              content={content4?.text}
               contentClass="text-primary-light"
               contentWrapperClass="md:hidden"
             />

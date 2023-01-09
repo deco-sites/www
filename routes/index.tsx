@@ -1,14 +1,14 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import Layout from "../components/Layout.tsx";
-import Header from "../components/Header.tsx";
+// import Layout from "../components/Layout.tsx";
+// import Header from "../components/Header.tsx";
 import HeadComponent from "../components/Head.tsx";
-import Hero from "../components/home/Hero.tsx";
-import Platform from "../components/home/Platform.tsx";
+// import Hero from "../components/home/Hero.tsx";
+// import Platform from "../components/home/Platform.tsx";
 import Performance from "../components/home/Performance.tsx";
 import Architecture from "../components/home/Architecture.tsx";
 import Newsletter from "../components/home/Newsletter.tsx";
 import Footer from "../components/home/Footer.tsx";
-import Edit from "../components/home/Edit.tsx";
+// import Edit from "../components/home/Edit.tsx";
 import getSupabaseClient from "$live/supabase.ts";
 import TeamSection from "../components/home/TeamSection.tsx";
 import type { LiveState } from "$live/types.ts";
@@ -55,17 +55,11 @@ export const handler: Handlers<null, LiveState> = {
 
 export default function Home({ url }: PageProps) {
   return (
-    <Layout pathname={url.pathname}>
+    <>
       <HeadComponent url={url} />
-      <Header />
-      <Hero
+      {/* <Header /> */}
+      {/* <Hero
         title={
-          <>
-            {t("admin.hero.title")}{"  "}
-            <span class="block font-bold text-[44px] md:text-8xl lg:text-[5.5rem] xl:text-8xl text-primary tracking-tighter">
-              {t("admin.hero.titleHighlight")}
-            </span>
-          </>
         }
         subtitle={
           <>
@@ -76,14 +70,14 @@ export default function Home({ url }: PageProps) {
             </span>
           </>
         }
-      />
-      <Platform />
-      <Edit />
+      /> */}
+      {/* <Platform /> */}
+      {/* <Edit /> */}
       <Performance />
       <Architecture />
       <TeamSection />
       <Newsletter />
       <Footer />
-    </Layout>
+    </>
   );
 }

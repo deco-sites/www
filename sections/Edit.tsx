@@ -1,11 +1,23 @@
-import BiggerLineIcon from "../ui/icons/BiggerLineIcon.tsx";
-import ContentWrapper from "../ui/ContentWrapper.tsx";
-import BottomTriangle from "../ui/BottomTriangle.tsx";
-import ContentTitle from "../ui/ContentTitle.tsx";
-import TargetAudienceContentWrapper from "../ui/TargetAudienceContentWrapper.tsx";
-import { t } from "$deco/i18n/runtime.ts";
+import BiggerLineIcon from "$deco/components/ui/icons/BiggerLineIcon.tsx";
+import ContentWrapper from "$deco/components/ui/ContentWrapper.tsx";
+import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
+import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
+import TargetAudienceContentWrapper from "$deco/components/ui/TargetAudienceContentWrapper.tsx";
 
-export default function Edit() {
+export interface Props {
+  targetText: string;
+  title: string;
+  highlight: string;
+  sections: Array<{ title: string; text: string }>;
+}
+
+export default function Edit({
+  highlight,
+  title,
+  sections,
+  targetText,
+}: Props) {
+  const [content1, content2, content3] = sections || [];
   return (
     <div class="bg-gradient-to-t from-[#4DE499] to-primary relative overflow-hidden -mt-4">
       <BottomTriangle class="bg-white" />
@@ -19,14 +31,14 @@ export default function Edit() {
           to="#113032"
           number="2"
           numberClass="from-secondary-dark to-[#1B674C] px-4 py-2.5 text-white "
-          targetAudienceTextContent={t("landing.edit.targetText")}
+          targetAudienceTextContent={targetText}
           targetAudienceClass="bg-gradient-to-br from-secondary-dark to-[#1F7D57] text-transparent bg-clip-text"
         />
 
         <ContentTitle
-          title={t("landing.edit.contentTitle1")}
+          title={title}
           titleClass="text-white md:text-[64px] md:leading-[77px]"
-          highlight={t("landing.edit.contentHighlight1")}
+          highlight={highlight}
           hightlightClass="text-secondary-dark"
           titleContinuation=""
         />
@@ -57,27 +69,27 @@ export default function Edit() {
           </div>
           <div class="pb-12 xl:pt-12 flex-col xl:w-1/2 xl:pb-0 xl:pl-16 text-secondary-dark">
             <ContentWrapper
-              title={t("landing.edit.title1")}
+              title={content1?.title}
               titleClass="md:text-3xl"
-              content={t("landing.edit.contentText1")}
+              content={content1?.text}
               contentWrapperClass="pt-10"
             />
             <ContentWrapper
-              title={t("landing.edit.title2")}
+              title={content2?.title}
               titleClass="md:text-3xl"
-              content={t("landing.edit.contentText2")}
+              content={content2?.text}
               contentWrapperClass="hidden md:block"
             />
             <ContentWrapper
-              title={t("landing.edit.title2.1")}
+              title={content2?.title}
               titleClass="md:text-3xl"
-              content={t("landing.edit.contentText2")}
+              content={content2?.text}
               contentWrapperClass="md:hidden"
             />
             <ContentWrapper
-              title={t("landing.edit.title3")}
+              title={content3?.title}
               titleClass="md:text-3xl"
-              content={t("landing.edit.contentText3")}
+              content={content3?.text}
             />
           </div>
         </div>

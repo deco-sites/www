@@ -1,8 +1,12 @@
 import { h } from "preact";
-import GitHubIcon from "../ui/icons/GitHubIcon.tsx";
-import LinkedInIcon from "../ui/icons/LinkedInIcon.tsx";
-import LogoDeco from "../ui/icons/LogoDeco.tsx";
-import { t } from "$deco/i18n/runtime.ts";
+import GitHubIcon from "$deco/components/ui/icons/GitHubIcon.tsx";
+import LinkedInIcon from "$deco/components/ui/icons/LinkedInIcon.tsx";
+import LogoDeco from "$deco/components/ui/icons/LogoDeco.tsx";
+// import { t } from "$deco/i18n/runtime.ts";
+
+export interface Props {
+  anchor: string;
+}
 
 function NavAnchor(
   { children, ...props }: h.JSX.HTMLAttributes<HTMLAnchorElement>,
@@ -17,7 +21,7 @@ function NavAnchor(
   );
 }
 
-export default function Footer() {
+export default function Footer({ anchor }: Props) {
   return (
     <footer class="bg-secondary-dark">
       <nav
@@ -36,13 +40,13 @@ export default function Footer() {
           </li>
           <li
             role="none"
-            class="hidden lg:block ml-auto w-[28%] h-8 lg:h-auto"
+            class="hidden text-white lg:block ml-auto w-[28%] h-8 lg:h-auto"
           >
             <NavAnchor
               aria-label="Entrega completa, do design ao código"
               href="#"
             >
-              {t("admin.footer.anchor")}
+              {anchor}
             </NavAnchor>
           </li>
 

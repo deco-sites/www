@@ -14,15 +14,19 @@ import * as $6 from "./routes/index.tsx";
 import * as $7 from "./routes/pt.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
 import * as $$1 from "./islands/TeamSlide.tsx";
-import * as $$$0 from "./sections/Edit.tsx";
-import * as $$$1 from "./sections/Header.tsx";
-import * as $$$2 from "./sections/Hero.tsx";
-import * as $$$3 from "./sections/Layout.tsx";
-import * as $$$4 from "./sections/Markdown.tsx";
-import * as $$$5 from "./sections/Performance.tsx";
-import * as $$$6 from "./sections/Platform.tsx";
-import * as $$$7 from "./sections/Pricing.tsx";
-import * as $$$8 from "./sections/QuillText.tsx";
+import * as $$$0 from "./sections/Architecture.tsx";
+import * as $$$1 from "./sections/Edit.tsx";
+import * as $$$2 from "./sections/Footer.tsx";
+import * as $$$3 from "./sections/Header.tsx";
+import * as $$$4 from "./sections/Hero.tsx";
+import * as $$$5 from "./sections/Layout.tsx";
+import * as $$$6 from "./sections/Markdown.tsx";
+import * as $$$7 from "./sections/Newsletter.tsx";
+import * as $$$8 from "./sections/Performance.tsx";
+import * as $$$9 from "./sections/Platform.tsx";
+import * as $$$10 from "./sections/Pricing.tsx";
+import * as $$$11 from "./sections/QuillText.tsx";
+import * as $$$12 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/MatchSiteParam.ts";
 
@@ -42,21 +46,66 @@ const manifest: DecoManifest = {
     "./islands/TeamSlide.tsx": $$1,
   },
   sections: {
-    "./sections/Edit.tsx": $$$0,
-    "./sections/Header.tsx": $$$1,
-    "./sections/Hero.tsx": $$$2,
-    "./sections/Layout.tsx": $$$3,
-    "./sections/Markdown.tsx": $$$4,
-    "./sections/Performance.tsx": $$$5,
-    "./sections/Platform.tsx": $$$6,
-    "./sections/Pricing.tsx": $$$7,
-    "./sections/QuillText.tsx": $$$8,
+    "./sections/Architecture.tsx": $$$0,
+    "./sections/Edit.tsx": $$$1,
+    "./sections/Footer.tsx": $$$2,
+    "./sections/Header.tsx": $$$3,
+    "./sections/Hero.tsx": $$$4,
+    "./sections/Layout.tsx": $$$5,
+    "./sections/Markdown.tsx": $$$6,
+    "./sections/Newsletter.tsx": $$$7,
+    "./sections/Performance.tsx": $$$8,
+    "./sections/Platform.tsx": $$$9,
+    "./sections/Pricing.tsx": $$$10,
+    "./sections/QuillText.tsx": $$$11,
+    "./sections/TeamSection.tsx": $$$12,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
     "./functions/MatchSiteParam.ts": $$$$1,
   },
   schemas: {
+    "./sections/Architecture.tsx": {
+      "inputSchema": {
+        "title": " Architecture",
+        "type": "object",
+        "properties": {
+          "title1": {
+            "type": "string",
+            "title": "Title1",
+          },
+          "title2": {
+            "type": "string",
+            "title": "Title2",
+          },
+          "title3": {
+            "type": "string",
+            "title": "Title3",
+          },
+          "text1": {
+            "type": "string",
+            "title": "Text1",
+          },
+          "text2": {
+            "type": "string",
+            "title": "Text2",
+          },
+          "text3": {
+            "type": "string",
+            "title": "Text3",
+          },
+        },
+        "required": [
+          "title1",
+          "title2",
+          "title3",
+          "text1",
+          "text2",
+          "text3",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/Edit.tsx": {
       "inputSchema": {
         "title": " Edit",
@@ -101,6 +150,22 @@ const manifest: DecoManifest = {
           "title",
           "highlight",
           "sections",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Footer.tsx": {
+      "inputSchema": {
+        "title": " Footer",
+        "type": "object",
+        "properties": {
+          "anchor": {
+            "type": "string",
+            "title": "Anchor",
+          },
+        },
+        "required": [
+          "anchor",
         ],
       },
       "outputSchema": null,
@@ -216,6 +281,27 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
+    "./sections/Newsletter.tsx": {
+      "inputSchema": {
+        "title": " Newsletter",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "highlight": {
+            "type": "string",
+            "title": "Highlight",
+          },
+        },
+        "required": [
+          "title",
+          "highlight",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/Performance.tsx": {
       "inputSchema": {
         "title": " Performance",
@@ -225,9 +311,59 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Customers Label",
           },
+          "obssesion": {
+            "type": "string",
+            "title": "Obssesion",
+          },
+          "highlight": {
+            "type": "string",
+            "title": "Highlight",
+          },
+          "subTitle1": {
+            "type": "string",
+            "title": "Sub Title1",
+          },
+          "subTitle2": {
+            "type": "string",
+            "title": "Sub Title2",
+          },
+          "contentTitle1": {
+            "type": "string",
+            "title": "Content Title1",
+          },
+          "contentText1": {
+            "type": "string",
+            "title": "Content Text1",
+          },
+          "contentTitle2": {
+            "type": "string",
+            "title": "Content Title2",
+          },
+          "contentText2": {
+            "type": "string",
+            "title": "Content Text2",
+          },
+          "contentTitle3": {
+            "type": "string",
+            "title": "Content Title3",
+          },
+          "contentText3": {
+            "type": "string",
+            "title": "Content Text3",
+          },
         },
         "required": [
           "customersLabel",
+          "obssesion",
+          "highlight",
+          "subTitle1",
+          "subTitle2",
+          "contentTitle1",
+          "contentText1",
+          "contentTitle2",
+          "contentText2",
+          "contentTitle3",
+          "contentText3",
         ],
       },
       "outputSchema": null,
@@ -314,6 +450,37 @@ const manifest: DecoManifest = {
         },
         "required": [
           "html",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/TeamSection.tsx": {
+      "inputSchema": {
+        "title": " Team Section",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "highlight": {
+            "type": "string",
+            "title": "Highlight",
+          },
+          "text1": {
+            "type": "string",
+            "title": "Text1",
+          },
+          "text2": {
+            "type": "string",
+            "title": "Text2",
+          },
+        },
+        "required": [
+          "title",
+          "highlight",
+          "text1",
+          "text2",
         ],
       },
       "outputSchema": null,

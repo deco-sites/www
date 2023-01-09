@@ -7,10 +7,34 @@ import TargetAudienceContentWrapper from "$deco/components/ui/TargetAudienceCont
 import { t } from "$deco/i18n/runtime.ts";
 
 export interface Props {
-  customersLabel: string
+  customersLabel: string;
+  obssesion: string;
+  highlight: string;
+  subTitle1: string;
+  subTitle2: string;
+  contentTitle1: string;
+  contentText1: string;
+  contentTitle2: string;
+  contentText2: string;
+  contentTitle3: string;
+  contentText3: string;
 }
 
-export default function Performance({ customersLabel }: Props) {
+export default function Performance(
+  {
+    customersLabel,
+    obssesion,
+    highlight,
+    subTitle1,
+    subTitle2,
+    contentTitle1,
+    contentText1,
+    contentTitle2,
+    contentText2,
+    contentTitle3,
+    contentText3,
+  }: Props,
+) {
   return (
     <div class="bg-radial from-[#DAFAEE] to-white text-black relative overflow-hidden -mt-4">
       <BottomTriangle class="bg-primary-light" />
@@ -28,16 +52,16 @@ export default function Performance({ customersLabel }: Props) {
         />
 
         <ContentTitle
-          title={t("landing.performance.obsession")}
+          title={obssesion}
           titleClass="text-secondary-dark md:text-[64px] md:leading-[77px]"
-          highlight={t("landing.performance.highlight")}
+          highlight={highlight}
           hightlightClass="text-primary"
           titleContinuation=""
         />
 
         <ContentSubtitle
-          title={t("landing.performance.subTitle1")}
-          titleContinuation={t("landing.performance.subTitle2")}
+          title={subTitle1}
+          titleContinuation={subTitle2}
         />
 
         <div class="flex flex-col xl:flex-row justify-between items-center p-2.5 xl:p-20 md:w-full m-auto">
@@ -67,22 +91,22 @@ export default function Performance({ customersLabel }: Props) {
 
           <div class="pb-12 flex flex-col md:p-20 xl:p-0 xl:w-1/2 md:pt-12 xl:pt-0 xl:pl-16 text-secondary-dark">
             <ContentWrapper
-              title={t("landing.performance.contentTitle1")}
+              title={contentTitle1}
               titleClass="md:text-2xl"
-              content={t("landing.performance.contentText1")}
+              content={contentText1}
               contentClass="md:text-xl"
               contentWrapperClass="pt-10 md:pt-0"
             />
             <ContentWrapper
-              title={t("landing.performance.contentTitle2")}
+              title={contentTitle2}
               titleClass="md:text-2xl"
-              content={t("landing.performance.contentText2")}
+              content={contentText2}
               contentClass="md:text-xl"
             />
             <ContentWrapper
-              title={t("landing.performance.contentTitle3")}
+              title={contentTitle3}
               titleClass="md:text-2xl"
-              content={t("landing.performance.contentText3")}
+              content={contentText3}
               contentClass="md:text-xl"
               contentWrapperClass="md:pb-0"
             />

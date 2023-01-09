@@ -1,8 +1,16 @@
-import BottomTriangle from "../ui/BottomTriangle.tsx";
-import BiggerLineIcon from "../ui/icons/BiggerLineIcon.tsx";
-import type { h } from "preact";
-import ContentTitle from "../ui/ContentTitle.tsx";
-import { t } from "$deco/i18n/runtime.ts";
+// import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
+import BiggerLineIcon from "$deco/components/ui/icons/BiggerLineIcon.tsx";
+import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
+// import { t } from "$deco/i18n/runtime.ts";
+
+export interface Props {
+  title1: string;
+  title2: string;
+  title3: string;
+  text1: string;
+  text2: string;
+  text3: string;
+}
 
 interface ArchitectureContentWrapperProps {
   paragraphContent: string;
@@ -18,7 +26,9 @@ function ArchitectureContentWrapper(
   );
 }
 
-export default function Architecture() {
+export default function Architecture(
+  { title1, title2, title3, text1, text2, text3 }: Props,
+) {
   return (
     <div class="bg-primary-light text-black relative overflow-hidden flex -mt-4">
       {/* triangle */}
@@ -34,11 +44,11 @@ export default function Architecture() {
       >
         <div class="md:pt-10 xl:pl-20 text-secondary-dark">
           <ContentTitle
-            title={t("landing.architecture.title1")}
+            title={title1}
             titleClass="text-secondary-dark md:text-[64px] md:leading-[77px] md:w-[84%] lg:w-[75%] xl:w-6/12 pb-5 md:pb-5 text-[36px] text-left md:text-center xl:text-left xl:m-0"
-            highlight={t("landing.architecture.title2")}
+            highlight={title2}
             hightlightClass="text-primary"
-            titleContinuation={t("landing.architecture.title3")}
+            titleContinuation={title3}
           />
 
           <div class="flex flex-col-reverse xl:flex-row w-11/12 xl:px-0 md:pt-14 xl:py-10 md:w-full m-auto">
@@ -48,13 +58,13 @@ export default function Architecture() {
               </div>
               <div class="py-12 px-2.5 xl:px-0 md:p-20 font-light text-2xl">
                 <ArchitectureContentWrapper
-                  paragraphContent={t("landing.architecture.text1")}
+                  paragraphContent={text1}
                 />
                 <ArchitectureContentWrapper
-                  paragraphContent={t("landing.architecture.text2")}
+                  paragraphContent={text2}
                 />
                 <ArchitectureContentWrapper
-                  paragraphContent={t("landing.architecture.text3")}
+                  paragraphContent={text3}
                 />
               </div>
             </div>

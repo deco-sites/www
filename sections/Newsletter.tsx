@@ -1,6 +1,11 @@
 import type { h } from "preact";
-import ContentTitle from "../ui/ContentTitle.tsx";
+import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
 import { t } from "$deco/i18n/runtime.ts";
+
+export interface Props {
+  title: string;
+  highlight: string;
+}
 
 interface InputProps extends h.JSX.HTMLAttributes<HTMLInputElement> {
   label: string;
@@ -25,7 +30,7 @@ function Input(
   );
 }
 
-export default function Newsletter() {
+export default function Newsletter({ title, highlight }: Props) {
   return (
     <div class="relative overflow-hidden text-black bg-primary -mt-4">
       <section
@@ -34,9 +39,9 @@ export default function Newsletter() {
       >
         <div class="flex-col md:mx-auto md:w-10/12 lg:w-1/2 md:pt-10 lg:pt-0 lg:pl-20 lg:pl-0 text-secondary-dark">
           <ContentTitle
-            title={t("admin.newLetter.title")}
+            title={title}
             titleClass="text-primary-dark md:text-[64px] md:leading-[77px] md:w-full lg:w-11/12 xl:w-[96%] mx-auto pb-5 md:pb-10 mb-10 md:pt-16 lg:pt-0 lg:pb-16 md:m-auto text-left"
-            highlight={t("admin.newLetter.highlight")}
+            highlight={highlight}
             hightlightClass="text-white"
             titleContinuation=""
           />

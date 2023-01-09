@@ -19,9 +19,10 @@ import * as $$$1 from "./sections/Header.tsx";
 import * as $$$2 from "./sections/Hero.tsx";
 import * as $$$3 from "./sections/Layout.tsx";
 import * as $$$4 from "./sections/Markdown.tsx";
-import * as $$$5 from "./sections/Platform.tsx";
-import * as $$$6 from "./sections/Pricing.tsx";
-import * as $$$7 from "./sections/QuillText.tsx";
+import * as $$$5 from "./sections/Performance.tsx";
+import * as $$$6 from "./sections/Platform.tsx";
+import * as $$$7 from "./sections/Pricing.tsx";
+import * as $$$8 from "./sections/QuillText.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/MatchSiteParam.ts";
 
@@ -46,9 +47,10 @@ const manifest: DecoManifest = {
     "./sections/Hero.tsx": $$$2,
     "./sections/Layout.tsx": $$$3,
     "./sections/Markdown.tsx": $$$4,
-    "./sections/Platform.tsx": $$$5,
-    "./sections/Pricing.tsx": $$$6,
-    "./sections/QuillText.tsx": $$$7,
+    "./sections/Performance.tsx": $$$5,
+    "./sections/Platform.tsx": $$$6,
+    "./sections/Pricing.tsx": $$$7,
+    "./sections/QuillText.tsx": $$$8,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -210,6 +212,22 @@ const manifest: DecoManifest = {
         },
         "required": [
           "text",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Performance.tsx": {
+      "inputSchema": {
+        "title": " Performance",
+        "type": "object",
+        "properties": {
+          "customersLabel": {
+            "type": "string",
+            "title": "Customers Label",
+          },
+        },
+        "required": [
+          "customersLabel",
         ],
       },
       "outputSchema": null,

@@ -4,7 +4,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import HeadComponent from "../components/Head.tsx";
 // import Hero from "../components/home/Hero.tsx";
 // import Platform from "../components/home/Platform.tsx";
-import Performance from "../components/home/Performance.tsx";
+// import Performance from "../components/home/Performance.tsx";
 import Architecture from "../components/home/Architecture.tsx";
 import Newsletter from "../components/home/Newsletter.tsx";
 import Footer from "../components/home/Footer.tsx";
@@ -58,7 +58,8 @@ export default function Home({ url }: PageProps) {
     <>
       <HeadComponent url={url} />
       {/* <Header /> */}
-      {/* <Hero
+      {
+        /* <Hero
         title={
         }
         subtitle={
@@ -70,10 +71,11 @@ export default function Home({ url }: PageProps) {
             </span>
           </>
         }
-      /> */}
+      /> */
+      }
       {/* <Platform /> */}
       {/* <Edit /> */}
-      <Performance />
+      {/* <Performance /> */}
       <Architecture />
       <TeamSection />
       <Newsletter />

@@ -1,12 +1,16 @@
-import BiggerLineIcon from "../ui/icons/BiggerLineIcon.tsx";
-import ContentWrapper from "../ui/ContentWrapper.tsx";
-import BottomTriangle from "../ui/BottomTriangle.tsx";
-import ContentTitle from "../ui/ContentTitle.tsx";
-import ContentSubtitle from "../ui/ContentSubtitle.tsx";
-import TargetAudienceContentWrapper from "../ui/TargetAudienceContentWrapper.tsx";
+import BiggerLineIcon from "$deco/components/ui/icons/BiggerLineIcon.tsx";
+import ContentWrapper from "$deco/components/ui/ContentWrapper.tsx";
+import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
+import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
+import ContentSubtitle from "$deco/components/ui/ContentSubtitle.tsx";
+import TargetAudienceContentWrapper from "$deco/components/ui/TargetAudienceContentWrapper.tsx";
 import { t } from "$deco/i18n/runtime.ts";
 
-export default function Performance() {
+export interface Props {
+  customersLabel: string
+}
+
+export default function Performance({ customersLabel }: Props) {
   return (
     <div class="bg-radial from-[#DAFAEE] to-white text-black relative overflow-hidden -mt-4">
       <BottomTriangle class="bg-primary-light" />
@@ -19,7 +23,7 @@ export default function Performance() {
           to="#2FD180"
           number="3"
           numberClass="bg-gradient-to-br from-primary to-[#5CDFA0] px-4 py-2.5 text-white"
-          targetAudienceTextContent={t("landing.performance.customers")}
+          targetAudienceTextContent={customersLabel}
           targetAudienceClass="bg-gradient-to-br from-primary to-[#5CDFA0] text-transparent bg-clip-text"
         />
 

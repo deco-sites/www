@@ -5,6 +5,11 @@ import { t } from "$deco/i18n/runtime.ts";
 export interface Props {
   title: string;
   highlight: string;
+  name: string;
+  email: string;
+  position: string;
+  linkedin: string;
+  schedule: string;
 }
 
 interface InputProps extends h.JSX.HTMLAttributes<HTMLInputElement> {
@@ -30,7 +35,9 @@ function Input(
   );
 }
 
-export default function Newsletter({ title, highlight }: Props) {
+export default function Newsletter(
+  { title, highlight, name, position, email, linkedin, schedule }: Props,
+) {
   return (
     <div class="relative overflow-hidden text-black bg-primary -mt-4">
       <section
@@ -52,14 +59,14 @@ export default function Newsletter({ title, highlight }: Props) {
             class="flex flex-col p-2.5 md:pt-8 mx-auto"
           >
             <Input
-              label={t("common.name")}
+              label={name}
               id="name"
               name="userName"
               placeholder="Ex: Maria das Graças"
               required
             />
             <Input
-              label="E-mail"
+              label={email}
               id="email"
               name="userEmail"
               placeholder="Ex: maria@empresa.com.br"
@@ -67,13 +74,13 @@ export default function Newsletter({ title, highlight }: Props) {
               required
             />
             <Input
-              label={t("common.positon")}
+              label={position}
               id="role"
               name="userRole"
               placeholder={t("admin.placeHolder.positon")}
             />
             <Input
-              label="Linkedin"
+              label={linkedin}
               id="linkedin"
               name="userLinkedin"
               placeholder="Ex: https://www.linkedin.com/in/maria"
@@ -83,7 +90,7 @@ export default function Newsletter({ title, highlight }: Props) {
             <input
               class="w-[50%] h-14 bg-gradient-to-r from-secondary-dark to-[#1B674C] rounded-xl mt-10 py-2.5 px-3.5 text-xl text-white cursor-pointer m-auto hover:shadow-lg hover:border-primary-light hover:border-1"
               type="submit"
-              value={t("common.schedule")}
+              value={schedule}
             />
           </form>
         </div>

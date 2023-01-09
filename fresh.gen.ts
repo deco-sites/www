@@ -294,10 +294,35 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Highlight",
           },
+          "name": {
+            "type": "string",
+            "title": "Name",
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+          },
+          "position": {
+            "type": "string",
+            "title": "Position",
+          },
+          "linkedin": {
+            "type": "string",
+            "title": "Linkedin",
+          },
+          "schedule": {
+            "type": "string",
+            "title": "Schedule",
+          },
         },
         "required": [
           "title",
           "highlight",
+          "name",
+          "email",
+          "position",
+          "linkedin",
+          "schedule",
         ],
       },
       "outputSchema": null,

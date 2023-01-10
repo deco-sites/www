@@ -1,4 +1,5 @@
 import type { Options } from "$fresh/plugins/twind.ts";
+import typography from "@twind/typography";
 
 const options: Omit<Options, "selfURL"> = {
   plugins: {
@@ -6,6 +7,7 @@ const options: Omit<Options, "selfURL"> = {
     "scroll-snap-x": { "scroll-snap-type": "x mandatory" },
     "snap-center": { "scroll-snap-align": "center" },
     "aspect-16/10": { "aspect-ratio": "16 / 10" },
+    ...typography({ className: "prose" }),
   },
   theme: {
     extend: {

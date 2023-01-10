@@ -7,7 +7,7 @@ export type Props = {
 export default function MarkdownContainer(props: Props) {
   return (
     <div class="bg-white relative overflow-hidden -mt-4">
-      <section class="container mx-auto px-4 pt-16 pb-40 lg:pb-40 text-primary-dark">
+      <section class="container mx-auto px-4 pt-16 pb-40 lg:pb-40 text-primary-dark prose">
         <Markdown {...props}></Markdown>
       </section>
     </div>

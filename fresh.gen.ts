@@ -9,9 +9,7 @@ import * as $1 from "./routes/_404.tsx";
 import * as $2 from "./routes/_500.tsx";
 import * as $3 from "./routes/_app.tsx";
 import * as $4 from "./routes/_middleware.ts";
-import * as $5 from "./routes/es.tsx";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/pt.tsx";
+import * as $5 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
 import * as $$1 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
@@ -37,9 +35,7 @@ const manifest: DecoManifest = {
     "./routes/_500.tsx": $2,
     "./routes/_app.tsx": $3,
     "./routes/_middleware.ts": $4,
-    "./routes/es.tsx": $5,
-    "./routes/index.tsx": $6,
-    "./routes/pt.tsx": $7,
+    "./routes/index.tsx": $5,
   },
   islands: {
     "./islands/LiveControls.tsx": $$0,

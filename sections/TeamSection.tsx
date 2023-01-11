@@ -1,8 +1,14 @@
-import BottomTriangle from "../ui/BottomTriangle.tsx";
-import ContentTitle from "../ui/ContentTitle.tsx";
-import TeamSlide from "../../islands/TeamSlide.tsx";
-import GeometricShapes from "../ui/GeometricShapes.tsx";
-import { t } from "$deco/i18n/runtime.ts";
+import BottomTriangle from "$deco/components/ui/BottomTriangle.tsx";
+import ContentTitle from "$deco/components/ui/ContentTitle.tsx";
+import TeamSlide from "$deco/islands/TeamSlide.tsx";
+import GeometricShapes from "$deco/components/ui/GeometricShapes.tsx";
+
+export interface Props {
+  title: string;
+  highlight: string;
+  text1: string;
+  text2: string;
+}
 
 interface ContentWrapperProps {
   paragraphContent: string;
@@ -28,7 +34,7 @@ function ContentWrapper(
   );
 }
 
-export default function TeamSection() {
+export default function TeamSection({ title, highlight, text1, text2 }: Props) {
   return (
     <div class="w-full bg-radial-dark from-secondary-dark to-[#174B4F] relative overflow-hidden -mt-4">
       <BottomTriangle class="bg-primary" />
@@ -50,20 +56,20 @@ export default function TeamSection() {
             class="flex flex-col w-full xl:w-[49%] items-center xl:items-end"
           >
             <ContentTitle
-              title={t("landing.teamSection.title")}
+              title={title}
               titleClass="text-white w-11/12 md:w-[84%] xl:w-8/12 pb-5 md:pb-6 text-[44px] md:text-[64px] md:leading-[77px]  text-center xl:text-right xl:m-0"
-              highlight={t("landing.teamSection.highlight")}
+              highlight={highlight}
               hightlightClass="text-primary"
               titleContinuation=""
             />
             <ContentWrapper
               class="hidden xl:flex"
-              paragraphContent={t("landing.teamSection.text1")}
+              paragraphContent={text1}
               contentClass=""
             />
             <ContentWrapper
               class="xl:hidden"
-              paragraphContent={t("landing.teamSection.text2")}
+              paragraphContent={text2}
               contentClass=""
             />
           </div>

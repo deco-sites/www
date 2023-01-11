@@ -1,7 +1,7 @@
 import LiveAnalytics from "$live/components/LiveAnalytics.tsx";
 import type { JSX } from "preact";
 
-interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
+export interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   pathname: string;
 }
 

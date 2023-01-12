@@ -9,22 +9,24 @@ import * as $1 from "./routes/_404.tsx";
 import * as $2 from "./routes/_500.tsx";
 import * as $3 from "./routes/_app.tsx";
 import * as $4 from "./routes/_middleware.ts";
-import * as $5 from "./routes/index.tsx";
+import * as $5 from "./routes/api/leads.tsx";
+import * as $6 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
 import * as $$1 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/Edit.tsx";
 import * as $$$2 from "./sections/Footer.tsx";
-import * as $$$3 from "./sections/Header.tsx";
-import * as $$$4 from "./sections/Hero.tsx";
-import * as $$$5 from "./sections/Layout.tsx";
-import * as $$$6 from "./sections/Markdown.tsx";
-import * as $$$7 from "./sections/Newsletter.tsx";
-import * as $$$8 from "./sections/Performance.tsx";
-import * as $$$9 from "./sections/Platform.tsx";
-import * as $$$10 from "./sections/Pricing.tsx";
-import * as $$$11 from "./sections/QuillText.tsx";
-import * as $$$12 from "./sections/TeamSection.tsx";
+import * as $$$3 from "./sections/Head.tsx";
+import * as $$$4 from "./sections/Header.tsx";
+import * as $$$5 from "./sections/Hero.tsx";
+import * as $$$6 from "./sections/Layout.tsx";
+import * as $$$7 from "./sections/Markdown.tsx";
+import * as $$$8 from "./sections/Newsletter.tsx";
+import * as $$$9 from "./sections/Performance.tsx";
+import * as $$$10 from "./sections/Platform.tsx";
+import * as $$$11 from "./sections/Pricing.tsx";
+import * as $$$12 from "./sections/QuillText.tsx";
+import * as $$$13 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/MatchSiteParam.ts";
 
@@ -35,7 +37,8 @@ const manifest: DecoManifest = {
     "./routes/_500.tsx": $2,
     "./routes/_app.tsx": $3,
     "./routes/_middleware.ts": $4,
-    "./routes/index.tsx": $5,
+    "./routes/api/leads.tsx": $5,
+    "./routes/index.tsx": $6,
   },
   islands: {
     "./islands/LiveControls.tsx": $$0,
@@ -45,16 +48,17 @@ const manifest: DecoManifest = {
     "./sections/Architecture.tsx": $$$0,
     "./sections/Edit.tsx": $$$1,
     "./sections/Footer.tsx": $$$2,
-    "./sections/Header.tsx": $$$3,
-    "./sections/Hero.tsx": $$$4,
-    "./sections/Layout.tsx": $$$5,
-    "./sections/Markdown.tsx": $$$6,
-    "./sections/Newsletter.tsx": $$$7,
-    "./sections/Performance.tsx": $$$8,
-    "./sections/Platform.tsx": $$$9,
-    "./sections/Pricing.tsx": $$$10,
-    "./sections/QuillText.tsx": $$$11,
-    "./sections/TeamSection.tsx": $$$12,
+    "./sections/Head.tsx": $$$3,
+    "./sections/Header.tsx": $$$4,
+    "./sections/Hero.tsx": $$$5,
+    "./sections/Layout.tsx": $$$6,
+    "./sections/Markdown.tsx": $$$7,
+    "./sections/Newsletter.tsx": $$$8,
+    "./sections/Performance.tsx": $$$9,
+    "./sections/Platform.tsx": $$$10,
+    "./sections/Pricing.tsx": $$$11,
+    "./sections/QuillText.tsx": $$$12,
+    "./sections/TeamSection.tsx": $$$13,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -168,6 +172,64 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
+    "./sections/Head.tsx": {
+      "inputSchema": {
+        "title": " Head",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+          },
+          "imageUrl": {
+            "type": "string",
+            "title": "Image Url",
+          },
+          "faviconUrl": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Favicon Url",
+          },
+          "styleUrls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+            },
+            "title": "Style Urls",
+          },
+          "themeColor": {
+            "type": "string",
+            "title": "Theme Color",
+          },
+          "origin": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Origin",
+          },
+        },
+        "required": [
+          "title",
+          "description",
+          "url",
+          "imageUrl",
+          "styleUrls",
+          "themeColor",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/Header.tsx": {
       "inputSchema": {
         "title": " Header",
@@ -250,14 +312,17 @@ const manifest: DecoManifest = {
         "title": " Layout",
         "type": "object",
         "properties": {
-          "pathname": {
-            "type": "string",
-            "title": "Pathname",
+          "warning": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Warning",
+            "description":
+              "This is a section with inner sections. Remove this after the editor supports it.",
           },
         },
-        "required": [
-          "pathname",
-        ],
+        "required": [],
       },
       "outputSchema": null,
     },

@@ -2,18 +2,20 @@ import LiveAnalytics from "$live/components/LiveAnalytics.tsx";
 import type { JSX } from "preact";
 
 export interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
-  pathname: string;
+  /** @description This is a section with inner sections. Remove this after the editor supports it. */
+  warning?: string;
 }
 
-export default function Layout(
-  { pathname, class: className = "", children, ...otherProps }: Props,
-) {
+/**
+ * Experimental section with children
+ *
+ */
+export default function Layout({ children }: Props) {
   return (
     <>
-      <LiveAnalytics path={pathname} />
+      <LiveAnalytics path={window?.location?.href} />
       <div
-        class={`min-h-screen bg-[#67CE87] dark:bg-primary-dark text-primary-dark ${className}`}
-        {...otherProps}
+        class={`min-h-screen bg-[#67CE87] dark:bg-primary-dark text-primary-dark`}
       >
         {children}
       </div>

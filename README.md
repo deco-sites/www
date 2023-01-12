@@ -1,10 +1,4 @@
-# Deco Start — live template
-
-Welcome to your live site!
-
-This repository was created for you when you created a new site. To edit the
-code of the components in this site, you may clone this repo and run the project
-locally.
+# Deco Landing Page (deco.cx)
 
 ---
 
@@ -22,5 +16,10 @@ Start the project:
 deno task start
 ```
 
-Navigate to `https://localhost:8080` to see your site and start creating new
-components.
+Navigate to `https://localhost:8000` to see your site.
+
+## Config
+
+### Form submission
+
+Required `DISCORD_LEADS_WEBHOOK_URL` env var to test feature

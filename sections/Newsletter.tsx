@@ -25,7 +25,8 @@ function Input({ label, class: className = "", ...inputProps }: InputProps) {
 
       <input
         type="text"
-        {...(inputProps as any)}
+        // deno-lint-ignore no-explicit-any
+        {...inputProps as any}
         class={`w-full lg:w-[26.563rem] h-12 p-3.5 text-sm text-black mb-4 rounded-md xl:mx-auto ${className}`}
       />
     </>
@@ -57,7 +58,11 @@ export default function Newsletter({
           />
         </div>
         <div class="w-full md:w-[80%] md:m-auto lg:w-auto">
-          <form method="POST" class="flex flex-col p-2.5 md:pt-8 mx-auto" action="/api/leads">
+          <form
+            method="POST"
+            class="flex flex-col p-2.5 md:pt-8 mx-auto"
+            action="/api/leads"
+          >
             <input
               type="hidden"
               name="returnUrl"

@@ -33,7 +33,7 @@ export default function HeadComponent(props: Props) {
     themeColor,
   } = { ...defaultProps, ...props };
 
-  const url = new URL(urlAsString)
+  const url = new URL(urlAsString);
   const _imageUrl = asset(`${url.origin ?? ""}${imageUrl}`);
 
   return (

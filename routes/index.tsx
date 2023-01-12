@@ -12,7 +12,7 @@ export const handler: Handlers = {
     }
 
     const translationUrl = new URL(request.url);
-    translationUrl.pathname = `/${languageToRedirect}`
+    translationUrl.pathname = `/${languageToRedirect}`;
 
     return Response.redirect(translationUrl, 307);
   },

@@ -8,7 +8,6 @@ export interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
 
 /**
  * Experimental section with children
- *
  */
 export default function Layout({ children }: Props) {
   return (

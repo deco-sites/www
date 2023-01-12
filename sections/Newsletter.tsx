@@ -16,18 +16,16 @@ interface InputProps extends h.JSX.HTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
-function Input(
-  { label, class: className = "", ...inputProps }: InputProps,
-) {
+function Input({ label, class: className = "", ...inputProps }: InputProps) {
   return (
     <>
       <label class="text-sm text-black lg:w-[26.563rem] lg:mx-auto">
-        {label} {inputProps.required &&
-          <span class="text-red-600">*</span>}
+        {label} {inputProps.required && <span class="text-red-600">*</span>}
       </label>
 
       <input
         type="text"
+        // deno-lint-ignore no-explicit-any
         {...inputProps as any}
         class={`w-full lg:w-[26.563rem] h-12 p-3.5 text-sm text-black mb-4 rounded-md xl:mx-auto ${className}`}
       />
@@ -35,17 +33,15 @@ function Input(
   );
 }
 
-export default function Newsletter(
-  {
-    title,
-    highlight,
-    nameLabel,
-    positionLabel,
-    emailLabel,
-    linkedinLabel,
-    schedule,
-  }: Props,
-) {
+export default function Newsletter({
+  title,
+  highlight,
+  nameLabel,
+  positionLabel,
+  emailLabel,
+  linkedinLabel,
+  schedule,
+}: Props) {
   return (
     <div class="relative overflow-hidden text-black bg-primary -mt-4">
       <section
@@ -65,6 +61,7 @@ export default function Newsletter(
           <form
             method="POST"
             class="flex flex-col p-2.5 md:pt-8 mx-auto"
+            action="/api/leads"
           >
             <Input
               label={nameLabel}

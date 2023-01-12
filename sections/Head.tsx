@@ -1,62 +1,39 @@
 import { asset, Head } from "$fresh/runtime.ts";
 
-export interface HeadProps {
+export interface Props {
   title: string;
   description: string;
-  url: URL;
+  url: string;
   imageUrl: string;
-  faviconUrl: string;
+  faviconUrl?: string;
   styleUrls: string[];
   themeColor: string;
   origin?: string;
 }
 
-export const defaultProps: HeadProps = {
+export const defaultProps: Props = {
   title: "deco.cx — frictionless commerce experience",
   description:
     "A plataforma para construir e evoluir commerce experiences da próxima geração.",
-  url: new URL("https://deco.cx"),
+  url: "https://deco.cx",
   imageUrl: "/images/meta-social-deco.png",
   faviconUrl: "",
   styleUrls: [],
   themeColor: "#003232",
 };
 
-export const schema = {
-  type: "object",
-  properties: {
-    title: {
-      title: "Título da Página",
-      type: "string",
-    },
-    description: {
-      title: "Descrição",
-      type: "string",
-    },
-    faviconUrl: {
-      title: "Favicon URL",
-      type: "string",
-    },
-    url: {
-      title: "URL",
-      type: "string",
-    },
-  },
-  required: ["description", "faviconUrl", "title", "url"],
-  title: "HEAD",
-};
-
-export default function HeadComponent(props: Partial<HeadProps>) {
+export default function HeadComponent(props: Props) {
   const {
     title,
     description,
-    url,
+    url: urlAsString,
     imageUrl,
     faviconUrl,
     styleUrls,
     themeColor,
   } = { ...defaultProps, ...props };
 
+  const url = new URL(urlAsString);
   const _imageUrl = asset(`${url.origin ?? ""}${imageUrl}`);
 
   return (

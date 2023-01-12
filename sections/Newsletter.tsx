@@ -63,11 +63,6 @@ export default function Newsletter({
             class="flex flex-col p-2.5 md:pt-8 mx-auto"
             action="/api/leads"
           >
-            <input
-              type="hidden"
-              name="returnUrl"
-              value={window?.location?.href}
-            />
             <Input
               label={nameLabel}
               id="name"

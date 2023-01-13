@@ -15,21 +15,24 @@ import * as $7 from "./routes/live/[...catchall].tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
 import * as $$1 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
-import * as $$$1 from "./sections/Edit.tsx";
-import * as $$$2 from "./sections/Footer.tsx";
-import * as $$$3 from "./sections/Head.tsx";
-import * as $$$4 from "./sections/Header.tsx";
-import * as $$$5 from "./sections/Hero.tsx";
-import * as $$$6 from "./sections/Layout.tsx";
-import * as $$$7 from "./sections/Markdown.tsx";
-import * as $$$8 from "./sections/Newsletter.tsx";
-import * as $$$9 from "./sections/Performance.tsx";
-import * as $$$10 from "./sections/Platform.tsx";
-import * as $$$11 from "./sections/Pricing.tsx";
-import * as $$$12 from "./sections/QuillText.tsx";
-import * as $$$13 from "./sections/TeamSection.tsx";
+import * as $$$1 from "./sections/BlogPostHeader.tsx";
+import * as $$$2 from "./sections/BlogPostList.tsx";
+import * as $$$3 from "./sections/Edit.tsx";
+import * as $$$4 from "./sections/Footer.tsx";
+import * as $$$5 from "./sections/Head.tsx";
+import * as $$$6 from "./sections/Header.tsx";
+import * as $$$7 from "./sections/Hero.tsx";
+import * as $$$8 from "./sections/Layout.tsx";
+import * as $$$9 from "./sections/Markdown.tsx";
+import * as $$$10 from "./sections/Newsletter.tsx";
+import * as $$$11 from "./sections/Performance.tsx";
+import * as $$$12 from "./sections/Platform.tsx";
+import * as $$$13 from "./sections/Pricing.tsx";
+import * as $$$14 from "./sections/QuillText.tsx";
+import * as $$$15 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
-import * as $$$$1 from "./functions/MatchSiteParam.ts";
+import * as $$$$1 from "./functions/LoadPageProps.ts";
+import * as $$$$2 from "./functions/MatchSiteParam.ts";
 
 const manifest: DecoManifest = {
   routes: {
@@ -48,23 +51,26 @@ const manifest: DecoManifest = {
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,
-    "./sections/Edit.tsx": $$$1,
-    "./sections/Footer.tsx": $$$2,
-    "./sections/Head.tsx": $$$3,
-    "./sections/Header.tsx": $$$4,
-    "./sections/Hero.tsx": $$$5,
-    "./sections/Layout.tsx": $$$6,
-    "./sections/Markdown.tsx": $$$7,
-    "./sections/Newsletter.tsx": $$$8,
-    "./sections/Performance.tsx": $$$9,
-    "./sections/Platform.tsx": $$$10,
-    "./sections/Pricing.tsx": $$$11,
-    "./sections/QuillText.tsx": $$$12,
-    "./sections/TeamSection.tsx": $$$13,
+    "./sections/BlogPostHeader.tsx": $$$1,
+    "./sections/BlogPostList.tsx": $$$2,
+    "./sections/Edit.tsx": $$$3,
+    "./sections/Footer.tsx": $$$4,
+    "./sections/Head.tsx": $$$5,
+    "./sections/Header.tsx": $$$6,
+    "./sections/Hero.tsx": $$$7,
+    "./sections/Layout.tsx": $$$8,
+    "./sections/Markdown.tsx": $$$9,
+    "./sections/Newsletter.tsx": $$$10,
+    "./sections/Performance.tsx": $$$11,
+    "./sections/Platform.tsx": $$$12,
+    "./sections/Pricing.tsx": $$$13,
+    "./sections/QuillText.tsx": $$$14,
+    "./sections/TeamSection.tsx": $$$15,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
-    "./functions/MatchSiteParam.ts": $$$$1,
+    "./functions/LoadPageProps.ts": $$$$1,
+    "./functions/MatchSiteParam.ts": $$$$2,
   },
   schemas: {
     "./sections/Architecture.tsx": {
@@ -106,6 +112,49 @@ const manifest: DecoManifest = {
           "title2",
           "title3",
           "sections",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/BlogPostHeader.tsx": {
+      "inputSchema": {
+        "title": " Blog Post Header",
+        "type": "object",
+        "properties": {
+          "postList": {
+            "$id": "5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+            "format": "live-function",
+            "type": "string",
+            "title": "Post List",
+          },
+          "page": {
+            "$id": "00fa23793e0af297c570d784cbee7cb3846d2533",
+            "format": "live-function",
+            "type": "string",
+            "title": "Page",
+          },
+        },
+        "required": [
+          "postList",
+          "page",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/BlogPostList.tsx": {
+      "inputSchema": {
+        "title": " Blog Post List",
+        "type": "object",
+        "properties": {
+          "postList": {
+            "$id": "5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+            "format": "live-function",
+            "type": "string",
+            "title": "Post List",
+          },
+        },
+        "required": [
+          "postList",
         ],
       },
       "outputSchema": null,
@@ -583,7 +632,10 @@ const manifest: DecoManifest = {
             "description": "Branch",
           },
           "path": {
-            "type": "string",
+            "type": [
+              "string",
+              "null",
+            ],
             "title": "Path",
             "description":
               "Path to fetch, or leave blank and add :path route param.",
@@ -592,7 +644,6 @@ const manifest: DecoManifest = {
         "required": [
           "repo",
           "branch",
-          "path",
         ],
       },
       "outputSchema": {
@@ -600,6 +651,31 @@ const manifest: DecoManifest = {
         "properties": {
           "data": {
             "$id": "5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+          },
+        },
+        "additionalProperties": true,
+      },
+    },
+    "./functions/LoadPageProps.ts": {
+      "inputSchema": {
+        "title": " Load Page Props",
+        "type": "object",
+        "properties": {
+          "null": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Null",
+          },
+        },
+        "required": [],
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$id": "00fa23793e0af297c570d784cbee7cb3846d2533",
           },
         },
         "additionalProperties": true,

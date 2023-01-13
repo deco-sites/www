@@ -32,7 +32,7 @@ export default function Header({
   return (
     <header class="bg-primary-light flex justify-center">
       <nav
-        class="container px-4 sm:mx-8 pt-8 pb-4 text-secondary-dark "
+        class="container px-4 sm:mx-8 py-8 text-secondary-dark"
         aria-label="Deco Menu"
       >
         <ul

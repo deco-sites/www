@@ -14,7 +14,7 @@ export default function BlogPostHeader(props: Props) {
     return <div>Post not found.</div>;
   }
   return (
-    <section class="container w-full p-2 md:p-0 mx-auto my-10">
+    <section class="max-w-4xl w-full p-2 md:p-0 mx-auto my-10">
       <div class="w-full text-gray-800">
         <h1 class="font-bold text-[36px] leading-9">
           {post.title}

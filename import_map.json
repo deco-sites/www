@@ -15,6 +15,7 @@
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.4/",
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
+    "@twind/typography": "https://esm.sh/@twind/typography@0.0.2",
 
     "std/": "https://deno.land/std@0.162.0/",
 

@@ -6,7 +6,7 @@ export interface Props {
   /** @description Branch */
   branch: string;
   /** @description Path to fetch, or leave blank and add :path route param. */
-  path: string;
+  path?: string;
 }
 
 /**
@@ -19,7 +19,7 @@ const gitHubRawLoader: LoaderFunction<Props, string> = async (
   { repo, branch, path },
 ) => {
   const pathFromParams = ctx.params.path !== ":path" && ctx.params.path;
-  const resultPath = pathFromParams || path;
+  const resultPath = path || pathFromParams;
   const res = await fetch(
     `https://raw.githubusercontent.com/${repo}/${branch}/${resultPath}`,
   ).then((res) => res.text());

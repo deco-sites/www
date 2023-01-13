@@ -25,8 +25,10 @@ function Input({ label, class: className = "", ...inputProps }: InputProps) {
 
       <input
         type="text"
-        // deno-lint-ignore no-explicit-any
-        {...inputProps as any}
+        {
+          // deno-lint-ignore no-explicit-any
+          ...inputProps as any
+        }
         class={`w-full lg:w-[26.563rem] h-12 p-3.5 text-sm text-black mb-4 rounded-md xl:mx-auto ${className}`}
       />
     </>

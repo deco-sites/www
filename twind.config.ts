@@ -1,5 +1,6 @@
 import type { Options } from "$fresh/plugins/twind.ts";
-import typography from "@twind/typography";
+import { theme } from "twind";
+import typography from "twind-typography";
 
 const options: Omit<Options, "selfURL"> = {
   plugins: {
@@ -11,6 +12,30 @@ const options: Omit<Options, "selfURL"> = {
   },
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              color: "#FF4500",
+              fontWeight: "700",
+              fontSize: "52px",
+              fontFamily: theme("fontFamily", ["sans"]),
+            },
+            h2: {
+              color: theme("colors", ["primary-green-dark"]),
+              fontWeight: "800",
+            },
+            h3: {
+              color: theme("colors", ["primary-green-light"]),
+              fontWeight: "800",
+            },
+            color: theme("colors", ["primary-dark"]),
+            a: {
+              color: theme("colors", ["secondary-dark"]),
+            },
+          },
+        },
+      },
       outline: {
         "deco-green-light": [
           "2px solid #2EAE80",

@@ -24,7 +24,7 @@ export default function HeroArt() {
       />
       <SquareGlass
         color="#2FD180"
-        class="via-transparent -bottom-[17.5rem] -right-[8rem] sm:-bottom-[17rem] sm:-right-[10rem] md:-bottom-[15rem] md:right-[2rem] lg:-bottom-[26rem] lg:-right-32 xl:-bottom-[25rem] xl:right-12"
+        class="via-transparent -bottom-[17.5rem] -right-[8rem] sm:-bottom-[17rem] sm:-right-[10rem] md:-bottom-[15rem] md:right-[2rem] lg:-bottom-[27rem] lg:-right-28 xl:-bottom-[27rem] xl:right-16"
         style="backdrop-filter: blur(34px);"
       >
         <Dots class="bg-primary-light" />

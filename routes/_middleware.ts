@@ -6,7 +6,6 @@ export const handler = [
   withLive({
     siteId: 448,
     site: "www",
-    domains: ["www.deco.cx"],
   }),
   function i18nMiddleware(req: Request, ctx: MiddlewareHandlerContext) {
     identify(req);

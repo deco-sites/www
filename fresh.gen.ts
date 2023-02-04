@@ -18,19 +18,20 @@ import * as $$1 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/BlogPostHeader.tsx";
 import * as $$$2 from "./sections/BlogPostList.tsx";
-import * as $$$3 from "./sections/Edit.tsx";
-import * as $$$4 from "./sections/Footer.tsx";
-import * as $$$5 from "./sections/Head.tsx";
-import * as $$$6 from "./sections/Header.tsx";
-import * as $$$7 from "./sections/Hero.tsx";
-import * as $$$8 from "./sections/Layout.tsx";
-import * as $$$9 from "./sections/Markdown.tsx";
-import * as $$$10 from "./sections/Newsletter.tsx";
-import * as $$$11 from "./sections/Performance.tsx";
-import * as $$$12 from "./sections/Platform.tsx";
-import * as $$$13 from "./sections/Pricing.tsx";
-import * as $$$14 from "./sections/QuillText.tsx";
-import * as $$$15 from "./sections/TeamSection.tsx";
+import * as $$$3 from "./sections/DocsLayout.tsx";
+import * as $$$4 from "./sections/Edit.tsx";
+import * as $$$5 from "./sections/Footer.tsx";
+import * as $$$6 from "./sections/Head.tsx";
+import * as $$$7 from "./sections/Header.tsx";
+import * as $$$8 from "./sections/Hero.tsx";
+import * as $$$9 from "./sections/Layout.tsx";
+import * as $$$10 from "./sections/Markdown.tsx";
+import * as $$$11 from "./sections/Newsletter.tsx";
+import * as $$$12 from "./sections/Performance.tsx";
+import * as $$$13 from "./sections/Platform.tsx";
+import * as $$$14 from "./sections/Pricing.tsx";
+import * as $$$15 from "./sections/QuillText.tsx";
+import * as $$$16 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/LoadPageProps.ts";
 import * as $$$$2 from "./functions/MatchSiteParam.ts";
@@ -55,19 +56,20 @@ const manifest: DecoManifest = {
     "./sections/Architecture.tsx": $$$0,
     "./sections/BlogPostHeader.tsx": $$$1,
     "./sections/BlogPostList.tsx": $$$2,
-    "./sections/Edit.tsx": $$$3,
-    "./sections/Footer.tsx": $$$4,
-    "./sections/Head.tsx": $$$5,
-    "./sections/Header.tsx": $$$6,
-    "./sections/Hero.tsx": $$$7,
-    "./sections/Layout.tsx": $$$8,
-    "./sections/Markdown.tsx": $$$9,
-    "./sections/Newsletter.tsx": $$$10,
-    "./sections/Performance.tsx": $$$11,
-    "./sections/Platform.tsx": $$$12,
-    "./sections/Pricing.tsx": $$$13,
-    "./sections/QuillText.tsx": $$$14,
-    "./sections/TeamSection.tsx": $$$15,
+    "./sections/DocsLayout.tsx": $$$3,
+    "./sections/Edit.tsx": $$$4,
+    "./sections/Footer.tsx": $$$5,
+    "./sections/Head.tsx": $$$6,
+    "./sections/Header.tsx": $$$7,
+    "./sections/Hero.tsx": $$$8,
+    "./sections/Layout.tsx": $$$9,
+    "./sections/Markdown.tsx": $$$10,
+    "./sections/Newsletter.tsx": $$$11,
+    "./sections/Performance.tsx": $$$12,
+    "./sections/Platform.tsx": $$$13,
+    "./sections/Pricing.tsx": $$$14,
+    "./sections/QuillText.tsx": $$$15,
+    "./sections/TeamSection.tsx": $$$16,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -157,6 +159,31 @@ const manifest: DecoManifest = {
         },
         "required": [
           "postList",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/DocsLayout.tsx": {
+      "inputSchema": {
+        "title": " Docs Layout",
+        "type": "object",
+        "properties": {
+          "menu": {
+            "$id": "5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+            "format": "live-function",
+            "type": "string",
+            "title": "Menu",
+          },
+          "content": {
+            "$id": "5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+            "format": "live-function",
+            "type": "string",
+            "title": "Content",
+          },
+        },
+        "required": [
+          "menu",
+          "content",
         ],
       },
       "outputSchema": null,

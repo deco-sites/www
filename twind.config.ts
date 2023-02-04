@@ -16,7 +16,7 @@ const options: Omit<Options, "selfURL"> = {
         DEFAULT: {
           css: {
             h1: {
-              color: "#FF4500",
+              color: "#2FD180",
               fontWeight: "700",
               fontSize: "52px",
               fontFamily: theme("fontFamily", ["sans"]),

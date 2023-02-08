@@ -141,7 +141,7 @@ const messages = {
   "landing.architecture.title3": "no headache.",
   "landing.edit.contentHighlight1": "to edit, test, and evolve.",
   "landing.edit.contentText1":
-    "Integrated real-time tool for you to find out where the biggest the greatest opportunities to convert more.",
+    "Integrated real-time tool for you to find out where the greatest opportunities to convert more.",
   "landing.edit.contentText2":
     "Your business team with the autonomy to edit components without 1 line of code.",
   "landing.edit.contentText3":

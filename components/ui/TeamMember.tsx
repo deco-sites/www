@@ -27,11 +27,6 @@ export default function TeamMember(
     >
       <a href={linkedin} aria-label={ariaLabel} target="_blank">
         <img
-          src="/images/vtexFlag.png"
-          alt="Flag da VTEX"
-          class={`absolute -top-0.5 right-3.5 ${classVTEX}`}
-        />
-        <img
           src="/images/linkedinFlag.png"
           alt="Flag do LinkedIn"
           class={`absolute top-[8.7rem] right-[4.813rem] z-10 bg-white`}

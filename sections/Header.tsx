@@ -16,23 +16,24 @@ export interface Props {
   logoAriaLabel: string;
   platformLabel: string;
   priceLabel: string;
-  campLabel: string;
-  campAriaLabel: string;
+  blogLabel: string;
+  blogAriaLabel: string;
   scheduleLabel: string;
+  
 }
 
 export default function Header({
   logoAriaLabel = "Logo da Deco na cor verde",
   platformLabel = "Plataforma",
   priceLabel = "Preço",
-  campLabel = "Deco Camp",
-  campAriaLabel = "Link para o Deco Camp",
-  scheduleLabel = "Agende já",
+  blogLabel = "Blog",
+  blogAriaLabel = "Link para o Blog",
+  scheduleLabel = "Agende agora",
 }: Props) {
   return (
-    <header class="bg-primary-light flex justify-center">
+    <header class="bg-[#113032] flex justify-center">
       <nav
-        class="container px-4 sm:mx-8 py-8 text-secondary-dark"
+        class="container px-4 sm:mx-8 py-6 text-white"
         aria-label="Deco Menu"
       >
         <ul
@@ -42,31 +43,33 @@ export default function Header({
         >
           <li role="none">
             <NavAnchor aria-label={logoAriaLabel} href="#">
-              <LogoDeco color="#2FD180" class="h-7" />
+              <LogoDeco color="#2FD180" class="h-8" />
             </NavAnchor>
           </li>
-          <li role="none" class="hidden md:block ml-auto pr-10 hover:underline">
-            <NavAnchor class="hover:cursor-pointer" href="#platform">
+          {/* TODO: FAZER UM MAP NESSES <li> abaixo */}
+          <li role="none" class="hidden md:block ml-auto pr-10">
+            <NavAnchor class="hover:cursor-pointer hover:underline" href="#platform">
               {platformLabel}
             </NavAnchor>
           </li>
-          <li role="none" class="hidden pr-10 hover:underline">
-            <NavAnchor aria-label="Link com os preços" href="#">
+          <li role="none" class="hidden md:block pr-10">
+            <NavAnchor aria-label="Link com os preços" href="#" class="hover:underline">
               {priceLabel}
             </NavAnchor>
           </li>
-          <li role="none" class="hidden md:block pr-10 hover:underline">
+          <li role="none" class="hidden md:block pr-10">
             <NavAnchor
-              aria-label={campAriaLabel}
+              class="hover:underline"
+              aria-label={blogAriaLabel}
               href="https://deco.camp/"
               target="_blank"
             >
-              {campLabel}
+              {blogLabel}
             </NavAnchor>
           </li>
           <li role="none" class=" hidden md:block ">
             <NavAnchor
-              class="block bg-white rounded-xl border border-secondary-dark px-6 py-2.5 w-full h-full hover:shadow-lg"
+              class="block bg-white text-black rounded-full border border-secondary-dark px-8 py-2.5 w-full h-full hover:shadow-lg"
               href="#scheduleDemo"
             >
               {scheduleLabel}

@@ -14,21 +14,39 @@ function NavAnchor({
 
 export interface Props {
   logoAriaLabel: string;
-  platformLabel: string;
-  priceLabel: string;
-  blogLabel: string;
-  blogAriaLabel: string;
-  scheduleLabel: string;
-  
 }
+
+const navAnchors = [
+  {
+    label: "Plataforma",
+    ariaLabel: "Link para a plataforma",
+    class: "hover:cursor-pointer hover:underline",
+    href: "#platform",
+  },
+  {
+    label: "Preço",
+    ariaLabel: "Link com os preços",
+    class: "hover:underline ml-10",
+    href: "#",
+  },
+  {
+    label: "Blog",
+    ariaLabel: "Link para o Blog",
+    class: "hover:underline ml-10",
+    href: "",
+    target: "_blank",
+  },
+  {
+    label: "Agende agora",
+    ariaLabel: "Link para agendar uma demo",
+    class:
+      "block bg-white text-black rounded-full border border-secondary-dark px-8 py-2.5 w-full h-full hover:shadow-lg ml-10",
+    href: "#scheduleDemo",
+  },
+];
 
 export default function Header({
   logoAriaLabel = "Logo da Deco na cor verde",
-  platformLabel = "Plataforma",
-  priceLabel = "Preço",
-  blogLabel = "Blog",
-  blogAriaLabel = "Link para o Blog",
-  scheduleLabel = "Agende agora",
 }: Props) {
   return (
     <header class="bg-[#113032] flex justify-center">
@@ -46,34 +64,17 @@ export default function Header({
               <LogoDeco color="#2FD180" class="h-8" />
             </NavAnchor>
           </li>
-          {/* TODO: FAZER UM MAP NESSES <li> abaixo */}
-          <li role="none" class="hidden md:block ml-auto pr-10">
-            <NavAnchor class="hover:cursor-pointer hover:underline" href="#platform">
-              {platformLabel}
-            </NavAnchor>
-          </li>
-          <li role="none" class="hidden md:block pr-10">
-            <NavAnchor aria-label="Link com os preços" href="#" class="hover:underline">
-              {priceLabel}
-            </NavAnchor>
-          </li>
-          <li role="none" class="hidden md:block pr-10">
-            <NavAnchor
-              class="hover:underline"
-              aria-label={blogAriaLabel}
-              href="https://deco.camp/"
-              target="_blank"
-            >
-              {blogLabel}
-            </NavAnchor>
-          </li>
-          <li role="none" class=" hidden md:block ">
-            <NavAnchor
-              class="block bg-white text-black rounded-full border border-secondary-dark px-8 py-2.5 w-full h-full hover:shadow-lg"
-              href="#scheduleDemo"
-            >
-              {scheduleLabel}
-            </NavAnchor>
+
+          <li role="none" class="hidden md:flex pr-10 items-center">
+            {navAnchors.map((nav) => (
+              <NavAnchor
+                class={nav.class}
+                href={nav.href}
+                target={nav.target || ""}
+              >
+                {nav.label}
+              </NavAnchor>
+            ))}
           </li>
         </ul>
       </nav>

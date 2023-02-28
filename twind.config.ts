@@ -33,6 +33,9 @@ const options: Omit<Options, "selfURL"> = {
             a: {
               color: theme("colors", ["secondary-dark"]),
             },
+            strong: {
+              color: theme("colors", ["primary-dark"])
+            }
           },
         },
       },

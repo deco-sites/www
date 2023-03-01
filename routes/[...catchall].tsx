@@ -25,8 +25,10 @@ export const handler: Handlers<LivePageData, LiveState> = {
         return redirectTo("https://discord.gg/9fkbcvR833");
       case "/expert-signup":
         return redirectTo("https://airtable.com/shrpWZHqr4bmuI5OD");
-      case '/brand':
-        return redirectTo('https://drive.google.com/drive/folders/1fMIVfALCEa3Er2iX0kNF-87IQSWtpSyy?usp=share_link')
+      case "/brand":
+        return redirectTo(
+          "https://drive.google.com/drive/folders/1fMIVfALCEa3Er2iX0kNF-87IQSWtpSyy?usp=share_link",
+        );
       default: {
         const liveGetHandler = live()["GET"]!;
 

@@ -21,13 +21,13 @@ const navAnchors = [
     label: "Plataforma",
     ariaLabel: "Link para a plataforma",
     class: "hover:cursor-pointer hover:underline",
-    href: "#platform",
+    href: "/",
   },
   {
     label: "Preço",
     ariaLabel: "Link com os preços",
     class: "hover:underline ml-10",
-    href: "#",
+    href: "/",
   },
   {
     label: "Blog",
@@ -41,11 +41,11 @@ const navAnchors = [
     ariaLabel: "Link para agendar uma demo",
     class:
       "block bg-white text-black rounded-full border border-secondary-dark px-8 py-2.5 w-full h-full hover:shadow-lg ml-10",
-    href: "#scheduleDemo",
+    href: "/",
   },
 ];
 
-export default function Header({
+export default function BlogHeader({
   logoAriaLabel = "Logo da Deco na cor verde",
 }: Props) {
   return (

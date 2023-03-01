@@ -22,19 +22,23 @@ const options: Omit<Options, "selfURL"> = {
               fontFamily: theme("fontFamily", ["sans"]),
             },
             h2: {
-              color: theme("colors", ["primary-green-dark"]),
+              color: theme("colors", ["secondary-dark"]),
               fontWeight: "800",
             },
             h3: {
-              color: theme("colors", ["primary-green-light"]),
+              color: theme("colors", ["secondary-dark"]),
               fontWeight: "800",
             },
             color: theme("colors", ["primary-dark"]),
             a: {
-              color: theme("colors", ["secondary-dark"]),
+              color: theme("colors", ["primary-green-light"]),
             },
             strong: {
               color: theme("colors", ["primary-dark"])
+            },
+            span: {
+              
+              color: theme("colors", ["secondary-dark"])
             }
           },
         },

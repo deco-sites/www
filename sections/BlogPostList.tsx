@@ -13,7 +13,7 @@ export default function MarkdownContainer(props: Props) {
   );
 
   return (
-    <div>
+    <div class="min-h-screen">
       <div class="w-full relative flex justify-center">
         <div
           style={{

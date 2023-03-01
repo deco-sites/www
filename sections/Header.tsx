@@ -33,6 +33,7 @@ export default function Header({
   blogAriaLabel = "Link para o blog",
   blogLabel = "Blog",
 }: Props) {
+
   return (
     <header class="bg-primary-light flex justify-center">
       <nav
@@ -77,7 +78,7 @@ export default function Header({
               {blogLabel}
             </NavAnchor>
           </li>
-          <li role="none" class=" hidden md:block ">
+          <li role="none" class="hidden md:block">
             <NavAnchor
               class="block bg-white rounded-xl border border-secondary-dark px-6 py-2.5 w-full h-full hover:shadow-lg"
               href="#scheduleDemo"

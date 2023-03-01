@@ -26,13 +26,13 @@ export default function MarkdownContainer(props: Props) {
             top: 0,
           }}
         />
-        <section class="max-w-4xl p-8 pt-20">
+        <section class="max-w-4xl p-8 pt-10 sm:pt-20">
           <div>
             <a
               href={getBlogPath(highlightPost.path)}
               class="group"
             >
-              <div class="text-deco-dark-green mb-20">
+              <div class="text-deco-dark-green mb-10 sm:mb-20">
                 <img src={highlightPost.img} class="w-full mb-6" />
                 <h1 class="font-bold text-4xl leading-9 text-default group-hover:underline">
                   {highlightPost.title}
@@ -51,7 +51,7 @@ export default function MarkdownContainer(props: Props) {
           <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8">
             {normalPosts.map((post) => (
               <a href={getBlogPath(post.path)} class="group">
-                <div class="w-full text-deco-dark-green mb-20">
+                <div class="w-full text-deco-dark-green mb-10 sm:mb-20">
                   <img src={post.img} class="w-full mb-5" />
                   <h1 class="font-bold text-4xl leading-9 text-default group-hover:underline">
                     {post.title}

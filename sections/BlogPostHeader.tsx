@@ -14,8 +14,8 @@ export default function BlogPostHeader(props: Props) {
     return <div>Post not found.</div>;
   }
   return (
-    <section class="max-w-4xl w-full p-2 md:p-0 mx-auto">
-      <div class="mb-11 mt-16">
+    <section class="max-w-4xl w-full px-8 md:p-0 mx-auto">
+      <div class="mb-8 sm:mb-11 mt-10 sm:mt-16">
         <a class="flex items-center cursor-pointer text-subdued" href="/blog">
           <svg
             xmlns="http://www.w3.org/2000/svg"

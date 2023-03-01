@@ -33,7 +33,7 @@ const navAnchors = [
     label: "Blog",
     ariaLabel: "Link para o Blog",
     class: "hover:underline ml-10",
-    href: "https://www.deco.cx/blog",
+    href: "/blog",
     target: "_blank",
   },
   {

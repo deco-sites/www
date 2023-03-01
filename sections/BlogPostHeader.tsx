@@ -37,7 +37,7 @@ export default function BlogPostHeader(props: Props) {
         </a>
       </div>
       <div class="w-full">
-        <h1 class="font-bold text-4xl leading-9">
+        <h1 class="font-bold text-5xl leading-10 sm:leading-[62px]">
           {post.title}
         </h1>
         <div class="text-2xl leading-7 my-3 text-secondary-dark">

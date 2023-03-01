@@ -45,6 +45,9 @@ const options: Omit<Options, "selfURL"> = {
             span: {
               color: theme("colors", ["secondary-dark"]),
             },
+            p: {
+              lineHeight: "19px"
+            }
           },
         },
       },

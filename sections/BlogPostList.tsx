@@ -26,15 +26,15 @@ export default function MarkdownContainer(props: Props) {
             top: 0,
           }}
         />
-        <section class="max-w-4xl p-8 pt-10 sm:pt-20">
-          <div>
+        <section class="max-w-4xl sm:p-0 p-8 pt-10 sm:pt-20">
+          <div class="w-full">
             <a
               href={getBlogPath(highlightPost.path)}
-              class="group"
+              class="group w-full"
             >
               <div class="text-deco-dark-green mb-10 sm:mb-20">
                 <img src={highlightPost.img} class="w-full mb-6" />
-                <h1 class="font-bold text-4xl leading-9 text-default group-hover:underline">
+                <h1 class="font-bold text-5xl leading-10 sm:leading-[62px] text-default group-hover:underline">
                   {highlightPost.title}
                 </h1>
                 <div class="text-2xl leading-7 my-3">
@@ -53,7 +53,7 @@ export default function MarkdownContainer(props: Props) {
               <a href={getBlogPath(post.path)} class="group">
                 <div class="w-full text-deco-dark-green mb-10 sm:mb-20">
                   <img src={post.img} class="w-full mb-5" />
-                  <h1 class="font-bold text-4xl leading-9 text-default group-hover:underline">
+                  <h1 class="font-bold text-5xl leading-9 text-default group-hover:underline">
                     {post.title}
                   </h1>
                   <div class="text-2xl leading-7 my-3">

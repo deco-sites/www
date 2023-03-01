@@ -10,14 +10,9 @@ import * as $2 from "./routes/_500.tsx";
 import * as $3 from "./routes/_app.tsx";
 import * as $4 from "./routes/_middleware.ts";
 import * as $5 from "./routes/admin/[...catchall].tsx";
-import * as $6 from "./routes/angel.ts";
-import * as $7 from "./routes/api/leads.tsx";
-import * as $8 from "./routes/blog.ts";
-import * as $9 from "./routes/deck.ts";
-import * as $10 from "./routes/discord.ts";
-import * as $11 from "./routes/expert-signup.ts";
-import * as $12 from "./routes/index.tsx";
-import * as $13 from "./routes/live/[...catchall].tsx";
+import * as $6 from "./routes/api/leads.tsx";
+import * as $7 from "./routes/index.tsx";
+import * as $8 from "./routes/live/[...catchall].tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
 import * as $$1 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
@@ -48,14 +43,9 @@ const manifest: DecoManifest = {
     "./routes/_app.tsx": $3,
     "./routes/_middleware.ts": $4,
     "./routes/admin/[...catchall].tsx": $5,
-    "./routes/angel.ts": $6,
-    "./routes/api/leads.tsx": $7,
-    "./routes/blog.ts": $8,
-    "./routes/deck.ts": $9,
-    "./routes/discord.ts": $10,
-    "./routes/expert-signup.ts": $11,
-    "./routes/index.tsx": $12,
-    "./routes/live/[...catchall].tsx": $13,
+    "./routes/api/leads.tsx": $6,
+    "./routes/index.tsx": $7,
+    "./routes/live/[...catchall].tsx": $8,
   },
   islands: {
     "./islands/LiveControls.tsx": $$0,

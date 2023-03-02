@@ -2,7 +2,7 @@
   "imports": {
     "$start/": "./",
     "$deco/": "./",
-    "$live/": "https://denopkg.com/deco-cx/live@03890e5/",
+    "$live/": "https://denopkg.com/deco-cx/live@7b3c55f55e5d07025c7c94e726e7336b636e866f/",
     "deco-sites/std/": "https://denopkg.com/deco-sites/std@0.0.2/",
     "inspect_vscode/": "https://deno.land/x/inspect_vscode@0.1.2/",
     "$fresh/": "https://deno.land/x/fresh@1.1.2/",

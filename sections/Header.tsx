@@ -19,6 +19,8 @@ export interface Props {
   campLabel: string;
   campAriaLabel: string;
   scheduleLabel: string;
+  blogAriaLabel: string
+  blogLabel: string
 }
 
 export default function Header({
@@ -28,7 +30,10 @@ export default function Header({
   campLabel = "Deco Camp",
   campAriaLabel = "Link para o Deco Camp",
   scheduleLabel = "Agende já",
+  blogAriaLabel = "Link para o blog",
+  blogLabel = "Blog",
 }: Props) {
+
   return (
     <header class="bg-primary-light flex justify-center">
       <nav
@@ -64,7 +69,16 @@ export default function Header({
               {campLabel}
             </NavAnchor>
           </li>
-          <li role="none" class=" hidden md:block ">
+          <li role="none" class="hidden md:block pr-10 hover:underline">
+            <NavAnchor
+              aria-label={blogAriaLabel}
+              href="https://www.deco.cx/blog"
+              target="_blank"
+            >
+              {blogLabel}
+            </NavAnchor>
+          </li>
+          <li role="none" class="hidden md:block">
             <NavAnchor
               class="block bg-white rounded-xl border border-secondary-dark px-6 py-2.5 w-full h-full hover:shadow-lg"
               href="#scheduleDemo"

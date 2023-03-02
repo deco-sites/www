@@ -91,22 +91,30 @@ export const time = [
     classVtex: "hidden",
     linkedin: "https://www.linkedin.com/in/murieldias/",
   },
+  {
+    imgSrc: "/images/bruno.webp",
+    altText: "Bruno Kuntz",
+    ariaLabel: "Bruno Kuntz",
+    name: "Bruno Kuntz",
+    role: "Finance/Marketplace",
+    classVtex: "hidden",
+    linkedin: "https://www.linkedin.com/in/brunokuntz/",
+  },
 ];
 
 function isVisible(index: number, page: number) {
   if (page + PAGE_SIZE >= time.length) {
-    return (page - Math.abs(time.length - (page + PAGE_SIZE)) <= index) &&
-      index < time.length;
+    return (
+      page - Math.abs(time.length - (page + PAGE_SIZE)) <= index &&
+      index < time.length
+    );
   }
-  return page <= index && index < (page + PAGE_SIZE);
+  return page <= index && index < page + PAGE_SIZE;
 }
 
 export default function TeamMemberGroup() {
   return (
-    <div
-      id="group-1"
-      class="flex gap-5 lg:grid grid-cols-3 lg:justify-center"
-    >
+    <div id="group-1" class="flex gap-5 lg:grid grid-cols-3 lg:justify-center">
       {time.map((pessoa, index) => (
         <TeamMember
           classVtex=""

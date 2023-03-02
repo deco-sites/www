@@ -72,6 +72,7 @@ export default function Performance(
               class="m-auto"
               width="463"
               height="376"
+              loading="lazy"
             />
           </picture>
 

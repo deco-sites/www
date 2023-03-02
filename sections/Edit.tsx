@@ -61,6 +61,7 @@ export default function Edit({
               width="588"
               height="432"
               class="m-auto"
+              loading="lazy"
             />
           </picture>
 

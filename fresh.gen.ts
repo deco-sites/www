@@ -3,6 +3,7 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
+import { context } from "$live/live.ts";
 import { DecoManifest } from "$live/types.ts";
 import * as $0 from "./routes/[...catchall].tsx";
 import * as $1 from "./routes/_404.tsx";
@@ -713,6 +714,6 @@ const manifest: DecoManifest = {
 };
 
 // live — this exposes the manifest so the live server can render components dynamically
-globalThis.manifest = manifest;
+context.manifest = manifest;
 
 export default manifest;

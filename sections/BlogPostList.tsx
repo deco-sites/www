@@ -1,4 +1,4 @@
-import { LoaderReturnType } from "$live/std/types.ts";
+import { LoaderReturnType } from "$live/types.ts";
 import { getBlogPath, PostList } from "$deco/components/utils/Blog.ts";
 
 export type Props = {

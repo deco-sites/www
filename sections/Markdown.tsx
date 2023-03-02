@@ -1,5 +1,6 @@
-import { LoaderReturnType } from "$live/std/types.ts";
-import Markdown from "$live/std/ui/components/Markdown.tsx";
+import { LoaderReturnType } from "$live/types.ts";
+import Markdown from "deco-sites/std/components/Markdown.tsx";
+
 export type Props = {
   text: LoaderReturnType<string>;
 };

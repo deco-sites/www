@@ -32,6 +32,8 @@ export const handler: Handlers<LivePageData, LiveState> = {
 
       case "/hackathon":
         return redirectTo("https://airtable.com/shrMMkEKoH1I2GLHA");
+      case "/ifood":
+        return redirectTo("https://airtable.com/shrquWd6sEWZQVdC4");
       default: {
         const liveGetHandler = live()["GET"]!;
 

@@ -30,14 +30,15 @@ export default function TeamMember(
           src="/images/linkedinFlag.png"
           alt="Flag do LinkedIn"
           class={`absolute top-[8.7rem] right-[4.813rem] z-10 bg-white`}
+          loading="lazy"
         />
         <img
           src={imgSrc}
           alt={altText}
           width="130"
           height="130"
-          class={`mx-auto`}
-          style="clip-path: circle(50% at 50% 50%);"
+          class="mx-auto rounded-full"
+          loading="lazy"
         />
         <h2 class={`pt-2.5 text-sm font-bold text-center`}>
           {name}

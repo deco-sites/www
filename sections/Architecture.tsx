@@ -81,6 +81,7 @@ export default function Architecture(
                 alt="Ilustração sobre a arquitetura"
                 width="520"
                 height="361"
+                loading="lazy"
               />
             </picture>
           </div>

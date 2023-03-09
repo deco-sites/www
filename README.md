@@ -16,7 +16,7 @@ Start the project:
 deno task start
 ```
 
-Navigate to `https://localhost:8000` to see your site.
+Navigate to `https://localhost:8000` to see the admin.
 
 ## Config
 

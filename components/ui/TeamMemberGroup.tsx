@@ -96,7 +96,7 @@ export const time = [
     altText: "Bruno Kuntz",
     ariaLabel: "Bruno Kuntz",
     name: "Bruno Kuntz",
-    role: "Finance/Marketplace",
+    role: "Finance/Operations",
     classVtex: "hidden",
     linkedin: "https://www.linkedin.com/in/brunokuntz/",
   },

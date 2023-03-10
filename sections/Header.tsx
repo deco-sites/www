@@ -19,8 +19,8 @@ export interface Props {
   campLabel: string;
   campAriaLabel: string;
   scheduleLabel: string;
-  blogAriaLabel: string
-  blogLabel: string
+  blogAriaLabel: string;
+  blogLabel: string;
 }
 
 export default function Header({
@@ -33,7 +33,6 @@ export default function Header({
   blogAriaLabel = "Link para o blog",
   blogLabel = "Blog",
 }: Props) {
-
   return (
     <header class="bg-primary-light flex justify-center">
       <nav

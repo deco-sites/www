@@ -1,7 +1,3 @@
-# description
-
----
-
 # Adicionando Imagens no seu site deco sem prejudicar performance
 
 > TL;DR

@@ -13,6 +13,7 @@ interface Props {
   mobile?: boolean;
 }
 export default function DocsSidebar(props: Props) {
+  console.log(props);
   const id = String(Math.random()).replaceAll(".", "");
   return (
     <>
@@ -53,14 +54,28 @@ export default function DocsSidebar(props: Props) {
       <ol class="list-decimal list-inside font-semibold nested">
         {props.menu.map(({ children, href, title }) => (
           <li class="my-2 block">
-            <a href={href} class="">
+            <a
+              href={href}
+              class={`${
+                href !== props.path
+                  ? "text(gray-900 hover:gray-600)"
+                  : "text(green-600 hover:green-500)"
+              }`}
+            >
               {title}
             </a>
             {!!children?.length && (
-              <ol class="pl-4 list-decimal">
+              <ol class="pl-4 list-decimal nested">
                 {children.map(({ title, href }) => (
                   <li class="my-0.5">
-                    <a href={href} class="">
+                    <a
+                      href={href}
+                      class={`font-normal ${
+                        href !== props.path
+                          ? "text(gray-900 hover:gray-600)"
+                          : "text(green-600 hover:green-500)"
+                      }`}
+                    >
                       {title}
                     </a>
                   </li>

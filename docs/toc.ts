@@ -39,6 +39,18 @@ const tableOfContents: TableOfContents = [{
   }],
 }];
 
+const tableOfContentsBySlug = tableOfContents.reduce((acc, cur) => {
+  const entries: TopLevelEntry[] = [cur, ...(cur.children || [])];
+  return Object.assign(
+    acc,
+    entries.reduce((acc, cur) => {
+      if (!cur.slug) return acc;
+      acc[cur.slug] = cur;
+      return acc;
+    }, {} as Record<string, TopLevelEntry>),
+  );
+}, {} as Record<string, TopLevelEntry>);
+
 export const getMenuDataForLanguage = (language: "en" | "pt") =>
   tableOfContents.map(({ title, slug, children }) => ({
     title: title[language],
@@ -51,6 +63,12 @@ export const getMenuDataForLanguage = (language: "en" | "pt") =>
     })),
   }));
 
+type SupportedLanguages = "en" | "pt";
+
+export const getTitleForPost = (language: SupportedLanguages, slug: string) => {
+  console.log({ tableOfContentsBySlug });
+  return tableOfContentsBySlug[slug]?.title[language];
+};
 export type MenuData = ReturnType<typeof getMenuDataForLanguage>;
 
 export default tableOfContents;

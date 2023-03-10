@@ -12,7 +12,12 @@ import {
 } from "$start/components/ui/docs/docs.ts";
 import DocsSidebar from "../../components/ui/docs/DocsSidebar.tsx";
 import Footer from "../../sections/Footer.tsx";
-import { getMenuDataForLanguage, MenuData } from "../../docs/toc.ts";
+import {
+  getMenuDataForLanguage,
+  getTitleForPost,
+  MenuData,
+} from "../../docs/toc.ts";
+import BlogHeader from "../../sections/BlogHeader.tsx";
 
 interface Data {
   page: Page;
@@ -25,10 +30,14 @@ interface Page extends Pick<TableOfContentsEntry, "href" | "title" | "slug"> {
 }
 
 export const handler: Handlers<Data> = {
-  async GET(_req, ctx) {
+  async GET(req, ctx) {
+    const reqUrl = new URL(req.url);
     const slug = ctx.params.slug;
     if (slug === "") {
-      return Response.redirect("/docs/pt/introduction", 307);
+      return new Response(null, {
+        status: 307,
+        headers: { location: "/docs/pt/introduction" },
+      });
     }
 
     // TODO: If slug matches a folder, send to first arcticle
@@ -46,18 +55,20 @@ export const handler: Handlers<Data> = {
       `../../docs/${documentSlug}/${language}.md`,
       import.meta.url,
     );
-    console.log({ url });
+
     const fileContent = await Deno.readTextFile(url);
+    // TODO: Fix performance/images (part of markdown is invalid)
     const { body, attrs } = frontMatter<Record<string, unknown>>(fileContent);
     // const page = { ...entry, markdown: body, data: attrs ?? {} };
     const menu = getMenuDataForLanguage(language as "pt" | "en");
+    const title = getTitleForPost(language as "en", documentSlug) || "Document";
 
     const page = {
       markdown: body,
       data: attrs ?? {},
       slug: documentSlug,
-      title: "TODO",
-      href: "/todo",
+      title,
+      href: reqUrl.pathname,
       menu,
     };
     const resp = ctx.render({ page });
@@ -72,6 +83,11 @@ export default function DocsPage(props: PageProps<Data>) {
     description = String(props.data.page.data.description);
   }
 
+  const englishLink = props.url.pathname.replace("/pt/", "/en/");
+  const portugueseLink = props.url.pathname.replace("/en/", "/pt/");
+  const isLanguage = (language: string) =>
+    props.url.pathname.includes(language);
+
   return (
     <>
       <Head>
@@ -80,14 +96,25 @@ export default function DocsPage(props: PageProps<Data>) {
         {description && <meta name="description" content={description} />}
       </Head>
       <div class="flex flex-col min-h-screen">
-        <Header
-          logoAriaLabel="deco.cx - Docs"
-          scheduleLabel="Solicite acesso"
-          campAriaLabel=""
-          campLabel=""
-          platformLabel=""
-          priceLabel=""
-        />
+        <BlogHeader logoAriaLabel="Logo Deco" />
+        <div class="flex flex-row justify-center mt-2 gap-2">
+          <a
+            href={englishLink}
+            class={isLanguage("en")
+              ? "text(green-600 hover:green-500)"
+              : "text(gray-900 hover:gray-600)"}
+          >
+            English
+          </a>
+          <a
+            href={portugueseLink}
+            class={isLanguage("pt")
+              ? "text(green-600 hover:green-500)"
+              : "text(gray-900 hover:gray-600)"}
+          >
+            Português
+          </a>
+        </div>
         <div class="flex-1">
           <input
             type="checkbox"
@@ -96,7 +123,8 @@ export default function DocsPage(props: PageProps<Data>) {
             autocomplete="off"
           >
           </input>
-          <div class="fixed inset-0 flex z-40 hidden toggled">
+          {/* Fix mobile sidebar */}
+          <div class="fixed inset-0 z-40 hidden toggled">
             <label
               class="absolute inset-0 bg-gray-600 opacity-75"
               for="docs_sidebar"
@@ -106,7 +134,11 @@ export default function DocsPage(props: PageProps<Data>) {
                 <DocsTitle title="docs" />
               </div>
               <nav class="pt-6 pb-16 px-4 overflow-x-auto">
-                <DocsSidebar mobile path={"TODO"} menu={props.data.page.menu} />
+                <DocsSidebar
+                  mobile
+                  path={props.url.pathname}
+                  menu={props.data.page.menu}
+                />
               </nav>
             </div>
           </div>
@@ -135,7 +167,10 @@ export default function DocsPage(props: PageProps<Data>) {
           <div class="mx-auto max-w-screen-lg px-4 flex gap-6">
             {/* Desktop Sidebar */}
             <nav class="w-[16rem] flex-shrink-0 hidden md:block py-8 pr-4 border(r-2 gray-100)">
-              <DocsSidebar path={"TODO"} menu={props.data.page.menu} />
+              <DocsSidebar
+                path={props.url.pathname}
+                menu={props.data.page.menu}
+              />
             </nav>
             <Content page={props.data.page} />
           </div>

@@ -19,7 +19,8 @@ export default function DocsSidebar(props: Props) {
   return (
     <>
       {/* Reenable this after we setup Algolia */}
-      {/* {props.mobile
+      {
+        /* {props.mobile
         ? (
           <button
             type="button"
@@ -48,7 +49,8 @@ export default function DocsSidebar(props: Props) {
             </span>
           </button>
         )
-        : <SearchButton />} */}
+        : <SearchButton />} */
+      }
 
       <DocsLanguageSwitcher currentPathname={props.path} />
       <ol class="list-decimal list-inside font-semibold nested">

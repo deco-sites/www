@@ -71,6 +71,7 @@ _Exemplo:_
 | }                        |                                                       |
 
 export default function ExampleSection({ title }: Props) { return <div>
+
 <h1>{title}</h1>
 <p>Essa é uma seção de exemplo</p>
 </div> } | |

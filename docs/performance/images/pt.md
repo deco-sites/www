@@ -9,7 +9,8 @@ description: Aprenda a usar imagens em seu site sem perder performance.
 > head do documento com as propriedades
 > `rel="preload" as="image" href="<<src_da_imagem>>"`.
 >
-> Prefira utilizar o componente de Image, Picture ou Source do Live.
+> O Live oferece componentes de Image, Picture e Source que fazem isso
+> automaticamente.
 
 Neste post vamos aprender sobre como utilizar das propriedades da tag de `<img>`
 e tag de `<link>` para melhorar a performance e experiência de navegação na
@@ -22,11 +23,11 @@ Você que é desenvolvedor frontend já deve ter se deparado com alguma dessas d
 imagens, a primeira é o report do CoreWebVitals do PageSpeed Insights, já a
 segunda é o report do Lighthouse.
 
-![image.png](files/b9c36ce4-f121-481d-a917-350495075bb9 "")
+<img width="964" alt="Resultados do PageSpeed" src="https://user-images.githubusercontent.com/18706156/224483655-907ec9fe-77b4-4c6a-9794-be382fe4deeb.png">
 
 #### 
 
-![image.png](files/b9394060-0862-48a9-8fed-611f3d7e9c44 "")
+<img width="960" alt="Resultados do PageSpeed" src="https://user-images.githubusercontent.com/18706156/224483656-bbf928ff-f96b-4156-83af-732dc3935ecb.png">
 
 Pode observar que a métrica de Largest Contentful Paint (LCP) está pintada de
 vermelho em ambas as imagens. Mas o que é LCP? LCP é uma métrica que indica
@@ -34,7 +35,7 @@ quanto tempo durou, em segundos, para exibir o maior texto ou imagem de uma
 página. Baseado neste tempo, o Lighthouse, ferramenta que calcula esta métrica,
 categoriza em: "Boa", "A melhorar" e "Ruim".
 
-Por que é importante melhorar o LCP? O google, criador do lighthouse, e outras
+Por que é importante melhorar o LCP? A Google, criadora do Lighthouse, e outras
 empresas realizaram pesquisas e identificaram que existe uma correlação entre um
 baixo LCP e uma alta conversão da página.
 
@@ -48,7 +49,7 @@ A primeira abordagem consiste em baixar imagens de dimensões menores, fazendo
 com que trafegue, na internet, menos dados das images e, consequentemente,
 baixando elas mais rápido, fazendo com que o LCP diminua. Para baixar imagens
 menores, podemos utilizar algumas abordagens, uma delas é a propriedade
-[**srcset**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset")
+[**srcset**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset)
 da tag img.
 
 #### Srcset
@@ -58,7 +59,7 @@ renderizada pelo browser, considerando a largura da viewport ou a densidade de
 pixel da tela do dispositivo (DPR). Neste exemplo abaixo, as imagens candidatas
 estão sendo consideradas baseado na viewport do dispositivo.
 
-```
+```html
 <img
   src="/imagem-1920px.png"
   srcset="/imagem-720px.png 720w, /imagem-1024px.png 1024w, /imagem-1920px.png 1920w" />
@@ -88,14 +89,14 @@ A tabela abaixo mostra como o browser faz para escolher a imagem candidata.
 Em alguns casos é interessante renderizar imagens diferentes e em dimensões
 diferentes baseados na viewport, porém a propriedade srcset não consegue lidar
 com este caso. Para lidar com isso, existe a propriedade
-[**sizes**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes")
+[**sizes**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
 da tag img.
 
 A propriedade **sizes** possui uma lista separada por vírgula, e cada valor
 descreve a largura da imagem renderizada em relação a viewport. Utilizando o
 mesmo exemplo anterior, adicionando sizes:
 
-```
+```html
 <img
   src="/imagem-1920px.png"
   sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -117,9 +118,8 @@ No exemplo acima o browser, com a propriedade sizes, você indica ao browser que
 A tabela abaixo mostra como browser faz para selecionar as imagens candidatas
 descritas no **srcset**
 
-|                     |                           |     |                                                                 |                                            |
-| ------------------- | ------------------------- | --- | --------------------------------------------------------------- | ------------------------------------------ |
 | Largura da Viewport | Largura da imagem         | DPR | Largura da **imagem** considerando DPR (largura viewport x DPR) | Imagem escolhida pelo browser (currentSrc) |
+| ------------------- | ------------------------- | --- | --------------------------------------------------------------- | ------------------------------------------ |
 | 360px               | 100vw = 1 \* 360px        | 1   | 360 × 1 = 360px                                                 | /imagem-720px.png                          |
 | 360px               | 100vw = 1 \* 360px        | 2   | 360 × 2 = 720px                                                 | /imagem-720px.png                          |
 | 420px               | 100vw = 1 × 420px         | 1   | 420 × 1 = 420px                                                 | /imagem-720px.png                          |
@@ -131,17 +131,17 @@ descritas no **srcset**
 
 Essas são as formas de renderizar as imagens candidatas da tag img do exemplo.
 
-#### <picture> e <source>
+#### \<picture\> e \<source\>
 
 Quando é necessário ter imagens diferentes beseado na largura da viewport é
-recomendado utilizar as tags picture e source. A tag source, utilizada como
+recomendado utilizar as tags `picture` e `source`. A tag source, utilizada como
 filho da tag picture, tem as propriedades sizes e srcset com semântica iguais as
 da tag `<img>`, além destas duas existe a propriedade media que recebe um valor
 de media query. Quando o valor media está presente na tag source, o browser
 elege, somente, as imagens presentes no srcset da tag source cuja media query
 der match. Veja o exemplo
 
-```
+```html
 <picture>
   <source media="(max-width: 720px)" srcset="/imagem-360px.png 360w, /imagem-720px.png 720w" />
   <source media="(max-width: 1024px)" srcset="/imagem-1024px.png 1024w" />
@@ -152,9 +152,8 @@ der match. Veja o exemplo
 
 Veja a seguir como o browser escolhe as imagens:
 
-|                     |                    |     |                                                                 |                                            |
-| ------------------- | ------------------ | --- | --------------------------------------------------------------- | ------------------------------------------ |
 | Largura da Viewport | Largura da imagem  | DPR | Largura da **imagem** considerando DPR (largura viewport x DPR) | Imagem escolhida pelo browser (currentSrc) |
+| ------------------- | ------------------ | --- | --------------------------------------------------------------- | ------------------------------------------ |
 | 360px               | 100vw = 1 \* 360px | 1   | 360 × 1 = 360px                                                 | /imagem-360px.png                          |
 | 360px               | 100vw = 1 \* 360px | 2   | 360 × 2 = 720px                                                 | /imagem-720px.png                          |
 | 420px               | 100vw = 1 × 420px  | 1   | 420 × 1 = 420px                                                 | /imagem-720px.png                          |
@@ -174,8 +173,7 @@ usabilidade. Até aqui, neste tutorial, aprendemos como otimizar os recursos
 consumidos pelo browser através de imagens diferentes e de dimensões adequadas.
 
 Além disso, o browser permite alterar a prioridade de algumas "atividades",
-durante seu
-[ciclo de vida](https://dev.to/antonfrattaroli/what-happens-when-you-type-googlecom-into-a-browser-and-press-enter-39g8 "https://dev.to/antonfrattaroli/what-happens-when-you-type-googlecom-into-a-browser-and-press-enter-39g8")
+durante seu [ciclo de vida](https://dev.to/antonfrattaroli/what-happens-when-you-type-googlecom-into-a-browser-and-press-enter-39g8)
 para renderizar uma página. Uma forma de alterar a prioridade é através das
 propriedades **loading** da tag `<img>`.
 
@@ -208,7 +206,7 @@ que a pagina é carregada, é interessante ter a propriedade decoding com valor
 
 Exemplo utilizando propriedades loading e decoding;
 
-```
+```html
 <!-- imagem acima do fold -->
 <img src="/imagem.png" loading="eager" />
 
@@ -236,7 +234,7 @@ Além disso, é possível priorizar o request de um recurso através da propried
 Exemplo abaixo mostra como pré carregar uma imagem, que é o LCP, e aumentar a
 prioridade do seu request.
 
-```
+```html
 <head>
   <link rel="preload" as="image" fetchpriority="high" media="(max-width: 720px)" href="/imagem-720px.png" imagesrcset="/imagem-720px.png 720w" />
   <link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="/imagem-1024px.png" imagesrcset="/imagem-1024px.png 1024w" />
@@ -254,7 +252,7 @@ prioridade do seu request.
 
 #### Utilizando o componente Imagem do Live
 
-O componente de Imagem do live ele foi construído com o objetivo de habilitar a
+O componente de Imagem do Live construído com o objetivo de habilitar a
 máxima performance da sua página utilizando as propriedades mencionadas
 anteriormente. Além disso, padrão o componente de Imagem e Source utiliza
 imagens otimizadas no formato webp e adiciona srcset com imagens com largura 1x,
@@ -262,7 +260,7 @@ imagens otimizadas no formato webp e adiciona srcset com imagens com largura 1x,
 
 **Utilizando o componente de Imagem**
 
-```
+```tsx
 import Image from "$live/std/ui/components/Image.tsx";
 
 function MeuComponente() {
@@ -273,7 +271,7 @@ function MeuComponente() {
 A propriedade preload do componente Image adiciona uma tag link com **preload**
 no **head** do `document`. O HTML gerado com esse componente:
 
-```
+```html
 <html>
   <head>
     <link rel="preload" as="image" href=/image.png" imagesrcset=".../w-420,h-420/image.png 420w, .../w-630,h-630/image.png 630w, .../w-840,h-840/image.png 840w" imgagesizes="(max-width: 640px) 100vw, 50vw" fetchpriority="high" />
@@ -286,7 +284,7 @@ no **head** do `document`. O HTML gerado com esse componente:
 
 **Utilizando o componente Picture e Source**
 
-```
+```tsx
 import {Picture, Source} from "$live/std/ui/components/Picture.tsx";
 
 function MeuComponente() {
@@ -319,7 +317,7 @@ function MeuComponente() {
 
 O HTML gerado com esse componente:
 
-```
+```html
 <html>
  <head>
   <link as="image" rel="preload" href="/image-mobile.png" imagesrcset=".../w-360,h-600/image-mobile.png 360w, .../w-540,h-900/image-mobile.png 540w, .../w-720,h-1200/image-mobile.png 720w" fetchpriority="high" media="(max-width: 767px)">
@@ -334,6 +332,8 @@ O HTML gerado com esse componente:
  </body>
 </html>
 ```
+
+<!-- TODO: Linkar com o tipo LiveImage que automaticamente adiciona um upload de imagem -->
 
 Para mais informações sobre as APIs dos componentes de imagem, picture e source
 do live, acesse:

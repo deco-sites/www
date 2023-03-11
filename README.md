@@ -1,4 +1,4 @@
-# Deco Landing Page (deco.cx)
+# Deco Landing Page (deco.cx) + docs + blog
 
 ---
 
@@ -23,3 +23,9 @@ Navigate to `https://localhost:8000` to see the admin.
 ### Form submission
 
 Required `DISCORD_LEADS_WEBHOOK_URL` env var to test feature
+
+## Docs
+
+To add a new docs, change the following files:
+- `toc.ts` to add it to the menu tree.
+- `decs/...` to add the new Markdown document

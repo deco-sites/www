@@ -32,12 +32,14 @@ interface Page extends Pick<TableOfContentsEntry, "href" | "title" | "slug"> {
 export const handler: Handlers<Data> = {
   async GET(req, ctx) {
     const reqUrl = new URL(req.url);
+
     const slug = ctx.params.slug;
     if (slug === "") {
       return new Response(null, {
         status: 307,
         headers: { location: "/docs/pt/introduction" },
       });
+
     }
 
     // TODO: If slug matches a folder, send to first arcticle

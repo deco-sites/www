@@ -25,7 +25,11 @@ const tableOfContents: TableOfContents = [{
     title: { pt: "Imagens", en: "Images" },
     slug: "performance/images",
   }, {
-    title: { pt: "SVG Sprites", en: "SVG Sprites" },
+    title: {
+      pt:
+        "SVG Sprites",
+      en: "SVG Sprites",
+    },
     slug: "performance/svg-sprites",
   }],
 }, {

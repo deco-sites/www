@@ -1,17 +1,16 @@
-# description
-
 ---
-
-# Melhorando a performance de uma página utilizando da técnica de SVG Sprites
+description: Aprenda a usar a técnica de SVG sprites para otimizar a performance do seu site
+---
 
 > TL;DR: Use um arquivo único SVG e identifique cada símbolo com um `id`. Onde
 > você quiser usar o SVG, utilize a tag `use` apontando pra o ID específico
 
-Vídeo com um tutorial rápido aplicando a técnica de SVG Sprites num site
-[deco.cx](http://deco.cx) - <https://github.com/deco-sites/fashion/>
+## Versão em vídeo
 
-<https://www.loom.com/share/e34d5d715f7c4efaae18e4eca799edca>
+Para assistir o conteúdo desse artigo, clique [aqui](https://www.loom.com/share/e34d5d715f7c4efaae18e4eca799edca)
 
+
+## SVG
 SVG (Scalable Vector Graphics, ou Vetores Gráficos Escaláveis) é um formato
 gráfico comumente utilizando em aplicações para representar ícones, logomarcas
 ou elementos que precisam ser escalados sem perder qualidade. Contudo, o seu uso
@@ -27,12 +26,12 @@ impacto na performance de uma página causado por SVGs.
 
 SVG sprites consiste em você ter um arquivo svg que seja acessível pela internet
 e nele tenha as as símbolos de cada svg utilizando a tag `<symbol>` e
-adicionando a propriedade \``id` em cada um dos elementos que deseja utilizar -
+adicionando a propriedade `id` em cada um dos elementos que deseja utilizar -
 pode utilizar outras tags como: `<defs>` , `<g>` dentre outras.
 
 Segue um exemplo de arquivo svg com um símbolo e id **XMark**
 
-```
+```html
 <svg style="display:none">
   <symbol id="XMark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></symbol>
 </svg>
@@ -49,7 +48,7 @@ Segue um exemplo:
 Digamos que o nome do arquivo svg é `icons.svg` e ele está disponível no path
 `meudominio.com/icons.svg`
 
-```
+```html
 <!-- icons.svg -->
 <svg style="display:none">
  <symbol id="XMark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></symbol>
@@ -58,7 +57,7 @@ Digamos que o nome do arquivo svg é `icons.svg` e ele está disponível no path
 
 Você pode referenciar o símbolo **XMark** dentro do seu html desta forma:
 
-```
+```html
 <svg>
   <use href="//meudominio.com/icons.svg#XMark" />
 </svg>
@@ -96,5 +95,3 @@ que são exibidos acima do "Fold".
   <https://developer.chrome.com/docs/lighthouse/performance/speed-index/>;
 - First Contentful Paint (FCP) - <https://web.dev/fcp/>;
 - Largest Contentful Paint (LCP) - [https://web.dev/lcp](https://web.dev/fcp/) ;
-
-#### 

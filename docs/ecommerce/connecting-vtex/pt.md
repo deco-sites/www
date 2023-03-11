@@ -1,13 +1,15 @@
-# description
-
+---
+description: Aprenda como configurar a conexão da deco com qualquer conta VTEX.
 ---
 
+## Versão em vídeo
+
+Para assistir o conteúdo desse artigo, clique
+[aqui](https://www.loom.com/share/9fee00a691dd44cfb35d1e2680719e5e)
+
 Esse guia mostra como criar e configurar um site na
-[**deco.cx**](http://deco.cx)** **para um _storefront_ que lê dados da
-plataforma de ecommerce [VTEX](https://vtex.com/ "https://vtex.com/").\
-\
-Vídeo deste guia:
-[https://www.loom.com/share/9fee00a691dd44cfb35d1e2680719e5e](https://www.loom.com/share/9fee00a691dd44cfb35d1e2680719e5e "https://www.loom.com/share/9fee00a691dd44cfb35d1e2680719e5e")
+[**deco.cx**](http://deco.cx) para um _storefront_ que lê dados da plataforma de
+ecommerce [VTEX](https://vtex.com/ "https://vtex.com/").
 
 ## Pré-requisitos
 
@@ -21,7 +23,7 @@ Vídeo deste guia:
 - Desenvolvedores Web familiarizados com React/Preact e também conhecimento em
   [VTEX](https://vtex.com/ "https://vtex.com/").
 
-A [**deco.cx**](http://deco.cx)** **é feita especialmente para criando de
+A [**deco.cx**](http://deco.cx) é feita especialmente para criando de
 commerce experiences de alto desempenho, e nesse guia ensinaremos como dar os
 primeiros passos para configurar um site _deco_ que lê dados de uma conta VTEX.
 
@@ -30,7 +32,7 @@ primeiros passos para configurar um site _deco_ que lê dados de uma conta VTEX.
 Para prosseguir, siga os passos do guia [[Documentação deco/Guides: Comece a
 usar o Live]] e **selecione o template Deco Commerce na criação do site.**
 
-![image.png](files/240c86c0-7f39-4cad-91af-d228b1c4d682 "")
+<img width="586" alt="Criando um site na deco.cx" src="https://user-images.githubusercontent.com/18706156/224514991-0e882420-00a8-4272-a2d0-71f73ac77d23.png">
 
 Complete todos os passos do guia, finalmente **clonando o repositório do site
 recém-criado localmente.**
@@ -60,7 +62,7 @@ Para fazer essa mudança, siga os passos:
 
 5. Clique em **Save Draft**
 
-![image.png](files/d8edfc69-6269-45ee-a559-71edb8ba3e0e "")
+<img width="486" alt="Configuração da VTEX dentro do admin da deco.cx" src="https://user-images.githubusercontent.com/18706156/224514994-d5edd89b-705c-42e6-952e-3db3f9d5de2e.png">
 
 Se necessário, também altere configurações como o canal de vendas (_sales
 channel)_ e a língua da loja.
@@ -71,7 +73,7 @@ com uma configuração fornecida. Clique no ícone de caneta (✏️) e edite o 
 **Query** para alguma palavra-chave relacionada ao catálogo da conta que você
 configurou (ex: se é uma loja de móveis, digite _"mesa")._
 
-![image.png](files/3bd80348-ddc8-460c-a57a-d0208450e36e "")
+<img width="1440" alt="Editor da deco.cx com uma página de ProductShelf" src="https://user-images.githubusercontent.com/18706156/224514990-0e41dba8-96b8-475b-9744-48706d2de623.png">
 
 > Caso ainda não tenha configurado uma integração com a VTEX, clique no ícone de
 > setas 🔁 ou em **"Add Integration"** e selecione a opção **vtexProductList** e

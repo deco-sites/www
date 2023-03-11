@@ -13,9 +13,9 @@ funçāo `onmouseover`, para adicionar esse tipo de interatividade. Contudo, ess
 comportamento é possivel de ser replicado somente com HTML e CSS, entregando uma
 performance optimal para dispositivos moveis e desktop.
 
-O grande segredo desse tipo de menu é a utilizacao da classe `group` do [twind](https://twind.style/).
-Com ela, conseguimos fazer o menu ficar visivel dependendo do elemento sendo
-sobreposto.
+O grande segredo desse tipo de menu é a utilizacao da classe `group` do
+[twind](https://twind.style/). Com ela, conseguimos fazer o menu ficar visivel
+dependendo do elemento sendo sobreposto.
 
 Por exemplo, suponha o seguinte codigo:
 

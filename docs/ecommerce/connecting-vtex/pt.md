@@ -23,9 +23,9 @@ ecommerce [VTEX](https://vtex.com/ "https://vtex.com/").
 - Desenvolvedores Web familiarizados com React/Preact e também conhecimento em
   [VTEX](https://vtex.com/ "https://vtex.com/").
 
-A [**deco.cx**](http://deco.cx) é feita especialmente para criando de
-commerce experiences de alto desempenho, e nesse guia ensinaremos como dar os
-primeiros passos para configurar um site _deco_ que lê dados de uma conta VTEX.
+A [**deco.cx**](http://deco.cx) é feita especialmente para criando de commerce
+experiences de alto desempenho, e nesse guia ensinaremos como dar os primeiros
+passos para configurar um site _deco_ que lê dados de uma conta VTEX.
 
 ## Criando o site
 

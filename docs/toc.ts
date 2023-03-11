@@ -26,8 +26,7 @@ const tableOfContents: TableOfContents = [{
     slug: "performance/images",
   }, {
     title: {
-      pt:
-        "SVG Sprites",
+      pt: "SVG Sprites",
       en: "SVG Sprites",
     },
     slug: "performance/svg-sprites",

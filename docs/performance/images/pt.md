@@ -173,7 +173,8 @@ usabilidade. Até aqui, neste tutorial, aprendemos como otimizar os recursos
 consumidos pelo browser através de imagens diferentes e de dimensões adequadas.
 
 Além disso, o browser permite alterar a prioridade de algumas "atividades",
-durante seu [ciclo de vida](https://dev.to/antonfrattaroli/what-happens-when-you-type-googlecom-into-a-browser-and-press-enter-39g8)
+durante seu
+[ciclo de vida](https://dev.to/antonfrattaroli/what-happens-when-you-type-googlecom-into-a-browser-and-press-enter-39g8)
 para renderizar uma página. Uma forma de alterar a prioridade é através das
 propriedades **loading** da tag `<img>`.
 
@@ -252,11 +253,11 @@ prioridade do seu request.
 
 #### Utilizando o componente Imagem do Live
 
-O componente de Imagem do Live construído com o objetivo de habilitar a
-máxima performance da sua página utilizando as propriedades mencionadas
-anteriormente. Além disso, padrão o componente de Imagem e Source utiliza
-imagens otimizadas no formato webp e adiciona srcset com imagens com largura 1x,
-1.5x e 2x a dimensão passada para o componente.
+O componente de Imagem do Live construído com o objetivo de habilitar a máxima
+performance da sua página utilizando as propriedades mencionadas anteriormente.
+Além disso, padrão o componente de Imagem e Source utiliza imagens otimizadas no
+formato webp e adiciona srcset com imagens com largura 1x, 1.5x e 2x a dimensão
+passada para o componente.
 
 **Utilizando o componente de Imagem**
 
@@ -264,7 +265,18 @@ imagens otimizadas no formato webp e adiciona srcset com imagens com largura 1x,
 import Image from "$live/std/ui/components/Image.tsx";
 
 function MeuComponente() {
-  return <Image src="/image.png" sizes="(max-width: 640px) 100vw, 50vw" width={420} height={420} loading="eager" decoding="async" fetchPriority="high" preload />
+  return (
+    <Image
+      src="/image.png"
+      sizes="(max-width: 640px) 100vw, 50vw"
+      width={420}
+      height={420}
+      loading="eager"
+      decoding="async"
+      fetchPriority="high"
+      preload
+    />
+  );
 }
 ```
 
@@ -285,33 +297,35 @@ no **head** do `document`. O HTML gerado com esse componente:
 **Utilizando o componente Picture e Source**
 
 ```tsx
-import {Picture, Source} from "$live/std/ui/components/Picture.tsx";
+import { Picture, Source } from "$live/std/ui/components/Picture.tsx";
 
 function MeuComponente() {
-  return <Picture class="w-screen block" preload>
-            <Source
-              media="(max-width: 767px)"
-              fetchPriority="high"
-              src="/image-mobile.png"
-              width={360}
-              height={331}
-            />
-            <Source
-              media="(min-width: 768px)"
-              fetchPriority="high"
-              src="/image-desktop.png"
-              width={1366}
-              height={517}
-            />
-            <img
-              class="object-cover w-full"
-              loading="eager"
-              decoding="async"
-              src="/image-desktop.png"
-              width={1366}
-              height={517}
-            />
-          </Picture>
+  return (
+    <Picture class="w-screen block" preload>
+      <Source
+        media="(max-width: 767px)"
+        fetchPriority="high"
+        src="/image-mobile.png"
+        width={360}
+        height={331}
+      />
+      <Source
+        media="(min-width: 768px)"
+        fetchPriority="high"
+        src="/image-desktop.png"
+        width={1366}
+        height={517}
+      />
+      <img
+        class="object-cover w-full"
+        loading="eager"
+        decoding="async"
+        src="/image-desktop.png"
+        width={1366}
+        height={517}
+      />
+    </Picture>
+  );
 }
 ```
 

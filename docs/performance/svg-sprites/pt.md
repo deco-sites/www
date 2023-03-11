@@ -7,10 +7,11 @@ description: Aprenda a usar a técnica de SVG sprites para otimizar a performanc
 
 ## Versão em vídeo
 
-Para assistir o conteúdo desse artigo, clique [aqui](https://www.loom.com/share/e34d5d715f7c4efaae18e4eca799edca)
-
+Para assistir o conteúdo desse artigo, clique
+[aqui](https://www.loom.com/share/e34d5d715f7c4efaae18e4eca799edca)
 
 ## SVG
+
 SVG (Scalable Vector Graphics, ou Vetores Gráficos Escaláveis) é um formato
 gráfico comumente utilizando em aplicações para representar ícones, logomarcas
 ou elementos que precisam ser escalados sem perder qualidade. Contudo, o seu uso

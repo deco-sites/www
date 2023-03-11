@@ -39,7 +39,6 @@ export const handler: Handlers<Data> = {
         status: 307,
         headers: { location: "/docs/pt/introduction" },
       });
-
     }
 
     // TODO: If slug matches a folder, send to first arcticle

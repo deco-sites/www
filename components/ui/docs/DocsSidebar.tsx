@@ -4,6 +4,7 @@ import {
   TableOfContentsCategory,
   TableOfContentsCategoryEntry,
 } from "./docs.ts";
+import DocsLanguageSwitcher from "./DocsLanguageSwitcher.tsx";
 // import SearchButton from "$start/islands/SearchButton.tsx";
 
 interface Props {
@@ -18,8 +19,7 @@ export default function DocsSidebar(props: Props) {
   return (
     <>
       {/* Reenable this after we setup Algolia */}
-      {
-        /* {props.mobile
+      {/* {props.mobile
         ? (
           <button
             type="button"
@@ -48,9 +48,9 @@ export default function DocsSidebar(props: Props) {
             </span>
           </button>
         )
-        : <SearchButton />} */
-      }
+        : <SearchButton />} */}
 
+      <DocsLanguageSwitcher currentPathname={props.path} />
       <ol class="list-decimal list-inside font-semibold nested">
         {props.menu.map(({ children, href, title }) => (
           <li class="my-2 block">

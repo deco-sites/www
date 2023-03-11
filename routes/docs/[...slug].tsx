@@ -83,11 +83,6 @@ export default function DocsPage(props: PageProps<Data>) {
     description = String(props.data.page.data.description);
   }
 
-  const englishLink = props.url.pathname.replace("/pt/", "/en/");
-  const portugueseLink = props.url.pathname.replace("/en/", "/pt/");
-  const isLanguage = (language: string) =>
-    props.url.pathname.includes(language);
-
   return (
     <>
       <Head>
@@ -97,24 +92,6 @@ export default function DocsPage(props: PageProps<Data>) {
       </Head>
       <div class="flex flex-col min-h-screen">
         <BlogHeader logoAriaLabel="Logo Deco" />
-        <div class="flex flex-row justify-center mt-2 gap-2">
-          <a
-            href={englishLink}
-            class={isLanguage("en")
-              ? "text(green-600 hover:green-500)"
-              : "text(gray-900 hover:gray-600)"}
-          >
-            English
-          </a>
-          <a
-            href={portugueseLink}
-            class={isLanguage("pt")
-              ? "text(green-600 hover:green-500)"
-              : "text(gray-900 hover:gray-600)"}
-          >
-            Português
-          </a>
-        </div>
         <div class="flex-1">
           <input
             type="checkbox"

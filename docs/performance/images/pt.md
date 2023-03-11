@@ -1,4 +1,6 @@
-# Adicionando Imagens no seu site deco sem prejudicar performance
+---
+description: Aprenda a usar imagens em seu site sem perder performance.
+---
 
 > TL;DR
 >
@@ -68,9 +70,8 @@ Esse exemplo mostra que para dimensões de até 720px renderiza imagem
 
 A tabela abaixo mostra como o browser faz para escolher a imagem candidata.
 
-|                     |     |                                                                   |                                            |
-| ------------------- | --- | ----------------------------------------------------------------- | ------------------------------------------ |
 | Largura da Viewport | DPR | Largura da **viewport** considerando DPR (largura viewport x DPR) | Imagem escolhida pelo browser (currentSrc) |
+| ------------------- | --- | ----------------------------------------------------------------- | ------------------------------------------ |
 | 360px               | 1   | 360 × 1 = 360px                                                   | /imagem-720px.png                          |
 | 360px               | 2   | 360 × 2 = 720px                                                   | /imagem-720px.png                          |
 | 360px               | 3   | 360 × 3 = 1080px                                                  | /imagem-1920px.png                         |

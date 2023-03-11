@@ -1,240 +1,222 @@
 ---
-description: |
-   A section represents a configurable UI element for a deco site. This article further explains the concept
+description: Uma seção representa um elemento de interface do usuário configurável para um site deco. Este artigo explica melhor o conceito
 ---
 
-**Live** allows developers to create UI sections in code that can be configured
-by business users through the admin of the [deco.cx.](deco.cx "deco.cx")
-Sections are available in the following locations:
+O **Live** permite que desenvolvedores criem seções de UI no código que podem
+ser configuradas por usuários de negócios através do admin da
+[deco.cx.](deco.cx "deco.cx") As seções ficam disponíveis nos seguintes locais:
 
-- **Workbench:** Allows developers to configure the properties of sections and
-  automatically see the generated UI.
-- **Pages:** Allows sections to be added to pages on the site, too being
-  configured as desired.
+- **Workbench:** Permite que desenvolvedores configurem as propriedades das
+  seções e vejam automaticamente a UI gerada.
+- **Pages:** Permite que as seções sejam adicionadas em páginas do site, também
+  sendo configuradas como desejado.
 
-## What are sections in code?
+## O que são seções no código?
 
-Sections are **components
-[Preact](https://preactjs.com/ "https://preactjs.com/")** exported with _default
-export_ by files in the `sections/` folder in a site's repository Live.
+Seções são **componentes [Preact](https://preactjs.com/ "https://preactjs.com/")
+**exportados com _default export_ por arquivos na pasta `sections/` no
+repositório de um site Live.
 
-Some examples of sections on an ecommerce site would be:
+Alguns exemplos de seções em um site de ecommerce seriam:
 
-- **Product Shelf:** displays a product shelf with image, title and price.
-- **Header:** displays the standard header of the store, containing logo, menu
-  categories and links for cart and login.
-- **Banner:** displays image, text and some _Call to action_ for campaign or
-  specific department.
+- **Product Shelf:** exibe uma prateleira de produtos com imagem, título e
+  preço.
+- **Header:** exibe o cabeçalho padrão da loja, contendo logomarca, menu de
+  categorias e links para carrinho e login.
+- **Banner:** exibe imagem, texto e algum _Call to action_ para campanha ou
+  departamento específico.
 
-Note that sections run on the server only, so state management such as
-`useState`, `useEffect` and callbacks such as `onClick`, `onInput` will not
-work. For this you will have to use sections in set with islands.
+Note que seções são executadas no servidor somente, logo funçōes de
+gerenciamento de estado como `useState`, `useEffect` e callbacks, como
+`onClick`, `onInput` não funcionarão. Para isso, você terá que usar seções em
+conjunto com ilhas.
 
-## How to create a section
+## Como criar uma seção
 
-1. Create a `.tsx` file in the `sections/` folder on your website.
+1. Crie um arquivo `.tsx` na pasta `sections/` no seu site.
 
-2. Export a component [Preact](https://preactjs.com/ "https://preactjs.com/")
-   like the example below:
+2. Exporte um componente [Preact](https://preactjs.com/ "https://preactjs.com/")
+   como o do exemplo abaixo:
 
    1. `sections/Example.tsx`
 
-      ```tsx
+      ```
       export default function ExampleSection() {
-        return (
-          <div>
-            <p>This is an example section</p>
+        return <div>
+            <p>Essa é uma seção de exemplo</p>
           </div>
-        );
       }
       ```
 
-3. Done! Now this section will be available to be configured in the admin of the
+3. Pronto! Agora esta seção estará disponível para ser configurada no admin da
    [deco.cx](deco.cx "deco.cx").
 
-## Customizing sections
+## Customizando seções
 
-It is usually desirable for the site to have text and images that can be edited
-by users. of business through a CMS _(Content Management System),_ and the
-[deco.cx](deco.cx "deco.cx") provides this functionality across sections.
+Comumente é desejável que o site tenha textos e imagens editáveis por usuários
+de negócio através de um CMS _(Content Management System),_ e a
+[deco.cx](deco.cx "deco.cx") oferece essa funcionalidade através das seções.
 
-To provide customization, a section can **accept Props** like any JSX/Preact
-component. It is necessary to **export the type (Typescript) of the Props** for
-our editor to recognize the fields that are accepted.
+Para oferecer customização, um seção pode **aceitar Props** como qualquer
+componente JSX/Preact. É necessário **exportar o tipo (Typescript) das Props**
+para que o nosso editor reconheça os campos que são aceitos.
 
-_Example:_
+_Exemplo:_
 
-- Section configuration in [deco.cx](deco.cx "deco.cx")
+|                          |                                                       |
+| ------------------------ | ----------------------------------------------------- |
+| `/sections/Example.tsx`  | Configuração da seção em [deco.cx](deco.cx "deco.cx") |
+| export interface Props { |                                                       |
+| title: string            |                                                       |
+| }                        |                                                       |
 
-```tsx
-export interface props {
-  title: string;
-}
+export default function ExampleSection({ title }: Props) { return <div>
+<h1>{title}</h1>
+<p>Essa é uma seção de exemplo</p>
+</div> } | |
 
-export default function ExampleSection({ title }: Props) {
-  return (
-    <div>
-      <h1>{title}</h1>
-      <p>This is an example section</p>
-    </div>
-  );
-}
-```
+## Tipos aceitos
 
-- Preview of section editing in Admin
+O editor da [deco.cx](deco.cx "deco.cx") aceita um subconjunto de tipos
+Typescript para configuração das seções. Essa é a lista de tipos suportados no
+momento:
 
-<img width="303" alt="Preview of section editing in Admin" src="https://user-images.githubusercontent.com/18706156/219485206-732b566b-0f8f-43ce-a512-fa8252e99642.png">
-
-## Types accepted
-
-The [deco.cx](deco.cx "deco.cx") editor accepts a subset of types Typescript for
-section configuration. This is the list of supported types in time:
-
-### Native Types
+### Tipos Nativos
 
 #### string
 
-```ts
-export interface props {
-  title: string;
+```
+export interface Props {
+  title: string
 }
 ```
 
 #### number
 
-```ts
-export interface props {
-  numberOfLines: number;
+```
+export interface Props {
+  numberOfLines: number
 }
 ```
 
 #### object literal
 
-```ts
-export interface props {
+```
+export interface Props {
   address: {
-    street: string;
-    postalCode: string;
-  };
+    street: string,
+    postalCode: string
+  }
 }
 ```
 
 #### array
 
-```ts
-export interface props {
+```
+export interface Props {
   menuItems: Array<{ label: string; value: string }>;
 }
 ```
 
 #### string options
 
-```ts
-export interface props {
-  variant: "primary" | "secondary" | "tertiary";
+```
+export interface Props {
+  variant: 'primary' | 'secondary' | 'tertiary'
 }
 ```
 
-### Special Types
+### Tipos Especiais
 
 #### Image
 
-This type renders an image upload _widget_ in the editor, making it possible to
-user to upload images from his own computer.
+Esse tipo renderiza um _widget_ de upload de imagem no editor, possibilitando o
+usuário de subir imagens do seu próprio computador.
 
-The type is a *wrapper for `string`, *so the section component will get the URL
-of the image that will be hosted on the servers of [deco.cx](deco.cx "deco.cx").
+O tipo é um *wrapper para `string`, *então o componente da seção receberá a URL
+da imagem que estará hospedada nos servidores da [deco.cx](deco.cx "deco.cx").
 
-**Optional:** [deco.cx](http://deco.cx) provides a component that optimizes the
-image loading and can be used in conjunction with this property. Example tsx")
+**Opcional:** A [deco.cx](http://deco.cx) oferece um componente que otimiza o
+carregamento de imagens e pode ser usado em conjunto com essa propriedade.
+Exemplo
+[aqui](https://github.com/deco-sites/fashion/blob/e15a0320fe9e0b7503eb4723f7c230b23886c2b5/sections/BannnerGrid.tsx "https://github.com/deco-sites/fashion/blob/e15a0320fe9e0b7503eb4723f7c230b23886c2b5/sections/BannnerGrid.tsx")
 
-```ts
+```
 import type { Image } from "$live/std/ui/types/Image.ts";
 
-export interface props {
-  bannerImg: Image;
+export interface Props {
+  bannerImg: Image
 }
 ```
 
 #### Video
 
-Similar to Image, properties with this type will be edited through a Video
-upload _widget_.
+Similar ao Image, propriedades com esse tipo serão editadas através de um
+_widget_ de upload de vídeos.
 
-Example of use
-[here](https://github.com/deco-sites/fashion/blob/e15a0320fe9e0b7503eb4723f7c230b23886c2b5/sections/VideoCarousel.tsx#L3 "https://github.com/deco-sites/fashion/blob/e15a0320fe9e0b7503eb4230b2csection/ VideoCarousel.tsx#L3").
+Exemplo de uso
+[aqui](https://github.com/deco-sites/fashion/blob/e15a0320fe9e0b7503eb4723f7c230b23886c2b5/sections/VideoCarousel.tsx#L3 "https://github.com/deco-sites/fashion/blob/e15a0320fe9e0b7503eb4723f7c230b23886c2b5/sections/VideoCarousel.tsx#L3").
 
-```ts
+```
 import type { Video } from "$live/std/ui/types/Video.ts";
 
-export interface props {
-  myVideo: Video;
+export interface Props {
+  myVideo: Video
 }
 ```
 
-### Enriching the editor
+### Enriquecendo o editor
 
-When using native types, the editor's input label is the variable name. Pro
-example, the `Props` type below will generate an editor with an input whose
-label is `count`
+Ao usar tipos nativos, a label do input do editor é o nome da variável. Pro
+exemplo, o tipo `Props` abaixo vai gerar um editor com um input cuja label é
+`Count`
 
-- _section_ code
+|                          |        |
+| ------------------------ | ------ |
+| código                   | editor |
+| export interface Props { |        |
+| count: number            |        |
+| }                        |        |
 
-```tsx
-export interface props {
-  /** @title Number of products */
-  /** @description Total products to show in the showcase */
-  count: number;
-}
-```
-
-- editor
-
-![Example](https://deco.fibery.io/api/files/73302d29-bdee-471c-ab2d-75f78ddedb58?is-public=1#align=%3Aalignment%2Fblock-center&width=348&height=102)
-
-The above behavior is convenient for the developer, however, users of Businesses
-appreciate having a guided edit where fields have descriptive names. For modify
-labels and other editor attributes we use tags
+O comportamento acima é conveniente para o desenvolvedor, contudo, usuários de
+negocio apreciam ter uma ediçāo guiada onde campos tem nomes descritivos. Para
+modificar labels e outros atributos do editor utilizamos tags
 [JSDoc](https://jsdoc.app/ "https://jsdoc.app/").
 
-Suppose that, in the example above, the `count` variable represents the number
-of products to be rendered on a shelf or display case. To improve the business
-user's editing experience, we can modify the type to generate the following
-editor:
+Suponha que, no exemplo acima, a variável `count` represente o numero de
+produtos a serem renderizados em uma prateleira ou vitrine. Para melhorar a
+experiencia de ediçāo do usuário de negócio, podemos modificar o tipo para gerar
+o seguinte editor:
 
-- _section_ code
+|                                                           |        |
+| --------------------------------------------------------- | ------ |
+| código                                                    | editor |
+| export interface Props {                                  |        |
+| /\*\*                                                     |        |
+| \* @title Numero de produtos                              |        |
+| \* @description Total de produtos para mostrar na vitrine |        |
+| \* \*/                                                    |        |
+| count: number;                                            |        |
+| }                                                         |        |
 
-```tsx
-export interface props {
-   /\*\*
-    \* @title Number of products
-    \* @description Total products to show in the showcase
-    \* \*/
-   count: number;
+As tags disponíveis são campos compatíveis com
+[JSON Schema](https://json-schema.org/ "https://json-schema.org/"), ou seja,
+`@title`, `@description`, `@format` entre outras. Por exemplo, para aceitar
+somente emails:
+
+```
+export interface Props {
+  /** @format email */
+  email: string
 }
 ```
 
-- editor
+### Carregamento de dados
 
-![Example](https://deco.fibery.io/api/files/62cc889a-9460-4899-8d35-44f6a6608400?is-public=1#align=%3Aalignment%2Fblock-center&width=350&height=135)
+Algumas seções (ex: **Product Shelf**) precisam de dados que não são
+necessariamente configurados por usuários no editor, mas que precisam ser
+carregados utilizando uma API externa. Para esse funcionalidade, também é
+possível exportar tipos específicos de dados nas Props e se alavancar do Live.
 
-The available tags are fields compatible with
-[JSON Schema](https://json-schema.org/ "https://json-schema.org/"), i.e.
-`@title`, `@description`, `@format` among others. For example, to accept emails
-only:
-
-```
-export interface props {
-   /** @format email */
-   email: string
-}
-```
-
-### Loading data
-
-Some sections (eg **Product Shelf**) need data that is not necessarily
-configured by users in the editor, but which need to be loaded using an external
-API. For this functionality, it is also You can export specific types of data in
-Props and leverage Live.
-
-<!-- Read [[Documentation deco/Guides: Loading data into Live]] for more details on how to use this functionality. -->
+Leia [[Documentação deco/Guides: Carregamento de dados no Live]] para saber mais
+detalhes de como usar essa funcionalidade.

@@ -96,12 +96,10 @@ export const getNextAndPreviousPost = (
     { slug: currentSlug },
   ) => currentSlug === slug);
 
-  const previous = currentIndex === 0
-    ? undefined
-    : getNextPreviousForEntry(
-      language,
-      tableOfContentsEntries[currentIndex - 1],
-    );
+  const previous = currentIndex === 0 ? undefined : getNextPreviousForEntry(
+    language,
+    tableOfContentsEntries[currentIndex - 1],
+  );
 
   const next = currentIndex === tableOfContentsEntries.length - 1
     ? undefined

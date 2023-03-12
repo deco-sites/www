@@ -56,7 +56,7 @@ export const handler: Handlers<Data> = {
 
     const url = new URL(
       `../../docs/${documentSlug}/${language}.md`,
-      import.meta.url
+      import.meta.url,
     );
 
     const fileContent = await Deno.readTextFile(url);
@@ -101,7 +101,8 @@ export default function DocsPage(props: PageProps<Data>) {
             class="hidden toggle"
             id="docs_sidebar"
             autocomplete="off"
-          ></input>
+          >
+          </input>
           {/* Fix mobile sidebar */}
           <div class="fixed inset-0 z-40 hidden toggled">
             <label
@@ -137,7 +138,8 @@ export default function DocsPage(props: PageProps<Data>) {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h7"
-                ></path>
+                >
+                </path>
               </svg>
               <div>Menu</div>
             </label>
@@ -187,7 +189,7 @@ function ForwardBackButtons(props: { slug: string; language: string }) {
 
   const { next, previous } = getNextAndPreviousPost(
     props.language as "en",
-    props.slug
+    props.slug,
   );
   console.log({ next, previous });
   const upper = "text(sm gray-600)";

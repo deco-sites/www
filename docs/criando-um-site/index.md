@@ -193,7 +193,7 @@ deno task start
 
 2. Selecione o site que você está desenvolvendo
 
-3. Vá em Workbench.
+3. Vá em Library.
 
 4. No seletor de ambiente da _topbar_ selecione _localhost:8000_ e veja as
    seções que estão no seu repositório local.

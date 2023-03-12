@@ -24,12 +24,6 @@ const navAnchors = [
     href: "/",
   },
   {
-    label: "Preço",
-    ariaLabel: "Link com os preços",
-    class: "hover:underline ml-10",
-    href: "/",
-  },
-  {
     label: "Blog",
     ariaLabel: "Link para o Blog",
     class: "hover:underline ml-10",

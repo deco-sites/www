@@ -69,8 +69,51 @@ export const getMenuDataForLanguage = (language: "en" | "pt") =>
 type SupportedLanguages = "en" | "pt";
 
 export const getTitleForPost = (language: SupportedLanguages, slug: string) => {
-  console.log({ tableOfContentsBySlug });
   return tableOfContentsBySlug[slug]?.title[language];
+};
+
+type NextOrPrevious = { title?: string; category?: string; href?: string };
+
+const getNextPreviousForEntry = (
+  language: SupportedLanguages,
+  entry: TopLevelEntry,
+): NextOrPrevious => ({
+  href: `/docs/${language}/${entry.slug}`,
+  title: entry.title?.[language],
+});
+
+export const getNextAndPreviousPost = (
+  language: SupportedLanguages,
+  slug: string,
+) => {
+  const tableOfContentsEntries = tableOfContents.reduce((entries, cur) => {
+    return entries.concat(
+      [cur, ...(cur.children || [])].filter(({ slug }) => slug),
+    );
+  }, [] as TopLevelEntry[]);
+
+  const currentIndex = tableOfContentsEntries.findIndex((
+    { slug: currentSlug },
+  ) => currentSlug === slug);
+
+  const previous = currentIndex === 0
+    ? undefined
+    : getNextPreviousForEntry(
+      language,
+      tableOfContentsEntries[currentIndex - 1],
+    );
+
+  const next = currentIndex === tableOfContentsEntries.length - 1
+    ? undefined
+    : getNextPreviousForEntry(
+      language,
+      tableOfContentsEntries[currentIndex + 1],
+    );
+
+  return {
+    previous,
+    next,
+  };
 };
 export type MenuData = ReturnType<typeof getMenuDataForLanguage>;
 

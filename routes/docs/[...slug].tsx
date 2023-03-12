@@ -14,10 +14,12 @@ import DocsSidebar from "../../components/ui/docs/DocsSidebar.tsx";
 import Footer from "../../sections/Footer.tsx";
 import {
   getMenuDataForLanguage,
+  getNextAndPreviousPost,
   getTitleForPost,
   MenuData,
 } from "../../docs/toc.ts";
 import BlogHeader from "../../sections/BlogHeader.tsx";
+import { languages } from "https://esm.sh/v111/@types/prismjs@^1/index";
 
 interface Data {
   page: Page;
@@ -54,7 +56,7 @@ export const handler: Handlers<Data> = {
 
     const url = new URL(
       `../../docs/${documentSlug}/${language}.md`,
-      import.meta.url,
+      import.meta.url
     );
 
     const fileContent = await Deno.readTextFile(url);
@@ -99,8 +101,7 @@ export default function DocsPage(props: PageProps<Data>) {
             class="hidden toggle"
             id="docs_sidebar"
             autocomplete="off"
-          >
-          </input>
+          ></input>
           {/* Fix mobile sidebar */}
           <div class="fixed inset-0 z-40 hidden toggled">
             <label
@@ -136,8 +137,7 @@ export default function DocsPage(props: PageProps<Data>) {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h7"
-                >
-                </path>
+                ></path>
               </svg>
               <div>Menu</div>
             </label>
@@ -170,20 +170,26 @@ function Content(props: { page: Page }) {
         class="mt-6 markdown-body"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <ForwardBackButtons slug={props.page.slug} />
+      <ForwardBackButtons
+        language={props.page.href.includes("/pt/") ? "pt" : "en"}
+        slug={props.page.slug}
+      />
     </main>
   );
 }
 
 const button = "p-2 bg-gray-100 w-full border(1 gray-200) grid";
 
-function ForwardBackButtons(props: { slug: string }) {
-  const currentIndex = SLUGS.findIndex((slug) => slug === props.slug);
-  const previousSlug = SLUGS[currentIndex - 1];
-  const nextSlug = SLUGS[currentIndex + 1];
-  const previous = TABLE_OF_CONTENTS[previousSlug];
-  const next = TABLE_OF_CONTENTS[nextSlug];
+function ForwardBackButtons(props: { slug: string; language: string }) {
+  console.log({ props });
+  const nextLabel = props.language === "en" ? "Next" : "Próximo";
+  const previousLabel = props.language === "en" ? "Previous" : "Anterior";
 
+  const { next, previous } = getNextAndPreviousPost(
+    props.language as "en",
+    props.slug
+  );
+  console.log({ next, previous });
   const upper = "text(sm gray-600)";
   const category = "font-normal";
   const lower = "text-gray-900 font-medium";
@@ -192,26 +198,18 @@ function ForwardBackButtons(props: { slug: string }) {
     <div class="mt-8 flex flex(col md:row) gap-4">
       {previous && (
         <a href={previous.href} class={`${button} text-left`}>
-          <span class={upper}>{"←"} Previous</span>
+          <span class={upper}>{`← ${previousLabel}`}</span>
           <span class={lower}>
-            <span class={category}>
-              {previous.category
-                ? `${TABLE_OF_CONTENTS[previous.category].title}: `
-                : ""}
-            </span>
+            <span class={category}>{previous.category ?? ""}</span>
             {previous.title}
           </span>
         </a>
       )}
       {next && (
         <a href={next.href} class={`${button} text-right`}>
-          <span class={upper}>Next {"→"}</span>
+          <span class={upper}>{`${nextLabel} →`}</span>
           <span class={lower}>
-            <span class={category}>
-              {next.category
-                ? `${TABLE_OF_CONTENTS[next.category].title}: `
-                : ""}
-            </span>
+            <span class={category}>{next.category ?? ""}</span>
             {next.title}
           </span>
         </a>

@@ -8,8 +8,8 @@ export default function DocsLanguageSwitcher({ currentPathname }: Props) {
     currentPathname.includes(`${language}/`);
 
   return (
-    <div class="flex flex-col p-2 border border-black">
-      <span>Language:</span>
+    <div class="flex flex-col p-2 border border-black rounded-lg text-sm">
+      <span class="text-sm font-bold">Language:</span>
       <div class="flex flex-row mt-2 gap-2">
         <a
           href={englishLink}

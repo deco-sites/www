@@ -5,6 +5,7 @@ import {
   TableOfContentsCategoryEntry,
 } from "./docs.ts";
 import DocsLanguageSwitcher from "./DocsLanguageSwitcher.tsx";
+import JoinDiscord from "./JoinDiscord.tsx";
 // import SearchButton from "$start/islands/SearchButton.tsx";
 
 interface Props {
@@ -19,8 +20,7 @@ export default function DocsSidebar(props: Props) {
   return (
     <>
       {/* Reenable this after we setup Algolia */}
-      {
-        /* {props.mobile
+      {/* {props.mobile
         ? (
           <button
             type="button"
@@ -49,8 +49,7 @@ export default function DocsSidebar(props: Props) {
             </span>
           </button>
         )
-        : <SearchButton />} */
-      }
+        : <SearchButton />} */}
 
       <DocsLanguageSwitcher currentPathname={props.path} />
       <ol class="list-decimal list-inside font-semibold nested">
@@ -87,6 +86,8 @@ export default function DocsSidebar(props: Props) {
           </li>
         ))}
       </ol>
+      {/* TODO: Fix intl for /docs */}
+      <JoinDiscord language={props.path.includes("/pt/") ? "pt" : "en"} />
     </>
   );
 }

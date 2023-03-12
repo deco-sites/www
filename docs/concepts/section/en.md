@@ -7,7 +7,7 @@ description: |
 by business users through the admin of the [deco.cx.](deco.cx "deco.cx")
 Sections are available in the following locations:
 
-- **Workbench:** Allows developers to configure the properties of sections and
+- **Library:** Allows developers to configure the properties of sections and
   automatically see the generated UI.
 - **Pages:** Allows sections to be added to pages on the site, too being
   configured as desired.

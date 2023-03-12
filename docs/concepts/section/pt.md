@@ -7,7 +7,7 @@ descrição: |
 ser configuradas por usuários empresariais através do administrador do
 [deco.cx.](deco.cx "deco.cx") As seções estão disponíveis nos seguintes locais:
 
-- **Workbench:** permite que os desenvolvedores configurem as propriedades das
+- **Library:** permite que os desenvolvedores configurem as propriedades das
   seções e ver automaticamente a IU gerada.
 - **Páginas:** permite adicionar seções às páginas do site, sendo também
   configurado conforme desejado.

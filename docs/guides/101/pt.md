@@ -193,14 +193,12 @@ deno task start
 
 2. Selecione o site que você está desenvolvendo
 
-3. Vá em Workbench.
+3. Vá em Library.
 
 4. No seletor de ambiente da _topbar_ selecione _localhost:8000_ e veja as
    seções que estão no seu repositório local.
 
-![c6e74d5f-24c2-4a90-937c-3d767d072617](https://user-images.githubusercontent.com/18706156/219524681-4505e860-e293-48d6-bcb6-bb632f591ef3.png)
-
-![eab7716f-b5ba-48a7-9fd0-20ac540652d8](https://user-images.githubusercontent.com/18706156/219524684-2e742050-f5e8-4b25-a67b-b48bc01d66a2.png)
+<img width="1252" alt="image" src="https://user-images.githubusercontent.com/18706156/224518020-0008c8d5-d9cc-4191-a4c3-81c2cf5d1f2d.png">
 
 ## Publique suas mudanças em produção
 

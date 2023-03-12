@@ -186,18 +186,16 @@ deno task start
 
 ## See your local sections on Live
 
-1. Go to <https://deco.cx/live>.
+1. Go to <https://deco.cx/admin>.
 
 2. Select the website you are developing
 
-3. Go to Workbench.
+3. Go to Library.
 
 4. In the _topbar_ environment selector select _localhost:8000_ and see the
    sections that are in your local repository.
 
-![c6e74d5f-24c2-4a90-937c-3d767d072617](https://user-images.githubusercontent.com/18706156/219524681-4505e860-e293-48d6-bcb6-bb632f591ef3.png)
-
-![eab7716f-b5ba-48a7-9fd0-20ac540652d8](https://user-images.githubusercontent.com/18706156/219524684-2e742050-f5e8-4b25-a67b-b48bc01d66a2.png)
+<img width="1252" alt="image" src="https://user-images.githubusercontent.com/18706156/224518020-0008c8d5-d9cc-4191-a4c3-81c2cf5d1f2d.png">
 
 ## Publish your changes to production
 

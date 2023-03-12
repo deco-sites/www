@@ -46,8 +46,8 @@ const options: Omit<Options, "selfURL"> = {
               color: theme("colors", ["secondary-dark"]),
             },
             p: {
-              lineHeight: "1.6rem"
-            }
+              lineHeight: "1.6rem",
+            },
           },
         },
       },

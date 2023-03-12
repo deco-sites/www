@@ -19,7 +19,6 @@ import {
   MenuData,
 } from "../../docs/toc.ts";
 import BlogHeader from "../../sections/BlogHeader.tsx";
-import { languages } from "https://esm.sh/v111/@types/prismjs@^1/index";
 
 interface Data {
   page: Page;
@@ -36,16 +35,17 @@ export const handler: Handlers<Data> = {
     const reqUrl = new URL(req.url);
 
     const slug = ctx.params.slug;
-    if (slug === "") {
+    const [language, ...rest] = slug.split("/");
+
+    if (!rest?.length) {
       return new Response(null, {
         status: 307,
-        headers: { location: "/docs/pt/introduction" },
+        headers: { location: `/docs/${language || "en"}/introduction` },
       });
     }
 
     // TODO: If slug matches a folder, send to first arcticle
 
-    const [language, ...rest] = slug.split("/");
     const documentSlug = rest.join("/");
 
     // const entry = TABLE_OF_CONTENTS[documentSlug];
@@ -56,7 +56,7 @@ export const handler: Handlers<Data> = {
 
     const url = new URL(
       `../../docs/${documentSlug}/${language}.md`,
-      import.meta.url,
+      import.meta.url
     );
 
     const fileContent = await Deno.readTextFile(url);
@@ -101,8 +101,7 @@ export default function DocsPage(props: PageProps<Data>) {
             class="hidden toggle"
             id="docs_sidebar"
             autocomplete="off"
-          >
-          </input>
+          ></input>
           {/* Fix mobile sidebar */}
           <div class="fixed inset-0 z-40 hidden toggled">
             <label
@@ -138,8 +137,7 @@ export default function DocsPage(props: PageProps<Data>) {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h7"
-                >
-                </path>
+                ></path>
               </svg>
               <div>Menu</div>
             </label>
@@ -189,7 +187,7 @@ function ForwardBackButtons(props: { slug: string; language: string }) {
 
   const { next, previous } = getNextAndPreviousPost(
     props.language as "en",
-    props.slug,
+    props.slug
   );
   console.log({ next, previous });
   const upper = "text(sm gray-600)";

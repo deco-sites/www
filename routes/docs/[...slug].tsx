@@ -191,7 +191,6 @@ function ForwardBackButtons(props: { slug: string; language: string }) {
     props.language as "en",
     props.slug,
   );
-  console.log({ next, previous });
   const upper = "text(sm gray-600)";
   const category = "font-normal";
   const lower = "text-gray-900 font-medium";

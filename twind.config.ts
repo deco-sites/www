@@ -189,6 +189,12 @@ const options: Omit<Options, "selfURL"> = {
         "warning": "#FFF8E6",
         "positive": "#EAFAF2",
         "notification": "#FF6E6E",
+        "light-default": "#FFFFFF",
+        "light-subdued": "#F8F9F5",
+        "light-critical": "#FFE9E6",
+        "light-warning": "#FFF8E6",
+        "light-positive": "#EAFAF2",
+        "light-notification": "#FF6E6E",
 
         "interactive-default": "#000000",
         "interactive-hovered": "#212523",

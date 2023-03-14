@@ -12,33 +12,33 @@ componentes e comportamentos de UI usando uma **stack web simples** com
 **[Preact](https://preactjs.com/)**, **[Twind](https://twind.style/)** e
 **[Deno](https://deno.land/)**. Somos a plataforma para criar experiências _headless commerce_.
 
-
 ![https://user-images.githubusercontent.com/18706156/224878795-66bc06b8-10bf-4285-9833-d375137e8914.png](https://user-images.githubusercontent.com/18706156/224878795-66bc06b8-10bf-4285-9833-d375137e8914.png)
 
 
 Quando você cria um site na _deco.cx_, ele é automaticamente **deployado na _edge_ em
 34 regiões em todo o mundo** no [Deno Deploy](https://deno.com/). Isso
 significa que suas páginas são servidas próximas aos seus usuários, garantindo um
-desempenho ultrarrápido. Além disso, fornecemos a você um repositório do Github
-onde você pode gerenciar seu código e colaborar com outros em sua equipe. Com a
-deco.cx, você pode se concentrar em construir seu site **sem se preocupar** com
+desempenho ultrarrápido. Além disso, fornecemos um repositório do Github
+onde você pode gerenciar seu código e colaborar com outras pessoas do seu time. Com a
+_deco.cx_, você pode se concentrar em construir seu site **sem se preocupar** com
 deploy ou gerenciamento de repositórios.
 
-Uma das capacidades exclusivas da _deco.cx_ é a capacidade dos desenvolvedores de
-declarar como os componentes de UI e as funções podem ser configurados, o que
-então se torna **formulários que podem ser facilmente editados** pelos usuários
+Uma das capacidades exclusivas da _deco.cx_ é a capacidade dos desenvolvedores de facilmente
+declararem como os componentes de UI e as funções podem ser configurados, o que
+então se torna **formulários que podem ser facilmente editados** por usuários
 de negócios. O mecanismo de personalização da _deco.cx_ oferece uma variedade de
 recursos além dessa personalização, desbloqueando novas oportunidades para
-marcas **criarem conteúdo exclusivo para cada audiência**.
+marcas **criarem conteúdo exclusivo para cada audiência** e **testar cada mudanca**.
 
 Os sites e lojas da _deco.cx_ têm desempenho excepcional graças a uma combinação
 de deploy na _edge_, renderização e navegação no servidor, além de contar com **templates de alta qualidade** construídos pelo time da _deco.cx_. Como resultado, nossos sites geralmente têm pontuações acima de 90 no
 scores do [Lighthouse](https://web.dev/measure/), o que se traduz em melhor SEO e maiores taxas de
 conversão.
+<!-- TODO: Adicionar link para essa landing page que fala de performance -->
 
 Seja você um desenvolvedor, um profissional de marketing ou uma proprietária de
 empresa, a _deco.cx_ oferece uma maneira inovadora e acessível de criar e
-gerenciar sites e lojas online. Os desenvolvedores cuidam da parte do código,
+gerenciar sites e lojas online. Os desenvolvedores e desenvolvedoras cuidam do código,
 mas tornam fácil para os usuários de negócios editar textos e imagens sem
 precisar escrever qualquer código.
 

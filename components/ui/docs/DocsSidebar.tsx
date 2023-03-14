@@ -77,7 +77,7 @@ export default function DocsSidebar(props: Props) {
                 return (
                   <a
                     href={suboptionHref}
-                    class="cursor-pointer rounded-lg p-2 hover:bg-gray-200"
+                    class="cursor-pointer rounded-lg p-2 hover:bg-[#F8F9F5]"
                   >
                     {suboptionTitle}
                   </a>

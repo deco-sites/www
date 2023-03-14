@@ -6,10 +6,20 @@ type TableOfContents = Array<TopLevelEntry>;
 
 const tableOfContents: TableOfContents = [{
   title: { pt: "Início", en: "Intro" },
-  slug: "introduction",
+  slug: "introduction/overview",
+  children: [{
+    title: { pt: "Visão Geral", en: "Overview" },
+    slug: "introduction/overview",
+  }, {
+    title: { pt: "Tecnologias", en: "Tech Stack" },
+    slug: "introduction/tech-stack",
+  }],
 }, {
   title: { pt: "Conceitos", en: "Concepts" },
   children: [{
+    title: { pt: "Site", en: "Site" },
+    slug: "concepts/site",
+  }, {
     title: { pt: "Seção", en: "Section" },
     slug: "concepts/section",
   }],

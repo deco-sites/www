@@ -22,6 +22,10 @@ const tableOfContents: TableOfContents = [{
   }, {
     title: { pt: "Seção", en: "Section" },
     slug: "concepts/section",
+  },
+  {
+    title: { pt: "Loader", en: "Loader" },
+    slug: "concepts/loader",
   }],
 }, {
   title: { en: "Guides", pt: "Guias" },

@@ -40,7 +40,9 @@ export const handler: Handlers<Data> = {
     if (!rest?.length) {
       return new Response(null, {
         status: 307,
-        headers: { location: `/docs/${language || "en"}/introduction/overview` },
+        headers: {
+          location: `/docs/${language || "en"}/introduction/overview`,
+        },
       });
     }
 
@@ -56,7 +58,7 @@ export const handler: Handlers<Data> = {
 
     const url = new URL(
       `../../docs/${documentSlug}/${language}.md`,
-      import.meta.url,
+      import.meta.url
     );
 
     const fileContent = await Deno.readTextFile(url);
@@ -92,6 +94,48 @@ export default function DocsPage(props: PageProps<Data>) {
         <title>{props.data.page?.title ?? "Not Found"} | deco.cx docs</title>
         <link rel="stylesheet" href={`/gfm.css?build=${__FRSH_BUILD_ID}`} />
         {description && <meta name="description" content={description} />}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          /* latin-ext */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+          }
+          /* latin */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+          }
+          /* latin-ext */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+          }
+          /* latin */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+          }
+      `,
+          }}
+        ></style>
       </Head>
       <div class="flex flex-col min-h-screen">
         <BlogHeader logoAriaLabel="Logo Deco" />
@@ -101,8 +145,7 @@ export default function DocsPage(props: PageProps<Data>) {
             class="hidden toggle"
             id="docs_sidebar"
             autocomplete="off"
-          >
-          </input>
+          ></input>
           {/* Fix mobile sidebar */}
           <div class="fixed inset-0 z-40 hidden toggled">
             <label
@@ -138,8 +181,7 @@ export default function DocsPage(props: PageProps<Data>) {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h7"
-                >
-                </path>
+                ></path>
               </svg>
               <div>Menu</div>
             </label>
@@ -189,7 +231,7 @@ function ForwardBackButtons(props: { slug: string; language: string }) {
 
   const { next, previous } = getNextAndPreviousPost(
     props.language as "en",
-    props.slug,
+    props.slug
   );
   const upper = "text(sm gray-600)";
   const category = "font-normal";

@@ -6,7 +6,6 @@ type TableOfContents = Array<TopLevelEntry>;
 
 const tableOfContents: TableOfContents = [{
   title: { pt: "Início", en: "Intro" },
-  slug: "introduction/overview",
   children: [{
     title: { pt: "Visão Geral", en: "Overview" },
     slug: "introduction/overview",
@@ -17,42 +16,47 @@ const tableOfContents: TableOfContents = [{
 }, {
   title: { pt: "Conceitos", en: "Concepts" },
   children: [{
-    title: { pt: "Site", en: "Site" },
-    slug: "concepts/site",
-  }, {
     title: { pt: "Seção", en: "Section" },
     slug: "concepts/section",
-  },
-  {
+  }, {
     title: { pt: "Loader", en: "Loader" },
     slug: "concepts/loader",
+  }, {
+    title: { pt: "Page", en: "Page" },
+    slug: "concepts/page",
+  }, {
+    title: { pt: "Site", en: "Site" },
+    slug: "concepts/site",
   }],
 }, {
-  title: { en: "Guides", pt: "Guias" },
+  title: { en: "Tutorials", pt: "Tutoriais" },
   children: [{
     title: { pt: "Criando um site Live", en: "Creating a Live site" },
-    slug: "guides/101",
+    slug: "tutorials/101",
+  }, {
+    title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
+    slug: "tutorials/connecting-vtex",
+  }, {
+    title: {
+      pt: "Instalando VTEX Intelligent Search",
+      en: "Installing VTEX Intelligent Search",
+    },
+    slug: "tutorials/installing-vtex-is",
   }],
 }, {
-  title: { en: "Performance Guides", pt: "Guias de Performance " },
+  title: { en: "Recipes", pt: "Receitas" },
   children: [{
     title: { pt: "Imagens", en: "Images" },
-    slug: "performance/images",
+    slug: "recipes/images",
   }, {
     title: {
       pt: "SVG Sprites",
       en: "SVG Sprites",
     },
-    slug: "performance/svg-sprites",
-  }],
-}, {
-  title: { en: "Ecommerce", pt: "Ecommerce" },
-  children: [{
-    title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
-    slug: "ecommerce/connecting-vtex",
+    slug: "recipes/svg-sprites",
   }, {
     title: { pt: "Menu Dropdown", en: "Dropdown Menu" },
-    slug: "ecommerce/menu",
+    slug: "recipes/menu",
   }],
 }];
 
@@ -106,9 +110,11 @@ export const getNextAndPreviousPost = (
     );
   }, [] as TopLevelEntry[]);
 
-  const currentIndex = tableOfContentsEntries.findIndex((
+  const currentIndex = tableOfContentsEntries.findLastIndex((
     { slug: currentSlug },
   ) => currentSlug === slug);
+
+  console.log({ currentIndex, slug, tableOfContentsEntries });
 
   const previous = currentIndex === 0 ? undefined : getNextPreviousForEntry(
     language,

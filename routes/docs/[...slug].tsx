@@ -46,38 +46,35 @@ export const handler: Handlers<Data> = {
       });
     }
 
-    // TODO: If slug matches a folder, send to first arcticle
-
     const documentSlug = rest.join("/");
 
-    // const entry = TABLE_OF_CONTENTS[documentSlug];
+    try {
+      const url = new URL(
+        `../../docs/${documentSlug}/${language}.md`,
+        import.meta.url
+      );
 
-    // if (!entry) {
-    //   return ctx.renderNotFound();
-    // }
+      const fileContent = await Deno.readTextFile(url);
+      const { body, attrs } = frontMatter<Record<string, unknown>>(fileContent);
 
-    const url = new URL(
-      `../../docs/${documentSlug}/${language}.md`,
-      import.meta.url
-    );
+      const menu = getMenuDataForLanguage(language as "pt" | "en");
 
-    const fileContent = await Deno.readTextFile(url);
-    // TODO: Fix performance/images (part of markdown is invalid)
-    const { body, attrs } = frontMatter<Record<string, unknown>>(fileContent);
-    // const page = { ...entry, markdown: body, data: attrs ?? {} };
-    const menu = getMenuDataForLanguage(language as "pt" | "en");
-    const title = getTitleForPost(language as "en", documentSlug) || "Document";
+      const title =
+        getTitleForPost(language as "en", documentSlug) || "Document";
 
-    const page = {
-      markdown: body,
-      data: attrs ?? {},
-      slug: documentSlug,
-      title,
-      href: reqUrl.pathname,
-      menu,
-    };
-    const resp = ctx.render({ page });
-    return resp;
+      const page = {
+        markdown: body,
+        data: attrs ?? {},
+        slug: documentSlug,
+        title,
+        href: reqUrl.pathname,
+        menu,
+      };
+      const resp = ctx.render({ page });
+      return resp;
+    } catch {
+      return ctx.renderNotFound()
+    }
   },
 };
 
@@ -225,7 +222,6 @@ function Content(props: { page: Page }) {
 const button = "p-2 bg-gray-100 w-full border(1 gray-200) grid";
 
 function ForwardBackButtons(props: { slug: string; language: string }) {
-  console.log({ props });
   const nextLabel = props.language === "en" ? "Next" : "Próximo";
   const previousLabel = props.language === "en" ? "Previous" : "Anterior";
 

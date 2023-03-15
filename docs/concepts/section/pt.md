@@ -3,34 +3,36 @@ descrição: |
     Uma seção representa um elemento de UI que pode ser configurável por usuários de negócio e usado em páginas.
 ---
 
-**Live** permite que os desenvolvedores criem seções de IU no código que podem
-ser configuradas por usuários empresariais através do administrador do
-[deco.cx.](deco.cx "deco.cx") As seções estão disponíveis nos seguintes locais:
+As Sections são **componentes de UI criados com
+[Preact](https://preactjs.com/)** que podem receber _props_ configuradas por
+usuários no Admin de _deco.cx_. As implementações de Section ficam na pasta
+`sections/` no código do Site.
 
-- **Library:** permite que os desenvolvedores configurem as propriedades das
-  seções e ver automaticamente a IU gerada.
-- **Páginas:** permite adicionar seções às páginas do site, sendo também
-  configurado conforme desejado.
+Alguns exemplos de Sections para uma loja de _ecommerce_ seriam:
 
-## O que são seções no código?
-
-As seções são **componentes
-[Preact](https://preactjs.com/ "https://preactjs.com/")** exportado com _default
-export_ por arquivos na pasta `sections/` no repositório de um site Live.
-
-Alguns exemplos de seções em um site de comércio eletrônico seriam:
-
-- **Prateleira de Produtos:** exibe uma prateleira de produtos com imagem,
+- **ProductShelf.tsx:** exibe uma prateleira de produtos com imagem,
   título e preço.
-- **Cabeçalho:** exibe o cabeçalho padrão da loja, contendo logotipo, cardápio
+- **Header.tsx:** exibe o cabeçalho padrão da loja, contendo logotipo, menu de
   categorias e links para carrinho e login.
-- **Banner:** exibe imagem, texto e alguns _Call to action_ para campanha ou
+- **Banner.tsx:** exibe imagem, texto e alguns _Call to action_ para campanha ou
   departamento específico.
 
-Observe que as seções são executadas apenas no servidor, portanto, o
-gerenciamento de estado, como `useState`, `useEffect` e callbacks como
-`onClick`, `onInput` não irão trabalhar. Para isso, você terá que usar seções em
-conjunto com ilhas.
+## Interatividade
+
+Observe que as Sections são executadas **somente no lado do servidor**, portanto,
+gerenciamento de estado e ciclo de vida, como `useState`, `useEffect` e callbacks como `onClick`,
+`onInput` não irão trabalhar. Para que funcionem, você precisará usar
+[ilhas interativas](https://fresh.deno.dev/docs/concepts/islands)
+
+<!-- TODO: Criar docs sobre Islands -->
+
+No Admin do _deco.cx_ é possível interagir com as Sections em dois lugares:
+
+- **Library:** permite que os desenvolvedores configurem as propriedades das
+  Seções e vejam automaticamente a UI gerada. (Funciona de forma semelhante ao
+  [Storybook](https://storybook.js.org/))
+- **Páginas:** Permite adicionar Sections à Páginas do site, sendo também
+  configuráveis.
 
 ## Como criar uma seção
 
@@ -194,4 +196,4 @@ exportar adereços de interface {
 
 - editor
 
-![Exemplo](https://deco.fibery.io/api/files/73302d29-bdee-471c-ab2d-75f
+![Exemplo](https://deco.fibery.io/api/files/73302d29-bdee-471c-ab2d-75f)

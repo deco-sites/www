@@ -174,6 +174,11 @@ Other types of valid formats are: `uri`, `color`.
 
 ### Loading data from external APIs
 
-A common use-case for getting data inside of Sections is to **use external sources like APIs or databases**. This is a very common scenario in ecommerce stores, where we usually want to get product data from an ecommerce provider's API _(like Shopify, Magento, VTEX...)_.
+A common use-case for getting data inside of Sections is to **use external
+sources like APIs or databases**. This is a very common scenario in ecommerce
+stores, where we usually want to get product data from an ecommerce provider's
+API _(like Shopify, Magento, VTEX...)_.
 
-To understand how to accomplish that with [Sections](/docs/en/concepts/section) and [Loaders](/docs/en/concepts/loader), go to the [Data Fetching](/docs/en/recipers/data-fetching) recipe.
+To understand how to accomplish that with [Sections](/docs/en/concepts/section)
+and [Loaders](/docs/en/concepts/loader), go to the
+[Data Fetching](/docs/en/recipers/data-fetching) recipe.

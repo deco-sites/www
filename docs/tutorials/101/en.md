@@ -11,8 +11,8 @@ description: |
 ## What you need to know before you start
 
 - Read the documents on the
-  [**Intro**](https://www.deco.cx/docs/en/introduction/overview) and
-  [**Concepts**](https://www.deco.cx/docs/en/concepts/section) sections.
+  [**Intro**](/docs/en/introduction/overview) and
+  [**Concepts**](/docs/en/concepts/section) sections.
 
 ## Create a deco.cx website
 

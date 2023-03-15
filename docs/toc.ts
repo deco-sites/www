@@ -31,10 +31,10 @@ const tableOfContents: TableOfContents = [{
 }, {
   title: { en: "Tutorials", pt: "Tutoriais" },
   children: [{
-    title: { pt: "Criando um Site deco.cx", en: "Creating a deco.cx Site" },
+    title: { pt: "Criando um Site", en: "Creating a Site" },
     slug: "tutorials/101",
   }, {
-    title: { pt: "Criando uma Section", en: "Creating a Section" },
+    title: { pt: "Codando uma Section", en: "Coding a new Section" },
     slug: "tutorials/creating-a-section",
   }, {
     title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },

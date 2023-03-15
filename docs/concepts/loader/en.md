@@ -3,7 +3,7 @@
 ---
 
 A **Loader** in _deco.cx_ is a Typescript function that returns data needed in a
-[Section](https://www.deco.cx/docs/en/concepts/section). These functions are
+[Section](/docs/en/concepts/section). These functions are
 executed before every page renders, and their main purpose is to **fetch data
 from external sources**, transform it if necessary, and **provide it to the site
 Sections that need it.** Loaders can be used to fetch data from APIs, databases,
@@ -12,7 +12,7 @@ or any other external source.
 In addition to fetching data, Loaders in _deco.cx_ **can also export a
 Typescript Props type,** which allows them to be configured in the
 [Admin](https://deco.cx/admin) just like
-[Sections](https://www.deco.cx/docs/en/concepts/section). This means that
+[Sections](/docs/en/concepts/section). This means that
 business users can configure details about how the Loader will operate, such as
 **setting up filters or passing parameters to APIs.** By making Loaders
 configurable in this way, it becomes easier to manage the data flowing into
@@ -21,10 +21,10 @@ visitors.
 
 One other greate benefit of Loaders in _deco.cx_ is that **multiple loaders can
 return the same data type**. This allows
-[Sections](https://www.deco.cx/docs/en/concepts/section) that receive, for
+[Sections](/docs/en/concepts/section) that receive, for
 example, an array of canonical Product to get data from different Loaders,
 depending on the user's configuration. This means that UIs can be reused across
-[Sites](https://www.deco.cx/docs/en/concepts/site) or across teams, making it
+[Sites](/docs/en/concepts/site) or across teams, making it
 easier to manage and scale your project.
 
 > All Sections for ecommerce stores created by _deco.cx_ in the

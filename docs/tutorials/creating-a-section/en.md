@@ -3,14 +3,13 @@
 ---
 
 In this tutorial you'll learn how to create a a new
-[Section](https://www.deco.cx/docs/en/concepts/section) implementation in your
-Site's source code and see how users can **configure its props** on _deco.cx_'s
-Admin.
+[Section](/docs/en/concepts/section) implementation in your Site's source code
+and see how users can **configure its props** on _deco.cx_'s Admin.
 
-## Prerequisites
+## Suggested Reading
 
-- [Core Concept: Section](https://www.deco.cx/docs/en/concepts/section)
-- [Intro: Tech Stack](http://www.deco.cx/docs/en/introduction/tech-stack)
+- [Core Concept: Section](/docs/en/concepts/section)
+- [Intro: Tech Stack](http:///docs/en/introduction/tech-stack)
 
 Open the folder of your site's code in a IDE and perform the following actions:
 
@@ -45,7 +44,7 @@ Even though the code for this Section is on _localhost_ only, you can see how
 its UI is being rendered and also test the configuration of its props. For every
 prop that you export we'll render a data input accordingly to the prop type.
 It's also possible to load
-[data fetched from external API's](https://www.deco.cx/docs/en/concepts/section)
+[data fetched from external API's](/docs/en/concepts/section)
 
 <!-- TODO: Fix this link -->
 
@@ -66,9 +65,15 @@ To test the `LatestPosts.tsx` Section:
    see how the UI is looking. If you change the Section's code locally the UI
    will automatically update as well.
 
+<img width="994" alt="Preview of the Section Editor in deco's Admin" src="https://user-images.githubusercontent.com/18706156/225371920-e1c35a7a-c994-4b96-b9bd-554caab02455.png">
+
 ## Further reading
 
-Sections are one of the most powerful _deco.cx_ concepts, and there's much more you can do with it. Read these Recipes to learn more about other options on how to create customizable Sections:
+Sections are one of the most powerful _deco.cx_ concepts, and there's much more
+you can do with it. Read these Recipes to learn more about other options on how
+to create customizable Sections:
 
 - [Customizable Sections]()
 - [Loading data from APIs]()
+
+<!-- TODO: Share snnipet -->

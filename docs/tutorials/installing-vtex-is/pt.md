@@ -13,7 +13,7 @@ produtos e filtros que tornam mais fácil para os compradores encontrarem os
 produtos que desejam.
 
 A _deco.cx_ oferece **integração nativa com a VTEX Intelligent Search** através
-dos [Loaders](https://www.deco.cx/docs/pt/concepts/loader) disponíveis em
+dos [Loaders](/docs/pt/concepts/loader) disponíveis em
 [deco-sites/std](https://github.com/deco-sites/std). Você pode vê-la em ação no
 [Fashion starter](https://fashion.deco.site).
 
@@ -42,8 +42,8 @@ oferecida **gratuitamente** pela VTEX em 2023.
 <img width="847" alt="image" src="https://user-images.githubusercontent.com/18706156/225157818-47f5da0e-dfa7-4ad8-9d79-818370baba55.png">
 
 **É isso!** Agora você pode usar os Loaders da _deco.cx_ que buscam dados da
-Intelligent Search em suas [Seções](https://www.deco.cx/docs/en/concepts/page) e
-[Páginas](https://www.deco.cx/docs/en/concepts/page).
+Intelligent Search em suas [Seções](/docs/en/concepts/page) e
+[Páginas](/docs/en/concepts/page).
 
 ## Referência
 

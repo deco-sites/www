@@ -9,8 +9,8 @@ with _deco.cx_ will be a breeze for you.
 
 When you're building a website or online store with _deco.cx_, you have the
 flexibility to create custom
-[Sections](https://www.deco.cx/docs/en/concepts/section) and
-[Loaders](https://www.deco.cx/docs/en/concepts/loader) that fit your unique
+[Sections](/docs/en/concepts/section) and
+[Loaders](/docs/en/concepts/loader) that fit your unique
 needs. To help you create these components with ease and speed, we rely on a set
 of powerful and efficient technologies.
 

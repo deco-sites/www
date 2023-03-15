@@ -4,9 +4,9 @@
 
 É importante entender o conceito de **Site** para utilizar a _deco.cx_. Um site
 é uma coleção de configurações como
-[Audiences](https://www.deco.cx/docs/en/concepts/audience),
-[Pages](https://www.deco.cx/docs/en/concepts/page) e
-[Sections](https://www.deco.cx/docs/en/concepts/section) que são vinculadas e
+[Audiences](/docs/en/concepts/audience),
+[Pages](/docs/en/concepts/page) e
+[Sections](/docs/en/concepts/section) que são vinculadas e
 acessadas por meio de um domínio ou URL comum.
 
 Este é um exemplo de Site da _deco.cx_: https://fashion.deco.site
@@ -26,7 +26,7 @@ Sites editando conteúdo através do CMS ou alterando o estilo e o design por me
 de alterações no código.
 
 O conteúdo que cada usuário verá do seu Site dependerá da configurações de
-[Audienced](https://www.deco.cx/docs/en/concepts/audience). As Audiences
+[Audienced](/docs/en/concepts/audience). As Audiences
 permitem personalização de conteúdo, testes A/B e criação de campanhas.
 
 Os Sites são colaborativos e **pertencem a uma equipe** em nosso Admin. Membros

@@ -48,7 +48,7 @@ sem precisar escrever qualquer código.
 
 ## Exemplo de código
 
-Este é o código de uma [Section](https://www.deco.cx/docs/pt/concepts/section)
+Este é o código de uma [Section](/docs/pt/concepts/section)
 `ProductShelf` na _deco.cx_:
 
 ```tsx

@@ -4,7 +4,7 @@
 
 Uma **Page** é o _building block_ fundamental de um Site _deco.cx_, que
 normalmente terá várias Pages. Cada Page consiste em **uma ou mais
-[Sections](https://www.deco.cx/docs/pt/concepts/section)** configuradas, que
+[Sections](/docs/pt/concepts/section)** configuradas, que
 podem ser consideradas como componentes modulares que compõem o conteúdo da
 Page. Uma Page também será **associada à um caminho de URL** que, quando
 visitado, deve renderizar tal Page. Este caminho pode ser estático como `/about`

@@ -1,6 +1,6 @@
 ---
 descrição: |
-    Uma seção representa um elemento de interface do usuário configurável para um site de decoração. Este artigo explica melhor o conceito
+    Uma seção representa um elemento de UI que pode ser configurável por usuários de negócio e usado em páginas.
 ---
 
 **Live** permite que os desenvolvedores criem seções de IU no código que podem

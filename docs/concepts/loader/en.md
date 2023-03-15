@@ -2,19 +2,41 @@
   description: A Loader in deco.cx is a function that returns data needed for a Site.
 ---
 
-A **Loader** in _deco.cx_ is a Typescript function that returns data needed in a [Section](https://deco.cx/docs/en/concepts/section). These functions are executed before every page renders, and their main purpose is to **fetch data from external sources**, transform it if necessary, and **provide it to the site Sections that need it.** Loaders can be used to fetch data from APIs, databases, or any other external source.
+A **Loader** in _deco.cx_ is a Typescript function that returns data needed in a
+[Section](https://www.deco.cx/docs/en/concepts/section). These functions are
+executed before every page renders, and their main purpose is to **fetch data
+from external sources**, transform it if necessary, and **provide it to the site
+Sections that need it.** Loaders can be used to fetch data from APIs, databases,
+or any other external source.
 
-In addition to fetching data, Loaders in _deco.cx_ **can also export a Typescript Props  type,** which allows them to be configured in the [Admin](https://deco.cx/admin) just like [Sections](https://deco.cx/docs/en/concepts/section). This means that business users can configure details about how the Loader will operate, such as **setting up filters or passing parameters to APIs.** By making Loaders configurable in this way, it becomes easier to manage the data flowing into Sections and ensure that the Site is displaying the right information to visitors.
+In addition to fetching data, Loaders in _deco.cx_ **can also export a
+Typescript Props type,** which allows them to be configured in the
+[Admin](https://deco.cx/admin) just like
+[Sections](https://www.deco.cx/docs/en/concepts/section). This means that business
+users can configure details about how the Loader will operate, such as **setting
+up filters or passing parameters to APIs.** By making Loaders configurable in
+this way, it becomes easier to manage the data flowing into Sections and ensure
+that the Site is displaying the right information to visitors.
 
-One other greate benefit of Loaders in _deco.cx_ is that **multiple loaders can return the same data type**. This allows [Sections](https://deco.cx/docs/en/concepts/section) that receive, for example, an array of canonical Product to get data from different Loaders, depending on the user's configuration. This means that UIs can be reused across [Sites](https://deco.cx/docs/en/concepts/site) or across teams, making it easier to manage and scale your project.
+One other greate benefit of Loaders in _deco.cx_ is that **multiple loaders can
+return the same data type**. This allows
+[Sections](https://www.deco.cx/docs/en/concepts/section) that receive, for example,
+an array of canonical Product to get data from different Loaders, depending on
+the user's configuration. This means that UIs can be reused across
+[Sites](https://www.deco.cx/docs/en/concepts/site) or across teams, making it easier
+to manage and scale your project.
 
-> All Sections for ecommerce stores created by _deco.cx_ in the [Fashion](https://github.com/deco-sites/fashion) start use a canonical Product type, and also every Loader that connects to ecommerce providers's APIs. This means that you can reuse the same UI to show data from different places, depending on the configuration.
+> All Sections for ecommerce stores created by _deco.cx_ in the
+> [Fashion](https://github.com/deco-sites/fashion) start use a canonical Product
+> type, and also every Loader that connects to ecommerce providers's APIs. This
+> means that you can reuse the same UI to show data from different places,
+> depending on the configuration.
 
-<img width="1259" alt="image" src="https://user-images.githubusercontent.com/18706156/224897214-a45b2731-5799-4007-8084-a8a772ddf5d2.png"> 
+<img width="1259" alt="image" src="https://user-images.githubusercontent.com/18706156/224897214-a45b2731-5799-4007-8084-a8a772ddf5d2.png">
 
 ## Example Code
 
-This is the implementation of the `shopifyProductList.ts` Loader: 
+This is the implementation of the `shopifyProductList.ts` Loader:
 
 ```tsx
 import type { LoaderFunction } from "$live/types.ts";
@@ -70,7 +92,5 @@ const searchLoader: LoaderFunction<
 
 export default searchLoader;
 ```
+
 [Source](https://github.com/deco-sites/std/blob/bedf496b7a2a480c1a9dfae477fe34020daae821/functions/shopifyProductList.ts)
-
-
-

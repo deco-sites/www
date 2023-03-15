@@ -227,7 +227,9 @@ export default function DocsPage(props: PageProps<Data>) {
 }
 
 function Content(props: { page: Page }) {
-  const html = gfm.render(props.page.markdown);
+  const _html = gfm.render(props.page.markdown);
+  const html = _html.replaceAll(/( href="https:\/\/(?!www.deco)).*?/g, ' target="_blank"$1')
+
   return (
     <main class="py-6 overflow-hidden">
       <h1 class="text(4xl gray-900) tracking-tight font-extrabold mt-6">

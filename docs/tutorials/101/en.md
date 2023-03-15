@@ -10,18 +10,19 @@ description: |
 
 ## What you need to know before you start
 
-- Read the documents on the [**Intro**](https://www.deco.cx/docs/en/introduction/overview) and [**Concepts**](https://www.deco.cx/docs/en/concepts/section) sections.
-
+- Read the documents on the
+  [**Intro**](https://www.deco.cx/docs/en/introduction/overview) and
+  [**Concepts**](https://www.deco.cx/docs/en/concepts/section) sections.
 
 ## Create a deco.cx website
 
-_deco.cx_ abstracts away all the complexities of setting up a repository, connecting
-a CMS and deploy to the edge. This allows you to focus only on what matters:
-your website code.
+_deco.cx_ abstracts away all the complexities of setting up a repository,
+connecting a CMS and deploy to the edge. This allows you to focus only on what
+matters: your website code.
 
 The first step is to have a _deco.cx_ account and website. Go to
 <https://deco.cx/onboarding>, login with your Github account and follow the
-step-by-step instructions on the page to create your developer account. 
+step-by-step instructions on the page to create your developer account.
 
 ## Clone your site repository
 
@@ -29,8 +30,8 @@ Accept the invitation to access the repository created for your site. This
 invitation is sent to the email address of your Github profile.
 
 Use the `git clone` command to download the code from the website to your
-machine. We recommend using SSH. For this,
-open the terminal and run the command:
+machine. We recommend using SSH. For this, open the terminal and run the
+command:
 
 ```
 git clone git@github.com:deco-sites/site-name.git

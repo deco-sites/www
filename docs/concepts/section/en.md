@@ -1,40 +1,39 @@
 ---
 description: |
-   A section represents a configurable UI element for a deco site. This article further explains the concept
+   A section represents a configurable UI element for a deco.cx site.
 ---
 
-**Live** allows developers to create UI sections in code that can be configured
-by business users through the admin of the [deco.cx.](deco.cx "deco.cx")
-Sections are available in the following locations:
+Sections are **UI components built with
+[Preact](https://preactjs.com/)** that can receive props configured by users on _deco.cx_'s Admin. The Section implementations live on the `sections/` folder in the Site's code.
 
-- **Library:** Allows developers to configure the properties of sections and
-  automatically see the generated UI.
-- **Pages:** Allows sections to be added to pages on the site, too being
-  configured as desired.
+Some examples of Section for an ecommerce store would be:
 
-## What are sections in code?
-
-Sections are **components
-[Preact](https://preactjs.com/ "https://preactjs.com/")** exported with _default
-export_ by files in the `sections/` folder in a site's repository Live.
-
-Some examples of sections on an ecommerce site would be:
-
-- **Product Shelf:** displays a product shelf with image, title and price.
-- **Header:** displays the standard header of the store, containing logo, menu
+- **ProductShelf.tsx:** displays a product shelf with image, title and price.
+- **Header.tsx:** displays the standard header of the store, containing logo, menu
   categories and links for cart and login.
-- **Banner:** displays image, text and some _Call to action_ for campaign or
+- **Banner.tsx:** displays image, text and some _Call to action_ for campaign or
   specific department.
 
-Note that sections run on the server only, so state management such as
+## Interactivity
+
+Note that Sections run on the **server-side only**, so state and lifecycle such as
 `useState`, `useEffect` and callbacks such as `onClick`, `onInput` will not
-work. For this you will have to use sections in set with islands.
+work. In order for those to work you'll need to use [interative Islands](https://fresh.deno.dev/docs/concepts/islands)
+
+
+In _deco.cx_'s Admin, it's possible to interact with Sections in two places:
+
+- **Library:** Allows developers to configure the properties of Sections and
+  automatically see the generated UI. (Works similar to [Storybook](https://storybook.js.org/))
+- **Pages:** Allows Section to be added to Page on the site, also being configurable.
+
+<!-- TODO: Move this to recipe -->
 
 ## How to create a section
 
 1. Create a `.tsx` file in the `sections/` folder on your website.
 
-2. Export a component [Preact](https://preactjs.com/ "https://preactjs.com/")
+2. Export a component [Preact](https://preactjs.com/)
    like the example below:
 
    1. `sections/Example.tsx`

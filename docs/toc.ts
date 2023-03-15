@@ -31,7 +31,7 @@ const tableOfContents: TableOfContents = [{
 }, {
   title: { en: "Tutorials", pt: "Tutoriais" },
   children: [{
-    title: { pt: "Criando um site Live", en: "Creating a Live site" },
+    title: { pt: "Criando um site deco.cx", en: "Creating a deco.cx site" },
     slug: "tutorials/101",
   }, {
     title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
@@ -113,8 +113,6 @@ export const getNextAndPreviousPost = (
   const currentIndex = tableOfContentsEntries.findLastIndex((
     { slug: currentSlug },
   ) => currentSlug === slug);
-
-  console.log({ currentIndex, slug, tableOfContentsEntries });
 
   const previous = currentIndex === 0 ? undefined : getNextPreviousForEntry(
     language,

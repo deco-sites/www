@@ -15,8 +15,7 @@ interface Props {
   mobile?: boolean;
 }
 export default function DocsSidebar(props: Props) {
-  console.log(props);
-  const id = String(Math.random()).replaceAll(".", "");
+  // const id = String(Math.random()).replaceAll(".", "");
   return (
     <>
       {/* Reenable this after we setup Algolia */}

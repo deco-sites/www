@@ -10,8 +10,8 @@ usuários no Admin de _deco.cx_. As implementações de Section ficam na pasta
 
 Alguns exemplos de Sections para uma loja de _ecommerce_ seriam:
 
-- **ProductShelf.tsx:** exibe uma prateleira de produtos com imagem,
-  título e preço.
+- **ProductShelf.tsx:** exibe uma prateleira de produtos com imagem, título e
+  preço.
 - **Header.tsx:** exibe o cabeçalho padrão da loja, contendo logotipo, menu de
   categorias e links para carrinho e login.
 - **Banner.tsx:** exibe imagem, texto e alguns _Call to action_ para campanha ou
@@ -19,9 +19,10 @@ Alguns exemplos de Sections para uma loja de _ecommerce_ seriam:
 
 ## Interatividade
 
-Observe que as Sections são executadas **somente no lado do servidor**, portanto,
-gerenciamento de estado e ciclo de vida, como `useState`, `useEffect` e callbacks como `onClick`,
-`onInput` não irão trabalhar. Para que funcionem, você precisará usar
+Observe que as Sections são executadas **somente no lado do servidor**,
+portanto, gerenciamento de estado e ciclo de vida, como `useState`, `useEffect`
+e callbacks como `onClick`, `onInput` não irão trabalhar. Para que funcionem,
+você precisará usar
 [ilhas interativas](https://fresh.deno.dev/docs/concepts/islands)
 
 <!-- TODO: Criar docs sobre Islands -->

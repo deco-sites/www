@@ -4,10 +4,11 @@ export interface Props {
   languageLink: string;
   login: string;
   register: string;
-
 }
 
-export default function NewLandingHeader({ menuLinks, language, languageLink, login, register }: Props) {
+export default function NewLandingHeader(
+  { menuLinks, language, languageLink, login, register }: Props,
+) {
   return (
     <nav class="flex flex-row justify-between items-center px-3 py-1.5 bg-[#1F261F]">
       <ul>
@@ -45,7 +46,7 @@ export default function NewLandingHeader({ menuLinks, language, languageLink, lo
               >
               </div>
             </li>
-          )
+          );
         })}
       </ul>
       <ul class="md:flex md:flex-row md:gap-4">
@@ -65,7 +66,9 @@ export default function NewLandingHeader({ menuLinks, language, languageLink, lo
         <li class="hidden md:block md:px-3 md:py-1 md:border-1 md:rounded-full md:border-[#1F261F] md:hover:border-[#2FD180] md:transition md:ease-in-out md:duration-300">
           <a href={languageLink}>
             <div class="flex flex-row items-center gap-1">
-              <span class="font-inter font-normal text-[#2FD180]">{language}</span>
+              <span class="font-inter font-normal text-[#2FD180]">
+                {language}
+              </span>
               <svg
                 width="20"
                 height="20"

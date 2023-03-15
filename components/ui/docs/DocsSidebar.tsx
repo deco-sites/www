@@ -19,7 +19,8 @@ export default function DocsSidebar(props: Props) {
   return (
     <>
       {/* Reenable this after we setup Algolia */}
-      {/* {props.mobile
+      {
+        /* {props.mobile
         ? (
           <button
             type="button"
@@ -48,7 +49,8 @@ export default function DocsSidebar(props: Props) {
             </span>
           </button>
         )
-        : <SearchButton />} */}
+        : <SearchButton />} */
+      }
 
       {/* <DocsLanguageSwitcher currentPathname={props.path} /> */}
       <div class="flex flex-col p-5">
@@ -69,7 +71,8 @@ export default function DocsSidebar(props: Props) {
                     >
                       {suboptionTitle}
                     </a>
-                    <div class="absolute top-0 bottom-0 left-[-8px] w-[4px] rounded bg-[#2E6ED9]"></div>
+                    <div class="absolute top-0 bottom-0 left-[-8px] w-[4px] rounded bg-[#2E6ED9]">
+                    </div>
                   </div>
                 );
               } else {
@@ -86,7 +89,8 @@ export default function DocsSidebar(props: Props) {
           </div>
         ))}
       </div>
-      {/* <ol class="list-decimal list-inside font-semibold nested">
+      {
+        /* <ol class="list-decimal list-inside font-semibold nested">
         {props.menu.map(({ children, href, title }) => (
           <li class="my-2 block">
             <a
@@ -119,7 +123,8 @@ export default function DocsSidebar(props: Props) {
             )}
           </li>
         ))}
-      </ol> */}
+      </ol> */
+      }
       {/* TODO: Fix intl for /docs */}
       <JoinDiscord language={props.path.includes("/pt/") ? "pt" : "en"} />
     </>

@@ -16,12 +16,13 @@ experiences.
 
 <img width="1512" alt="image" src="https://user-images.githubusercontent.com/18706156/224878795-66bc06b8-10bf-4285-9833-d375137e8914.png">
 
-When you create a site in _deco.cx_, it's automatically **deployed on the edge in 34
-regions world-wide** on [Deno Deploy](https://deno.com). This means your pages
-are served close to users, ensuring lightning-fast performance. Additionally, we
-provide you with a Github repository where you can manage your code and
-collaborate with others on your team. With _deco.cx_, you can focus on building
-your site **without worrying** about deployment or repository management.
+When you create a site in _deco.cx_, it's automatically **deployed on the edge
+in 34 regions world-wide** on [Deno Deploy](https://deno.com). This means your
+pages are served close to users, ensuring lightning-fast performance.
+Additionally, we provide you with a Github repository where you can manage your
+code and collaborate with others on your team. With _deco.cx_, you can focus on
+building your site **without worrying** about deployment or repository
+management.
 
 One of _deco_'s unique capabilities is the ability for developers to declare how
 UI components and functions can be configured, which then become **forms that
@@ -41,7 +42,8 @@ edit text and images without needing to write any code themselves.
 
 ## Code example
 
-This is what a _deco.cx_'s [Section](https://deco.cx/docs/en/concepts/sections) looks like:
+This is what a _deco.cx_'s [Section](https://www.deco.cx/docs/en/concepts/section)
+looks like:
 
 ```tsx
 import ProductCard from "$store/components/product/ProductCard.tsx";

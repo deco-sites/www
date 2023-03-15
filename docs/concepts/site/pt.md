@@ -4,30 +4,29 @@
 
 É importante entender o conceito de **Site** para utilizar a _deco.cx_. Um site
 é uma coleção de configurações como
-[Audiences](https://deco.cx/docs/en/concepts/audience),
-[Pages](https://deco.cx/docs/en/concepts/page) e
-[Sections](https://deco.cx/docs/en/concepts/section) que são vinculadas e
+[Audiences](https://www.deco.cx/docs/en/concepts/audience),
+[Pages](https://www.deco.cx/docs/en/concepts/page) e
+[Sections](https://www.deco.cx/docs/en/concepts/section) que são vinculadas e
 acessadas por meio de um domínio ou URL comum.
 
 Este é um exemplo de Site da _deco.cx_: https://fashion.deco.site
 
 > Cada Site criado na deco.cx recebe um domínio *.deco.site gratuito.
 
-Ao criar um Site na _deco.cx_ , os usuários podem
-escolher entre templates com UIs previamente desenvolvidas. Após a
-criação, a _deco.cx_ automaticamente **configura um deploy na edge** e **cria um
-repositório** para aquele Site.
+Ao criar um Site na _deco.cx_ , os usuários podem escolher entre templates com
+UIs previamente desenvolvidas. Após a criação, a _deco.cx_ automaticamente
+**configura um deploy na edge** e **cria um repositório** para aquele Site.
 
 <img width="901" alt="Página de criação de novos Sites na deco.cx" src="https://user-images.githubusercontent.com/18706156/224892959-38adb017-8ef1-47e7-adee-b7e9bcf2048c.png">
 
 > Página de criação de novos Sites na deco.cx
 
 No [Admin da _deco.cx_](https://deco.cx/admin), usuários podem personalizar os
-Sites editando conteúdo através do CMS ou alterando o estilo e o design por
-meio de alterações no código.
+Sites editando conteúdo através do CMS ou alterando o estilo e o design por meio
+de alterações no código.
 
 O conteúdo que cada usuário verá do seu Site dependerá da configurações de
-[Audienced](https://deco.cx/docs/en/concepts/audience). As Audiences permitem
+[Audienced](https://www.deco.cx/docs/en/concepts/audience). As Audiences permitem
 personalização de conteúdo, testes A/B e criação de campanhas.
 
 Os Sites são colaborativos e **pertencem a uma equipe** em nosso Admin. Membros

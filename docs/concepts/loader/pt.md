@@ -3,11 +3,12 @@
 ---
 
 Um **Loader** em _deco.cx_ é uma função Typescript que retorna os dados
-necessários em uma [Section](https://www.deco.cx/docs/pt/concepts/section). Essas
-funções são executadas antes da renderização de cada página e seu principal
-objetivo é **buscar dados de fontes externas**, transformá-los se necessário e
-**fornecê-los às Seções do site que precisam.** Os Loaders podem ser usados para
-buscar dados de APIs, bancos de dados ou qualquer outra fonte externa.
+necessários em uma [Section](https://www.deco.cx/docs/pt/concepts/section).
+Essas funções são executadas antes da renderização de cada página e seu
+principal objetivo é **buscar dados de fontes externas**, transformá-los se
+necessário e **fornecê-los às Seções do site que precisam.** Os Loaders podem
+ser usados para buscar dados de APIs, bancos de dados ou qualquer outra fonte
+externa.
 
 Além de buscar dados, os Loaders na _deco.cx_ **também podem exportar um tipo de
 Props Typescript**, o que permite que sejam configurados no
@@ -21,11 +22,11 @@ corretas para os visitantes.
 
 Outro benefício dos Loaders na _deco.cx_ é que **vários loaders podem retornar o
 mesmo tipo de dados**. Isso permite que as
-[Sections](https://www.deco.cx/docs/pt/concepts/section) que recebem, por exemplo,
-um _array_ de Produtos canônico obtenham dados de diferentes Loaders, dependendo
-da configuração do usuário. Isso significa que as UIs podem ser reutilizadas em
-[Sites](https://www.deco.cx/docs/pt/concepts/site) ou entre times, facilitando o
-gerenciamento e a escala do seu projeto.
+[Sections](https://www.deco.cx/docs/pt/concepts/section) que recebem, por
+exemplo, um _array_ de Produtos canônico obtenham dados de diferentes Loaders,
+dependendo da configuração do usuário. Isso significa que as UIs podem ser
+reutilizadas em [Sites](https://www.deco.cx/docs/pt/concepts/site) ou entre
+times, facilitando o gerenciamento e a escala do seu projeto.
 
 > Todas as Sections para lojas de _ecommerce_ criadas por _deco.cx_ na
 > [Fashion](https://github.com/deco-sites/fashion) usam um tipo de Produt

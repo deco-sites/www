@@ -1,6 +1,8 @@
 ---
+  description: Learn how to install VTEX Intelligent Search to a VTEX account and leverage deco.cx's built-in connectors
+--- 
 
-## description: Learn how to install VTEX Intelligent Search to a VTEX account and leverage deco.cx's built-in connectors
+<!-- TODO: Understand why auto-format comments the text above  -->
 
 ## What is VTEX Intelligent Search?
 

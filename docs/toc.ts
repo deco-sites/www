@@ -16,7 +16,7 @@ const tableOfContents: TableOfContents = [{
 }, {
   title: { pt: "Conceitos", en: "Concepts" },
   children: [{
-    title: { pt: "Seção", en: "Section" },
+    title: { pt: "Section", en: "Section" },
     slug: "concepts/section",
   }, {
     title: { pt: "Loader", en: "Loader" },
@@ -31,8 +31,11 @@ const tableOfContents: TableOfContents = [{
 }, {
   title: { en: "Tutorials", pt: "Tutoriais" },
   children: [{
-    title: { pt: "Criando um site deco.cx", en: "Creating a deco.cx site" },
+    title: { pt: "Criando um Site deco.cx", en: "Creating a deco.cx Site" },
     slug: "tutorials/101",
+  }, {
+    title: { pt: "Criando uma Section", en: "Creating a Section" },
+    slug: "tutorials/creating-a-section",
   }, {
     title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
     slug: "tutorials/connecting-vtex",

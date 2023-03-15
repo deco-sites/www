@@ -73,7 +73,7 @@ Sections are one of the most powerful _deco.cx_ concepts, and there's much more
 you can do with it. Read these Recipes to learn more about other options on how
 to create customizable Sections:
 
-- [Customizable Sections]()
+- [Customizable Sections](/docs/en/customizable-sections)
 - [Loading data from APIs]()
 
-<!-- TODO: Share snnipet -->
+<!-- TODO: Share snippet -->

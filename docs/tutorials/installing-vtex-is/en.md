@@ -42,8 +42,7 @@ charge** by VTEX (2023).
 <img width="847" alt="image" src="https://user-images.githubusercontent.com/18706156/225157818-47f5da0e-dfa7-4ad8-9d79-818370baba55.png">
 
 **That's it!** Now you're able to use the _deco.cx_ loaders that fetch data from
-VTEX Intelligent Search in your
-[Sections](/docs/en/concepts/page) and
+VTEX Intelligent Search in your [Sections](/docs/en/concepts/page) and
 [Pages](/docs/en/concepts/page).
 
 ## Reference

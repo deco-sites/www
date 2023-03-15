@@ -4,9 +4,9 @@ description: Usamos Preact, Deno, Fresh e Twind. Se você tem experiência anter
 
 Ao criar um site ou loja online com a _deco.cx_, você tem a flexibilidade de
 criar [Sections](/docs/pt/concepts/section) e
-[Functions](/docs/pt/concepts/loader) que atendem às suas
-necessidades exclusivas. Para ajudá-la a criar esses componentes com facilidade
-e rapidez, contamos com um conjunto de tecnologias poderosas e eficientes.
+[Functions](/docs/pt/concepts/loader) que atendem às suas necessidades
+exclusivas. Para ajudá-la a criar esses componentes com facilidade e rapidez,
+contamos com um conjunto de tecnologias poderosas e eficientes.
 
 Nossa pilha de tecnologia é focada em **simplicidade e desempenho**, tornando-a
 acessível a desenvolvedores com experiência anterior em HTML, CSS, JavaScript e

@@ -4,12 +4,12 @@
 
 Uma **Page** é o _building block_ fundamental de um Site _deco.cx_, que
 normalmente terá várias Pages. Cada Page consiste em **uma ou mais
-[Sections](/docs/pt/concepts/section)** configuradas, que
-podem ser consideradas como componentes modulares que compõem o conteúdo da
-Page. Uma Page também será **associada à um caminho de URL** que, quando
-visitado, deve renderizar tal Page. Este caminho pode ser estático como `/about`
-ou algo dinâmico como `/products/:slug`, que corresponderá a várias URLs com um
-parâmetro dinâmico seguindo a
+[Sections](/docs/pt/concepts/section)** configuradas, que podem ser consideradas
+como componentes modulares que compõem o conteúdo da Page. Uma Page também será
+**associada à um caminho de URL** que, quando visitado, deve renderizar tal
+Page. Este caminho pode ser estático como `/about` ou algo dinâmico como
+`/products/:slug`, que corresponderá a várias URLs com um parâmetro dinâmico
+seguindo a
 [URLPattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
 
 <img width="1512" alt="image" src="https://user-images.githubusercontent.com/18706156/225141097-0538f723-6e5f-4a85-ba41-03fa145c87bc.png">

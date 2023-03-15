@@ -10,8 +10,7 @@ description: |
 
 ## What you need to know before you start
 
-- Read the documents on the
-  [**Intro**](/docs/en/introduction/overview) and
+- Read the documents on the [**Intro**](/docs/en/introduction/overview) and
   [**Concepts**](/docs/en/concepts/section) sections.
 
 ## Create a deco.cx website

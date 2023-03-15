@@ -8,11 +8,10 @@ have previous experience with HTML, CSS, JavaScript, and React, then working
 with _deco.cx_ will be a breeze for you.
 
 When you're building a website or online store with _deco.cx_, you have the
-flexibility to create custom
-[Sections](/docs/en/concepts/section) and
-[Loaders](/docs/en/concepts/loader) that fit your unique
-needs. To help you create these components with ease and speed, we rely on a set
-of powerful and efficient technologies.
+flexibility to create custom [Sections](/docs/en/concepts/section) and
+[Loaders](/docs/en/concepts/loader) that fit your unique needs. To help you
+create these components with ease and speed, we rely on a set of powerful and
+efficient technologies.
 
 Our tech stack is focused on **simplicity and performance**, making it
 accessible to developers with previous experience in HTML, CSS, JavaScript, and

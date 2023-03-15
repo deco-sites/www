@@ -48,8 +48,8 @@ sem precisar escrever qualquer código.
 
 ## Exemplo de código
 
-Este é o código de uma [Section](/docs/pt/concepts/section)
-`ProductShelf` na _deco.cx_:
+Este é o código de uma [Section](/docs/pt/concepts/section) `ProductShelf` na
+_deco.cx_:
 
 ```tsx
 import ProductCard from "$store/components/product/ProductCard.tsx";

@@ -12,19 +12,20 @@ or any other external source.
 In addition to fetching data, Loaders in _deco.cx_ **can also export a
 Typescript Props type,** which allows them to be configured in the
 [Admin](https://deco.cx/admin) just like
-[Sections](https://www.deco.cx/docs/en/concepts/section). This means that business
-users can configure details about how the Loader will operate, such as **setting
-up filters or passing parameters to APIs.** By making Loaders configurable in
-this way, it becomes easier to manage the data flowing into Sections and ensure
-that the Site is displaying the right information to visitors.
+[Sections](https://www.deco.cx/docs/en/concepts/section). This means that
+business users can configure details about how the Loader will operate, such as
+**setting up filters or passing parameters to APIs.** By making Loaders
+configurable in this way, it becomes easier to manage the data flowing into
+Sections and ensure that the Site is displaying the right information to
+visitors.
 
 One other greate benefit of Loaders in _deco.cx_ is that **multiple loaders can
 return the same data type**. This allows
-[Sections](https://www.deco.cx/docs/en/concepts/section) that receive, for example,
-an array of canonical Product to get data from different Loaders, depending on
-the user's configuration. This means that UIs can be reused across
-[Sites](https://www.deco.cx/docs/en/concepts/site) or across teams, making it easier
-to manage and scale your project.
+[Sections](https://www.deco.cx/docs/en/concepts/section) that receive, for
+example, an array of canonical Product to get data from different Loaders,
+depending on the user's configuration. This means that UIs can be reused across
+[Sites](https://www.deco.cx/docs/en/concepts/site) or across teams, making it
+easier to manage and scale your project.
 
 > All Sections for ecommerce stores created by _deco.cx_ in the
 > [Fashion](https://github.com/deco-sites/fashion) start use a canonical Product

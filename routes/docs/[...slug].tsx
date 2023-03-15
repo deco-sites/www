@@ -47,7 +47,7 @@ export const handler: Handlers<Data> = {
     try {
       const url = new URL(
         `../../docs/${documentSlug}/${language}.md`,
-        import.meta.url
+        import.meta.url,
       );
 
       const fileContent = await Deno.readTextFile(url);
@@ -55,8 +55,8 @@ export const handler: Handlers<Data> = {
 
       const menu = getMenuDataForLanguage(language as "pt" | "en");
 
-      const title =
-        getTitleForPost(language as "en", documentSlug) || "Document";
+      const title = getTitleForPost(language as "en", documentSlug) ||
+        "Document";
 
       const page = {
         markdown: body,
@@ -81,7 +81,7 @@ export default function DocsPage(props: PageProps<Data>) {
   const switchLanguage = props.data.page.language === "en" ? "Por" : "Eng";
   const languageLink = props.url.pathname.replaceAll(
     "/" + props.data.page.language + "/",
-    `/${props.data.page.language === "en" ? "pt" : "en"}/`
+    `/${props.data.page.language === "en" ? "pt" : "en"}/`,
   );
 
   if (props.data.page.data.description) {
@@ -135,7 +135,8 @@ export default function DocsPage(props: PageProps<Data>) {
           }
       `,
           }}
-        ></style>
+        >
+        </style>
       </Head>
       <div class="flex flex-col min-h-screen">
         <NewLandingHeader
@@ -168,7 +169,8 @@ export default function DocsPage(props: PageProps<Data>) {
             class="hidden toggle"
             id="docs_sidebar"
             autocomplete="off"
-          ></input>
+          >
+          </input>
           {/* Fix mobile sidebar */}
           <div class="fixed inset-0 z-40 hidden toggled">
             <label
@@ -204,7 +206,8 @@ export default function DocsPage(props: PageProps<Data>) {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h7"
-                ></path>
+                >
+                </path>
               </svg>
               <div>Menu</div>
             </label>
@@ -228,7 +231,10 @@ export default function DocsPage(props: PageProps<Data>) {
 
 function Content(props: { page: Page }) {
   const _html = gfm.render(props.page.markdown);
-  const html = _html.replaceAll(/( href="https:\/\/(?!www.deco)).*?/g, ' target="_blank"$1')
+  const html = _html.replaceAll(
+    /( href="https:\/\/(?!www.deco)).*?/g,
+    ' target="_blank"$1',
+  );
 
   return (
     <main class="py-6 overflow-hidden">
@@ -255,7 +261,7 @@ function ForwardBackButtons(props: { slug: string; language: string }) {
 
   const { next, previous } = getNextAndPreviousPost(
     props.language as "en",
-    props.slug
+    props.slug,
   );
   const upper = "text(sm gray-600)";
   const category = "font-normal";

@@ -42,8 +42,8 @@ edit text and images without needing to write any code themselves.
 
 ## Code example
 
-This is what a _deco.cx_'s [Section](https://www.deco.cx/docs/en/concepts/section)
-looks like:
+This is what a _deco.cx_'s
+[Section](https://www.deco.cx/docs/en/concepts/section) looks like:
 
 ```tsx
 import ProductCard from "$store/components/product/ProductCard.tsx";

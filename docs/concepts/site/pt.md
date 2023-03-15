@@ -26,8 +26,8 @@ Sites editando conteúdo através do CMS ou alterando o estilo e o design por me
 de alterações no código.
 
 O conteúdo que cada usuário verá do seu Site dependerá da configurações de
-[Audienced](https://www.deco.cx/docs/en/concepts/audience). As Audiences permitem
-personalização de conteúdo, testes A/B e criação de campanhas.
+[Audienced](https://www.deco.cx/docs/en/concepts/audience). As Audiences
+permitem personalização de conteúdo, testes A/B e criação de campanhas.
 
 Os Sites são colaborativos e **pertencem a uma equipe** em nosso Admin. Membros
 da equipe podem ser adicionados para que possam trabalhar juntos no site.

@@ -3,13 +3,8 @@ import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { frontMatter, gfm } from "$start/components/utils/markdown.ts";
 
-import Header from "$start/sections/Header.tsx";
 import DocsTitle from "$start/components/ui/docs/DocsTitle.tsx";
-import {
-  SLUGS,
-  TABLE_OF_CONTENTS,
-  TableOfContentsEntry,
-} from "$start/components/ui/docs/docs.ts";
+import { TableOfContentsEntry } from "$start/components/ui/docs/docs.ts";
 import DocsSidebar from "../../components/ui/docs/DocsSidebar.tsx";
 import Footer from "../../sections/Footer.tsx";
 import {
@@ -18,7 +13,7 @@ import {
   getTitleForPost,
   MenuData,
 } from "../../docs/toc.ts";
-import BlogHeader from "../../sections/BlogHeader.tsx";
+import NewLandingHeader from "../../components/ui/docs/NewLandingHeader.tsx";
 
 interface Data {
   page: Page;
@@ -28,6 +23,7 @@ interface Page extends Pick<TableOfContentsEntry, "href" | "title" | "slug"> {
   markdown: string;
   data: Record<string, unknown>;
   menu: MenuData;
+  language: string;
 }
 
 export const handler: Handlers<Data> = {
@@ -68,18 +64,25 @@ export const handler: Handlers<Data> = {
         slug: documentSlug,
         title,
         href: reqUrl.pathname,
+        language,
         menu,
       };
       const resp = ctx.render({ page });
       return resp;
     } catch {
-      return ctx.renderNotFound()
+      return ctx.renderNotFound();
     }
   },
 };
 
 export default function DocsPage(props: PageProps<Data>) {
   let description;
+
+  const switchLanguage = props.data.page.language === "en" ? "Por" : "Eng";
+  const languageLink = props.url.pathname.replaceAll(
+    "/" + props.data.page.language + "/",
+    `/${props.data.page.language === "en" ? "pt" : "en"}/`
+  );
 
   if (props.data.page.data.description) {
     description = String(props.data.page.data.description);
@@ -135,7 +138,30 @@ export default function DocsPage(props: PageProps<Data>) {
         ></style>
       </Head>
       <div class="flex flex-col min-h-screen">
-        <BlogHeader logoAriaLabel="Logo Deco" />
+        <NewLandingHeader
+          language={switchLanguage}
+          languageLink={languageLink}
+          login="Login"
+          register="Register"
+          menuLinks={[
+            {
+              label: "Community",
+              href: "https://discord.com/invite/9fkbcvR833",
+            },
+            {
+              label: "Camp",
+              href: "https://deco.camp/",
+            },
+            {
+              label: "Blog",
+              href: "https://www.deco.cx/blog",
+            },
+            {
+              label: "Docs",
+              href: "https://www.deco.cx/docs/pt/introduction",
+            },
+          ]}
+        />
         <div class="flex-1">
           <input
             type="checkbox"

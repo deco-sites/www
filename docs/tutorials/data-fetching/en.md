@@ -4,7 +4,7 @@
 
 ## Suggested reading
 
-- [Tech Stack](/docs/en/intro/tech-stack)
+- [Tech Stack](/docs/en/introduction/tech-stack)
 - [Core Concepts: Sections](/docs/en/concepts/section)
 - [Core Concepts: Loaders](/docs/en/concepts/loader)
 

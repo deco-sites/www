@@ -4,7 +4,7 @@
 
 ## Leitura sugerida
 
-- [Tech Stack](/docs/pt/intro/tech-stack)
+- [Tech Stack](/docs/pt/introduction/tech-stack)
 - [Conceitos básicos: Section](/docs/pt/concepts/section)
 - [Conceitos básicos: Loaders](/docs/pt/concepts/loader)
 

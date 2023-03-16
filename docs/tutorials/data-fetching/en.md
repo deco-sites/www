@@ -89,6 +89,8 @@ To receive the data returned from the `dogApiFacts.ts` Loader in a Section we
 need to reference its return type (`DogFact[]`) in the Section's `props` type
 declaration.
 
+<!-- TODO: Change the code after new engine -->
+
 Let's see it working creating a new Section:
 
 1. Create the `DogFacts.tsx` Section in the `sections/` folder of your project.
@@ -139,9 +141,10 @@ make it more reusable in _deco.cx_'s Admin.
 
 The process might look a bit convoluted, but it has a major benefit: the Section
 is not tied to a Loader, but to a type, and that makes it possible to **use
-other Loaders that might also return the `DogFacts[]` type.** In the ecommerce ecosysytem, where there are different API providers (_e.g:_
-Shopify, Magento, Oracle) for the same types of data (Products, Categories,
-Orders...) this might come in handy.
+other Loaders that might also return the `DogFacts[]` type.** In the ecommerce
+ecosysytem, where there are different API providers (_e.g:_ Shopify, Magento,
+Oracle) for the same types of data (Products, Categories, Orders...) this might
+come in handy.
 
 In our [Fashion starter](https://github.com/deco-sites/fashion) we create
 Sections and Loaders using the

@@ -48,7 +48,8 @@ It's also possible to load
 
 To test the `LatestPosts.tsx` Section:
 
-1. Run `deno task start` on the Terminal. _(You don't need to re-run if it was already running)_
+1. Run `deno task start` on the Terminal. _(You don't need to re-run if it was
+   already running)_
 
 2. Go to _deco.cx_'s Admin on https://deco.cx/admin, select your Site and go to
    `Library`.
@@ -73,4 +74,6 @@ to create customizable Sections:
 - [Customizable Sections](/docs/en/recipes/customizable-sections)
 - [Loading data from APIs](/docs/en/tutorials/data-fetching)
 
-> _Dica_: If you use VSCode, [here](https://gist.github.com/lucis/9ac9756ce7df18033d53e5c03ad8a62d) are some snippets to help creating Section components.
+> _Dica_: If you use VSCode,
+> [here](https://gist.github.com/lucis/9ac9756ce7df18033d53e5c03ad8a62d) are
+> some snippets to help creating Section components.

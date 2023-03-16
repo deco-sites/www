@@ -75,4 +75,6 @@ funcionalidades de Sections:
 - [Sections customizáveis](/docs/pt/recipes/customizable-sections)
 - [Carregando dados de APIs](/docs/pt/tutorials/data-fetching)
 
-> _Dica_: Se você usa VSCode, [aqui](https://gist.github.com/lucis/9ac9756ce7df18033d53e5c03ad8a62d) estão alguns _snippets_ pra auxiliar na criação desses componentes.
+> _Dica_: Se você usa VSCode,
+> [aqui](https://gist.github.com/lucis/9ac9756ce7df18033d53e5c03ad8a62d) estão
+> alguns _snippets_ pra auxiliar na criação desses componentes.

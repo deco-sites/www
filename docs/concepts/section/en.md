@@ -31,5 +31,6 @@ In _deco.cx_'s Admin, it's possible to interact with Sections in two places:
   configurable.
 
 ## Further reading
+
 - [Tutorial: Coding a new Section](docs/en/tutorials/creating-a-section)
 - [Recipe: Customizable Sections](docs/en/recipes/customizable-sections)

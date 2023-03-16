@@ -37,6 +37,9 @@ const tableOfContents: TableOfContents = [{
     title: { pt: "Codando uma Section", en: "Coding a new Section" },
     slug: "tutorials/creating-a-section",
   }, {
+    title: { pt: "Buscando dados de API", en: "Fetching data from APIs" },
+    slug: "tutorials/data-fetching",
+  }, {
     title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
     slug: "tutorials/connecting-vtex",
   }, {
@@ -49,6 +52,9 @@ const tableOfContents: TableOfContents = [{
 }, {
   title: { en: "Recipes", pt: "Receitas" },
   children: [{
+    title: { pt: "Sections customizáveis", en: "Customizable Sections" },
+    slug: "recipes/customizable-sections",
+  }, {
     title: { pt: "Imagens", en: "Images" },
     slug: "recipes/images",
   }, {

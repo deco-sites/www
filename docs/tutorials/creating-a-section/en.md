@@ -44,16 +44,13 @@ Even though the code for this Section is on _localhost_ only, you can see how
 its UI is being rendered and also test the configuration of its props. For every
 prop that you export we'll render a data input accordingly to the prop type.
 It's also possible to load
-[data fetched from external API's](/docs/en/concepts/section)
-
-<!-- TODO: Fix this link -->
+[data fetched from external API's](/docs/en/tutorials/data-fetching)
 
 To test the `LatestPosts.tsx` Section:
 
-1. Run `deno task start` on the Terminal and access the _deco.cx_ Admin for that
-   Site. _(You don't need to re-run if it was already running)_
+1. Run `deno task start` on the Terminal. _(You don't need to re-run if it was already running)_
 
-2. Go go _deco.cx_'s Admin on https://deco.cx/admin, select your Site and go to
+2. Go to _deco.cx_'s Admin on https://deco.cx/admin, select your Site and go to
    `Library`.
 
 3. Make sure that `localhost:8000` is selected in the Environment selector in
@@ -73,7 +70,7 @@ Sections are one of the most powerful _deco.cx_ concepts, and there's much more
 you can do with it. Read these Recipes to learn more about other options on how
 to create customizable Sections:
 
-- [Customizable Sections](/docs/en/customizable-sections)
-- [Loading data from APIs]()
+- [Customizable Sections](/docs/en/recipes/customizable-sections)
+- [Loading data from APIs](/docs/en/tutorials/data-fetching)
 
-<!-- TODO: Share snippet -->
+> _Dica_: If you use VSCode, [here](https://gist.github.com/lucis/9ac9756ce7df18033d53e5c03ad8a62d) are some snippets to help creating Section components.

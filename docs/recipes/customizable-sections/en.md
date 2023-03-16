@@ -8,15 +8,15 @@
 - [Coding a new Section](/docs/en/tutorials/creating-a-section)
 
 You already know that it's easy to create a configurable
-[Sections](/docs/en/concepts/section) on _deco.cx_. In this post we'll outline
-all the possible ways that you can declare the props' types and how that impacts
-the form we render on _deco.cx_'s Admin.
+[Section](/docs/en/concepts/section) on _deco.cx_. In this post we'll outline
+all the possible ways that you can declare the `props` types and how that
+impacts the form we render on _deco.cx_'s Admin.
 
 ## Customizing sections
 
-Sections, as regular [Preact](https://preactjs.org) accepts `props` as their
-first argument and use those values in their markup to display texts, images or
-configure some behavior.
+Sections, as regular [Preact](https://preactjs.org) components, accepts `props`
+as their first argument and use those values in their markup to display texts,
+images or configure some behavior.
 
 Usually, these `props` are passed in another component, but when you're using
 _deco.cx_ **these props are configured in the Admin**, which makes it easy for
@@ -59,7 +59,7 @@ section configuration. This is the list of supported types in time:
 #### string
 
 ```ts
-export interface props {
+export interface Props {
   title: string;
 }
 ```
@@ -67,7 +67,7 @@ export interface props {
 #### number
 
 ```ts
-export interface props {
+export interface Props {
   numberOfLines: number;
 }
 ```
@@ -75,7 +75,7 @@ export interface props {
 #### object literal
 
 ```ts
-export interface props {
+export interface Props {
   address: {
     street: string;
     postalCode: string;
@@ -86,7 +86,7 @@ export interface props {
 #### array
 
 ```ts
-export interface props {
+export interface Props {
   menuItems: Array<{ label: string; value: string }>;
 }
 ```
@@ -125,7 +125,7 @@ export interface props {
 
 #### Video
 
-Similar to Image, properties with this type will be edited through a Video
+Similar to Image, properties with this type will be edited through a video
 upload _widget_.
 
 Example of use
@@ -181,4 +181,4 @@ API _(like Shopify, Magento, VTEX...)_.
 
 To understand how to accomplish that with [Sections](/docs/en/concepts/section)
 and [Loaders](/docs/en/concepts/loader), go to the
-[Data Fetching](/docs/en/recipers/data-fetching) recipe.
+[Fetching data from APIs](/docs/en/tutorials/data-fetching) tutorial.

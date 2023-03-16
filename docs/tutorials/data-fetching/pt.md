@@ -1,5 +1,5 @@
 ---
-   description: Aprenda como carregar dados com deco.cx usando Loaders e Sections, permitindo que usuários de negócios personalizem a busca de dados.
+   description: Aprenda como carregar dados usando Loaders e Sections, permitindo que usuários de negócios personalizem a busca.
 ---
 
 ## Leitura sugerida

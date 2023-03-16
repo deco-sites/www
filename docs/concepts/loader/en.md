@@ -3,7 +3,8 @@
 ---
 
 A **Loader** in _deco.cx_ is a Typescript function that returns data needed in a
-[Section](/docs/en/concepts/section). These functions are executed before page renders, and their main purpose is to **fetch data from external sources**,
+[Section](/docs/en/concepts/section). These functions are executed before page
+renders, and their main purpose is to **fetch data from external sources**,
 transform it if necessary, and **provide it to the site Sections that need it.**
 Loaders can be used to fetch data from APIs, databases, or any other external
 source.
@@ -94,4 +95,5 @@ export default searchLoader;
 [Source](https://github.com/deco-sites/std/blob/bedf496b7a2a480c1a9dfae477fe34020daae821/functions/shopifyProductList.ts)
 
 ## Recommended Reading
+
 - [Fetching data from APIs](/docs/en/tutorials/data-fetching)

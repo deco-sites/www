@@ -95,4 +95,5 @@ export default searchLoader;
 [Fonte](https://github.com/deco-sites/std/blob/bedf496b7a2a480c1a9dfae477fe34020daae821/functions/shopifyProductList.ts)
 
 ## Leitura recomendada
+
 - [Buscando dados de API](/docs/en/tutorials/data-fetching)

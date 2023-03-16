@@ -32,7 +32,8 @@ nosso sites, escritos em Typescript, executados por um servidor. Deno é
 semelhante a Node.js (_curiosidade_: eles foram
 [criados pela mesma pessoa](https://www.youtube.com/watch?v=M3BM9TB-8yA)).
 
-## Configure seu ambiente
+### [Fresh](https://fresh.deno.dev)
+O **Fresh** é um framework web fullstack (backend e frontend) para desenvolvedores JavaScript e TypeScript. Foi projetado para tornar fácil a criação de aplicações web de alta qualidade, alta performance e altamente personalizáveis.
 
 A única configuração necessária para codificar sites _deco.cx_ é **instalar o
 Deno** em sua máquina. Para instalar o Deno, siga as

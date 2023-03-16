@@ -15,8 +15,7 @@ interface Props {
   mobile?: boolean;
 }
 export default function DocsSidebar(props: Props) {
-  console.log(props);
-  const id = String(Math.random()).replaceAll(".", "");
+  // const id = String(Math.random()).replaceAll(".", "");
   return (
     <>
       {/* Reenable this after we setup Algolia */}
@@ -53,8 +52,45 @@ export default function DocsSidebar(props: Props) {
         : <SearchButton />} */
       }
 
-      <DocsLanguageSwitcher currentPathname={props.path} />
-      <ol class="list-decimal list-inside font-semibold nested">
+      {/* <DocsLanguageSwitcher currentPathname={props.path} /> */}
+      <div class="flex flex-col p-5">
+        <span class="pt-2 pl-2 text-2xl font-semibold">Docs</span>
+
+        {props.menu.map(({ children, href, title }) => (
+          <div class="mt-2 mb-3 flex flex-col">
+            <a href={href} class="rounded-lg p-2 font-bold">
+              {title}
+            </a>
+            {children?.map(({ href: suboptionHref, title: suboptionTitle }) => {
+              if (suboptionHref === props.path) {
+                return (
+                  <div class="relative w-full flex">
+                    <a
+                      href={suboptionHref}
+                      class="cursor-pointer flex-1 rounded-lg bg-[#EFF5FE] p-2 text-[#2E6ED9] hover:bg-[#EFF5FE]"
+                    >
+                      {suboptionTitle}
+                    </a>
+                    <div class="absolute top-0 bottom-0 left-[-8px] w-[4px] rounded bg-[#2E6ED9]">
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <a
+                    href={suboptionHref}
+                    class="cursor-pointer rounded-lg p-2 hover:bg-[#F8F9F5]"
+                  >
+                    {suboptionTitle}
+                  </a>
+                );
+              }
+            })}
+          </div>
+        ))}
+      </div>
+      {
+        /* <ol class="list-decimal list-inside font-semibold nested">
         {props.menu.map(({ children, href, title }) => (
           <li class="my-2 block">
             <a
@@ -87,7 +123,8 @@ export default function DocsSidebar(props: Props) {
             )}
           </li>
         ))}
-      </ol>
+      </ol> */
+      }
       {/* TODO: Fix intl for /docs */}
       <JoinDiscord language={props.path.includes("/pt/") ? "pt" : "en"} />
     </>

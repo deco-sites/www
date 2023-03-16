@@ -27,7 +27,7 @@ export const handler: Handlers<LivePageData, LiveState> = {
         return redirectTo("https://airtable.com/shrpWZHqr4bmuI5OD");
       case "/brand":
         return redirectTo(
-          "https://drive.google.com/drive/folders/1fMIVfALCEa3Er2iX0kNF-87IQSWtpSyy?usp=share_link"
+          "https://drive.google.com/drive/folders/1fMIVfALCEa3Er2iX0kNF-87IQSWtpSyy?usp=share_link",
         );
 
       case "/hackathon":
@@ -40,11 +40,11 @@ export const handler: Handlers<LivePageData, LiveState> = {
         return redirectTo("https://www.youtube.com/watch?v=fz-wueU_D6o");
       case "/politica-privacidade":
         return redirectTo(
-          "https://drive.google.com/file/d/15WCSop0_jNfrGn73EqFOr94twJIIrxea/view?usp=sharing"
+          "https://drive.google.com/file/d/1UWQ9AGHyBhPCTYpWMvzKFRA5H-LByp2x/view?usp=sharing",
         );
       case "/termos-de-uso":
         return redirectTo(
-          "https://drive.google.com/file/d/1tihCV4Y5zRPXGdpP6prmIvNevUBpWKcu/view?usp=sharing"
+          "https://drive.google.com/file/d/1Tsqvz01wUEkTKWDasmzz-E2OYZlPKcUy/view?usp=sharing",
         );
       default: {
         const liveGetHandler = live()["GET"]!;

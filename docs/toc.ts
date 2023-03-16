@@ -6,39 +6,66 @@ type TableOfContents = Array<TopLevelEntry>;
 
 const tableOfContents: TableOfContents = [{
   title: { pt: "Início", en: "Intro" },
-  slug: "introduction",
+  children: [{
+    title: { pt: "Visão Geral", en: "Overview" },
+    slug: "introduction/overview",
+  }, {
+    title: { pt: "Tecnologias", en: "Tech Stack" },
+    slug: "introduction/tech-stack",
+  }],
 }, {
   title: { pt: "Conceitos", en: "Concepts" },
   children: [{
-    title: { pt: "Seção", en: "Section" },
+    title: { pt: "Section", en: "Section" },
     slug: "concepts/section",
+  }, {
+    title: { pt: "Loader", en: "Loader" },
+    slug: "concepts/loader",
+  }, {
+    title: { pt: "Page", en: "Page" },
+    slug: "concepts/page",
+  }, {
+    title: { pt: "Site", en: "Site" },
+    slug: "concepts/site",
   }],
 }, {
-  title: { en: "Guides", pt: "Guias" },
+  title: { en: "Tutorials", pt: "Tutoriais" },
   children: [{
-    title: { pt: "Criando um site Live", en: "Creating a Live site" },
-    slug: "guides/101",
+    title: { pt: "Criando um Site", en: "Creating a Site" },
+    slug: "tutorials/101",
+  }, {
+    title: { pt: "Codando uma Section", en: "Coding a new Section" },
+    slug: "tutorials/creating-a-section",
+  }, {
+    title: { pt: "Buscando dados de API", en: "Fetching data from APIs" },
+    slug: "tutorials/data-fetching",
+  }, {
+    title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
+    slug: "tutorials/connecting-vtex",
+  }, {
+    title: {
+      pt: "Instalando VTEX Intelligent Search",
+      en: "Installing VTEX Intelligent Search",
+    },
+    slug: "tutorials/installing-vtex-is",
   }],
 }, {
-  title: { en: "Performance Guides", pt: "Guias de Performance " },
+  title: { en: "Recipes", pt: "Receitas" },
   children: [{
+    title: { pt: "Sections customizáveis", en: "Customizable Sections" },
+    slug: "recipes/customizable-sections",
+  }, {
     title: { pt: "Imagens", en: "Images" },
-    slug: "performance/images",
+    slug: "recipes/images",
   }, {
     title: {
       pt: "SVG Sprites",
       en: "SVG Sprites",
     },
-    slug: "performance/svg-sprites",
-  }],
-}, {
-  title: { en: "Ecommerce", pt: "Ecommerce" },
-  children: [{
-    title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
-    slug: "ecommerce/connecting-vtex",
+    slug: "recipes/svg-sprites",
   }, {
     title: { pt: "Menu Dropdown", en: "Dropdown Menu" },
-    slug: "ecommerce/menu",
+    slug: "recipes/menu",
   }],
 }];
 
@@ -92,7 +119,7 @@ export const getNextAndPreviousPost = (
     );
   }, [] as TopLevelEntry[]);
 
-  const currentIndex = tableOfContentsEntries.findIndex((
+  const currentIndex = tableOfContentsEntries.findLastIndex((
     { slug: currentSlug },
   ) => currentSlug === slug);
 

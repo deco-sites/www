@@ -33,6 +33,13 @@ ol.nested li:before {
 .toggle:checked + .toggled {
 	display: block;
 }
+
+.markdown-body img {
+  padding: 15px 0;
+}
+.markdown-body {
+  font-family: Albert Sans,sans-serif;
+}
 `;
 
 export const handler: Handlers = {

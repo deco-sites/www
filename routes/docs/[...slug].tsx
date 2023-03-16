@@ -3,13 +3,8 @@ import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { frontMatter, gfm } from "$start/components/utils/markdown.ts";
 
-import Header from "$start/sections/Header.tsx";
 import DocsTitle from "$start/components/ui/docs/DocsTitle.tsx";
-import {
-  SLUGS,
-  TABLE_OF_CONTENTS,
-  TableOfContentsEntry,
-} from "$start/components/ui/docs/docs.ts";
+import { TableOfContentsEntry } from "$start/components/ui/docs/docs.ts";
 import DocsSidebar from "../../components/ui/docs/DocsSidebar.tsx";
 import Footer from "../../sections/Footer.tsx";
 import {
@@ -18,7 +13,7 @@ import {
   getTitleForPost,
   MenuData,
 } from "../../docs/toc.ts";
-import BlogHeader from "../../sections/BlogHeader.tsx";
+import NewLandingHeader from "../../components/ui/docs/NewLandingHeader.tsx";
 
 interface Data {
   page: Page;
@@ -28,6 +23,7 @@ interface Page extends Pick<TableOfContentsEntry, "href" | "title" | "slug"> {
   markdown: string;
   data: Record<string, unknown>;
   menu: MenuData;
+  language: string;
 }
 
 export const handler: Handlers<Data> = {
@@ -40,47 +36,53 @@ export const handler: Handlers<Data> = {
     if (!rest?.length) {
       return new Response(null, {
         status: 307,
-        headers: { location: `/docs/${language || "en"}/introduction` },
+        headers: {
+          location: `/docs/${language || "en"}/introduction/overview`,
+        },
       });
     }
 
-    // TODO: If slug matches a folder, send to first arcticle
-
     const documentSlug = rest.join("/");
 
-    // const entry = TABLE_OF_CONTENTS[documentSlug];
+    try {
+      const url = new URL(
+        `../../docs/${documentSlug}/${language}.md`,
+        import.meta.url,
+      );
 
-    // if (!entry) {
-    //   return ctx.renderNotFound();
-    // }
+      const fileContent = await Deno.readTextFile(url);
+      const { body, attrs } = frontMatter<Record<string, unknown>>(fileContent);
 
-    const url = new URL(
-      `../../docs/${documentSlug}/${language}.md`,
-      import.meta.url,
-    );
+      const menu = getMenuDataForLanguage(language as "pt" | "en");
 
-    const fileContent = await Deno.readTextFile(url);
-    // TODO: Fix performance/images (part of markdown is invalid)
-    const { body, attrs } = frontMatter<Record<string, unknown>>(fileContent);
-    // const page = { ...entry, markdown: body, data: attrs ?? {} };
-    const menu = getMenuDataForLanguage(language as "pt" | "en");
-    const title = getTitleForPost(language as "en", documentSlug) || "Document";
+      const title = getTitleForPost(language as "en", documentSlug) ||
+        "Document";
 
-    const page = {
-      markdown: body,
-      data: attrs ?? {},
-      slug: documentSlug,
-      title,
-      href: reqUrl.pathname,
-      menu,
-    };
-    const resp = ctx.render({ page });
-    return resp;
+      const page = {
+        markdown: body,
+        data: attrs ?? {},
+        slug: documentSlug,
+        title,
+        href: reqUrl.pathname,
+        language,
+        menu,
+      };
+      const resp = ctx.render({ page });
+      return resp;
+    } catch {
+      return ctx.renderNotFound();
+    }
   },
 };
 
 export default function DocsPage(props: PageProps<Data>) {
   let description;
+
+  const switchLanguage = props.data.page.language === "en" ? "Por" : "Eng";
+  const languageLink = props.url.pathname.replaceAll(
+    "/" + props.data.page.language + "/",
+    `/${props.data.page.language === "en" ? "pt" : "en"}/`,
+  );
 
   if (props.data.page.data.description) {
     description = String(props.data.page.data.description);
@@ -92,9 +94,75 @@ export default function DocsPage(props: PageProps<Data>) {
         <title>{props.data.page?.title ?? "Not Found"} | deco.cx docs</title>
         <link rel="stylesheet" href={`/gfm.css?build=${__FRSH_BUILD_ID}`} />
         {description && <meta name="description" content={description} />}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          /* latin-ext */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+          }
+          /* latin */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+          }
+          /* latin-ext */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+          }
+          /* latin */
+          @font-face {
+            font-family: 'Albert Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+          }
+      `,
+          }}
+        >
+        </style>
       </Head>
       <div class="flex flex-col min-h-screen">
-        <BlogHeader logoAriaLabel="Logo Deco" />
+        <NewLandingHeader
+          language={switchLanguage}
+          languageLink={languageLink}
+          login="Login"
+          register="Register"
+          menuLinks={[
+            {
+              label: "Community",
+              href: "https://discord.com/invite/9fkbcvR833",
+            },
+            {
+              label: "Camp",
+              href: "https://deco.camp/",
+            },
+            {
+              label: "Blog",
+              href: "https://www.deco.cx/blog",
+            },
+            {
+              label: "Docs",
+              href: "https://www.deco.cx/docs/pt/introduction",
+            },
+          ]}
+        />
         <div class="flex-1">
           <input
             type="checkbox"
@@ -162,7 +230,12 @@ export default function DocsPage(props: PageProps<Data>) {
 }
 
 function Content(props: { page: Page }) {
-  const html = gfm.render(props.page.markdown);
+  const _html = gfm.render(props.page.markdown);
+  const html = _html.replaceAll(
+    /( href="https:\/\/(?!www.deco)).*?/g,
+    ' target="_blank"$1',
+  );
+
   return (
     <main class="py-6 overflow-hidden">
       <h1 class="text(4xl gray-900) tracking-tight font-extrabold mt-6">
@@ -183,7 +256,6 @@ function Content(props: { page: Page }) {
 const button = "p-2 bg-gray-100 w-full border(1 gray-200) grid";
 
 function ForwardBackButtons(props: { slug: string; language: string }) {
-  console.log({ props });
   const nextLabel = props.language === "en" ? "Next" : "Próximo";
   const previousLabel = props.language === "en" ? "Previous" : "Anterior";
 

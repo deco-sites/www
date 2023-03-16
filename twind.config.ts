@@ -11,6 +11,10 @@ const options: Omit<Options, "selfURL"> = {
     ...typography({ className: "prose" }),
   },
   theme: {
+    backgroundPosition: {
+      "position-100": "100%",
+      "position-0": "0%",
+    },
     extend: {
       typography: {
         DEFAULT: {
@@ -113,6 +117,12 @@ const options: Omit<Options, "selfURL"> = {
           "radial-gradient(circle closest-corner at 99.5%, var(--tw-gradient-from), var(--tw-gradient-to))",
         "radial-dark":
           "radial-gradient(farthest-side at 100%, var(--tw-gradient-from), var(--tw-gradient-to))",
+        "linear-transp-green":
+          "linear-gradient(90deg,  rgba(255,255,255,0) 0%, rgba(47,209,128,0.8) 49%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%)",
+        "white-green":
+          "linear-gradient(to top, #06E474 0%, #06E474 43%, #FFFFFF 43%, #FFFFFF 100%)",
+        "linear-white-green":
+          "linear-gradient(90deg,  rgba(255,255,255,0.8) 0%, rgba(47,209,128,0.8) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%)",
       },
       borderColor: {
         "default": "#D4DBD7",

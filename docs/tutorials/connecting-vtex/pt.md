@@ -11,34 +11,15 @@ Esse guia mostra como criar e configurar um site na
 [**deco.cx**](http://deco.cx) para um _storefront_ que lê dados da plataforma de
 ecommerce [VTEX](https://vtex.com/ "https://vtex.com/").
 
+## Leitura recomendada
+- [Criando um site](/docs/pt/tutorials/101)
+
 ## Pré-requisitos
 
 - Acesso a
   [https://deco.cx/admin](https://deco.cx/admin "https://deco.cx/admin").
-- Um `accountName` VTEX
-  [(ajuda)](https://help.vtex.com/tutorial/what-is-an-account-name--i0mIGLcg3QyEy8OCicEoC "https://help.vtex.com/tutorial/what-is-an-account-name--i0mIGLcg3QyEy8OCicEoC").
+- Um `accountName` VTEX. (Clique aqui se você precisa [descobrir](#como-descobrir-accountname)).
 
-## Público-alvo
-
-- Desenvolvedores Web familiarizados com React/Preact e também conhecimento em
-  [VTEX](https://vtex.com/ "https://vtex.com/").
-
-A [**deco.cx**](http://deco.cx) é feita especialmente para criando de commerce
-experiences de alto desempenho, e nesse guia ensinaremos como dar os primeiros
-passos para configurar um site _deco_ que lê dados de uma conta VTEX.
-
-## Criando o site
-
-Para prosseguir, siga os passos do guia [[Documentação deco/Guides: Comece a
-usar o Live]] e **selecione o template Deco Commerce na criação do site.**
-
-<img width="586" alt="Criando um site na deco.cx" src="https://user-images.githubusercontent.com/18706156/224514991-0e882420-00a8-4272-a2d0-71f73ac77d23.png">
-
-Complete todos os passos do guia, finalmente **clonando o repositório do site
-recém-criado localmente.**
-
-Após isso, você deverá ter um storefront _deco_ criado e deve estar rodando o
-site localmente em sua máquina.
 
 ## Configurando o account name
 
@@ -52,7 +33,7 @@ corretamente.
 Para fazer essa mudança, siga os passos:
 
 1. Acesse o painel administrativo do seu site em
-   [https://deco.cx/admin](https://deco.cx/admin "https://deco.cx/admin").
+   [https://deco.cx/admin](https://deco.cx/admin "https://deco.cx/admin"). 
 
 2. Vá até **Library.**
 
@@ -106,3 +87,20 @@ Com esse domínio em mãos, siga os seguintes passos:
 2. Abra o arquivo `checkout.ts` e substitua a string
    [`bravtexfashionstore`](https://bravtexfashionstore.vtexcommercestable.com.br)
    pelo **account name** utilizado na sessão anterior.
+
+<!-- TODO: Traduzir  -->
+
+## Como descobrir accountName
+
+Se você tem acesso à uma URL pública de uma loja VTEX mas precisa descobrir o `accountName` para configurar a integração na _deco.cx_, siga esse passos:
+
+1. Acesse a URL da loja.
+2. Clique com o botão direto e selecione **Inspecionar Elemento**.
+3. Com o _Dev Tools_ aberto, digite _Ctrl + F_ para abrir a busca dentro do HTML.
+4. Busque por `vtexassets` ou `vteximg` (dependendo do CMS atual da loja).
+5. O `accountName` estará nas URLs no formato: `{accountName}.vtexassets.com` ou `{accountName}.vteximg.com.br`.
+
+
+![Exemplo na loja www.mash.com.br](https://user-images.githubusercontent.com/18706156/226031270-83a1888d-cde8-445e-84be-52d58a55e3c4.png)
+
+_Exemplo na loja www.mash.com.br_

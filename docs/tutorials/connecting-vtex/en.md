@@ -18,10 +18,6 @@ ecommerce [VTEX](https://vtex.com/ "https://vtex.com/").
 - An `accountName` VTEX
   [(help)](https://help.vtex.com/tutorial/what-is-an-account-name--i0mIGLcg3QyEy8OCicEoC "https://help.vtex.com/tutorial/what-is-an-account -name--i0mIGLcg3QyEy8OCicEoC").
 
-## Target Audience
-
-- Web developers familiar with React/Preact and also knowledge in
-  [VTEX](https://vtex.com/ "https://vtex.com/").
 
 [**deco.cx**](http://deco.cx) is made especially for creating high performance
 commerce experiences, and in this guide we will teach you how to give the first

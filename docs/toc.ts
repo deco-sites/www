@@ -40,6 +40,12 @@ const tableOfContents: TableOfContents = [{
     title: { pt: "Buscando dados de API", en: "Fetching data from APIs" },
     slug: "tutorials/data-fetching",
   }, {
+    title: {
+      pt: "Importando outros Sites",
+      en: "Importing other sites",
+    },
+    slug: "tutorials/importing-other-sites",
+  }, {
     title: { pt: "Conectando com VTEX", en: "Connecting with VTEX" },
     slug: "tutorials/connecting-vtex",
   }, {

@@ -7,7 +7,11 @@ A **Loader** in _deco.cx_ is a Typescript function that returns data needed in a
 renders, and their main purpose is to **fetch data from external sources**,
 transform it if necessary, and **provide it to the site Sections that need it.**
 Loaders can be used to fetch data from APIs, databases, or any other external
-source.
+source. They live locally on the `/functions/` folder of your project, but it's
+also possible to
+[import Loaders from other Sites](/docs/en/tutorials/importing-other-sites).
+
+<!-- TODO: Update folder name after new engine -->
 
 In addition to fetching data, Loaders in _deco.cx_ **can also export a
 Typescript Props type,** which allows them to be configured in the

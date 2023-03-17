@@ -7,7 +7,7 @@ necessários em uma [Section](/docs/pt/concepts/section). Essas funções são
 executadas antes da renderização de cada página e seu principal objetivo é
 **buscar dados de fontes externas**, transformá-los se necessário e
 **fornecê-los às Seções do site que precisam.** Os Loaders podem ser usados para
-buscar dados de APIs, bancos de dados ou qualquer outra fonte externa.
+buscar dados de APIs, bancos de dados ou qualquer outra fonte externa. As implementações locais de Loaders vivem na pasta `/functions` do seu projeto, porém é possível [importar Loaders de outros Sites](/docs/pt/tutorials/importing-other-sites).
 
 Além de buscar dados, os Loaders na _deco.cx_ **também podem exportar um tipo de
 Props Typescript**, o que permite que sejam configurados no

@@ -18,7 +18,6 @@ ecommerce [VTEX](https://vtex.com/ "https://vtex.com/").
 - An `accountName` VTEX
   [(help)](https://help.vtex.com/tutorial/what-is-an-account-name--i0mIGLcg3QyEy8OCicEoC "https://help.vtex.com/tutorial/what-is-an-account -name--i0mIGLcg3QyEy8OCicEoC").
 
-
 [**deco.cx**](http://deco.cx) is made especially for creating high performance
 commerce experiences, and in this guide we will teach you how to give the first
 steps to set up a _deco_ site that reads data from a VTEX account.
@@ -80,6 +79,35 @@ render correctly according to the selected product. Now you can use the Sections
 and Functions already included in your project to display configured account
 products.
 
+## Didn't work?
+
+If you made changes to the VTEX global configuration, changed  `ProductShelf`'s query to a term relevant to the configured account but still no product was returned it is possible that the VTEX Intelligent Search (IS) **is not installed on the account**. If you have VTEX Admin access, learn how to [install VTEX IS](https://www.deco.cx/docs/en/tutorials/installing-vtex-is).
+
+However, there is no problem: **it is possible to connect to VTEX using the traditional search APIs**. Possibly some features of [Fashion starter](https://github.com/deco-sites/fashion) like _autocomplete_ search will not work, but the main features of the store will.
+
+To use these APIs, just **change the Loaders** used for the `vtexLegacy...` version. Follow the steps below to change this setting for the entire site:
+
+1. In _deco.cx_ Admin, access the **Pages** section.
+2. Select the **Home** Page that is **Published** (that is, it is the home used in production.)
+3. Select Section `ProductShelf`.
+4. In the `Products` prop, click on the arrow icon to change the Loader and select the `vtexLegacyProductList.ts`.
+5. Click on the edit icon, next to Loader, and fill in the required `props` `query` and `count`.
+6. Click Save.
+7. Now, click on **Publish**.
+
+<img width="1310" alt="image" src="https://user-images.githubusercontent.com/18706156/226076534-1e768d7d-830c-4f35-89ef-bc43445539f7.png">
+
+*Selecting Loader `vtexProductList.ts` for Shelf*
+
+Follow the same steps for the other published Pages of the Site to ensure that the navigation flow will work correctly using legacy VTEX APIs. Here are the Pages and Sections respectively that need to be changed.
+
+- **Categories** `(/*)` and **Search Page** `(/s)`: `SearchControls` and `ProductGallery`.
+- **Product Page** `(/:slug/p)`: `ProductDetails` and `ProductShelf`.
+
+> Don't forget to Save **and Publish** the changes.
+
+> For Pages with two Sections that need Loaders, it is possible to select **Loaders already configured** so as not to burden the loading of the Page.
+
 ## Configuring checkout
 
 Currently, we use the
@@ -101,3 +129,34 @@ store. With that domain in hand, follow these steps:
 2. Open the `checkout.ts` file and replace the string
    [`bravtexfashionstore`](https://bravtexfashionstore.vtexcommercestable.com.br)
    by the **account name** used in the previous session
+
+## Finding accountName and salesChannel
+
+If you have access to a public VTEX store URL but need to find out
+`accountName`, `salesChannel` and `defaultLocale` to configure the integration in _deco.cx_, follow these steps:
+
+**accountName**
+
+1. Access the store URL.
+2. Right-click and select **Inspect**.
+3. With _Dev Tools_ open, type _Ctrl + F_ to open the search within the
+    HTML.
+4. Search for `vtexassets` or `vteximg` (depending on the store's current CMS).
+5. The `accountName` will be in URLs in the format: `{accountName}.vtexassets.com` or
+    `{accountName}.vteximg.com.br`.
+
+
+![Example at www.mash.com.br store](https://user-images.githubusercontent.com/18706156/226031270-83a1888d-cde8-445e-84be-52d58a55e3c4.png)
+
+**salesChannel** and **defaultLocale**
+1. With _Dev Tools_ open, go to **Application** or **Storage**.
+2. On the left side, select the **Cookies** item and select the store's URL.
+3. Look for Cookie `vtex_segment` and **copy its value,** which starts with `ey`.
+4. Go to the https://jwt.io website and paste the value.
+5. Check the returned JSON. The `channel` field brings the `salesChannel` value and the `cultureInfo` field brings the `defaultLocale`.
+
+> In most cases the `salesChannel` is 1
+
+<img width="1281" alt="image" src="https://user-images.githubusercontent.com/18706156/226075931-6ffe568e-a6c9-4850-ad88-2a02f7a9f5f0.png">
+
+_Example of a parsed vtex_segment._

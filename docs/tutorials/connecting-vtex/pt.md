@@ -68,7 +68,7 @@ produtos da conta configurada.
 
 ## Não funcionou?
 
-Se você fez as alterações na configuração global da VTEX, alterou a query de uma `ProductShelf` para um termo presente no catálogo da conta mas, mesmo assim, nenhum produto foi retornado é possível que a VTEX Intelligent Search (IS) **não está instalada na conta**. Se você tem acesso ao Admin da VTEX, saiba como [instalar a VTEX IS](https://www.deco.cx/docs/en/tutorials/installing-vtex-is).
+Se você fez as alterações na configuração global da VTEX, alterou a query de uma `ProductShelf` para um termo presente no catálogo da conta mas, mesmo assim, nenhum produto foi retornado é possível que a VTEX Intelligent Search (IS) **não está instalada na conta**. Se você tem acesso ao Admin da VTEX, saiba como [instalar a VTEX IS](/docs/pt/tutorials/installing-vtex-is).
 
 Entretanto, não há problema: **é possível usar conectar-se à VTEX utilizando as APIs tradicionais de busca**. Possivelmente algumas features do [Fashion starter](https://github.com/deco-sites/fashion) como _autocomplete_ de busca não funcionarão, mas as principais funcionalidades da loja sim.
 
@@ -116,8 +116,6 @@ Com esse domínio em mãos, siga os seguintes passos:
 2. Abra o arquivo `checkout.ts` e substitua a string
    [`bravtexfashionstore`](https://bravtexfashionstore.vtexcommercestable.com.br)
    pelo **account name** utilizado na sessão anterior.
-
-<!-- TODO: Traduzir  -->
 
 ## Como descobrir accountName e salesChannel
 

@@ -23,6 +23,8 @@ preocupe: a instalação da Intelligent Search **não tem nenhuma implicação
 negativa** na conta VTEX, apenas disponibilizando as APIs. O VTEX IS também é
 oferecida **gratuitamente** pela VTEX em 2023.
 
+> Se você quer usar as APIs de busca _legacy_ da VTEX leia mais [aqui](/docs/en/tutorials/connecting-vtex)
+
 ## Pré-requisitos
 
 - Acesso à conta VTEX que deseja realizar esta operação.
@@ -42,8 +44,8 @@ oferecida **gratuitamente** pela VTEX em 2023.
 <img width="847" alt="image" src="https://user-images.githubusercontent.com/18706156/225157818-47f5da0e-dfa7-4ad8-9d79-818370baba55.png">
 
 **É isso!** Agora você pode usar os Loaders da _deco.cx_ que buscam dados da
-Intelligent Search em suas [Seções](/docs/en/concepts/page) e
-[Páginas](/docs/en/concepts/page).
+Intelligent Search em suas [Sections](/docs/pt/concepts/section) e
+[Pages](/docs/pt/concepts/page).
 
 ## Referência
 

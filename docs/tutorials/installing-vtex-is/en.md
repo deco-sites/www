@@ -24,7 +24,8 @@ installing Intelligent Search **does not have any negative implications** in the
 VTEX account, only making the APIs available. VTEX IS is also offered **free of
 charge** by VTEX (2023).
 
-> If you want to use legacy search APIs from VTEX read more about it [here](/docs/en/tutorials/connecting-vtex)
+> If you want to use legacy search APIs from VTEX read more about it
+> [here](/docs/en/tutorials/connecting-vtex)
 
 ## Prerequisites
 

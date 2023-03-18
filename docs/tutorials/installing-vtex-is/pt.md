@@ -23,7 +23,8 @@ preocupe: a instalação da Intelligent Search **não tem nenhuma implicação
 negativa** na conta VTEX, apenas disponibilizando as APIs. O VTEX IS também é
 oferecida **gratuitamente** pela VTEX em 2023.
 
-> Se você quer usar as APIs de busca _legacy_ da VTEX leia mais [aqui](/docs/en/tutorials/connecting-vtex)
+> Se você quer usar as APIs de busca _legacy_ da VTEX leia mais
+> [aqui](/docs/en/tutorials/connecting-vtex)
 
 ## Pré-requisitos
 

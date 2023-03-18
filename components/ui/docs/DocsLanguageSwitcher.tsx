@@ -13,7 +13,6 @@ export default function DocsLanguageSwitcher({ currentPathname }: Props) {
       <div class="flex flex-row mt-2 gap-2">
         <a
           href={englishLink}
-          
           class={isLanguage("en")
             ? "text(green-600 hover:green-500)"
             : "text(gray-900 hover:gray-600)"}

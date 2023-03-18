@@ -137,11 +137,11 @@ It is likely that the account you set up above already has a public domain that
 is being used, and it is possible to use it in the construction stage of the
 store. With that domain in hand, follow these steps:
 
-1. Open the `Minicart.tsx` file and replace the string
+1. Open the `Cart.tsx` file and replace the string
    [`https://bravtexfashionstore.vtexcommercestable.com.br`](https://bravtexfashionstore.vtexcommercestable.com.br)
    by the chosen domain of the store.
 
-2. Open the `checkout.ts` file and replace the string
+2. Open the `routes/api/[...catchall].tsx` file and replace the string
    [`bravtexfashionstore`](https://bravtexfashionstore.vtexcommercestable.com.br)
    by the **account name** used in the previous session
 

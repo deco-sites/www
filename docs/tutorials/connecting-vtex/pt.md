@@ -126,11 +126,11 @@ fluxo normalmente.
 está sendo utilizado, e é possível utilizá-lo na etapa de construção da loja.
 Com esse domínio em mãos, siga os seguintes passos:
 
-1. Abra o arquivo `Minicart.tsx` e substitua a string
+1. Abra o arquivo `Cart.tsx` e substitua a string
    [`https://bravtexfashionstore.vtexcommercestable.com.br`](https://bravtexfashionstore.vtexcommercestable.com.br)
    pelo domínio escolhido da loja.
 
-2. Abra o arquivo `checkout.ts` e substitua a string
+2. Abra o arquivo `routes/api/[...catchall].tsx` e substitua a string
    [`bravtexfashionstore`](https://bravtexfashionstore.vtexcommercestable.com.br)
    pelo **account name** utilizado na sessão anterior.
 

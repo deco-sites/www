@@ -83,6 +83,11 @@ Para utilizar essas APIs basta **trocar os Loaders** utilizados para a versão
 `vtexLegacy...`. Siga os passos abaixo para trocar essa configuração para todo o
 site:
 
+> Para ver o conteúdo desse guia em vídeo, clique [aqui](https://www.loom.com/share/5d232f18187f40fb995d0fd5552b04c8)
+
+**Antes de prosseguir**, verifique no arquivo _import.map.json_ se a versão da linha `deco-sites/std` está em `0.1.5` ou acima. Senão, mude esse arquivo e **faça um deploy dando push em main**.
+
+
 1. No Admin da _deco.cx_, acesse a seção **Pages**.
 2. Selecione a Page **Home** que está **Published** (ou seja, é a home utilizada
    em produção.)
@@ -103,9 +108,9 @@ o fluxo de navegação irá funcionar corretamente utilizando as APIs legacy da
 VTEX. Aqui estão as Pages e Sections, respectivamente que precisam ser
 alteradas.
 
-- **Categories** `(/*)` e **Search Page** `(/s)`: `SearchControls` e
+- **Categories** `(/*)` e **Search Page** `(/s)`: `SEOPLP`, `SearchControls` e
   `ProductGallery`.
-- **Product Page** `(/:slug/p)`: `ProductDetails` e `ProductShelf`.
+- **Product Page** `(/:slug/p)`: `SEOPDP`, `ProductDetails` e `ProductShelf`.
 
 > Não esqueça de Salvar **e Publicar** as alterações.
 

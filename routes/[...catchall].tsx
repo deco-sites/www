@@ -10,7 +10,7 @@ export const handler: Handlers<LivePageData, LiveState> = {
 
     const redirectTo = (url: string) =>
       new Response(`Redirecting to ${url}`, {
-        status: 301,
+        status: 302,
         headers: {
           Location: url,
         },

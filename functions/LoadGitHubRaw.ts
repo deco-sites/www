@@ -1,4 +1,5 @@
 import type { LoaderFunction } from "$live/std/types.ts";
+import { context } from "$live/live.ts";
 
 export interface Props {
   /** @description Complete user/repo format */
@@ -20,9 +21,17 @@ const gitHubRawLoader: LoaderFunction<Props, string> = async (
 ) => {
   const pathFromParams = ctx.params.path !== ":path" && ctx.params.path;
   const resultPath = path || pathFromParams;
-  const res = await fetch(
-    `https://raw.githubusercontent.com/${repo}/${branch}/${resultPath}`,
-  ).then((res) => res.text());
+  let res;
+  if (context.isDeploy) {
+    res = await fetch(
+      `https://raw.githubusercontent.com/${repo}/${branch}/${resultPath}`,
+    ).then((res) => res.text());
+  } else {
+    // On localhost, assume the repo is in a sibling folder and use the fs
+    res = await Deno.readTextFile(
+      `../${repo.replace(/.*\//, "")}/${resultPath}`,
+    );
+  }
 
   return {
     data: res,

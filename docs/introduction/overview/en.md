@@ -32,7 +32,7 @@ businesses to **tailor their content to individual users.**
 
 _deco.cx_ sites and stores have stellar performance thanks to a combination of
 edge deployment, server-side rendering, and server-side navigation. As a result,
-our typically have range above 90 on Lighthouse scores, which translates to
+our typical sites score above 90 on Google's Lighthouse scores, which translates to
 better SEO and higher conversion rates.
 
 Whether you're a developer, marketer, or business owner, _deco.cx_ offers an

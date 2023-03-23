@@ -44,7 +44,7 @@ export const handler: Handlers<LivePageData, LiveState> = {
         );
       case "/termos-de-uso":
         return redirectTo(
-          "https://drive.google.com/file/d/1Tsqvz01wUEkTKWDasmzz-E2OYZlPKcUy/view?usp=sharing",
+          "https://drive.google.com/file/d/1tihCV4Y5zRPXGdpP6prmIvNevUBpWKcu/view?usp=sharing",
         );
       default: {
         const liveGetHandler = live()["GET"]!;

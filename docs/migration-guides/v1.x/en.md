@@ -3,8 +3,10 @@ description: |
    Migrate from live.ts v0.x to live.ts v1.x
 ---
 
-> Want to see some code? Check our fashion migration
-> [pull request](https://github.com/deco-sites/fashion/pull/103/files)
+## tl;dr;
+
+Want to see some code? Check our fashion migration
+[pull request](https://github.com/deco-sites/fashion/pull/123).
 
 If you're using live.ts v0.x and want to migrate to v1.x, here's what you need
 to do:
@@ -54,7 +56,9 @@ section.
 
 Now that the live.ts version has been upgraded, change the imports to point to
 the new `live.gen.ts` manifest instead of the old `fresh.gen.ts` manifest.
-Remove the old `fresh.gen.ts` from your repository.
+
+1. Remove the old `fresh.gen.ts` from your repository.
+2. Use the new `live.gen.ts` in your main.ts
 
 ```diff
 #!/usr/bin/env -S deno run -A --watch=static/

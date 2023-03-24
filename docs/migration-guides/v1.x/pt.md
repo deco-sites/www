@@ -3,15 +3,18 @@ description: |
    Migre de live.ts v0.x para live.ts v1.x
 ---
 
-> Quer ver algum código? Confira nossa migração da fashion
-> [pull request](https://github.com/deco-sites/fashion/pull/103/files)
+## tl;dr
+
+Quer ver um exemplo de migração? Confira esse
+[pull request](https://github.com/deco-sites/fashion/pull/123) no Fashion
+starter.
 
 Se você estiver usando live.ts v0.x e quiser migrar para v1.x, é isso que você
 precisa fazer:
 
 # Atualize a versão do live.ts
 
-Em primeiro lugar, atualize a versão do live.ts no seu arquivo import_map.json
+Em primeiro lugar, atualize a versão do live.ts no seu arquivo `import_map.json`
 de 0.x para 1.x. Você também pode precisar atualizar o pacote std, que já usa o
 live.ts v1.x.
 
@@ -40,7 +43,7 @@ A diferença deve ficar parecida com isso:
 }
 ```
 
-Depois de atualizar o arquivo, execute deno task start para garantir que as
+Depois de atualizar o arquivo, execute `deno task start` para garantir que as
 dependências estejam instaladas. Você pode encontrar erros, mas eles serão
 corrigidos na próxima seção.
 
@@ -53,8 +56,10 @@ Você deve ver alguns erros, mas não se preocupe, eles serão corrigidos em bre
 # Altere os imports
 
 Agora que a versão do live.ts foi atualizada, altere as importações para apontar
-para o novo manifesto `live.gen.ts`, em vez do manifesto antigo `fresh.gen.ts`.
-Remova o antigo `fresh.gen.ts` do seu repositório.
+para o novo manifesto `live.gen.ts`
+
+1. Remova o módulo `fresh.gen.ts`
+2. Utilize o módulo `live.gen.ts` no seu main.
 
 ```diff
 #!/usr/bin/env -S deno run -A --watch=static/

@@ -73,6 +73,12 @@ const tableOfContents: TableOfContents = [{
     title: { pt: "Menu Dropdown", en: "Dropdown Menu" },
     slug: "recipes/menu",
   }],
+}, {
+  title: { en: "Migration guides", pt: "Guias de migração" },
+  children: [{
+    title: { en: "live.ts v1.x", pt: "live.ts v1.x" },
+    slug: "migration-guides/v1.x",
+  }],
 }];
 
 const tableOfContentsBySlug = tableOfContents.reduce((acc, cur) => {

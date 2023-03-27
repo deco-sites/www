@@ -24,6 +24,8 @@ A integração entre uma plataforma de ecommerce e a deco é feita através das 
 
 Utilizando os **Loaders**, podemos padronizar os dados trazidos pela **API**, possibilitando a reutilização de componentes.
 
+Para reunir todas as integrações já criadas, utilizamos o repositório [std](https://github.com/deco-sites/std), lá você pode fazer tudo que precisa para sua nova integração.
+
 ## Etapas necessárias
 
 - Criando uma configuração global
@@ -37,3 +39,22 @@ Utilizando os **Loaders**, podemos padronizar os dados trazidos pela **API**, po
     - Loader de **productPage**
 - Hooks de Carrinho
 
+## Criando uma configuração global
+
+## Setup de código
+
+### client
+
+### transformer
+
+### types
+
+## Loaders
+
+### productList
+
+### productSearch
+
+### productPage
+
+## Hooks de Carrinho

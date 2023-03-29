@@ -9,7 +9,7 @@ Want to script the tutorial? Run the command below to automatically migrate your
 site, and let us know if you find any issues!
 
 ```sh
-deno run -A https://denopkg.com/deco-cx/live@1.0.0-rc.1/scripts/upgrade.ts
+deno run -A https://denopkg.com/deco-cx/live@1.0.0-rc.5/scripts/upgrade.ts
 ```
 
 Want to see some code? Check our fashion migration

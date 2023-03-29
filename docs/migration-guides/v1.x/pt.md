@@ -9,7 +9,7 @@ Quer pular o tutorial? Rode o comando abaixo para faze-la automaticamente e nos
 mantenha informado caso encontre algum problema.
 
 ```sh
-deno run -A https://denopkg.com/deco-cx/live@1.0.0-rc.1/scripts/upgrade.ts
+deno run -A https://denopkg.com/deco-cx/live@1.0.0-rc.5/scripts/upgrade.ts
 ```
 
 Quer ver um exemplo de migração? Confira esse

@@ -5,6 +5,13 @@ description: |
 
 ## tl;dr
 
+Quer pular o tutorial? Rode o comando abaixo para faze-la automaticamente e nos
+mantenha informado caso encontre algum problema.
+
+```sh
+deno run -A https://denopkg.com/deco-cx/live@1.0.0-rc.1/scripts/upgrade.ts
+```
+
 Quer ver um exemplo de migração? Confira esse
 [pull request](https://github.com/deco-sites/fashion/pull/123) no Fashion
 starter.
@@ -60,6 +67,7 @@ para o novo manifesto `live.gen.ts`
 
 1. Remova o módulo `fresh.gen.ts`
 2. Utilize o módulo `live.gen.ts` no seu main.
+3. Inclua o siteId que era utilizado no `./routes/_middleware.ts`
 
 ```diff
 #!/usr/bin/env -S deno run -A --watch=static/
@@ -70,6 +78,7 @@ import dev from "$live/dev.ts";
 +import liveStdManifest from "deco-sites/std/live.gen.ts";
 
 await dev(import.meta.url, "./main.ts", {
++ siteId: 239,
   imports: {
     "$live": liveManifest,
     "deco-sites/std": liveStdManifest,

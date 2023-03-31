@@ -95,7 +95,7 @@ export default {
 
 ```ts
 export interface Props {
-  variante: "primário" | "secundário" | "terciário";
+  variant: "primary" | "secondary" | "tertiary";
 }
 ```
 

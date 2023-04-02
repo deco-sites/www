@@ -55,62 +55,95 @@ Para isso, siga os passos:
 
 ## Integrando o Google Analytics 4
 
-Se já existe uma tag do Google Analytics 4 (GA4) no container do GTM configurado, automaticamente o seu site deco.cx já estará enviando eventos para o GA4. Para verificar isso, acesse a aba **Network** novamente e busque por uma requisição com o nome `collect`. Exemplo:
+Se já existe uma tag do Google Analytics 4 (GA4) no container do GTM
+configurado, automaticamente o seu site deco.cx já estará enviando eventos para
+o GA4. Para verificar isso, acesse a aba **Network** novamente e busque por uma
+requisição com o nome `collect`. Exemplo:
 
 ![Exemplo de requisição collect que envia dados para o GA4](https://user-images.githubusercontent.com/18706156/229370675-53775267-6cd5-4a88-8fe4-b5ea6f5566de.png)
-*Exemplo de requisição collect que envia dados para o GA4*
+_Exemplo de requisição collect que envia dados para o GA4_
 
+> Caso não veja esse request, certifique-se que não há nenhum adblock
+> configurado (ex: uBlock Origin). Alguns navegadores já integram adblocks por
+> padrão.
 
-> Caso não veja esse request, certifique-se que não há nenhum adblock configurado (ex: uBlock Origin). Alguns navegadores já integram adblocks por padrão.
-
-Entretanto, caso você queira analisar suas métricas **de acordo com os testes A/B criados na deco.cx**, é necessário fazer uma configuração extra no container GTM. Para isso, siga os passos:
+Entretanto, caso você queira analisar suas métricas **de acordo com os testes
+A/B criados na deco.cx**, é necessário fazer uma configuração extra no container
+GTM. Para isso, siga os passos:
 
 1. No GTM, entre na seção **Variáveis**.
 2. Em **Variáveis definidas pelo usuário**, clique em **Criar Nova**.
-3. Preencha o nome da variável com `Flags` (esse nome será utilizado posteriormente).
-4. Clique no botão de edição para selecionar o tipo de variável e selecione **Javascript personalizado**.
+3. Preencha o nome da variável com `Flags` (esse nome será utilizado
+   posteriormente).
+4. Clique no botão de edição para selecionar o tipo de variável e selecione
+   **Javascript personalizado**.
 5. Cole o seguinte código na área de texto:
 
 ```javascript
 function main() {
   var flags = document.cookie
-    .split(';')
-    .map(function (x) { return x.trim().split('=') })
-    .map(function (splitted) { 
+    .split(";")
+    .map(function (x) {
+      return x.trim().split("=");
+    })
+    .map(function (splitted) {
       var key = splitted[0];
       var values = splitted.slice(1);
-      return [key, values.join('=')] 
+      return [key, values.join("=")];
     })
-    .filter(function (splitted) { return splitted[0].startsWith('dcxf') })
-    .map(function (splitted) { return JSON.parse(atob(splitted[1])) })
-  
-  return flags.filter(function (f) { return f.isMatch }).map(function (f) { return f.key })
+    .filter(function (splitted) {
+      return splitted[0].startsWith("dcxf");
+    })
+    .map(function (splitted) {
+      return JSON.parse(atob(splitted[1]));
+    });
+
+  return flags.filter(function (f) {
+    return f.isMatch;
+  }).map(function (f) {
+    return f.key;
+  });
 }
 ```
+
 5. Clique em Salvar.
 
-Após a variável ter sido criada, ainda é necessário associá-la à tag do Google Analytics. Para isso, siga os passos:
+Após a variável ter sido criada, ainda é necessário associá-la à tag do Google
+Analytics. Para isso, siga os passos:
 
-1. No menu **Tags**, selecione a sua tag do GA4. (Por padrão, `Google Analytics GA4`).
+1. No menu **Tags**, selecione a sua tag do GA4. (Por padrão,
+   `Google Analytics GA4`).
 2. Em **Configuração da tag**, clique no botão de edição.
 3. Na seção **Propriedade do usuário**, clique em **Adicionar Linha**.
-4. Preencha o **Nome da propriedade** com `flags` e o **Valor** com `{{Flags}}`, este sendo o mesmo nome da variável criada anteriormente.
+4. Preencha o **Nome da propriedade** com `flags` e o **Valor** com `{{Flags}}`,
+   este sendo o mesmo nome da variável criada anteriormente.
 5. Pronto, a integração está configurada!
 
 ![Screenshot de configuração da propriedade `flags`](https://user-images.githubusercontent.com/18706156/229370987-a2d0b82a-3b58-46ca-98b1-d7f8c2a8600d.png)
-*Screenshot de configuração da propriedade `flags`*
+_Screenshot de configuração da propriedade `flags`_
 
-Agora, é possível segmentar suas visualizações de acordo com os grupos de usuário configurados na deco.cx.
+Agora, é possível segmentar suas visualizações de acordo com os grupos de
+usuário configurados na deco.cx.
 
 ## Troubleshooting
 
 - **Uma tag que configurei não está funcionando corretamente**
-  Por utilizar a tecnologia de Web Workers para incluir os scripts externos, existem algumas limitações relacionadas à CORS (Cross-origin resouce sharing). Dependendo da tag que está sendo incluída, é possível que a requisição para buscar um script `.js` falhe. 
 
-  Para resolver esse problema, é necessário criar um **proxy de requests** na sua loja (leia mais sobre essa solução [aqui](https://partytown.builder.io/proxying-requests)). Como os sites deco.cx são projetos [Fresh](https://fresh.deno.dev/) tradicionais, basta seguir os seguintes passos para criar este proxy:
+Por utilizar a tecnologia de Web Workers para incluir os scripts externos,
+existem algumas limitações relacionadas à CORS (Cross-origin resouce sharing).
+Dependendo da tag que está sendo incluída, é possível que a requisição para
+buscar um script `.js` falhe.
 
-  1. No seu projeto, dentro da pasta `routes/`, crie um arquivo chamado `proxy.ts`.
-  2. Cole o seguinte código neste arquivo, observando os comentários:
+Para resolver esse problema, é necessário criar um **proxy de requests** na sua
+loja (leia mais sobre essa solução
+[aqui](https://partytown.builder.io/proxying-requests)). Como os sites deco.cx
+são projetos [Fresh](https://fresh.deno.dev/) tradicionais, basta seguir os
+seguintes passos para criar este proxy:
+
+1. No seu projeto, dentro da pasta `routes/`, crie um arquivo chamado
+   `proxy.ts`.
+2. Cole o seguinte código neste arquivo, observando os comentários:
+
   ```ts
   import { Handlers } from "$fresh/server.ts";
 
@@ -147,10 +180,12 @@ Agora, é possível segmentar suas visualizações de acordo com os grupos de us
     },
   };
   ```
-  4. Suba suas alterações de código para a branch `main`.
-  5. Substitua nas configurações do GTM as URLs dos scripts adicionados por `https://www.sualojanadeco.com.br/proxy?url={urlDoScript}`.
-  
-  
-  Por exemplo, se o script que você está tentando carregar está em `https://xxxx.collect.igodigital.com/collect.js`, troque essa URL por `https://www.sualojanadeco.com.br/proxy?url=https%3A%2F%2Fxxxx.collect.igodigital.com%2Fcollect.js`. Utilize a função `encodeURIComponent` do Javascript caso seja necessário.
 
+4. Suba suas alterações de código para a branch `main`.
+5. Substitua nas configurações do GTM as URLs dos scripts adicionados por
+   `https://www.sualojanadeco.com.br/proxy?url={urlDoScript}`.
 
+Por exemplo, se o script que você está tentando carregar está em
+`https://xxxx.collect.igodigital.com/collect.js`, troque essa URL por
+`https://www.sualojanadeco.com.br/proxy?url=https%3A%2F%2Fxxxx.collect.igodigital.com%2Fcollect.js`.
+Utilize a função `encodeURIComponent` do Javascript caso seja necessário.

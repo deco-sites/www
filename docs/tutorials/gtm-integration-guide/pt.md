@@ -10,22 +10,29 @@
 
 ## Pré-requisitos
 
-- Esse pré-requisito diz respeito à como obter o ID de rastreamento do Gerenciador de Tags do Google (GTM). Para isso, é muito simples, basta seguir os seguintes passos:
+- Esse pré-requisito diz respeito à como obter o ID de rastreamento do
+  Gerenciador de Tags do Google (GTM). Para isso, é muito simples, basta seguir
+  os seguintes passos:
 
-1- Se você ainda não tem uma conta do Google Tag Manager, inscreva-se [aqui](https://tagmanager.google.com/?hl=en#/admin/accounts/create);
+1- Se você ainda não tem uma conta do Google Tag Manager, inscreva-se
+[aqui](https://tagmanager.google.com/?hl=en#/admin/accounts/create);
 
 2- No gerenciador de Tags, clique em Administrador;
 
-3-Perto do canto superior direito da janela, encontre o ID do contêiner, formatado como “GTM - XXXXXX”
+3-Perto do canto superior direito da janela, encontre o ID do contêiner,
+formatado como “GTM - XXXXXX”
 
-4- Caso você já tenha uma conta no Google Tag Manager, mas deseja configurar um contêiner separado, pode criar um novo clicando em Administrador e, em seguida, clicando no botão + no canto superior direito do bloco "contêiner"; 
+4- Caso você já tenha uma conta no Google Tag Manager, mas deseja configurar um
+contêiner separado, pode criar um novo clicando em Administrador e, em seguida,
+clicando no botão + no canto superior direito do bloco "contêiner";
 
--Escolha Web como plataforma destino e clique em criar. 
+-Escolha Web como plataforma destino e clique em criar.
 
+Perto do canto superior direito da janela, encontre o ID do contêiner, formatado
+como “GTM - XXXXXX”
 
-Perto do canto superior direito da janela, encontre o ID do contêiner, formatado como “GTM - XXXXXX”
+([veja como conseguir](https://support.rocketspark.com/hc/en-us/articles/900002470443-How-do-I-get-my-Google-Tag-Manager-Tracking-ID-or-GTM-Number-))
 
-  ([veja como conseguir](https://support.rocketspark.com/hc/en-us/articles/900002470443-How-do-I-get-my-Google-Tag-Manager-Tracking-ID-or-GTM-Number-))
 - _Opcional:_ Tag configurada
 
 ## Introdução

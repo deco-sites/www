@@ -34,8 +34,10 @@ página.
 
 ## Integrando o GTM na deco.cx
 
-Se você criou um site na deco.cx baseado no nosso [starter de ecommerce](https://fashion.deco.site/), ele **já tem todo o código necessário
-para se integrar com o GTM**. No entanto, é necessário configurar o `trackingId` do container previamente configurado.
+Se você criou um site na deco.cx baseado no nosso
+[starter de ecommerce](https://fashion.deco.site/), ele **já tem todo o código
+necessário para se integrar com o GTM**. No entanto, é necessário configurar o
+`trackingId` do container previamente configurado.
 
 Para isso, siga os passos:
 

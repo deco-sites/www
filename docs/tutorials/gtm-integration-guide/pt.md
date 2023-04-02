@@ -53,61 +53,104 @@ Para isso, siga os passos:
    `https://www.googletagmanager.com/gtm.js?id=GTM-P6D23BB` está sendo
    carregado.
 
-## Adicionando o Google Analytics 4
+## Integrando o Google Analytics 4
 
-Para configurar o Google Analytics para um site e/ou app, você deverá criar uma propriedade do Google Analytics 4, adicionando um fluxo de dados e o seu código, para isso, siga as instruções:
+Se já existe uma tag do Google Analytics 4 (GA4) no container do GTM configurado, automaticamente o seu site deco.cx já estará enviando eventos para o GA4. Para verificar isso, acesse a aba **Network** novamente e busque por uma requisição com o nome `collect`. Exemplo:
 
-- Antes de tudo, é necessário configurar uma conta do Google Analytics, a menos que você já tenha uma. Se você não quiser criar uma conta separada para esse site e/ou app, pule para a etapa Criar uma propriedade. Por exemplo, convém criar outra conta se o site e/ou app pertencer a uma empresa diferente.
+![Exemplo de requisição collect que envia dados para o GA4](https://user-images.githubusercontent.com/18706156/229370675-53775267-6cd5-4a88-8fe4-b5ea6f5566de.png)
+*Exemplo de requisição collect que envia dados para o GA4*
 
-1. Em Administrador, na coluna Conta, clique em Criar conta;
-2. Insira um nome para a conta e defina as configurações de compartilhamento de dados para controlar quais informações você quer compartilhar com o Google;
-3. Clique em Próxima para adicionar a primeira propriedade à conta;
 
-- Agora, para criar uma propriedade, siga estas etapas: 
+> Caso não veja esse request, certifique-se que não há nenhum adblock configurado (ex: uBlock Origin). Alguns navegadores já integram adblocks por padrão.
 
-Antes de tudo, você precisa ter papel de editor para adicionar propriedades a uma conta do Google Analytics. Caso tenha criado a conta, esse tipo de acesso será concedido automaticamente.
+Entretanto, caso você queira analisar suas métricas **de acordo com os testes A/B criados na deco.cx**, é necessário fazer uma configuração extra no container GTM. Para isso, siga os passos:
 
-É possível adicionar até 2.000 propriedades (qualquer combinação do Universal Analytics e do Google Analytics 4) a uma conta do Analytics. Caso queira aumentar esse limite, entre em contato com o representante do suporte.
+1. No GTM, entre na seção **Variáveis**.
+2. Em **Variáveis definidas pelo usuário**, clique em **Criar Nova**.
+3. Preencha o nome da variável com `Flags` (esse nome será utilizado posteriormente).
+4. Clique no botão de edição para selecionar o tipo de variável e selecione **Javascript personalizado**.
+5. Cole o seguinte código na área de texto:
 
-Para criar uma propriedade, siga estas etapas:
+```javascript
+function main() {
+  var flags = document.cookie
+    .split(';')
+    .map(function (x) { return x.trim().split('=') })
+    .map(function (splitted) { 
+      var key = splitted[0];
+      var values = splitted.slice(1);
+      return [key, values.join('=')] 
+    })
+    .filter(function (splitted) { return splitted[0].startsWith('dcxf') })
+    .map(function (splitted) { return JSON.parse(atob(splitted[1])) })
+  
+  return flags.filter(function (f) { return f.isMatch }).map(function (f) { return f.key })
+}
+```
+5. Clique em Salvar.
 
-1. Se você estiver continuando da etapa acima "Criar uma conta do Google Analytics", pule para a etapa 2. Caso contrário, siga as instruções abaixo;
-   -Em Administrador, confira na coluna Conta se você selecionou a opção certa. Depois, na coluna Propriedade, clique em Criar propriedade.
-2. Insira um nome para a propriedade, como "Site da Minha Empresa Ltda" e selecione o fuso horário e a moeda do relatório. Se um usuário visitar seu site na terça-feira, de acordo com o fuso horário dele, mas ainda for segunda-feira no seu fuso horário, a visita contará como ocorrida na segunda-feira;
-   -Se você escolher um fuso que tenha horário de verão, o Google Analytics vai fazer os ajustes de forma automática. Use "Horário de Greenwich" se não quiser seguir o horário de verão;
-   -A alteração do fuso horário só afeta dados posteriores. Se você mudar o fuso horário de uma propriedade existente, notará um período sem atividades ou um pico nos dados, causados ao adiantar ou atrasar o horário, respectivamente. Os dados do relatório usarão o fuso horário antigo por um curto período depois que você atualizar as configurações, até que os servidores do Google Analytics tenham processado a mudança;
-   -Recomendamos que você altere o fuso horário de uma propriedade no máximo uma vez por dia para que o Google Analytics processe a edição.
-3. Clique em Próxima e selecione a categoria e o tamanho da sua empresa;
-4. Clique em Criar e aceite os Termos de Serviço do Google Analytics e a Emenda sobre processamento de dados.
+Após a variável ter sido criada, ainda é necessário associá-la à tag do Google Analytics. Para isso, siga os passos:
 
-- Adicionar um fluxo de dados
-1. Se você estiver continuando da etapa "Criar uma propriedade" acima, siga para a etapa 2.    Caso contrário, siga as instruções abaixo:
- a. Em Administrador, consulte a coluna Conta para verificar se a conta certa está selecionada. Depois, verifique na coluna Propriedade se você escolheu a opção correta;
-Na coluna Propriedade, clique em Fluxos de dados e em Adicionar fluxo.
- b. Clique em App iOS, App Android ou Web. 
+1. No menu **Tags**, selecione a sua tag do GA4. (Por padrão, `Google Analytics GA4`).
+2. Em **Configuração da tag**, clique no botão de edição.
+3. Na seção **Propriedade do usuário**, clique em **Adicionar Linha**.
+4. Preencha o **Nome da propriedade** com `flags` e o **Valor** com `{{Flags}}`, este sendo o mesmo nome da variável criada anteriormente.
+5. Pronto, a integração está configurada!
 
-- App iOS ou Android
-  Quando você adiciona um fluxo de dados do app, o Google Analytics cria um projeto do Firebase e um fluxo correspondente e depois vincula automaticamente o projeto à sua propriedade se isso ainda não tiver sido feito.
+![Screenshot de configuração da propriedade `flags`](https://user-images.githubusercontent.com/18706156/229370987-a2d0b82a-3b58-46ca-98b1-d7f8c2a8600d.png)
+*Screenshot de configuração da propriedade `flags`*
 
-  Você pode vinculá-lo a um projeto existente do Firebase, mas precisa fazer isso a partir do Firebase (válido somente para as propriedades do GA4 que ainda não tenham sido vinculadas). Saiba como.
-  1. Insira o ID do pacote iOS ou o nome do pacote Android, o nome do aplicativo e, no caso do iOS, o ID da App Store. Em seguida, clique em Registrar app;
-  2. Clique em Próxima e siga as instruções para fazer o download do arquivo de configuração do seu app;
-  3. Clique em Próxima e siga as instruções para adicionar o SDK do Google Analytics para Firebase ao app;
-  4. Clique em Próxima;
-  5. Execute o app para verificar a instalação do SDK e se a comunicação com os servidores do Google está funcionando;
-  6. Clique em Concluir. Se você quiser configurar o app mais tarde, clique em Pular esta etapa.
-Web
-  1. Insira o URL do seu site principal, como "example.com", e um nome para o fluxo, como "Example, Inc. (fluxo da Web)".
-  2. Você pode ativar ou desativar a avaliação otimizada. Ela coleta automaticamente as visualizações de página e outros eventos. Depois que o fluxo de dados for criado, vai ser possível desativar os eventos de medição otimizada que não quiser coletar. Portanto, recomendamos que ative a avaliação otimizada agora.
-  3. Clique em Criar stream.
-
-- Só indo ao GTM
+Agora, é possível segmentar suas visualizações de acordo com os grupos de usuário configurados na deco.cx.
 
 ## Troubleshooting
 
-- Uma tag que configurei não está funcionando corretamente
-  - Header de CORS
-- Não consigo usar o Tag Assistant Pessoal, sobre isso. Me preocupo com algumas
-  funcionalidades específicas:
+- **Uma tag que configurei não está funcionando corretamente**
+  Por utilizar a tecnologia de Web Workers para incluir os scripts externos, existem algumas limitações relacionadas à CORS (Cross-origin resouce sharing). Dependendo da tag que está sendo incluída, é possível que a requisição para buscar um script `.js` falhe. 
 
-  -Colocar print de Tag configurada na section pre requisitos;
+  Para resolver esse problema, é necessário criar um **proxy de requests** na sua loja (leia mais sobre essa solução [aqui](https://partytown.builder.io/proxying-requests)). Como os sites deco.cx são projetos [Fresh](https://fresh.deno.dev/) tradicionais, basta seguir os seguintes passos para criar este proxy:
+
+  1. No seu projeto, dentro da pasta `routes/`, crie um arquivo chamado `proxy.ts`.
+  2. Cole o seguinte código neste arquivo, observando os comentários:
+  ```ts
+  import { Handlers } from "$fresh/server.ts";
+
+  // Adicione aqui os scripts que você deseja proxiar
+  const ALLOWLIST_URLS = ["https://xxxx.collect.igodigital.com/collect.js"];
+
+  export const handler: Handlers = {
+    GET: async (req) => {
+      const url = (new URL(req.url)).searchParams.get("url");
+
+      if (!url || !ALLOWLIST_URLS.includes(url)) {
+        return new Response(null, { status: 404 });
+      }
+
+      const proxyRequest = new Request(
+        url,
+        {
+          headers: req.headers,
+          method: req.method,
+          body: req.body,
+          redirect: "follow",
+        },
+      );
+
+      const response = await fetch(proxyRequest);
+      const headers = new Headers(response.headers);
+      headers.set("access-control-allow-origin", "*");
+
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+    },
+  };
+  ```
+  4. Suba suas alterações de código para a branch `main`.
+  5. Substitua nas configurações do GTM as URLs dos scripts adicionados por `https://www.sualojanadeco.com.br/proxy?url={urlDoScript}`.
+  
+  
+  Por exemplo, se o script que você está tentando carregar está em `https://xxxx.collect.igodigital.com/collect.js`, troque essa URL por `https://www.sualojanadeco.com.br/proxy?url=https%3A%2F%2Fxxxx.collect.igodigital.com%2Fcollect.js`. Utilize a função `encodeURIComponent` do Javascript caso seja necessário.
+
+

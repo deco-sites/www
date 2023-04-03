@@ -12,9 +12,7 @@
 ## Prerequisites
 
 - A `trackingId` from a Google Tag Manager container, formatted in the style:
-  `GTM - XXXXXX`.
-  ([help](https://support.rocketspark.com/hc/en-us/articles/900002470443-How-do-I-get-my-Google-Tag-Manager-Tracking-ID-or-GTM-Number
-  -))
+  `GTM - XXXXXX`.([help](https://support.rocketspark.com/hc/en-us/articles/900002470443-How-do-I-get-my-Google-Tag-Manager-Tracking-ID-or-GTM-Number))
 
 - _Optional:_ Google Analytics 4 configured tag
   ([help](https://support.google.com/tagmanager/answer/9442095?hl=en))
@@ -69,7 +67,7 @@ deco.cx**, it is necessary to make an extra configuration in the container GTM.
 For that, follow the steps:
 
 1. In GTM, enter the **Variables** section.
-2. Under **User-Defined Variables**, click **Create New**.
+2. Under **User Variables**, click **Create New**.
 3. Fill in the variable name with `Flags` (this name will be used posteriorly).
 4. Click the edit button to select the variable type and select **Custom
    Javascript**.
@@ -179,11 +177,12 @@ export const handler: Handlers = {
 
 4. Push your code changes to the `main` branch.
 5. Replace the URLs of the added scripts in the GTM settings with
-   `https://www.sualojanadeco.com.br/proxy?url={urlDoScript}`.
+   `https://www.yourdecostore.com.br/proxy?url={urlDoScript}`.
 
 For example, if the script you are trying to load is in
 `https://xxxx.collect.igodigital.com/collect.js`, replace this URL with
-`https://www.sualojanadeco.com.br/proxy?url=https%3A%2F%2Fxxxx.collect.igodigital.com%2Fcollect.js`.
+`https://www.yourdecostore.com.br/proxy?url=https%3A%2F%2Fxxxx.collect.igodigital.com%2Fcollect.js`.
 Use the `encodeURIComponent` Javascript function if necessary.
+
 
 

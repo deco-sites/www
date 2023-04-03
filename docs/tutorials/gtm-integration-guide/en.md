@@ -183,6 +183,3 @@ For example, if the script you are trying to load is in
 `https://xxxx.collect.igodigital.com/collect.js`, replace this URL with
 `https://www.yourdecostore.com.br/proxy?url=https%3A%2F%2Fxxxx.collect.igodigital.com%2Fcollect.js`.
 Use the `encodeURIComponent` Javascript function if necessary.
-
-
-

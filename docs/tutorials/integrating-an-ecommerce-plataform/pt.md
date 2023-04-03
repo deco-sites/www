@@ -175,7 +175,7 @@ const search = await client.product.search({
 });
 ~~~
 
-Dúvidas com o client? Consulte o [arquivo de client da VNDA](https://github.com/deco-sites/std/blob/main/commerce/vnda/client.ts)
+Dúvidas com o client? Consulte o [arquivo de client da VNDA](https://github.com/deco-sites/std/blob/main/commerce/vnda/client.ts).
 
 ### transformer
 
@@ -223,7 +223,7 @@ Certamente você irá encontrar mais complexidade do que isso, nossa dica é: **
 O [ChatGPT](https://openai.com/blog/chatgpt) é uma ótima ferramenta para gerar o código Javascript necessário para essa conversão de tipos.
 
 
-Dúvidas com o transformer? Consulte o [arquivo de transformer da VNDA](https://github.com/deco-sites/std/blob/main/commerce/vnda/transform.ts)
+Dúvidas com o transformer? Consulte o [arquivo de transformer da VNDA](https://github.com/deco-sites/std/blob/main/commerce/vnda/transform.ts).
 
 ### types
 
@@ -241,7 +241,7 @@ Siga os passos:
 
 <img src="https://user-images.githubusercontent.com/76620866/228386398-37ee72c9-fcc1-4f7a-9c66-8f4beb8884d5.png" width="450">
 
-Dúvidas com o types? Consulte o [arquivo de tipos da VNDA](https://github.com/deco-sites/std/blob/main/commerce/vnda/types.ts)
+Dúvidas com o types? Consulte o [arquivo de tipos da VNDA](https://github.com/deco-sites/std/blob/main/commerce/vnda/types.ts).
 
 ## Loaders
 

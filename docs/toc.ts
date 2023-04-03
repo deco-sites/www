@@ -54,6 +54,12 @@ const tableOfContents: TableOfContents = [{
       en: "Installing VTEX Intelligent Search",
     },
     slug: "tutorials/installing-vtex-is",
+  }, {
+    title: {
+      pt: "Integrando com GTM",
+      en: "Integrating with GTM",
+    },
+    slug: "tutorials/gtm-integration-guide",
   }],
 }, {
   title: { en: "Recipes", pt: "Receitas" },

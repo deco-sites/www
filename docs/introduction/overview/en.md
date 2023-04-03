@@ -32,8 +32,8 @@ businesses to **tailor their content to individual users.**
 
 _deco.cx_ sites and stores have stellar performance thanks to a combination of
 edge deployment, server-side rendering, and server-side navigation. As a result,
-our typical sites score above 90 on Google's Lighthouse scores, which translates to
-better SEO and higher conversion rates.
+our typical sites score above 90 on Google's Lighthouse scores, which translates
+to better SEO and higher conversion rates.
 
 Whether you're a developer, marketer, or business owner, _deco.cx_ offers an
 innovative and accessible way to create and manage websites and online stores.

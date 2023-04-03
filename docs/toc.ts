@@ -54,6 +54,18 @@ const tableOfContents: TableOfContents = [{
       en: "Installing VTEX Intelligent Search",
     },
     slug: "tutorials/installing-vtex-is",
+  }, {
+    title: {
+      pt: "Integrando plataforma de ecommerce",
+      en: "Integrating ecommerce platform",
+    },
+    slug: "tutorials/integrating-an-ecommerce-plataform",
+  }, {
+    title: {
+      pt: "Lista de plataformas suportadas",
+      en: "List of supported platforms",
+    },
+    slug: "tutorials/list-of-supported-plataforms",
   }],
 }, {
   title: { en: "Recipes", pt: "Receitas" },

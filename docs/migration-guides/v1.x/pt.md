@@ -60,6 +60,21 @@ deno task start
 
 Você deve ver alguns erros, mas não se preocupe, eles serão corrigidos em breve.
 
+# Site JSON
+
+Crie um `site.json` que serve para especificar onde configurar o siteId do seu
+site. Ao invés de defini-lo dentro do antigo `./routes/_middleware.ts` arquivo
+você deve criar esse json no diretório raiz do seu projeto chamado `site.json`,
+com o seguinte conteúdo:
+
+```json
+{
+  "siteId": YOUR_SITE_ID
+}
+```
+
+> Troque o `YOUR_SITE_ID` pelo seu siteId
+
 # Altere os imports
 
 Agora que a versão do live.ts foi atualizada, altere as importações para apontar
@@ -67,7 +82,6 @@ para o novo manifesto `live.gen.ts`
 
 1. Remova o módulo `fresh.gen.ts`
 2. Utilize o módulo `live.gen.ts` no seu main.
-3. Inclua o siteId que era utilizado no `./routes/_middleware.ts`
 
 ```diff
 #!/usr/bin/env -S deno run -A --watch=static/
@@ -78,7 +92,6 @@ import dev from "$live/dev.ts";
 +import liveStdManifest from "deco-sites/std/live.gen.ts";
 
 await dev(import.meta.url, "./main.ts", {
-+ siteId: 239,
   imports: {
     "$live": liveManifest,
     "deco-sites/std": liveStdManifest,
@@ -86,9 +99,13 @@ await dev(import.meta.url, "./main.ts", {
 });
 ```
 
-Também mude a referencia do import no `main.ts` de `./fresh.gen.ts` para
-`./live.gen.ts` e adicione um novo import do `$live` de `$live/mod.ts` passando
-o manifesto como parâmetro.
+Também:
+
+1. mude a referencia do import no `main.ts` de `./fresh.gen.ts` para
+   `./live.gen.ts`
+2. adicione um novo import do `$live` de `$live/mod.ts` passando o manifesto
+   como parâmetro.
+3. Import o `site.json` e use como parâmetro do `$live`
 
 ```diff
 /// <reference no-default-lib="true"/>
@@ -104,9 +121,10 @@ import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 import prefetchPlugin from "prefetch";
 import partytownPlugin from "partytown/mod.ts";
++import site from "./site.js" assert { type : "json" };
 
 -await start(manifest, {
-+await start($live(manifest), {
++await start($live(manifest, site), {
   plugins: [
     partytownPlugin(),
     prefetchPlugin(),

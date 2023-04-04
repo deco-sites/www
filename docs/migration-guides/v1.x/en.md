@@ -59,6 +59,20 @@ deno task start
 You should see some errors but don't worry they will be fixed soon in the next
 section.
 
+# Site JSON
+
+Instead of defining the siteId inside the `./routes/_middleware.ts` file you
+should create a new json in your root project directory named `site.json`, with
+the following content:
+
+```json
+{
+  "siteId": YOUR_SITE_ID
+}
+```
+
+> Replace `YOUR_SITE_ID` with your siteId
+
 # Change imports
 
 Now that the live.ts version has been upgraded, change the imports to point to
@@ -66,7 +80,6 @@ the new `live.gen.ts` manifest instead of the old `fresh.gen.ts` manifest.
 
 1. Remove the old `fresh.gen.ts` from your repository.
 2. Use the new `live.gen.ts` in your main.ts
-3. Add the `siteId` that was used in the `./routes/_middleware.ts` file.
 
 ```diff
 #!/usr/bin/env -S deno run -A --watch=static/
@@ -77,7 +90,6 @@ import dev from "$live/dev.ts";
 +import liveStdManifest from "deco-sites/std/live.gen.ts";
 
 await dev(import.meta.url, "./main.ts", {
-+ siteId: 239,
   imports: {
     "$live": liveManifest,
     "deco-sites/std": liveStdManifest,
@@ -85,9 +97,12 @@ await dev(import.meta.url, "./main.ts", {
 });
 ```
 
-Also, change the importing reference in `main.ts` from `./fresh.gen.ts` to
-`./live.gen.ts`, and add a new import `$live` from `$live/mod.ts` passing the
-manifest through it
+Also,
+
+1. change the importing reference in `main.ts` from `./fresh.gen.ts` to
+   `./live.gen.ts`
+2. add a new import `$live` from `$live/mod.ts` passing the manifest through it
+3. import the `site.json` file and pass as a parameter to `$live` function.
 
 ```diff
 /// <reference no-default-lib="true"/>
@@ -103,9 +118,10 @@ import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 import prefetchPlugin from "prefetch";
 import partytownPlugin from "partytown/mod.ts";
++import site from "./site.js" assert { type : "json" };
 
 -await start(manifest, {
-+await start($live(manifest), {
++await start($live(manifest, site), {
   plugins: [
     partytownPlugin(),
     prefetchPlugin(),

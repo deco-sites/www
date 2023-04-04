@@ -36,20 +36,30 @@ página.
 
 Se você criou um site na deco.cx baseado no nosso
 [starter de ecommerce](https://fashion.deco.site/), ele **já tem todo o código
-necessário para se integrar com o GTM**. No entanto, é necessário configurar o
-`trackingId` do container previamente configurado.
+necessário para se integrar com o GTM**. No entanto, é necessário configurar a
+section **Analytics** nas suas páginas, adicionando a propriedade `trackingId`
+com o ID do container
+(https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation)
+previamente configurado.
 
 Para isso, siga os passos:
 
-1. Abra o arquivo `_app.tsx` dentro do seu projeto deco.cx.
-2. Na variável `trackingId`, cole o valor do `trackingId` do seu projeto.
+1. Abra o admin em uma página que deseja adicionar o GTM.
+2. Clique para adicionar uma section e escolha **Analytics** importada do
+   deco-sites/std.
+3. Edite a section Analytics adicionada no passo 2, adicionando a propriedade
+   tracking id o ID do container.
+4. Salve sua página e publique.
+
+Pode repetir os estes passos e adicionar esta section em todas as páginas, ou
+pode adicionar através de uma section global e referencia-la em todas as
+páginas.
 
 É isso! Para testar que está tudo funcionando, faça o seguinte:
 
-1. Rode o projeto com `deno task start`.
-2. Acesse `http://localhost:8000`.
-3. Vá até as ferramentas de desenvolvedor e acesse a aba **Network**.
-4. Recarregue a página e certifique-se que o script
+1. Acesse seu site deco `https://<<sitename>>.deco.site`.
+2. Vá até as ferramentas de desenvolvedor e acesse a aba **Network**.
+3. Recarregue a página e certifique-se que o script
    `https://www.googletagmanager.com/gtm.js?id=GTM-P6D23BB` está sendo
    carregado.
 

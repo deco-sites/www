@@ -44,11 +44,12 @@ previamente configurado.
 
 Para isso, siga os passos:
 
-1. Abra a listagem de páginas com `status` global.
-2. Selecione a página que tem nome Analytics.
-3. Edite a section Analytics, adicionando ou editando a propriedade tracking id
-   com o ID do seu container.
-4. Salve sua página.
+1. Abra a página **Pages** no Admin da deco.cx
+2. Selecione `Global` no filtro de Status.
+2. Selecione a página que com nome `Analytics`.
+3. Edite a Section `Analytics`, adicionando ou editando a propriedade **Tracking ID**
+   com o ID do seu container no GTM.
+4. Salve a página.
 
 Todas as páginas que utilizam esta section global, Analytics, será atualizada
 automaticamente.

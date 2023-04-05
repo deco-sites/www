@@ -37,23 +37,21 @@ página.
 Se você criou um site na deco.cx baseado no nosso
 [starter de ecommerce](https://fashion.deco.site/), ele **já tem todo o código
 necessário para se integrar com o GTM**. No entanto, é necessário configurar a
-section **Analytics** nas suas páginas, adicionando a propriedade `trackingId`
-com o ID do container
+section global **Analytics** adicionando a propriedade `trackingId` com o ID do
+container
 (https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation)
 previamente configurado.
 
 Para isso, siga os passos:
 
-1. Abra o admin em uma página que deseja adicionar o GTM.
-2. Clique para adicionar uma section e escolha **Analytics** importada do
-   deco-sites/std.
-3. Edite a section Analytics adicionada no passo 2, adicionando a propriedade
-   tracking id o ID do container.
-4. Salve sua página e publique.
+1. Abra a listagem de páginas com `status` global.
+2. Selecione a página que tem nome Analytics.
+3. Edite a section Analytics, adicionando ou editando a propriedade tracking id
+   com o ID do seu container.
+4. Salve sua página.
 
-Pode repetir os estes passos e adicionar esta section em todas as páginas, ou
-pode adicionar através de uma section global e referencia-la em todas as
-páginas.
+Todas as páginas que utilizam esta section global, Analytics, será atualizada
+automaticamente.
 
 É isso! Para testar que está tudo funcionando, faça o seguinte:
 

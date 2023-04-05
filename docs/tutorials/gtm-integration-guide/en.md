@@ -33,21 +33,22 @@ tags in a service worker and improves the load time of the page.
 
 If you created a site on deco.cx based on our
 [ecommerce starter](https://fashion.deco.site/), it **already has all the code
-needed to integrate with GTM**. However, it is necessary to configure the
-**analytics** section on your pages by adding the property `trackingId` with the
-ID of the previously configured container
-(https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation).
+needed to integrate with GTM**. However, it is necessary to configure the global
+section **Analytics** by adding the trackingId property with the ID of the
+container
+(https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation)
+previously set up.
 
 For that, follow the steps:
 
-1. Open the admin on a page where you want to add GTM.
-2. Click to add a section and choose **Analytics** imported from deco-sites/std.
-3. Edit the added Analytics section in step 2 by adding the tracking ID property
-   with the container ID.
-4. Save your page and publish.
+1. Open the page listing with global status.
+2. Select the page named Analytics.
+3. Edit the Analytics section, adding or editing the tracking id property with
+   your container ID.
+4. Save your page.
 
-You can repeat these steps and add this section to all pages, or you can add it
-through a global section and reference it on all pages.
+All pages that use this global section, Analytics, will be automatically
+updated.
 
 And that! To test that everything is working, do the following:
 

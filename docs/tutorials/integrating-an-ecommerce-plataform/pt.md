@@ -43,10 +43,9 @@ Neste tutorial, vamos passar por cada uma das etapas e utilizar a **integração
     - Criando um **transformer**
     - Criando um **arquivo de tipos**
 4. Loaders
-    - Loader de **productList**
-    - Loader de **productSearch**
-    - Loader de **productPage**
+    - Como construir um Loader
 5. Carrinho e Checkout
+    - Como construir um Hook de Carrinho
 
 ## Repositório std
 
@@ -83,9 +82,25 @@ Após explorar as APIs da VNDA, identificamos que esses dados são padrão em to
 
 ~~~javascript
 export interface ConfigVNDA {
+  /**
+   * @description Your VNDA domain name. For example, https://mystore.vnda.com.br
+   */
   domain: string;
+
+  /**
+   * @description The token generated from admin panel. Read here: https://developers.vnda.com.br/docs/chave-de-acesso-e-requisicoes. Do not add any other permissions than catalog.
+   */
   authToken: string;
+
+  /**
+   * @description Define if sandbox environment should be used
+   */
   useSandbox: boolean;
+
+  /**
+   * @description Default price currency.
+   * @default USD
+   */
   defaultPriceCurrency: string;
 }
 ~~~
@@ -159,9 +174,9 @@ export const createClient = (params: ConfigVNDA) => {
 };
 ~~~
 
-É importante lembrar que você usará essas abstrações dentro dos [loaders](/docs/pt/concepts/loader), então deve estar preparado para receber todos os parâmetros que as APIs precisam.
+É importante lembrar que você usará essas abstrações dentro dos [loaders](/docs/pt/concepts/loader), então deve estar preparado para receber todos os parâmetros que as APIs precisam
 
-Aqui um exemplo de como a ``searchProduct`` foi utilizada em um dos [loaders](/docs/pt/concepts/loader):
+Como por exemplo, a ``searchProduct`` da VNDA foi utilizada em um dos [loaders](/docs/pt/concepts/loader) e recebia parâmetros como `term`, `wildcard`, `sort` e outros:
 
 ~~~javascript
 const client = createClient(configVNDA);
@@ -180,6 +195,8 @@ Dúvidas com o client? Consulte o [arquivo de client da VNDA](https://github.com
 ### transformer
 
 O arquivo `transform.ts` deve ser responsável por criar as funções que transformam os tipos da API para o padrão do [schema.org](https://schema.org/).
+
+É importante que essa transformação seja feita, para que você possa reutilizar os componentes que já estão criados e pensados para o padrão que o [schema.org](https://schema.org/) sugere.
 
 Por exemplo, a API da sua integração retorna os dados de produto nesse formato:
 
@@ -245,10 +262,131 @@ Dúvidas com o types? Consulte o [arquivo de tipos da VNDA](https://github.com/d
 
 ## Loaders
 
-### productList
+Os [loaders](/docs/pt/concepts/loader) que você vai criar a seguir, são funções que buscam os dados utilizando as abstrações do `client.ts` e transformam os dados retornados com as funções do `transform.ts`.
 
-### productSearch
+É importante ressaltar que os exemplos aqui foram os que fizeram sentido para a integração VNDA e outras que já foram criadas, mas você pode entender novos padrões de busca e retorno de dados.
 
-### productPage
+Lembre-se: Dentro dos [loaders](/docs/pt/concepts/loader), você também pode **exportar Props**, ou seja, podem ser configurados no painel, assim como as [sections](/docs/pt/concepts/section).
+
+Os arquivos fonte criados na integração com a VNDA foram:
+
+- productList: [https://github.com/deco-sites/std/blob/main/functions/vndaProductList.ts](https://github.com/deco-sites/std/blob/main/functions/vndaProductList.ts)
+- productDetailsPage: [https://github.com/deco-sites/std/blob/main/functions/vndaProductDetailsPage.ts](https://github.com/deco-sites/std/blob/main/functions/vndaProductDetailsPage.ts)
+- productListingPage: [https://github.com/deco-sites/std/blob/main/functions/vndaProductListingPage.ts](https://github.com/deco-sites/std/blob/main/functions/vndaProductListingPage.ts)
+
+Vamos utilizar o **Loader productList** aqui no tutorial e você pode seguir a mesma lógica para os outros. 
+
+### Como construir um Loader
+
+O **Loader productList** é normalmente utilizado para **vitrines** e **galerias estáticas**.
+
+Primeiro, dentro da pasta ``/functions`` crie um arquivo como ``vndaProductList.ts`` para sua integração.
+
+Depois, importe os tipos necessários do live:
+
+~~~javascript
+import type { LiveState } from "$live/types.ts";
+import type { LoaderFunction } from "$live/types.ts";
+~~~
+
+Importe sua configuração global:
+
+~~~javascript
+import { ConfigVNDA } from "../commerce/vnda/types.ts";
+~~~
+
+Importe seu ``client``, ``types`` e ``transformers`` necessários:
+
+~~~javascript
+import { createClient } from "../commerce/vnda/client.ts";
+import type { Product } from "../commerce/types.ts";
+import { toProduct } from "../commerce/vnda/transform.ts";
+~~~
+
+Agora, você deve exportar as Props que deseja receber do painel, na integração com a VNDA, ficaram assim:
+
+~~~javascript
+export interface Props {
+  /** @description total number of items to display */
+  limit: number;
+
+  /** @description query to use on search */
+  term?: string;
+
+  /** @description search for term anywhere */
+  wildcard?: boolean;
+
+  /** @description search sort parameter */
+  sort?: "newest" | "oldest" | "lowest_price" | "highest_price";
+
+  /** @description search for products that have certain tag */
+  tags?: string[];
+}
+~~~
+
+A função que atuará como Loader, deve ter uma estrutura como essa:
+
+~~~javascript
+const productListLoader: LoaderFunction<
+  Props,
+  Product[] | null,
+  LiveState<{ configVNDA: ConfigVNDA }>
+> = async (req, ctx, props) => {
+  const url = new URL(req.url);
+  const { configVNDA } = ctx.state.global;
+  const client = createClient(configVNDA);
+
+  //Busca os dados utilizando o client
+  const search = await client.product.search({
+    term: props?.term,
+    wildcard: props?.wildcard,
+    sort: props?.sort,
+    per_page: props?.limit,
+    tags: props?.tags,
+  });
+
+  // Transforma os dados no padrão schema.org
+  const products = search.results.map((product) => {
+    return toProduct(product, {
+      url,
+      priceCurrency: configVNDA.defaultPriceCurrency || "USD",
+    });
+  });
+
+  return {
+    data: products,
+  };
+};
+~~~
+
+Feito isso, seu Loader estará pronto para ser utilizado nas ``sections`` que precisam desses dados.
 
 ## Carrinho e Checkout
+
+Para completar 100% da sua integração, é importante que você crie um **Hook de Carrinho** para executar as principais funções, como: adicionar produto, alterar quantidade, adicionar cupom de desconto, entre outras.
+
+### Como construir um Hook de Carrinho
+
+Dentro de ``/commerce`` e dentro da pasta da sua integração, crie uma nova pasta chamada ``/hooks``.
+
+Então, crie um arquivo chamado ``useCart.ts``.
+
+Importe a fetchAPI da pasta ``/utils`` e o ``type`` do seu carrinho.
+
+~~~javascript
+import { fetchAPI } from "../../../utils/fetchAPI.ts";
+import type { VNDACart } from "../types.ts";
+~~~
+
+Sugerimos a criação de dois ``signals``, ``signal`` é a solução de gerenciamento de estado do [preact](https://preactjs.com/). (Mais performática que useState)
+
+~~~javascript
+const cart = signal<VNDACart | null>(null);
+const loading = signal<boolean>(false);
+~~~
+
+Dentro do seu **Hook**, você terá algumas funções que buscam/alteram os dados do Carrinho, por isso é importante que ele seja um estado. 
+
+O loading entra para lidar com esse tempo de busca na interface, melhorando a experiência do usuário.
+
+Agora, crie o ``type`` do seu **Hook**

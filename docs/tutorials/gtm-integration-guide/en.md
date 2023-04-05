@@ -33,20 +33,29 @@ tags in a service worker and improves the load time of the page.
 
 If you created a site on deco.cx based on our
 [ecommerce starter](https://fashion.deco.site/), it **already has all the code
-needed to integrate with GTM**. However, it is necessary to configure the
-`trackingId` of the previously configured container.
+needed to integrate with GTM**. However, it is necessary to configure the global
+section **Analytics** by adding the trackingId property with the ID of the
+container
+(https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation)
+previously set up.
 
 For that, follow the steps:
 
-1. Open the `_app.tsx` file inside your deco.cx project.
-2. In the `trackingId` variable, paste the `trackingId` value of your project.
+1. Open Pages on deco.cx's Admin.
+2. Select `Global` on the Status filter.
+3. Select the Analytics page.
+3. Edit the Analytics section, adding or editing the **Tracking Id** property with
+   your GTM's container ID.
+4. Save the page.
+
+All pages that use this global section, Analytics, will be automatically
+updated.
 
 And that! To test that everything is working, do the following:
 
-1. Run the project with `deno task start`.
-2. Go to `http://localhost:8000`.
-3. Go to the developer tools and access the **Network** tab.
-4. Reload the page and make sure the script
+1. Go to your deco site `https://<<sitename>>.deco.site`.
+2. Go to the developer tools and access the **Network** tab.
+3. Reload the page and make sure the script
    `https://www.googletagmanager.com/gtm.js?id=GTM-P6D23BB` is being loaded.
 
 ## Integrating Google Analytics 4

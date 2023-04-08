@@ -2,14 +2,14 @@
    description: Um Loader em deco.cx é uma função que retorna os dados necessários para um Site.
 ---
 
-Um **Loader** em _deco.cx_ é uma função Typescript que retorna os dados
-necessários em uma [Section](/docs/pt/concepts/section). Essas funções são
+Um **Loader** em _deco.cx_ é uma função Typescript que retorna tipicamente os
+dados necessários em uma [Section](/docs/pt/concepts/section). Essas funções são
 executadas antes da renderização de cada página e seu principal objetivo é
 **buscar dados de fontes externas**, transformá-los se necessário e
 **fornecê-los às Seções do site que precisam.** Os Loaders podem ser usados para
 buscar dados de APIs, bancos de dados ou qualquer outra fonte externa. As
-implementações locais de Loaders vivem na pasta `/functions` do seu projeto,
-porém é possível
+implementações locais de Loaders vivem na pasta `/loaders` do seu projeto, porém
+é possível
 [importar Loaders de outros Sites](/docs/pt/tutorials/importing-other-sites).
 
 Além de buscar dados, os Loaders na _deco.cx_ **também podem exportar um tipo de
@@ -41,12 +41,11 @@ facilitando o gerenciamento e a escala do seu projeto.
 Esta é a implementação do Loader `shopifyProductList.ts`:
 
 ```tsx
-import type {} from "$live/types.ts";
-import type { LiveState } from "$live/types.ts";
+import type { LoaderContext } from "$live/types.ts";
 
-import { toProduct } from "../commerce/shopify/transform.ts";
 import { ConfigShopify, createClient } from "../commerce/shopify/client.ts";
-import type { Product } from "../commerce/types.ts";
+import { toProduct } from "../commerce/shopify/transform.ts";
+import { Product } from "../commerce/types.ts";
 
 export interface Props {
   /** @description search term to use on search */
@@ -55,20 +54,12 @@ export interface Props {
   count: number;
 }
 
-/**
- * @title Product list loader
- * @description Usefull for shelves and static galleries.
- */
-const searchLoader: LoaderFunction<
-  Props,
-  Product[],
-  LiveState<{ configShopify: ConfigShopify }>
-> = async (
-  _req,
-  ctx,
-  props,
-) => {
-  const { configShopify } = ctx.state.global;
+export default async function searchLoader(
+  _req: Request,
+  ctx: LoaderContext<Props, { configShopify: ConfigShopify }>,
+): Promise<Product[] | null> {
+  const props = ctx.state.$live;
+  const { configShopify } = ctx.state;
   const shopify = createClient(configShopify);
 
   const count = props.count ?? 12;
@@ -87,12 +78,8 @@ const searchLoader: LoaderFunction<
     toProduct(p, p.variants.nodes[0])
   );
 
-  return {
-    data: products ?? [],
-  };
-};
-
-export default searchLoader;
+  return products ?? [];
+}
 ```
 
 [Fonte](https://github.com/deco-sites/std/blob/bedf496b7a2a480c1a9dfae477fe34020daae821/functions/shopifyProductList.ts)

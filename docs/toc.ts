@@ -60,6 +60,18 @@ const tableOfContents: TableOfContents = [{
       en: "Integrating with GTM",
     },
     slug: "tutorials/gtm-integration-guide",
+  }, {
+    title: {
+      pt: "Simplificando loaders com carregadores de propriedades",
+      en: "Simplyfing data fetching with a PropsLoader",
+    },
+    slug: "tutorials/props-loader",
+  }, {
+    title: {
+      pt: "Criando components universais",
+      en: "Creating universal components",
+    },
+    slug: "tutorials/universal-components",
   }],
 }, {
   title: { en: "Recipes", pt: "Receitas" },

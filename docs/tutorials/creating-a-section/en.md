@@ -8,8 +8,8 @@ and see how users can **configure its props** on _deco.cx_'s Admin.
 
 ## Suggested Reading
 
-- [Core Concept: Section](/docs/en/concepts/section)
 - [Intro: Tech Stack](http:///docs/en/introduction/tech-stack)
+- [Core Concept: Section](/docs/en/concepts/section)
 
 Open the folder of your site's code in a IDE and perform the following actions:
 
@@ -74,6 +74,6 @@ to create customizable Sections:
 - [Customizable Sections](/docs/en/recipes/customizable-sections)
 - [Loading data from APIs](/docs/en/tutorials/data-fetching)
 
-> _Dica_: If you use VSCode,
+> _Tip_: If you use VSCode,
 > [here](https://gist.github.com/lucis/9ac9756ce7df18033d53e5c03ad8a62d) are
 > some snippets to help creating Section components.

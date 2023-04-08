@@ -6,7 +6,6 @@
 
 - [Tech Stack](/docs/pt/introduction/tech-stack)
 - [Conceitos básicos: Section](/docs/pt/concepts/section)
-- [Conceitos básicos: Loaders](/docs/pt/concepts/loader)
 
 Buscar dados de APIs é um requisito comum ao criar sites ou aplicações. A
 _deco.cx_ oferece uma solução de _data-fetching_ que ocorre **no server-side** e
@@ -25,6 +24,7 @@ comums à outros casos:
   **permitindo ao usuário para configurar quantos fatos serão retornados** no
   Admin do _deco.cx_.
 - Apresentar esses fatos em uma Section.
+- Fazer com que a section criada seja extensível a outros loaders.
 
 <img width="1512" alt="Dados de renderização de Section obtidos da API" src="https://user-images.githubusercontent.com/18706156/225758802-7277e774-921d-46e5-b384-bc9245b8eef1.png">
 
@@ -34,63 +34,28 @@ _Visualização da Section DogFacts mostrando os dados retornados da API_
 
 _Dados retornados da API Dog Facts sendo chamada no browser_
 
-## Criando o Loader
+## Criando a Section
 
-Os Loaders permitem que você defina como os dados são buscados e transformados
-antes de serem repassado a uma Section. Eles são **funções Typescript
-regulares** que podem usar funções _async_ como `fetch`. Os Loaders podem ser
-"conectados" a uma Section por meio de uma das `props` da Section, e isso
-acontece com base no **tipo de retorno do Loader**.
+Se executarmos um http request para a API da Dog Fact veremos que ele retorna um
+JSON no seguinte formato,
 
-A _deco.cx_ oferece um tipo de utilitário para auxiliar a criação de um Loader.
-Vamos ver como isso funciona criando o Loader `dogApiFacts.ts`.
+> Abra no seu browser: https://dogapi.dog/api/facts?number=1
 
-1. Crie um arquivo chamado `dopApiFacts.ts` dentro da pasta `/functions` em seu
-   projeto.
-2. Cole o seguinte código:
-
-```ts
-import type { LoaderFunction } from "$live/std/types.ts";
-
-// Return type of this loader
-export type DogFact = {
-  fact: string;
-};
-
-// Props type that will be configured in deco.cx's Admin
-export interface Props {
-  numberOfFacts?: number;
+```json
+{
+  "facts": [
+    "The Labrador is so popular, in 2006 there were approximately 3-5 times more Labs as there were German Shepherds or Golden Retrievers."
+  ],
+  "success": true
 }
-
-const dogApiFacts: LoaderFunction<Props, DogFact[]> = async (
-  _req,
-  _ctx,
-  { numberOfFacts },
-) => {
-  const { facts } = (await fetch(
-    `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
-  ).then((r) => r.json())) as { facts: string[] };
-
-  return {
-    data: facts.map((fact) => ({ fact })),
-  };
-};
-
-export default dogApiFacts;
 ```
 
-3. Execute `deno task start` se ainda não o fez.
-4. **É isso aí!** O Loader foi criado em seu projeto local.
+Perceba que a única coisa que nos importa são os facts, logo vamos criar nossa
+section preparada para receber esses facts re renderiza-los da maneira que
+desejarmos.
 
-Agora, vamos vê-lo funcionando conectando-o a uma Section.
-
-## Criando a Section e testando o Loader
-
-Para receber os dados retornados do Loader `dogApiFacts.ts` em uma Section
-precisamos referenciar seu tipo de retorno (`DogFact[]`) no tipo `props` da
-Section.
-
-<!-- TODO: Altere o código após nova engine -->
+Para isso, vamos criar um tipo `DoctFact` que contém apenas uma propriedade
+chamada `fact` que é a `string` representada pela mensagem.
 
 Vamos ver isso em ação criando uma nova Section:
 
@@ -98,12 +63,13 @@ Vamos ver isso em ação criando uma nova Section:
 2. Cole o seguinte código:
 
 ```tsx
-import { LoaderReturnType } from "$live/std/types.ts";
-import { DogFact } from "../functions/dogApiFacts.ts";
+export interface DogFact {
+  fact: string;
+}
 
 export interface Props {
   title: string;
-  dogFacts: LoaderReturnType<DogFact[]>;
+  dogFacts: DogFact[];
 }
 
 export default function DogFacts({ title, dogFacts }: Props) {
@@ -118,13 +84,71 @@ export default function DogFacts({ title, dogFacts }: Props) {
 }
 ```
 
-3. Assumindo que `deno task start` está rodando, acesse https://deco.cx/admin e
+> Nesse momento podemos rodar o `deno task start` e verificar no nosso admin que
+> esse componente já consegue ser utilizado com dados estáticos, oque não faz
+> muito sentido para nosso caso de uso.
+
+## Criando o Loader e testando a section
+
+Os Loaders permitem que você defina como os dados são buscados e transformados
+antes de serem repassado a uma Section. Eles são **funções Typescript
+regulares** que podem usar funções _async_ como `fetch`. Os Loaders podem ser
+"conectados" a uma Section por meio de uma das `props` da Section, e isso
+acontece com base no **tipo de retorno do Loader**.
+
+1. Defina qual será as `Props` de input do seu loader.
+2. Exporte uma função chamada `loader` dentro do mesmo arquivo da sua section.
+
+No nosso caso, vamos deixar configurável qual número de facts que vamos mostrar
+no nosso componente. Perceba que agora, o que aparecerá parece ser configurado
+não será mais as props da section mas sim as props do seu loader.
+
+```ts
+import type { LoaderContext } from "$live/types.ts";
+
+// Props type that will be configured in deco.cx's Admin
+export interface LoadProps {
+  title: string;
+  numberOfFacts?: number;
+}
+
+interface DogFact {
+  fact: string;
+}
+
+interface Props {
+  title: string;
+  dogFacts: DogFact[];
+}
+
+export async function loader(
+  _req: Request,
+  { state: { $live: { numberOfFacts, title } } }: LoaderContext<LoadProps>,
+): Promise<Props> {
+  const { facts } = (await fetch(
+    `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
+  ).then((r) => r.json())) as { facts: string[] };
+  return { dogFacts: facts.map((fact) => ({ fact })), title };
+}
+
+export default function DogFacts({ title, dogFacts }: Props) {
+  return (
+    <div class="p-4">
+      <h1 class="font-bold">{title}</h1>
+      <ul>
+        {dogFacts.map(({ fact }) => <li>{fact}</li>)}
+      </ul>
+    </div>
+  );
+}
+```
+
+3. Execute `deno task start` se ainda não o fez.
+4. Assumindo que `deno task start` está rodando, acesse https://deco.cx/admin e
    selecione seu Site.
-4. Certifique-se de que `localhost:8000` esteja selecionado no Seletor de
+5. Certifique-se de que `localhost:8000` esteja selecionado no Seletor de
    Ambiente em no canto superior direito do Admin.
-5. Vá para `Library` e procure por `DogFacts` na barra lateral esquerda.
-6. Configure os props da Section e **selecione o carregador `dogApiFacts.ts`**
-   para a propriedade `dogFacts`.
+6. Vá para `Library` e procure por `DogFacts` na barra lateral esquerda.
 7. Configure as `props` do Loader selecionado (`numberOfFacts`) com um número
    desejado (_ex:_ 4).
 8. Clique em `Salvar` e veja funcionando!
@@ -134,23 +158,18 @@ export default function DogFacts({ title, dogFacts }: Props) {
 _Biblioteca mostrando os dados de renderização da Section DogFacts obtidos da
 API_
 
-> Também é possível criar um `prop` LoaderReturnType em uma Section já
-> existente.
-
 **É isso!** Agora você criou uma Section que exibe os dados obtidos de um API
 externa usando um Loader, tornando tudo configurável por usuários de negócios
 como desejado. Recomendamos exportar filtros e _sort_ nos `props` do Loader para
 torná-lo mais reutilizável no Admin do _deco.cx_.
 
-O processo pode parecer um pouco complicado, mas tem um grande benefício: a
-Section não está vinculada a um Loader específico, mas sim à um tipo. Isso
-permite **utilizar outros Loaders que também possam retornar o tipo
-`DogFacts[]`.** No ecommerce, onde existem diferentes API _providers) (_ex:_
-Shopify, Magento, Oracle) para os mesmos tipos de dados (Produtos, Categorias,
-Pedidos...) isso pode ser útil.
+## Leitura adicional
 
-No [Fashion starter](https://github.com/deco-sites/fashion) criamos Sections e
-Loaders usando os [tipos do Schema.org](https://schema.org/Product), permitindo
-que a mesma UI (_ex:_ Product Shelf, Product Details) possa usar usada com
-diferentes _providers_, permitindo reuso de código para agências e
-desenvolvedores que atendem clientes de diferentes plataformas.
+Os loaders são componentes poderosos para lidar com dados dinâmicos e resolvem a
+maior parte dos requisitos quando lidamos com dados vindos de API. A plataforma
+da `deco.cx` possui uma outra infinidade de casos de usos relacionados com dados
+dinâmicos que podemos utilizar.
+
+- [Carregador de Propriedades](/docs/pt/tutorials/props-loader)
+- [Componentes Universais](/docs/pt/tutorials/universal-components)
+- [Conceitos básicos: Loaders](/docs/pt/concepts/loader)

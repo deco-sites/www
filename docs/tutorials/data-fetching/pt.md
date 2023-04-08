@@ -153,7 +153,7 @@ export default function DogFacts({ title, dogFacts }: Props) {
    desejado (_ex:_ 4).
 8. Clique em `Salvar` e veja funcionando!
 
-<img width="1512" alt="Biblioteca mostrando os dados de renderização da Section DogFacts obtidos da API" src="https://user-images.githubusercontent.com/18706156/225752569-cd626d6d-a2ba-4edf-af6c-7e9b5758324a.png">
+<img width="1509" alt="Library showing the DogFacts Section rendering data fetched from the API" src="https://user-images.githubusercontent.com/5839364/230696239-c410b03c-3d29-4087-bc67-be555aea117a.png">
 
 _Biblioteca mostrando os dados de renderização da Section DogFacts obtidos da
 API_

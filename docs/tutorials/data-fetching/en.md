@@ -150,7 +150,7 @@ export default function DogFacts({ title, dogFacts }: Props) {
 
 Now, let's see it working hooking it up with a Section.
 
-<img width="1509" alt="Library showing the DogFacts Section rendering data fetched from the API" src="https://user-images.githubusercontent.com/5839364/230696239-c410b03c-3d29-4087-bc67-be555aea117a.png">
+<img width="1510" alt="Library showing the DogFacts Section rendering data fetched from the API" src="https://user-images.githubusercontent.com/5839364/230696322-33137a3f-052b-416b-880a-19fcbf091908.png">
 
 
 _Library showing the DogFacts Section rendering data fetched from the API_

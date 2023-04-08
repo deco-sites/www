@@ -151,7 +151,6 @@ export default function DogFacts({ title, dogFacts }: Props) {
 6. Vá para `Library` e procure por `DogFacts` na barra lateral esquerda.
 7. Configure as `props` do Loader selecionado (`numberOfFacts`) com um número
    desejado (_ex:_ 4).
-8. Clique em `Salvar` e veja funcionando!
 
 <img width="1510" alt="Library showing the DogFacts Section rendering data fetched from the API" src="https://user-images.githubusercontent.com/5839364/230696322-33137a3f-052b-416b-880a-19fcbf091908.png">
 

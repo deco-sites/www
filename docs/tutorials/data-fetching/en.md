@@ -23,7 +23,6 @@ have on data fetching:
 - Fetch dog facts data from the [Dog API](https://dogapi.dog/) **allowing the
   user to configure how many facts are being fetched** on _deco.cx_'s Admin.
 - Render those facts in a Section.
-- Make our Section extensible by separating data fetching.
 
 <img width="1512" alt="Section rendering data fetched from API" src="https://user-images.githubusercontent.com/18706156/225758802-7277e774-921d-46e5-b384-bc9245b8eef1.png">
 

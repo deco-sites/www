@@ -24,7 +24,6 @@ comums à outros casos:
   **permitindo ao usuário para configurar quantos fatos serão retornados** no
   Admin do _deco.cx_.
 - Apresentar esses fatos em uma Section.
-- Fazer com que a section criada seja extensível a outros loaders.
 
 <img width="1512" alt="Dados de renderização de Section obtidos da API" src="https://user-images.githubusercontent.com/18706156/225758802-7277e774-921d-46e5-b384-bc9245b8eef1.png">
 

@@ -8,8 +8,8 @@
 - [Conceitos básicos: Section](/docs/pt/concepts/section)
 - [Carregando dados de APIs](/docs/pt/tutorials/data-fetching)
 
-Loaders são usados para adicionar dinamicidade nas sections forcenendo-as dados
-de APIs. Para tanto, o loader precisa receber tanto propriedades que servem para
+Loaders são usados para adicionar dinamicidade nas sections forcenendo dados de
+APIs. Para tanto, o loader precisa receber tanto propriedades que servem para
 fazer `fetch` quanto propriedades "de passagem". Propriedades de passagem são
 propriedades que o loader recebe mas que na verdade apenas faz uma "passagem"
 direta para o componente, sem que haja nenhum uso pelo loader em si.

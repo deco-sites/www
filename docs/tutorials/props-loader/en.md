@@ -8,11 +8,11 @@
 - [Core Concepts: Sections](/docs/en/concepts/section)
 - [Loading data from APIs](/docs/en/tutorials/data-fetching)
 
-Loaders are used to add dynamism to sections by providing them with data from
-APIs. To do this, the loader needs to receive both properties that serve to
-fetch and "passing" properties. Passing properties are properties that the
-loader receives but that actually just make a direct "pass" to the component,
-without any use by the loader itself.
+Loaders are used to add dynamism to sections by providing them data from APIs.
+To do this, the loader needs to receive both properties that serve to fetch and
+"passing" properties. Passing properties are properties that the loader receives
+but that actually just make a direct "pass" to the component, without any use by
+the loader itself.
 
 Let's take the loader below as an example:
 

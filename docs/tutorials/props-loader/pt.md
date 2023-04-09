@@ -76,18 +76,14 @@ export interface LoadProps {
   numberOfFacts?: number;
 }
 
-interface DogFact {
-  fact: string;
-}
-
 async function dogFacts(
   _req: Request,
   { state: { $live: { numberOfFacts } } }: LoaderContext<LoadProps>,
-): Promise<DogFact[]> {
+): Promise<string[]> {
   const { facts } = (await fetch(
     `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
   ).then((r) => r.json())) as { facts: string[] };
-  return facts.map((fact) => ({ fact }));
+  return facts;
 }
 ```
 

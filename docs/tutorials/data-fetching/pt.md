@@ -68,7 +68,7 @@ export interface DogFact {
 
 export interface Props {
   title: string;
-  dogFacts: DogFact[];
+  dogFacts: string[];
 }
 
 export default function DogFacts({ title, dogFacts }: Props) {
@@ -76,7 +76,7 @@ export default function DogFacts({ title, dogFacts }: Props) {
     <div class="p-4">
       <h1 class="font-bold">{title}</h1>
       <ul>
-        {dogFacts.map(({ fact }) => <li>{fact}</li>)}
+        {dogFacts.map((fact) => <li>{fact}</li>)}
       </ul>
     </div>
   );

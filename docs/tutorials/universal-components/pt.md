@@ -1,3 +1,3 @@
 ---
-  description: Crie componentes universais para que possam ser usados em qualquer lugar
+  description: Aprenda como criar componentes universais para que possam ser usados em qualquer lugar
 ---

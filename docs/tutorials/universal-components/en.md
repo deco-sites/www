@@ -1,3 +1,3 @@
 ---
-  description: Build components once reuse everywhere
+  description: Learn how to build components once and reuse them everywhere
 ---

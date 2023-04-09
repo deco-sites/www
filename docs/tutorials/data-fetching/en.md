@@ -67,7 +67,7 @@ export interface DogFact {
 
 export interface Props {
   title: string;
-  dogFacts:string[];
+  dogFacts: string[];
 }
 
 export default function DogFacts({ title, dogFacts }: Props) {

@@ -40,7 +40,7 @@ export const handler: Handlers<LivePageData, LiveState> = {
         return redirectTo("https://www.youtube.com/watch?v=fz-wueU_D6o");
       case "/politica-privacidade":
         return redirectTo(
-          "https://drive.google.com/file/d/1UWQ9AGHyBhPCTYpWMvzKFRA5H-LByp2x/view?usp=sharing",
+          "https://drive.google.com/file/d/15WCSop0_jNfrGn73EqFOr94twJIIrxea/view?usp=sharing",
         );
       case "/termos-de-uso":
         return redirectTo(

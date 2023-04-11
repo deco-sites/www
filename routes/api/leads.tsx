@@ -21,7 +21,7 @@ export const handler: Handlers<null, LiveState> = {
     await fetch(ZAPIER_WEBHOOK ?? "", {
       method: "POST",
       body: JSON.stringify(formData),
-    })
+    });
 
     await getSupabaseClient().from("form_submission").insert({
       data: formData,

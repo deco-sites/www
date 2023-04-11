@@ -44,9 +44,9 @@ For that, follow the steps:
 1. Open Pages on deco.cx's Admin.
 2. Select `Global` on the Status filter.
 3. Select the Analytics page.
-3. Edit the Analytics section, adding or editing the **Tracking Id** property with
-   your GTM's container ID.
-4. Save the page.
+4. Edit the Analytics section, adding or editing the **Tracking Id** property
+   with your GTM's container ID.
+5. Save the page.
 
 All pages that use this global section, Analytics, will be automatically
 updated.

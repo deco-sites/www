@@ -22,7 +22,7 @@ Navigate to `https://localhost:8000` to see the admin.
 
 ### Form submission
 
-Required `DISCORD_LEADS_WEBHOOK_URL` env var to test feature
+Required `ZAPIER_WEBHOOK` env var to test feature
 
 ## Docs
 

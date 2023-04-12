@@ -262,12 +262,17 @@ passada para o componente.
 **Utilizando o componente de Imagem**
 
 ```tsx
-import Image from "$live/std/ui/components/Image.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
-function MeuComponente() {
+export type Props = {
+  imageUrl: LiveImage;
+};
+
+export default function MeuComponente(props: Props) {
   return (
     <Image
-      src="/image.png"
+      src={props.imageUrl}
       sizes="(max-width: 640px) 100vw, 50vw"
       width={420}
       height={420}
@@ -279,6 +284,10 @@ function MeuComponente() {
   );
 }
 ```
+
+O tipo `LiveImage` da propiedade `imageUrl` permite que o usuário do admin da
+deco.cx possa fazer upload de uma imagem. Na section, essa propiedade retorna
+uma string com o endereço da imagem carregada.
 
 A propriedade preload do componente Image adiciona uma tag link com **preload**
 no **head** do `document`. O HTML gerado com esse componente:
@@ -297,7 +306,7 @@ no **head** do `document`. O HTML gerado com esse componente:
 **Utilizando o componente Picture e Source**
 
 ```tsx
-import { Picture, Source } from "$live/std/ui/components/Picture.tsx";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
 function MeuComponente() {
   return (

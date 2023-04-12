@@ -259,12 +259,17 @@ with images with 1x width, 1.5x and 2x the dimension passed to the component.
 **Using the Image component**
 
 ```tsx
-import Image from "$live/std/ui/components/Image.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
-function MyComponent() {
+export type Props = {
+  imageUrl: LiveImage;
+};
+
+export default function MyComponent(props: Props) {
   return (
     <Image
-      src="/image.png"
+      src={props.imageUrl}
       sizes="(max-width: 640px) 100vw, 50vw"
       width={420}
       height={420}
@@ -276,6 +281,9 @@ function MyComponent() {
   );
 }
 ```
+
+The `LiveImage` property type is used to allow admin user to upload a image to
+it, but returns a string with the image address.
 
 The Image component's preload property adds a link tag with **preload** in the
 **head** of `document`. The HTML generated with this component:
@@ -294,9 +302,9 @@ The Image component's preload property adds a link tag with **preload** in the
 **Utilizando o componente Picture e Source**
 
 ```tsx
-import { Picture, Source } from "$live/std/ui/components/Picture.tsx";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
-function MeuComponente() {
+function MyComponent() {
   return (
     <Picture class="w-screen block" preload>
       <Source

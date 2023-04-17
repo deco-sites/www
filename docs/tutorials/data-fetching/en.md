@@ -101,6 +101,22 @@ Loader**.
 import type { LoaderContext } from "$live/types.ts";
 import type { SectionProps } from "$live/mod.ts";
 
+// Props type that will be configured in deco.cx's Admin
+export interface Props {
+  title: string;
+  numberOfFacts?: number;
+}
+
+export async function loader(
+  _req: Request,
+  { state: { $live: { numberOfFacts, title } } }: LoaderContext<Props>,
+) {
+  const { facts: dogFacts } = (await fetch(
+    `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
+  ).then((r) => r.json())) as { facts: string[] };
+  return { dogFacts, title };
+}
+
 export default function DogFacts(
   { title, dogFacts }: SectionProps<typeof loader>,
 ) {
@@ -112,22 +128,6 @@ export default function DogFacts(
       </ul>
     </div>
   );
-}
-
-// Props type that will be configured in deco.cx's Admin
-export interface LoaderProps {
-  title: string;
-  numberOfFacts?: number;
-}
-
-export async function loader(
-  _req: Request,
-  { state: { $live: { numberOfFacts, title } } }: LoaderContext<LoaderProps>,
-) {
-  const { facts: dogFacts } = (await fetch(
-    `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
-  ).then((r) => r.json())) as { facts: string[] };
-  return { dogFacts, title };
 }
 ```
 

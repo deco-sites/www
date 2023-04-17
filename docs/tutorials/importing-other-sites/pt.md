@@ -41,7 +41,7 @@ await dev(import.meta.url, "./main.ts", {
 });
 ```
 
-5. Execute `deno task start` e vá para o Admin do _deco.cx_.
+5. Execute `deno task start` e vá para o Admin da _deco.cx_.
 6. **Pronto!** Agora você pode usar Sections e Loaders de `deco-sites/std` em
    seu Site.
 

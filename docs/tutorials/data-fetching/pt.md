@@ -18,12 +18,12 @@ em uma Section usando [Loaders](/docs/pt/concepts/loader).
 
 ## O que vamos construir
 
-O caso de uso de exemplo que seguiremos é simples, mas tem muitas complexidades
-comums à outros casos:
+O exemplo que usaremos é simples, mas tem complexidades
+comuns à outros casos:
 
-- Fazer fetch de fatos sobre cachorros usando a [Dog API](https://dogapi.dog/)
-  **permitindo ao usuário para configurar quantos fatos serão retornados** no
-  Admin do _deco.cx_.
+- Fazer _fetch_ de fatos sobre cachorros usando a [Dog API](https://dogapi.dog/)
+  **permitindo ao usuário configurar quantos fatos serão retornados** no
+  Admin da _deco.cx_.
 - Apresentar esses fatos em uma Section.
 
 <img width="1512" alt="Dados de renderização de Section obtidos da API" src="https://user-images.githubusercontent.com/18706156/225758802-7277e774-921d-46e5-b384-bc9245b8eef1.png">
@@ -154,7 +154,7 @@ API_
 **É isso!** Agora você criou uma Section que exibe os dados obtidos de um API
 externa usando um Loader, tornando tudo configurável por usuários de negócios
 como desejado. Recomendamos exportar filtros e _sort_ nos `props` do Loader para
-torná-lo mais reutilizável no Admin do _deco.cx_.
+torná-lo mais reutilizável no Admin da _deco.cx_.
 
 ## Leitura adicional
 

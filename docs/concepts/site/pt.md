@@ -23,9 +23,9 @@ No [Admin da _deco.cx_](https://deco.cx/admin), usuários podem personalizar os
 Sites editando conteúdo através do CMS ou alterando o estilo e o design por meio
 de alterações no código.
 
-O conteúdo que cada usuário verá do seu Site dependerá da configurações de
-[Audienced](/docs/en/concepts/audience). As Audiences permitem personalização de
-conteúdo, testes A/B e criação de campanhas.
+<!-- O conteúdo que cada usuário do seu Site verá depende das configurações de
+[Audience](/docs/en/concepts/audience). As Audiences permitem personalização de
+conteúdo, testes A/B e criação de campanhas. -->
 
-Os Sites são colaborativos e **pertencem a uma equipe** em nosso Admin. Membros
-da equipe podem ser adicionados para que possam trabalhar juntos no site.
+Os Sites são colaborativos e **pertencem à um time** em nosso Admin. Membros
+do time podem ser adicionados para que possam trabalhar juntos no Site.

@@ -251,13 +251,12 @@ prioridade do seu request.
 </body>
 ```
 
-#### Utilizando o componente Imagem do Live
+#### Utilizando o componente Image do Live
 
-O componente de Imagem do Live construído com o objetivo de habilitar a máxima
+O componente `Image` foi construído com o objetivo de melhorar
 performance da sua página utilizando as propriedades mencionadas anteriormente.
-Além disso, padrão o componente de Imagem e Source utiliza imagens otimizadas no
-formato webp e adiciona srcset com imagens com largura 1x, 1.5x e 2x a dimensão
-passada para o componente.
+Além disso, os componentes de `Image` e `Source` utilizam por padrão imagens otimizadas no
+formato `webp` e adicionam `srcset` com largura 1x, 1.5x e 2x
 
 **Utilizando o componente de Imagem**
 

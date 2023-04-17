@@ -5,7 +5,7 @@ description: Aprenda como criar uma Section para um Site usando deco.cx
 Neste tutorial você aprenderá como criar uma nova implementação de
 [Section](/docs/pt/concepts/section) no repositório do seu
 [Site](/docs/pt/concepts/site) e veja como os usuários podem **configurar seus
-props** no Admin do _deco.cx_.
+props** no Admin da _deco.cx_.
 
 ## Leitura sugerida
 
@@ -64,7 +64,7 @@ Para testar a Section `LatestPosts.tsx`:
    `Salvar` e ver como ela está sendo renderizada. O _preview_ atualizará
    automaticamente se você alterar o código da Section localmente.
 
-<img width="994" alt="Visualização do Editor de Section no Admin do deco" src="https://user-images.githubusercontent.com/18706156/225371920-e1c35a7a-c994-4b96-b9bd-554caab02455.png" >
+<img width="994" alt="Visualização do Editor de Section no Admin da deco" src="https://user-images.githubusercontent.com/18706156/225371920-e1c35a7a-c994-4b96-b9bd-554caab02455.png" >
 
 ## Leitura adicional
 

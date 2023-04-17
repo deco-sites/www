@@ -4,7 +4,7 @@ description: Uma Section representa um elemento de UI configurável para um Site
 
 As Sections são **componentes de UI criados com
 [Preact](https://preactjs.com/)** que pode receber `props` configuradas por
-usuários no Admin do _deco.cx_. As implementações locais de Section vivem na
+usuários no Admin da _deco.cx_. As implementações locais de Section vivem na
 pasta `sections/` no código do Site, porém é possível
 [importar Sections de outros Sites](/docs/pt/tutorials/importing-other-sites).
 
@@ -20,10 +20,10 @@ Alguns exemplos de Section para uma loja de ecomemerce seriam:
 
 Observe que as seções são executadas **somente no lado do servidor**, portanto,
 gerenciamento de estado e ciclo de vida como como `useState`, `useEffect` e
-callbacks como `onClick`, `onInput` não irão trabalhar. Para que funcionem, você
+callbacks como `onClick`, `onInput` não irão funcionar. Para que funcionem, você
 precisará usar [Islands](https://fresh.deno.dev/docs/concepts/islands).
 
-No Admin do _deco.cx_ é possível interagir com as Sections em dois locais:
+No Admin da _deco.cx_ é possível interagir com as Sections em dois locais:
 
 - **Library:** permite que desenvolvedores configurem as propriedades das
   Section e visualizaem automaticamente a UI renderizada. (Funciona semelhante

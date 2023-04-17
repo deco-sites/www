@@ -10,7 +10,7 @@ description: Sections podem ser codificadas por desenvolvedores e configuradas p
 Você já sabe que é fácil criar uma [Section](/docs/pt/concepts/section)
 configurável na _deco.cx_. Neste post vamos detalhar todas as formas possíveis
 de declarar os types das `props` e como isso afeta o formulário que renderizamos
-no Admin do _deco.cx_.
+no Admin da _deco.cx_.
 
 ## Personalizando Sections
 

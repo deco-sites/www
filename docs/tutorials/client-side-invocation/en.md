@@ -16,12 +16,12 @@ To get started with Client-side Loaders Invocation, follow these steps:
 
 1. Import `Runtime` from `runtime.ts`
 
-> Can't find this file?
-> [Try this one](https://github.com/deco-sites/fashion/blob/main/runtime.ts)
-
 2. Now you can issue invocations using the `Runtime.invoke` function. For
    example, to fetch data from a loader function, you would use the following
    code:
+
+> Can't find this file?
+> [Try this one](https://github.com/deco-sites/fashion/blob/main/runtime.ts)
 
 ```ts
 import { Runtime } from "./runtime.ts";

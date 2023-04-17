@@ -20,11 +20,11 @@ since: 1.0.0
 
 ## O que são Layouts de Página?
 
-Layouts de Página são modelos reutilizáveis que definem a estrutura geral e o
-conteúdo de uma página. Eles permitem que você separe o layout e o design de uma
-página do seu conteúdo, facilitando a manutenção e atualização do seu site. Com
-os Layouts de Página, você pode criar uma aparência e sensação consistentes em
-todas as suas páginas, ao mesmo tempo que permite flexibilidade e
+_Layouts_ de Página são **páginas** reutilizáveis que definem a estrutura geral
+e o conteúdo de uma página. Eles permitem que você separe o layout e o design de
+uma página do seu conteúdo, facilitando a manutenção e atualização do seu site.
+Com os Layouts de Página, você pode criar uma aparência e sensação consistentes
+em todas as suas páginas, ao mesmo tempo que permite flexibilidade e
 personalização.
 
 ## Por que usar Layouts de Página?
@@ -54,13 +54,13 @@ layouts.
 
 ## Adicionando a seção `Slot.tsx`
 
-Para começar, abra o Live.ts deco.cx's Admin e navegue até uma página existente
+Para começar, abra o live.ts deco.cx's Admin e navegue até uma página existente
 que você deseja usar como página para seu layout. No editor de páginas, clique
 no botão "+".
 
-Na caixa de diálogo "Adicionar seção", selecione "Slot.tsx" na lista de tipos de
-seção disponíveis. Isso criará uma nova seção em sua página que será usada como
-área de conteúdo para páginas que usam este layout.
+Na caixa de diálogo "_Adicionar seção_", selecione "`Slot.tsx`" na lista de
+tipos de seção disponíveis. Isso criará uma nova seção em sua página que será
+usada como área de conteúdo para páginas que usam este layout.
 
 <img width="1511" alt="image" src="https://user-images.githubusercontent.com/5839364/232626099-d60adc7c-c84f-4b11-aae2-e96a94328b0f.png">
 
@@ -77,8 +77,8 @@ Por padrão slots são usados como conteúdos, mas você pode mudar livremente u
 nome de um slot e atribuí-lo como preferir.
 
 Depois de criar a seção do slot, você pode salvar esta página como um layout
-clicando no botão "Salvar" no editor de página. Dê um nome ao seu layout e
-clique em "Salvar". Seu layout agora estará disponível para uso em outras
+clicando no botão "_Salvar_" no editor de página. Dê um nome ao seu layout e
+clique em "_Salvar_". Seu layout agora estará disponível para uso em outras
 páginas.
 
 # Usando o layout de página
@@ -86,14 +86,14 @@ páginas.
 ## Atribuindo um layout a uma página
 
 Para usar seu novo layout em uma página, abra o editor de página para a página
-em que deseja usar o layout e clique no botão "Layout" no topo do editor de
+em que deseja usar o layout e clique no botão "_Layout_" no topo do editor de
 página. Isso abrirá a caixa de diálogo seletor de layout.
 
 Na caixa de diálogo seletor de layout, você verá uma lista de layouts
-disponíveis. Selecione o layout que deseja usar e clique em "Aplicar". O layout
-agora será aplicado à sua página e a área de conteúdo será preenchida com as
-seções adicionadas na página atual. Opcionalmente, você pode adicionar a seção
-`UseSlot.tsx` para preencher um bloco específico.
+disponíveis. Selecione o layout que deseja usar e clique em "_Aplicar_". O
+layout agora será aplicado à sua página e a área de conteúdo será preenchida com
+as seções adicionadas na página atual. Opcionalmente, você pode adicionar a
+seção `UseSlot.tsx` para preencher um bloco específico.
 
 ## Implementação de Slots em um Layout de Página
 
@@ -106,5 +106,5 @@ correspondente, o casamento disso é feito pelo nome do `Slot.tsx`.
 
 <img width="1507" alt="image" src="https://user-images.githubusercontent.com/5839364/232627019-db68b918-d1d7-4528-af9f-9fd33d4f4b0a.png">
 
-É isso! Agora você criou um layout de página usando o Live.ts e pode usá-lo para
+É isso! Agora você criou um layout de página usando o live.ts e pode usá-lo para
 criar rapidamente novas páginas com uma estrutura e layout consistentes.

@@ -24,12 +24,23 @@ Para começar a usar a Invocação de loaders client-side, siga estes passos:
 > [Tente este](https://github.com/deco-sites/fashion/blob/main/runtime.ts)
 
 ```ts
-import { Runtime } from "./runtime.ts";
+import { Runtime } from "../runtime.ts";
+import { useCallback } from "preact/hooks"
 
-const data = await Runtime.invoke({
-  key: "path/to/your/loader",
-  props: {/* your loader input props */},
-});
+export default function MyIsland() {
+
+  const fetchData = useCallback(() => {
+    const data = await Runtime.invoke({
+      key: "path/to/your/loader",
+      props: {/* your loader input props */},
+    });
+  }, [])
+
+  return <div>
+    {...}
+    <button onClick={fetchData}>Load</button>
+  </div>
+}
 ```
 
 Aqui, a função `invoke` recebe um objeto com uma propriedade `key` que

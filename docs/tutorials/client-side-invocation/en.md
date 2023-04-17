@@ -7,12 +7,12 @@ since: 1.0.0
 
 - [Core Concepts: Loaders](/docs/en/concepts/loader)
 
-Client-side Loaders Invocation is a powerful feature of live.ts that allows you
+Client-side loaders invocation is a powerful feature of live.ts that allows you
 to fetch data directly from your loaders without sending JavaScript to the
 browser. This feature ensures that your data fetching is unique across your
 repository and helps reduce latency on the client-side.
 
-To get started with Client-side Loaders Invocation, follow these steps:
+To get started with client-side loaders invocation, follow these steps:
 
 1. Import `Runtime` from `runtime.ts`
 
@@ -68,5 +68,5 @@ const data = await Runtime.invoke({
 This code will fetch the data from your loader and return only the `prop1` and
 `prop2.subprop` properties.
 
-With these steps, you can now start using Client-side Loaders Invocation in your
+With these steps, you can now start using client-side loaders invocation in your
 Live.ts application, happy coding!

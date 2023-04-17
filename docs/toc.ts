@@ -72,6 +72,12 @@ const tableOfContents: TableOfContents = [{
       en: "Creating universal components",
     },
     slug: "tutorials/universal-components",
+  }, {
+    title: {
+      pt: "Invocando loaders a partir do browser",
+      en: "Client-side loaders invocation",
+    },
+    slug: "tutorials/client-side-invocation",
   }],
 }, {
   title: { en: "Recipes", pt: "Receitas" },

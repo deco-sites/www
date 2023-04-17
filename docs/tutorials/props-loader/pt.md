@@ -1,5 +1,6 @@
 ---
-  description: Aprenda a usar o loader de propriedades para melhor separação entre propriedades de passagem e propriedades carregáveis
+description: Aprenda a usar o loader de propriedades para melhor separação entre propriedades de passagem e propriedades carregáveis
+since: 1.0.0
 ---
 
 ## Leitura sugerida

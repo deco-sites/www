@@ -1,5 +1,6 @@
 ---
-   description: Aprenda como carregar dados usando Loaders e Sections, permitindo que usuários de negócios personalizem a busca.
+description: Aprenda como carregar dados usando Loaders e Sections, permitindo que usuários de negócios personalizem a busca.
+since: 1.0.0
 ---
 
 ## Leitura sugerida

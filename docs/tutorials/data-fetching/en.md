@@ -1,5 +1,6 @@
 ---
-  description: Learn how to load data with deco.cx using Loaders and Sections, allowing business users to customize data fetching.
+description: Learn how to load data with deco.cx using Loaders and Sections, allowing business users to customize data fetching.
+since: 1.0.0
 ---
 
 ## Suggested reading

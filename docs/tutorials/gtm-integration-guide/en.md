@@ -1,5 +1,5 @@
 ---
-  description: Learn how to integrate Google Tag Manager with a deco.cx website
+description: Learn how to integrate Google Tag Manager with a deco.cx website
 ---
 
 ## What will you learn?

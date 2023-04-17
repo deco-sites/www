@@ -1,5 +1,6 @@
 ---
-  description: Learn how to use the props loader to better separate data fetching from passing through props
+description: Learn how to use the props loader to better separate data fetching from passing through props
+since: 1.0.0
 ---
 
 ## Suggested reading

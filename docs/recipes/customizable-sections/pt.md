@@ -1,5 +1,5 @@
 ---
-   description: Sections podem ser codificadas por desenvolvedores e configuradas por usuários de negócio no Admin. Aprenda todas as suas capacidades.
+description: Sections podem ser codificadas por desenvolvedores e configuradas por usuários de negócio no Admin. Aprenda todas as suas capacidades.
 ---
 
 ## Leitura sugerida

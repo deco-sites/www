@@ -1,5 +1,5 @@
 ---
-   description: Aprenda como criar uma Section para um Site usando deco.cx
+description: Aprenda como criar uma Section para um Site usando deco.cx
 ---
 
 Neste tutorial você aprenderá como criar uma nova implementação de

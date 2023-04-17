@@ -25,7 +25,7 @@ Para começar a usar a Invocação de loaders client-side, siga estes passos:
 
 ```ts
 import { Runtime } from "../runtime.ts";
-import { useCallback } from "preact/hooks"
+import { useCallback } from "preact/hooks";
 
 export default function MyIsland() {
 

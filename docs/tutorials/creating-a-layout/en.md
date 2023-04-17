@@ -13,7 +13,6 @@ since: 1.0.0
    - Setting the Slot name.
 3. Using a Page Layout
    - Assigning a Page Layout to a Page.
-   - Using nested Page Layouts.
 4. Implementing Slots in a Page Layout
    - Using `UseSlot.tsx` to override a Slot's content.
 
@@ -59,6 +58,7 @@ click the "+" button.
 In the "Add Section" dialog, select "Slot.tsx" from the list of available
 section types. This will create a new section in your page that will be used as
 the content area for pages that use this layout.
+<img width="1511" alt="image" src="https://user-images.githubusercontent.com/5839364/232626099-d60adc7c-c84f-4b11-aae2-e96a94328b0f.png">
 
 ## `Slot.tsx` name
 
@@ -66,6 +66,10 @@ Optionally, you can give your slot section a name that will be displayed in the
 deco.cx's Admin for pages that use this layout. To do this, open the slot
 section by clicking the section header, and then enter a name in the "Slot Name"
 field in the section settings panel.
+
+<img width="464" alt="image" src="https://user-images.githubusercontent.com/5839364/232626652-81d82eba-e9db-49cc-b8a7-356eae1a02af.png">
+
+By default slots are used as a content slot but you can freely change as you wish.
 
 Once you have created your slot section, you can save this page as a layout by
 clicking the "Save" button in the page editor. Give your layout a name, and then
@@ -85,7 +89,17 @@ applied to your page, and the content area will be populated with the sections
 added in the current page. Optionally you can add the `UseSlot.tsx` block to
 fulfill a specific block.
 
-## Using nested Page Layouts.
+## Implementing Slots in a Page Layout
+
+By implementing slots from the chosen page layout, you can easily replace the
+default content of a specific section with your own content. This is done by
+creating a `UseSlot.tsx` component and matching it with a parent's `Slot.tsx`
+component in the layout. The content in the `UseSlot.tsx` component will then be
+displayed in place of the default content of the corresponding `Slot.tsx`
+component.
+
+<img width="1507" alt="image" src="https://user-images.githubusercontent.com/5839364/232627019-db68b918-d1d7-4528-af9f-9fd33d4f4b0a.png">
+
 
 That's it! You have now created a page layout using Live.ts, and can use it to
 quickly create new pages with a consistent layout and structure.

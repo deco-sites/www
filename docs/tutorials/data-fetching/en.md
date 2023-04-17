@@ -6,7 +6,6 @@
 
 - [Tech Stack](/docs/en/introduction/tech-stack)
 - [Core Concepts: Sections](/docs/en/concepts/section)
-- [Core Concepts: Loaders](/docs/en/concepts/loader)
 
 Fetching data is a common requirement when building websites or applications.
 _deco.cx_ provides a data-fetching solution that loads data **on the
@@ -33,76 +32,42 @@ _Preview of DogFacts Section showing data returned from API_
 
 _Data returned from the Dog Facts API being called elsewhere_
 
-## Creating the Loader
+## Creating the Section
 
-Loaders allow you to define how data is fetched and transformed before it is
-passed on to a Section. They are **regular Typescript functions** that can use
-_async_ functions like `fetch`. Loaders can be "plugged" into a Section via one
-the Section's `props`, and that happens based on the **return type of the
-Loader**.
+If we make an HTTP request to the Dog Fact API, we will see that it returns a
+JSON in the following format:
 
-_deco.cx_ offers a utility type to help you create a Loader. Let's see how that
-works creating the `dogApiFacts.ts` Loader.
+> Open in your browser: https://dogapi.dog/api/facts?number=1
 
-1. Create a file called `dopApiFacts.ts` inside the `/functions` folder on your
-   _deco.cx_ Site's project
-2. Paste the following code:
-
-```ts
-import type { LoaderFunction } from "$live/std/types.ts";
-
-// Return type of this loader
-export type DogFact = {
-  fact: string;
-};
-
-// Props type that will be configured in deco.cx's Admin
-export interface Props {
-  numberOfFacts?: number;
+```json
+{
+  "facts": [
+    "The Labrador is so popular, in 2006 there were approximately 3-5 times more Labs as there were German Shepherds or Golden Retrievers."
+  ],
+  "success": true
 }
-
-const dogApiFacts: LoaderFunction<Props, DogFact[]> = async (
-  _req,
-  _ctx,
-  { numberOfFacts },
-) => {
-  const { facts } = (await fetch(
-    `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
-  ).then((r) => r.json())) as { facts: string[] };
-
-  return {
-    data: facts.map((fact) => ({ fact })),
-  };
-};
-
-export default dogApiFacts;
 ```
 
-3. Run `deno task start` if you haven't yet.
-4. **That's it!** The Loader was created on your local project.
+Note that the only thing we care about is the "facts" property. Therefore, we
+will create a section that is prepared to receive these facts and render them in
+any way we want.
 
-Now, let's see it working hooking it up with a Section.
+To do this, we will create a type called DogFact that contains only one property
+called fact, which is the string represented by the message.
 
-## Creating the Section and testing the Loader
+Let's see this in action by creating a new section:
 
-To receive the data returned from the `dogApiFacts.ts` Loader in a Section we
-need to reference its return type (`DogFact[]`) in the Section's `props` type
-declaration.
-
-<!-- TODO: Change the code after new engine -->
-
-Let's see it working creating a new Section:
-
-1. Create the `DogFacts.tsx` Section in the `sections/` folder of your project.
+1. Create the DogFacts.tsx section in the sections/ folder of your project.
 2. Paste the following code:
 
 ```tsx
-import { LoaderReturnType } from "$live/std/types.ts";
-import { DogFact } from "../functions/dogApiFacts.ts";
+export interface DogFact {
+  fact: string;
+}
 
 export interface Props {
   title: string;
-  dogFacts: LoaderReturnType<DogFact[]>;
+  dogFacts: string[];
 }
 
 export default function DogFacts({ title, dogFacts }: Props) {
@@ -110,45 +75,92 @@ export default function DogFacts({ title, dogFacts }: Props) {
     <div class="p-4">
       <h1 class="font-bold">{title}</h1>
       <ul>
-        {dogFacts.map(({ fact }) => <li>{fact}</li>)}
+        {dogFacts.map((fact) => <li>{fact}</li>)}
       </ul>
     </div>
   );
 }
 ```
 
-3. Assuming `deno task start` is still running, access https://deco.cx/admin and
-   select your Site.
-4. Make sure that `localhost:8000` is selected in the Environment Selector on
-   the top right of the Admin.
-5. Go to `Library` and search for `DogFacts` on the left sidebar.
-6. Configure the Section's props and **select the `dogApiFacts.ts` Loader** for
-   the `dogFacts` prop.
-7. Configure the selected Loader's `props` (`numberOfFacts`) with a desired
-   number (_e.g:_ 4).
-8. Hit `Save` and see it working!
+> At this point, we can run `deno task start` and check in our admin that this
+> component can already be used with static data, which doesn't make much sense
+> for our use case.
 
-<img width="1512" alt="Library showing the DogFacts Section rendering data fetched from the API" src="https://user-images.githubusercontent.com/18706156/225752569-cd626d6d-a2ba-4edf-af6c-7e9b5758324a.png">
+## Creating the Loader and testing the Section
+
+Loaders allow you to define how data is fetched and transformed before it is
+passed on to a Section. They are **regular Typescript functions** that can use
+_async_ functions like `fetch`. Loaders can be "plugged" into a Section via one
+the Section's `props`, and that happens based on the **return type of the
+Loader**.
+
+1. Define what will be the input `Props` of your loader.
+2. Export a function called `loader` in the same file as your Section.
+
+```ts
+import type { LoaderContext } from "$live/types.ts";
+import type { SectionProps } from "$live/mod.ts";
+
+// Props type that will be configured in deco.cx's Admin
+export interface Props {
+  title: string;
+  numberOfFacts?: number;
+}
+
+export async function loader(
+  _req: Request,
+  { state: { $live: { numberOfFacts, title } } }: LoaderContext<Props>,
+) {
+  const { facts: dogFacts } = (await fetch(
+    `https://dogapi.dog/api/facts?number=${numberOfFacts ?? 1}`,
+  ).then((r) => r.json())) as { facts: string[] };
+  return { dogFacts, title };
+}
+
+export default function DogFacts(
+  { title, dogFacts }: SectionProps<typeof loader>,
+) {
+  return (
+    <div class="p-4">
+      <h1 class="font-bold">{title}</h1>
+      <ul>
+        {dogFacts.map((fact) => <li>{fact}</li>)}
+      </ul>
+    </div>
+  );
+}
+```
+
+3. Run `deno task start` if you haven't already done so.
+4. Assuming that `deno task start` is running, go to `https://deco.cx/admin` and
+   select your Site.
+5. Make sure that `localhost:8000` is selected in the Environment Selector in
+   the upper right corner of the Admin.
+6. Go to `Library` and search for DogFacts in the left sidebar.
+7. Configure the props of the selected Loader (numberOfFacts) with a desired
+   number (e.g., 4).
+
+Now, let's see it working hooking it up with a Section.
+
+<img width="1510" alt="Library showing the DogFacts Section rendering data fetched from the API" src="https://user-images.githubusercontent.com/5839364/230696322-33137a3f-052b-416b-880a-19fcbf091908.png">
 
 _Library showing the DogFacts Section rendering data fetched from the API_
 
-> It's also possible to create a LoaderReturnType `prop` in an existing Section.
+> It's also possible to create a new `prop` loaded from a new loader in an
+> existing Section.
 
 **That's it!** Now you've built a Section that displays data fetched from an
 external API using a Loader, making it all configurable by business users as
 desired. We recommend exporting filters and sort options in Loader's `props` to
 make it more reusable in _deco.cx_'s Admin.
 
-The process might look a bit convoluted, but it has a major benefit: the Section
-is not tied to a Loader, but to a type, and that makes it possible to **use
-other Loaders that might also return the `DogFacts[]` type.** In the ecommerce
-ecosysytem, where there are different API providers (_e.g:_ Shopify, Magento,
-Oracle) for the same types of data (Products, Categories, Orders...) this might
-come in handy.
+## Further reading
 
-In our [Fashion starter](https://github.com/deco-sites/fashion) we create
-Sections and Loaders using the
-[schema.org's type definitions](https://schema.org/Product), allowing the same
-UI (_e.g:_ Product Shelf, Product Page...) to be used with different providers,
-which can be benefitial for agencies and developers that serve multiple
-customers.
+Loaders are powerful components for handling dynamic data and solve most of the
+requirements when dealing with data coming from APIs. The deco.cx platform
+solves a myriad of other use cases related to dynamic data that we can use,
+check the following links to understand how to use them.
+
+- [Props Loader](/docs/en/tutorials/props-loader)
+- [Universal Components](/docs/en/tutorials/universal-components)
+- [Core Concepts: Loaders](/docs/en/concepts/loader)

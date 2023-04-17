@@ -2,13 +2,13 @@
   description: A Loader in deco.cx is a function that returns data needed for a Site.
 ---
 
-A **Loader** in _deco.cx_ is a Typescript function that returns data needed in a
-[Section](/docs/en/concepts/section). These functions are executed before page
-renders, and their main purpose is to **fetch data from external sources**,
-transform it if necessary, and **provide it to the site Sections that need it.**
-Loaders can be used to fetch data from APIs, databases, or any other external
-source. They live locally on the `/functions/` folder of your project, but it's
-also possible to
+A **Loader** in _deco.cx_ is a Typescript function that returns data typically
+needed in a [Section](/docs/en/concepts/section). These functions are executed
+before page renders, and their main purpose is to **fetch data from external
+sources**, transform it if necessary, and **provide it to the site Sections that
+need it.** Loaders can be used to fetch data from APIs, databases, or any other
+external source. They live locally on the `/loaders/` folder of your project,
+but it's also possible to
 [import Loaders from other Sites](/docs/en/tutorials/importing-other-sites).
 
 <!-- TODO: Update folder name after new engine -->
@@ -42,12 +42,11 @@ easier to manage and scale your project.
 This is the implementation of the `shopifyProductList.ts` Loader:
 
 ```tsx
-import type { LoaderFunction } from "$live/types.ts";
-import type { LiveState } from "$live/types.ts";
+import type { LoaderContext } from "$live/types.ts";
 
-import { toProduct } from "../commerce/shopify/transform.ts";
 import { ConfigShopify, createClient } from "../commerce/shopify/client.ts";
-import type { Product } from "../commerce/types.ts";
+import { toProduct } from "../commerce/shopify/transform.ts";
+import { Product } from "../commerce/types.ts";
 
 export interface Props {
   /** @description search term to use on search */
@@ -56,20 +55,12 @@ export interface Props {
   count: number;
 }
 
-/**
- * @title Product list loader
- * @description Usefull for shelves and static galleries.
- */
-const searchLoader: LoaderFunction<
-  Props,
-  Product[],
-  LiveState<{ configShopify: ConfigShopify }>
-> = async (
-  _req,
-  ctx,
-  props,
-) => {
-  const { configShopify } = ctx.state.global;
+export default async function searchLoader(
+  _req: Request,
+  ctx: LoaderContext<Props, { configShopify: ConfigShopify }>,
+): Promise<Product[] | null> {
+  const props = ctx.state.$live;
+  const { configShopify } = ctx.state;
   const shopify = createClient(configShopify);
 
   const count = props.count ?? 12;
@@ -88,12 +79,8 @@ const searchLoader: LoaderFunction<
     toProduct(p, p.variants.nodes[0])
   );
 
-  return {
-    data: products ?? [],
-  };
-};
-
-export default searchLoader;
+  return products ?? [];
+}
 ```
 
 [Source](https://github.com/deco-sites/std/blob/bedf496b7a2a480c1a9dfae477fe34020daae821/functions/shopifyProductList.ts)

@@ -9,8 +9,8 @@ props** no Admin do _deco.cx_.
 
 ## Leitura sugerida
 
-- [Conceitos: Section](/docs/pt/concepts/section)
 - [Introdução: Tech Stack](http:///docs/pt/introduction/tech-stack)
+- [Conceitos: Section](/docs/pt/concepts/section)
 
 Abra a pasta do seu site em uma IDE e execute as seguintes ações:
 

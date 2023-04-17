@@ -66,8 +66,7 @@ Optionally, you can give your slot section a name that will be displayed in the
 deco.cx's Admin for pages that use this layout. To do this, open the slot
 section by clicking the section header, and then enter a name in the "Slot Name"
 field in the section settings panel.
-
-<img width="464" alt="image" src="https://user-images.githubusercontent.com/5839364/232626652-81d82eba-e9db-49cc-b8a7-356eae1a02af.png">
+<img width="297" alt="image" src="https://user-images.githubusercontent.com/5839364/232628023-d3fb4759-7232-491e-82fc-a2a9b6240ccb.png">
 
 By default slots are used as a content slot but you can freely change as you wish.
 

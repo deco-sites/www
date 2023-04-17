@@ -25,8 +25,8 @@ const tableOfContents: TableOfContents = [{
     title: { pt: "Page", en: "Page" },
     slug: "concepts/page",
   }, {
-    title: { pt: "Layouts", en: "Layouts" },
-    slug: "concepts/layouts",
+    title: { pt: "Layout", en: "Layout" },
+    slug: "concepts/layout",
   }, {
     title: { pt: "Site", en: "Site" },
     slug: "concepts/site",

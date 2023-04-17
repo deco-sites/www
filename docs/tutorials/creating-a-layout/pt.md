@@ -71,6 +71,11 @@ do deco.cx para páginas que usam este layout. Para fazer isso, abra a seção d
 slot clicando no cabeçalho da seção e, em seguida, digite um nome no campo "Nome
 do Slot" no painel de configurações da seção.
 
+<img width="297" alt="image" src="https://user-images.githubusercontent.com/5839364/232628023-d3fb4759-7232-491e-82fc-a2a9b6240ccb.png">
+
+Por padrão slots são usados como conteúdos, mas você pode mudar livremente um
+nome de um slot e atribuí-lo como preferir.
+
 Depois de criar a seção do slot, você pode salvar esta página como um layout
 clicando no botão "Salvar" no editor de página. Dê um nome ao seu layout e
 clique em "Salvar". Seu layout agora estará disponível para uso em outras

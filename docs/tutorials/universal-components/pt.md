@@ -1,5 +1,6 @@
 ---
-  description: Aprenda como criar componentes universais para que possam ser usados em qualquer lugar
+description: Aprenda como criar componentes universais para que possam ser usados em qualquer lugar
+since: 1.0.0
 ---
 
 Componentes universais são componentes que não dependente de uma _fonte_

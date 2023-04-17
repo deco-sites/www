@@ -1,5 +1,5 @@
 ---
-  description: Learn how to import Sections and Loaders from other deco.cx's Sites
+description: Learn how to import Sections and Loaders from other deco.cx's Sites
 ---
 
 As an agency or team that is responsible multiple sites, you're likely always on

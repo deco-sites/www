@@ -1,5 +1,5 @@
 ---
-   description: Uma Page na deco.cx é uma unidade de conteúdo que consiste de um caminho de URL e múltiplas Sections configuradas 
+description: Uma Page na deco.cx é uma unidade de conteúdo que consiste de um caminho de URL e múltiplas Sections configuradas 
 ---
 
 Uma **Page** é o _building block_ fundamental de um Site _deco.cx_, que

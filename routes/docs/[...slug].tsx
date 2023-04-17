@@ -69,7 +69,7 @@ export const handler: Handlers<Data> = {
       };
       const resp = ctx.render({ page });
       return resp;
-    } catch {
+    } catch (err) {
       return ctx.renderNotFound();
     }
   },
@@ -241,6 +241,11 @@ function Content(props: { page: Page }) {
       <h1 class="text(4xl gray-900) tracking-tight font-extrabold mt-6">
         {props.page.title}
       </h1>
+      {props.page.data.since && (
+        <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+          Version: {props.page.data.since}
+        </span>
+      )}
       <div
         class="mt-6 markdown-body"
         dangerouslySetInnerHTML={{ __html: html }}

@@ -1,5 +1,5 @@
 ---
-  description: Learn how to create a Section for a Site using deco.cx
+description: Learn how to create a Section for a Site using deco.cx
 ---
 
 In this tutorial you'll learn how to create a a new

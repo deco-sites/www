@@ -1,5 +1,5 @@
 ---
-   description: Aprenda como instalar a VTEX Intelligent Search em uma conta VTEX e aproveitar os conectores integrados da deco.cx
+description: Aprenda como instalar a VTEX Intelligent Search em uma conta VTEX e aproveitar os conectores integrados da deco.cx
 ---
 
 ## O que é a VTEX Intelligent Search?

@@ -1,5 +1,6 @@
 ---
-   description: Um Loader em deco.cx é uma função que retorna os dados necessários para um Site.
+description: Um Loader na deco.cx é uma função que retorna os dados necessários para um Site.
+since: 1.0.0
 ---
 
 Um **Loader** em _deco.cx_ é uma função Typescript que retorna tipicamente os

@@ -1,5 +1,6 @@
 ---
 description: Learn how to invoke a loader through API.
+since: 1.0.0
 ---
 
 ## Suggested reading
@@ -13,27 +14,18 @@ repository and helps reduce latency on the client-side.
 
 To get started with Client-side Loaders Invocation, follow these steps:
 
-1. First, create a `runtime.ts` file in your root directory alongside the
-   `live.gen.ts` file. If you have started with the live.ts template store, this
-   file should already exist.
-2. Next, copy and paste the following code into your runtime.ts file:
+1. Import `Runtime` from `runtime.ts`
 
-```ts
-import { withManifest } from "$live/clients/withManifest.ts";
-import type { Manifest } from "./live.gen.ts";
+> Can't find this file?
+> [Try this one](https://github.com/deco-sites/fashion/blob/main/runtime.ts)
 
-export const Runtime = withManifest<Manifest>();
-```
-
-This code imports the `withManifest` function from the live.ts `clients` module
-and creates a Runtime object that is well-typed based on your manifest
-functions.
-
-3. Now you can issue invocations using the `Runtime.invoke` function. For
+2. Now you can issue invocations using the `Runtime.invoke` function. For
    example, to fetch data from a loader function, you would use the following
    code:
 
 ```ts
+import { Runtime } from "./runtime.ts";
+
 const data = await Runtime.invoke({
   key: "path/to/your/loader",
   props: {/* your loader input props */},

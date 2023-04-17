@@ -1,5 +1,5 @@
 ---
-   description: Aprenda como importar Sections e Loaders de outros Sites na deco.cx
+description: Aprenda como importar Sections e Loaders de outros Sites na deco.cx
 ---
 
 Como uma agência ou time responsável por vários sites, você provavelmente busca

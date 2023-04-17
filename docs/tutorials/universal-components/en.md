@@ -1,5 +1,6 @@
 ---
-  description: Learn how to build components once and reuse them everywhere
+description: Learn how to build components once and reuse them everywhere
+since: 1.0.0
 ---
 
 Universal components are components that are not dependent on a specific data

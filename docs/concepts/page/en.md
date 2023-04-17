@@ -1,5 +1,5 @@
 ---
-  description: A Page in deco.cx is a unit of content, consisting of configured UI Section and a URL for which that Page will be rendered
+description: A Page in deco.cx is a unit of content, consisting of configured UI Section and a URL for which that Page will be rendered
 ---
 
 A **Page** is the fundamental building block of a _deco.cx_ Site, which will

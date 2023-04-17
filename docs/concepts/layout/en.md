@@ -1,5 +1,5 @@
 ---
-description: A Layout in deco.cx is a cencept that defines how sections are arranged and presented on a page.
+description: A Layout in deco.cx is a concept that defines how sections are arranged and presented on a page.
 since: 1.0.0
 ---
 

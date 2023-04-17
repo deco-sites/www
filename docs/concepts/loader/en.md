@@ -88,3 +88,4 @@ export default async function searchLoader(
 ## Recommended Reading
 
 - [Fetching data from APIs](/docs/en/tutorials/data-fetching)
+- [Client-side loaders invocation](/docs/en/tutorials/client-side-invocation)

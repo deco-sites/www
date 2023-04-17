@@ -100,6 +100,5 @@ component.
 
 <img width="1507" alt="image" src="https://user-images.githubusercontent.com/5839364/232627019-db68b918-d1d7-4528-af9f-9fd33d4f4b0a.png">
 
-
 That's it! You have now created a page layout using Live.ts, and can use it to
 quickly create new pages with a consistent layout and structure.

@@ -13,10 +13,8 @@ since: 1.0.0
    - Definindo o nome do Slot.
 3. Usando um Layout de Página
    - Atribuindo um Layout de Página a uma Página.
-   - Usando Layouts de Página aninhados.
-4. Implementando Slots em um Layout de Página usando `UseSlot.tsx` para
-   substituir o conteúdo de um Slot.
-5. Conclusão
+4. Implementando Slots em um Layout de Página
+   - Usando `UseSlot.tsx` para substituir o conteúdo de um Slot.
 
 # Layout de Páginas
 
@@ -54,6 +52,8 @@ para criar um layout. Em vez disso, você adicionará uma nova seção chamada
 "Slot" às suas páginas existentes e, em seguida, salvará essas páginas como
 layouts.
 
+## Adicionando a seção `Slot.tsx`
+
 Para começar, abra o Live.ts deco.cx's Admin e navegue até uma página existente
 que você deseja usar como página para seu layout. No editor de páginas, clique
 no botão "+".
@@ -61,6 +61,10 @@ no botão "+".
 Na caixa de diálogo "Adicionar seção", selecione "Slot.tsx" na lista de tipos de
 seção disponíveis. Isso criará uma nova seção em sua página que será usada como
 área de conteúdo para páginas que usam este layout.
+
+<img width="1511" alt="image" src="https://user-images.githubusercontent.com/5839364/232626099-d60adc7c-c84f-4b11-aae2-e96a94328b0f.png">
+
+## Nome do `Slot.tsx`
 
 Opcionalmente, você pode dar um nome à seção do slot que será exibido no Admin
 do deco.cx para páginas que usam este layout. Para fazer isso, abra a seção do
@@ -74,6 +78,8 @@ páginas.
 
 # Usando o layout de página
 
+## Atribuindo um layout a uma página
+
 Para usar seu novo layout em uma página, abra o editor de página para a página
 em que deseja usar o layout e clique no botão "Layout" no topo do editor de
 página. Isso abrirá a caixa de diálogo seletor de layout.
@@ -81,8 +87,19 @@ página. Isso abrirá a caixa de diálogo seletor de layout.
 Na caixa de diálogo seletor de layout, você verá uma lista de layouts
 disponíveis. Selecione o layout que deseja usar e clique em "Aplicar". O layout
 agora será aplicado à sua página e a área de conteúdo será preenchida com as
-seções adicionadas na página atual. Opcionalmente, você pode adicionar o bloco
-UseSlot.tsx para preencher um bloco específico.
+seções adicionadas na página atual. Opcionalmente, você pode adicionar a seção
+`UseSlot.tsx` para preencher um bloco específico.
+
+## Implementação de Slots em um Layout de Página
+
+Ao implementar slots a partir do layout de página escolhido, você pode
+substituir facilmente o conteúdo padrão de uma seção específica pelo seu próprio
+conteúdo. Isso é feito criando um componente `UseSlot.tsx` e correspondendo-o
+com um componente `Slot.tsx` do pai no layout. O conteúdo no componente
+`UseSlot.tsx` será exibido em vez do conteúdo padrão do componente `Slot.tsx`
+correspondente, o casamento disso é feito pelo nome do `Slot.tsx`.
+
+<img width="1507" alt="image" src="https://user-images.githubusercontent.com/5839364/232627019-db68b918-d1d7-4528-af9f-9fd33d4f4b0a.png">
 
 É isso! Agora você criou um layout de página usando o Live.ts e pode usá-lo para
 criar rapidamente novas páginas com uma estrutura e layout consistentes.

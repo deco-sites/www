@@ -31,15 +31,15 @@ personalização.
 
 Usar Layouts de Página tem vários benefícios:
 
-1. Consistência: Usando o mesmo layout em todas as suas páginas, você pode criar
-   uma aparência e sensação consistentes para o seu site.
-2. Reutilização: Layouts de Página podem ser reutilizados em várias páginas,
+1. **Consistência**: Usando o mesmo layout em todas as suas páginas, você pode
+   criar uma aparência e sensação consistentes para o seu site.
+2. **Reuso**: Layouts de Página podem ser reutilizados em várias páginas,
    economizando tempo e esforço.
-3. Separação de responsabilidades: Layouts de Página separam o layout e o design
-   de uma página do seu conteúdo, facilitando a manutenção e atualização do seu
-   site.
-4. Personalização: Layouts de Página podem ser personalizados para atender às
-   necessidades específicas de páginas individuais.
+3. **Separação de responsabilidades**: Layouts de Página separam o layout e o
+   design de uma página do seu conteúdo, facilitando a manutenção e atualização
+   do seu site.
+4. **Personalização**: Layouts de Página podem ser personalizados para atender
+   às necessidades específicas de páginas individuais.
 
 Agora que sabemos o que são Layouts de Página e por que devemos usá-los, vamos
 ver como criá-los.

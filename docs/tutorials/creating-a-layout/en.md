@@ -78,7 +78,7 @@ then click "_Save_". Your layout will now be available for use in other pages.
 
 # Using a page layout
 
-## Assigning a Page Layout to a Page.
+## Assigning a Page Layout to a Page
 
 To use your new layout in a page, open the page editor for the page you want to
 use the layout in, and click the "_Layout_" button at the top of the page

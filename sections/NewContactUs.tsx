@@ -89,49 +89,10 @@ export default function ContactUs({ infor, formInfor }: Props) {
             {formInfor?.formTitle || "Ready to delight your customers?"}
           </span>
 
-          <div
-            id="switcehr-page"
-            class={"w-full h-[62px] flex p-2 gap-2 bg-[#CDE5D9] rounded-full border-2 border-white border-opacity-5 text-[15px]"}
-          >
-            <span
-              id="bg-switcher"
-              class={`${(active.btn2On
-                ? "translate-x-[103%] md:translate-x-[106%] xl:translate-x-[105%]"
-                : "")} w-[42%] md:w-[39%] h-[42px] absolute bg-dark-green rounded-full transition-all duration-500 ease-in-out`}
-            >
-            </span>
-            <input
-              type="button"
-              name={formInfor?.BusinessCTAName || "I’m a Business user"}
-              value={formInfor?.BusinessCTAName || "I’m a Business user"}
-              class={(active.btn1On ? "text-[#f3fff9ca]" : "text-dark-green") +
-                " " +
-                "w-[50%] max-w-[175px] cursor-pointer bg-transparent flex justify-center items-center rounded-full p-[9px] lg:p-[11px] transition-all duration-500 z-10 outline-none hover:(outline-none border-none)"}
-              onClick={() =>
-                setActive({
-                  btn1On: true,
-                  btn2On: false,
-                  selectedUrlToAction: formInfor?.urlToActionBusiness,
-                })}
-            />
-
-            <input
-              type="button"
-              name={formInfor?.DevCTAName || "I’m a Developer"}
-              value={formInfor?.DevCTAName || "I’m a Developer"}
-              class={(active.btn2On ? "text-white" : "text-dark-green") +
-                " " +
-                "w-[50%] max-w-[175px] cursor-pointer bg-transparent flex justify-center items-center rounded-full p-[9px] lg:p-[11px] transition-all duration-500 border-none z-10 outline-none hover:(outline-none border-none)"}
-              onClick={() =>
-                setActive({
-                  btn1On: false,
-                  btn2On: true,
-                  selectedUrlToAction: formInfor?.urlToActionDev,
-                })}
-            />
-          </div>
+          
 
           <input
+            id="name"
             class="w-full h-[51px] border-1 border-dark-green p-4"
             type="text"
             name="userName"
@@ -139,6 +100,7 @@ export default function ContactUs({ infor, formInfor }: Props) {
             required
           />
           <input
+            id="email"
             class="w-full h-[51px] border-1 border-dark-green p-4"
             type="email"
             name="userEmail"
@@ -146,6 +108,7 @@ export default function ContactUs({ infor, formInfor }: Props) {
             required
           />
           <input
+            id="role"
             class="w-full h-[51px] border-1 border-dark-green p-4"
             type="text"
             name="userRole"
@@ -153,6 +116,7 @@ export default function ContactUs({ infor, formInfor }: Props) {
             required
           />
           <input
+            id="linkedin"
             class="w-full h-[51px] border-1 border-dark-green p-4"
             type="text"
             name="userLinkedin"

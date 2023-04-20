@@ -16,8 +16,9 @@ import * as $8 from "./routes/gfm.css.ts";
 import * as $9 from "./routes/index.tsx";
 import * as $10 from "./routes/live/[...catchall].tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$1 from "./islands/SearchButton.tsx";
-import * as $$2 from "./islands/TeamSlide.tsx";
+import * as $$1 from "./islands/NewContactUs.tsx";
+import * as $$2 from "./islands/SearchButton.tsx";
+import * as $$3 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/BlogHeader.tsx";
 import * as $$$2 from "./sections/BlogPostHeader.tsx";
@@ -29,12 +30,13 @@ import * as $$$7 from "./sections/Header.tsx";
 import * as $$$8 from "./sections/Hero.tsx";
 import * as $$$9 from "./sections/Layout.tsx";
 import * as $$$10 from "./sections/Markdown.tsx";
-import * as $$$11 from "./sections/Newsletter.tsx";
-import * as $$$12 from "./sections/Performance.tsx";
-import * as $$$13 from "./sections/Platform.tsx";
-import * as $$$14 from "./sections/Pricing.tsx";
-import * as $$$15 from "./sections/QuillText.tsx";
-import * as $$$16 from "./sections/TeamSection.tsx";
+import * as $$$11 from "./sections/NewContactUs.tsx";
+import * as $$$12 from "./sections/Newsletter.tsx";
+import * as $$$13 from "./sections/Performance.tsx";
+import * as $$$14 from "./sections/Platform.tsx";
+import * as $$$15 from "./sections/Pricing.tsx";
+import * as $$$16 from "./sections/QuillText.tsx";
+import * as $$$17 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/LoadPageProps.ts";
 import * as $$$$2 from "./functions/MatchSiteParam.ts";
@@ -55,8 +57,9 @@ const manifest: DecoManifest = {
   },
   islands: {
     "./islands/LiveControls.tsx": $$0,
-    "./islands/SearchButton.tsx": $$1,
-    "./islands/TeamSlide.tsx": $$2,
+    "./islands/NewContactUs.tsx": $$1,
+    "./islands/SearchButton.tsx": $$2,
+    "./islands/TeamSlide.tsx": $$3,
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,
@@ -70,12 +73,13 @@ const manifest: DecoManifest = {
     "./sections/Hero.tsx": $$$8,
     "./sections/Layout.tsx": $$$9,
     "./sections/Markdown.tsx": $$$10,
-    "./sections/Newsletter.tsx": $$$11,
-    "./sections/Performance.tsx": $$$12,
-    "./sections/Platform.tsx": $$$13,
-    "./sections/Pricing.tsx": $$$14,
-    "./sections/QuillText.tsx": $$$15,
-    "./sections/TeamSection.tsx": $$$16,
+    "./sections/NewContactUs.tsx": $$$11,
+    "./sections/Newsletter.tsx": $$$12,
+    "./sections/Performance.tsx": $$$13,
+    "./sections/Platform.tsx": $$$14,
+    "./sections/Pricing.tsx": $$$15,
+    "./sections/QuillText.tsx": $$$16,
+    "./sections/TeamSection.tsx": $$$17,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -429,6 +433,10 @@ const manifest: DecoManifest = {
           "text",
         ],
       },
+      "outputSchema": null,
+    },
+    "./sections/NewContactUs.tsx": {
+      "inputSchema": null,
       "outputSchema": null,
     },
     "./sections/Newsletter.tsx": {

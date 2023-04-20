@@ -16,9 +16,8 @@ import * as $8 from "./routes/gfm.css.ts";
 import * as $9 from "./routes/index.tsx";
 import * as $10 from "./routes/live/[...catchall].tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$1 from "./islands/NewContactUs.tsx";
-import * as $$2 from "./islands/SearchButton.tsx";
-import * as $$3 from "./islands/TeamSlide.tsx";
+import * as $$1 from "./islands/SearchButton.tsx";
+import * as $$2 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/BlogHeader.tsx";
 import * as $$$2 from "./sections/BlogPostHeader.tsx";
@@ -57,9 +56,8 @@ const manifest: DecoManifest = {
   },
   islands: {
     "./islands/LiveControls.tsx": $$0,
-    "./islands/NewContactUs.tsx": $$1,
-    "./islands/SearchButton.tsx": $$2,
-    "./islands/TeamSlide.tsx": $$3,
+    "./islands/SearchButton.tsx": $$1,
+    "./islands/TeamSlide.tsx": $$2,
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,
@@ -436,7 +434,154 @@ const manifest: DecoManifest = {
       "outputSchema": null,
     },
     "./sections/NewContactUs.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " New Contact Us",
+        "type": "object",
+        "properties": {
+          "infor": {
+            "title": "Infor",
+            "type": "object",
+            "properties": {
+              "mainTitle": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Main Title",
+                "description": "a short main title text",
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Description",
+                "format": "textarea",
+              },
+              "listItems": {
+                "type": "array",
+                "items": {
+                  "title": "listItem",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Title",
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Description",
+                      "format": "textarea",
+                    },
+                  },
+                  "required": [],
+                },
+                "title": "List Items",
+                "description": "add a item to information list in contact page",
+              },
+              "showbullets": {
+                "type": [
+                  "boolean",
+                  "null",
+                ],
+                "title": "Showbullets",
+              },
+            },
+            "required": [
+              "listItems",
+            ],
+            "description": "settings of benefits section in page",
+          },
+          "formInfor": {
+            "title": "Form Infor",
+            "type": "object",
+            "properties": {
+              "formTitle": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Form Title",
+              },
+              "BusinessCTAName": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Business C T A Name",
+              },
+              "DevCTAName": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Dev C T A Name",
+              },
+              "PlaceholderfieldName": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Placeholderfield Name",
+              },
+              "PlaceholderfieldEmail": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Placeholderfield Email",
+              },
+              "PlaceholderfieldPosition": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Placeholderfield Position",
+              },
+              "PlaceholderfieldSocial": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Placeholderfield Social",
+              },
+              "PlaceholderFieldExtra": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": " Placeholder Field Extra",
+              },
+              "submiteName": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Submite Name",
+              },
+              "urlToActionBusiness": {
+                "type": "string",
+                "title": "Url To Action Business",
+              },
+              "urlToActionDev": {
+                "type": "string",
+                "title": "Url To Action Dev",
+              },
+            },
+            "required": [
+              "urlToActionBusiness",
+              "urlToActionDev",
+            ],
+          },
+        },
+        "required": [],
+      },
       "outputSchema": null,
     },
     "./sections/Newsletter.tsx": {

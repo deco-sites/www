@@ -10,6 +10,9 @@ export default function MarkdownContainer(props: Props) {
       <section class="max-w-4xl mx-auto px-8 sm:px-0 pb-48 text-primary-dark">
         <Markdown {...props}></Markdown>
       </section>
+      <div>
+        <h1>teste</h1>
+      </div>
     </div>
   );
 }

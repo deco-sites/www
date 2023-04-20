@@ -28,14 +28,14 @@ const options: Omit<Options, "selfURL"> = {
             h2: {
               marginTop: "28px",
               marginBottom: "28px",
-              color: theme("colors", ["secondary-dark"]),
+              color: theme("colors", ["decorative-one"]),
               fontFamily: theme("fontFamily", ["sans"]),
               fontWeight: "500",
             },
             h3: {
               marginTop: "28px",
               marginBottom: "16px",
-              color: theme("colors", ["secondary-dark"]),
+              color: theme("colors", ["decorative-one"]),
               fontFamily: theme("fontFamily", ["sans"]),
               fontWeight: "600",
             },
@@ -47,7 +47,7 @@ const options: Omit<Options, "selfURL"> = {
               color: theme("colors", ["primary-dark"]),
             },
             span: {
-              color: theme("colors", ["secondary-dark"]),
+              color: theme("colors", ["decorative-one"]),
             },
             p: {
               lineHeight: "1.6rem",
@@ -88,7 +88,7 @@ const options: Omit<Options, "selfURL"> = {
         "display": "600",
         "heading": "600",
         "title": "600",
-        "body-strong": "600",
+        "body-strong": "400",
         "body-regular": "400",
         "caption-strong": "600",
         "caption-regular": "400",
@@ -168,7 +168,7 @@ const options: Omit<Options, "selfURL"> = {
       },
       colors: {
         // TODO: Stop using these colors
-        primary: "#2FD180",
+        "primary": "#2FD180",
         "primary-dark": "#003232",
         "primary-darker": "#002020",
         "secondary-dark": "#113032",
@@ -193,6 +193,7 @@ const options: Omit<Options, "selfURL"> = {
         /** New design system foundations */
 
         // Surfaces
+        "black": "#0A2121",
         "default": "#FFFFFF",
         "subdued": "#F8F9F5",
         "critical": "#FFE9E6",
@@ -215,6 +216,9 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-special-hovered": "#145836",
         "interactive-critical-default": "#C64729",
         "interactive-critical-hovered": "#9E3C11",
+
+        "custom-button": "rgba(6, 228, 116, 1)",
+        "custom-white": "rgba(255, 255, 255, 0.8)",
 
         "selected-default": "#F8F9F5",
         "selected-hovered": "#EBEDE6",
@@ -295,6 +299,7 @@ const options: Omit<Options, "selfURL"> = {
     fontFamily: {
       sans: ["Albert Sans", "sans-serif"],
       serif: ["serif"],
+      inter: ["Inter", "sans-serif"]
     },
     screens: {
       sm: "640px",
@@ -304,6 +309,19 @@ const options: Omit<Options, "selfURL"> = {
       "2xl": "1536px",
     },
   },
+  preflight: (preflight) => ({
+    ...preflight,
+        // Stick footer to the bottom of the page
+    body: {
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "100vh",
+    },
+    'section[data-manifest-key="./sections/Footer.tsx"]': {
+      marginTop: "auto",
+    }})
+  
 };
 
 export default options;
+

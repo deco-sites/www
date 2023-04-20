@@ -20,6 +20,7 @@ export default function ContentTitle(
     >
       {title}{" "}
       <span class={`${hightlightClassName}`}>
+        <span class=""></span>
         {highlight}
         {" "}
       </span>

@@ -1,5 +1,15 @@
 import { h } from "preact";
 import LogoDeco from "../components/ui/icons/LogoDeco.tsx";
+import ArrowDown from "../components/ui/icons/ArrowDown.tsx";
+import Button from "../components/ui/Button.tsx";
+
+export interface Item {
+  label: string;
+  href: string;
+}
+export interface Idioma{
+  label: string;
+}
 
 function NavAnchor({
   children,
@@ -14,7 +24,8 @@ function NavAnchor({
 
 export interface Props {
   logoAriaLabel: string;
-}
+  sections: Item[];
+ }
 
 const navAnchors = [
   {
@@ -41,10 +52,11 @@ const navAnchors = [
 
 export default function BlogHeader({
   logoAriaLabel = "Logo da Deco na cor verde",
+  sections =[],
 }: Props) {
   return (
     //TODO: Traduções
-    <header class="bg-[#113032] flex justify-center">
+    <header class="bg-black flex justify-center relative">
       <nav
         class="container px-4 sm:mx-8 py-6 text-white"
         aria-label="Deco Menu"
@@ -55,24 +67,37 @@ export default function BlogHeader({
           class="flex justify-between gap-4 items-center"
         >
           <li role="none">
-            <NavAnchor aria-label={logoAriaLabel} href="#">
-              <LogoDeco color="#2FD180" class="h-8" />
-            </NavAnchor>
-          </li>
-
-          <li role="none" class="hidden md:flex pr-10 items-center">
-            {navAnchors.map((nav) => (
-              <NavAnchor
-                class={nav.class}
-                href={nav.href}
-                target={nav.target || ""}
-              >
-                {nav.label}
+            <div class="flex items-center">
+              <NavAnchor aria-label={logoAriaLabel} href="#">
+                <LogoDeco color="#2FD180" class="h-8" />
               </NavAnchor>
-            ))}
+              <div class="hidden lg:block">
+                <div class="pt-2 pl-2 flex items-center gap-0.5">
+                  <small>for marketers</small>
+                  <ArrowDown />
+              </div>
+              </div>
+            </div>
           </li>
+          <div>
+            <ul class="hidden md:block">
+            {sections && sections.map((section)=>
+            (
+              <li class="pr-4 inline-block">
+                <a href={section.href} class="text-custom-white text-xl">{section.label}</a>
+              </li>
+            ))}
+            </ul>
+          </div>
+          <div class="flex items-center gap-4">
+            <ul>
+              <li><a href=""class="text-custom-button">Log in</a></li>
+            </ul>
+            <Button variant="custom">Sign up</Button>
+          </div>         
         </ul>
       </nav>
+          <div class=" absolute bg-gradient-to-r from-green-400 to-black h-1 w-1/2 bottom-0 left-0"></div>
     </header>
   );
 }

@@ -16,7 +16,8 @@ export default function BlogPostHeader(props: Props) {
   return (
     <section class="max-w-4xl w-full px-8 md:p-0 mx-auto">
       <div class="mb-8 sm:mb-11 mt-10 sm:mt-16">
-        <a class="flex items-center cursor-pointer text-subdued" href="/blog">
+        {/* removi text-subdued */}
+        <a class="flex items-center cursor-pointer" href="/blog">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -40,14 +41,17 @@ export default function BlogPostHeader(props: Props) {
         <h1 class="font-bold text-5xl leading-10 sm:leading-[62px]">
           {post.title}
         </h1>
-        <div class="text-2xl leading-7 my-3 text-secondary-dark">
+        {/* removi text-secondary-darl */}
+        <div class="text-2xl leading-7 my-3">
           {post.descr}
         </div>
-        <div class="text-secondary-dark">
+        {/* removi text-secondary-darl */}
+        <div class="">
           <span class="mr-5">{post.date}</span>
           <span>{post.author}</span>
         </div>
       </div>
     </section>
+  
   );
 }

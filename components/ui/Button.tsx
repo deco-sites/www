@@ -23,6 +23,8 @@ const variants = {
     "text-deco-black bg-transparent dark:text-white focus:outline-deco-green-light",
   danger:
     "text-white bg-deco-brand-red dark:text-white focus:outline-deco-red-light",
+  custom:
+      "text-black bg-custom-button rounded-full border-2 border-black"
 };
 
 const sizes = {

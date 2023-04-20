@@ -8,8 +8,8 @@ interface BaseProps {
 
 export function ModalHeader({ children }: BaseProps) {
   return (
-    <header class="p-6 z-10 sticky top-0 left-0 bg-white flex flex-row items-center justify-between w-full text-lg font-medium leading-4 text-black border-b-2 border-deco-light-gray">
-      {children}
+    <header class="p-6 z-10 sticky top-0 left-0 bg-white flex flex-row items-center justify-between w-full text-lg font-medium leading-4 text-black border-b-2 border-black">
+            {children}
     </header>
   );
 }
@@ -17,7 +17,7 @@ export function ModalHeader({ children }: BaseProps) {
 export function ModalContent({ children }: BaseProps) {
   return (
     <div class="px-6 z-0 min-h-[100px] text-sm font-medium leading-4 text-black my-2">
-      {children}
+        {children}
     </div>
   );
 }

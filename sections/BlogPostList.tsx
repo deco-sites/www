@@ -21,7 +21,7 @@ export default function MarkdownContainer(props: Props) {
   );
 
   return (
-    <div class="min-h-screen">
+    <div class="min-h-screen ">
       <div class="w-full relative flex justify-center">
         <section class="max-w-4xl lg:px-0  px-8 pt-10 sm:pt-20">
           <div class="flex flex-row items-start mb-6">
@@ -52,10 +52,10 @@ export default function MarkdownContainer(props: Props) {
                 <button class="bg-black rounded-full text-white px-3 border-none mt-2">Category</button>
                 <div class="mt-6">
                   {/* removi text-default */}
-                  <h2 class="font-inter text-4xl leading-8 sm:leading-[62px] group-hover:underline">
+                  <h2 class="font-sans text-4xl leading-8 sm:leading-[62px] group-hover:text-black-hover">
                     {highlightPost.title}
                   </h2>
-                  <div class="leading-7 text-subdued text-body-regular text-2xl my-3">
+                  <div class="leading-7 text-subdued text-body-regular font-sans text-2xl my-3">
                     {highlightPost.descr}
                   </div>
                   <div>
@@ -85,15 +85,18 @@ export default function MarkdownContainer(props: Props) {
                   <button class="bg-black rounded-full text-white px-3 border-none mt-2">Category</button>
                   <div class="mt-6">
                     {/* removi text-default */}
-                    <h1 class="font-sans text-2xl leading-9 group-hover:underline">
+                    <h1 class="text-2xl leading-9 group-hover:text-black-hover">
                       {post.title}
                     </h1>
                     <div class="leading-7 text-subdued text-body-regular text-2xl my-3">
-                      {post.descr}
+                      <h2>
+                        {post.descr}
+
+                      </h2>
                     </div>
                     <div>
-                      <span class="mr-5 text-subdued text-sm">{post.date}</span>
-                      <span class="text-subdued text-sm">Written by {post.author}</span>
+                      <span class="mr-5 text-subdued text-[16px]">{post.date}</span>
+                      <span class="text-subdued text-[16px]">Written by {post.author}</span>
                     </div>
                   </div>
                 </div>

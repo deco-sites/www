@@ -3,8 +3,6 @@ import GitHubIcon from "$deco/components/ui/icons/GitHubIcon.tsx";
 import LinkedInIcon from "$deco/components/ui/icons/LinkedInIcon.tsx";
 import LogoDeco from "$deco/components/ui/icons/LogoDeco.tsx";
 import DiscordIcon from "../components/ui/icons/DiscordIcon.tsx";
-import LogoDecoFull from "../components/ui/icons/LogoDecoFull.tsx";
-
 
 export interface Item{
   label: string;
@@ -50,12 +48,12 @@ export default function BlogFooter({ copyright, sections =[],  }: Props) {
               <div class="flex flex-col mt-4 md:mt-0 gap-2 md:flex-row ">
                 {sections && sections.map((section)=>(
                   <div key={section.label} class="md:mx-16">
-                    <h4 class="hidden md:block text-body-strong font-body-strong mb-2"><a href={section.href}>{section.label}</a></h4>
+                    <h4 class="hidden md:block mb-2"><a href={section.href} class="text-hero-small text-[16px]">{section.label}</a></h4>
                       <ol class="mt-2 md:mt-0">
                       {section.subList && section.subList.map((item) =>(
                         <li class="mb-1">
                           <a href={item.href} class="inline-block group">
-                            <div class="mb-[6px]">{item.label}</div>
+                            <div class="mb-[6px] text-subdued text-[16px]">{item.label}</div>
                             <div class="h-[2px] bg-white w-0 group-hover:w-full duration-500">
                             </div>
                           </a>

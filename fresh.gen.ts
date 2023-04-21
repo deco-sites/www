@@ -18,7 +18,8 @@ import * as $10 from "./routes/live/[...catchall].tsx";
 import * as $$0 from "./islands/ChangeCategory.tsx";
 import * as $$1 from "./islands/LiveControls.tsx";
 import * as $$2 from "./islands/SearchButton.tsx";
-import * as $$3 from "./islands/TeamSlide.tsx";
+import * as $$3 from "./islands/SlidePost.tsx";
+import * as $$4 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/BlogFooter.tsx";
 import * as $$$2 from "./sections/BlogHeader.tsx";
@@ -59,7 +60,8 @@ const manifest: DecoManifest = {
     "./islands/ChangeCategory.tsx": $$0,
     "./islands/LiveControls.tsx": $$1,
     "./islands/SearchButton.tsx": $$2,
-    "./islands/TeamSlide.tsx": $$3,
+    "./islands/SlidePost.tsx": $$3,
+    "./islands/TeamSlide.tsx": $$4,
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,

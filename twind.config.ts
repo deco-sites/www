@@ -3,6 +3,15 @@ import { theme } from "twind";
 import typography from "twind-typography";
 
 const options: Omit<Options, "selfURL"> = {
+  preflight: (preflight) => ({
+    ...preflight,
+    html: {
+      "line-height": "1.5",
+      "-webkit-text-size-adjust": "100%",
+      "font-family": "Albert Sans,sans-serif",
+      "scroll-behavior": "smooth",
+    }}),
+    
   plugins: {
     "scroll-smoth": { "scroll-behavior": "smooth" },
     "scroll-snap-x": { "scroll-snap-type": "x mandatory" },
@@ -19,24 +28,27 @@ const options: Omit<Options, "selfURL"> = {
       typography: {
         DEFAULT: {
           css: {
-            h1: {
+              h1: {
               color: "#FF4500",
               fontWeight: "700",
               fontSize: "52px",
-              fontFamily: theme("fontFamily", ["sans"]),
+              fontFamily: ["Albert sans"] ,
             },
             h2: {
               marginTop: "28px",
               marginBottom: "28px",
               color: theme("colors", ["decorative-one"]),
-              fontFamily: theme("fontFamily", ["sans"]),
-              fontWeight: "500",
+              fontFamily: ["Albert sans"] ,
+              fontWeight: "400",
+              fontSize: "32px",
+              lineHeight: "38px",
+            
             },
             h3: {
               marginTop: "28px",
               marginBottom: "16px",
               color: theme("colors", ["decorative-one"]),
-              fontFamily: theme("fontFamily", ["sans"]),
+              fontFamily: ["Albert sans"] ,
               fontWeight: "600",
             },
             color: theme("colors", ["primary-dark"]),
@@ -82,9 +94,9 @@ const options: Omit<Options, "selfURL"> = {
         "caption-regular": ["12px", "120%"],
       },
       fontWeight: {
-        "hero-large": "600",
+        "hero-large": "700",
         "hero-medium": "500",
-        "hero-small": "600",
+        "hero-small": "400",
         "display": "600",
         "heading": "600",
         "title": "600",
@@ -194,6 +206,7 @@ const options: Omit<Options, "selfURL"> = {
 
         // Surfaces
         "black": "#0A2121",
+        "black-hover": "RGBA(1,0,0,0.76)",
         "default": "#FFFFFF",
         "subdued": "#F8F9F5",
         "critical": "#FFE9E6",
@@ -298,8 +311,8 @@ const options: Omit<Options, "selfURL"> = {
     },
     fontFamily: {
       sans: ["Albert Sans", "sans-serif"],
-      serif: ["serif"],
-      inter: ["Inter", "sans-serif"]
+      // serif: ["serif"],
+      // inter: ["Inter", "sans-serif"]
     },
     screens: {
       sm: "640px",
@@ -309,17 +322,7 @@ const options: Omit<Options, "selfURL"> = {
       "2xl": "1536px",
     },
   },
-  preflight: (preflight) => ({
-    ...preflight,
-        // Stick footer to the bottom of the page
-    body: {
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "100vh",
-    },
-    'section[data-manifest-key="./sections/Footer.tsx"]': {
-      marginTop: "auto",
-    }})
+  
   
 };
 

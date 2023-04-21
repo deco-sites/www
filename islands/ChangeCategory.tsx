@@ -12,7 +12,7 @@ function ChangeCategory({category}: CategoryProps) {
     }
   return (
     <button class={`bg-white uppercase border-none rounded-full px-3 ${
-        showColor ? "bg-blue-900 rounded-full text-white px-3 border-none" : ""
+        showColor ? "bg-black-hover rounded-full text-white px-3 border-none" : ""
       }`}
       onClick={handleClick}
       >

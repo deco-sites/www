@@ -39,21 +39,23 @@ export default function BlogFooter({ copyright, sections =[],  }: Props) {
         <nav class="max-w-[1536px] mx-auto px-0 md:px-10 py-8 text-white text-sm" aria-label="Deco Menu">
           <ul role="menubar" aria-label="Deco Menu" class="flex flex-col md:flex-row md:justify-between p-4 relative">
             <li role="none" class="h-8 mb-2">
-              <NavAnchor aria-label="Logo da Deco na cor branca" href="#">
-                <LogoDeco color="#2FD180" class="h-8" />
-                <small class="py-2">{copyright}</small>
-              </NavAnchor>
+              <div class="mb-2">
+                <NavAnchor aria-label="Logo da Deco na cor branca" href="#" class="pb-4">
+                  <LogoDeco color="#2FD180" class="h-8" />
+                </NavAnchor>
+              </div>
+                <small class="text-[14px] mt-4">{copyright}</small>
             </li>
             <li class="">
               <div class="flex flex-col mt-4 md:mt-0 gap-2 md:flex-row ">
                 {sections && sections.map((section)=>(
                   <div key={section.label} class="md:mx-16">
-                    <h4 class="hidden md:block mb-2"><a href={section.href} class="text-hero-small text-[16px]">{section.label}</a></h4>
+                    <h4 class="hidden md:block mb-4"><a href={section.href} class="text-[18px] font-bold">{section.label}</a></h4>
                       <ol class="mt-2 md:mt-0">
                       {section.subList && section.subList.map((item) =>(
                         <li class="mb-1">
                           <a href={item.href} class="inline-block group">
-                            <div class="mb-[6px] text-subdued text-[16px]">{item.label}</div>
+                            <div class="mb-[6px] text-white text-[16px]">{item.label}</div>
                             <div class="h-[2px] bg-white w-0 group-hover:w-full duration-500">
                             </div>
                           </a>
@@ -109,7 +111,7 @@ export default function BlogFooter({ copyright, sections =[],  }: Props) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-[320%] md:w-full"
-            viewBox="0 0 1440 411"
+            viewBox="0 0 1440 311"
             fill="none"
           >
             <g filter="url(#filter0_dd_732_1051)">

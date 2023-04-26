@@ -16,28 +16,30 @@ import * as $8 from "./routes/gfm.css.ts";
 import * as $9 from "./routes/index.tsx";
 import * as $10 from "./routes/live/[...catchall].tsx";
 import * as $$0 from "./islands/ChangeCategory.tsx";
-import * as $$1 from "./islands/LiveControls.tsx";
-import * as $$2 from "./islands/SearchButton.tsx";
-import * as $$3 from "./islands/SlidePost.tsx";
-import * as $$4 from "./islands/TeamSlide.tsx";
+import * as $$1 from "./islands/ChangeUser.tsx";
+import * as $$2 from "./islands/LiveControls.tsx";
+import * as $$3 from "./islands/SearchButton.tsx";
+import * as $$4 from "./islands/SliderJS.tsx";
+import * as $$5 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/BlogFooter.tsx";
 import * as $$$2 from "./sections/BlogHeader.tsx";
 import * as $$$3 from "./sections/BlogPostHeader.tsx";
 import * as $$$4 from "./sections/BlogPostList.tsx";
-import * as $$$5 from "./sections/Edit.tsx";
-import * as $$$6 from "./sections/Footer.tsx";
-import * as $$$7 from "./sections/Head.tsx";
-import * as $$$8 from "./sections/Header.tsx";
-import * as $$$9 from "./sections/Hero.tsx";
-import * as $$$10 from "./sections/Layout.tsx";
-import * as $$$11 from "./sections/Markdown.tsx";
-import * as $$$12 from "./sections/Newsletter.tsx";
-import * as $$$13 from "./sections/Performance.tsx";
-import * as $$$14 from "./sections/Platform.tsx";
-import * as $$$15 from "./sections/Pricing.tsx";
-import * as $$$16 from "./sections/QuillText.tsx";
-import * as $$$17 from "./sections/TeamSection.tsx";
+import * as $$$5 from "./sections/Carrousel.tsx";
+import * as $$$6 from "./sections/Edit.tsx";
+import * as $$$7 from "./sections/Footer.tsx";
+import * as $$$8 from "./sections/Head.tsx";
+import * as $$$9 from "./sections/Header.tsx";
+import * as $$$10 from "./sections/Hero.tsx";
+import * as $$$11 from "./sections/Layout.tsx";
+import * as $$$12 from "./sections/Markdown.tsx";
+import * as $$$13 from "./sections/Newsletter.tsx";
+import * as $$$14 from "./sections/Performance.tsx";
+import * as $$$15 from "./sections/Platform.tsx";
+import * as $$$16 from "./sections/Pricing.tsx";
+import * as $$$17 from "./sections/QuillText.tsx";
+import * as $$$18 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/LoadPageProps.ts";
 import * as $$$$2 from "./functions/MatchSiteParam.ts";
@@ -58,10 +60,11 @@ const manifest: DecoManifest = {
   },
   islands: {
     "./islands/ChangeCategory.tsx": $$0,
-    "./islands/LiveControls.tsx": $$1,
-    "./islands/SearchButton.tsx": $$2,
-    "./islands/SlidePost.tsx": $$3,
-    "./islands/TeamSlide.tsx": $$4,
+    "./islands/ChangeUser.tsx": $$1,
+    "./islands/LiveControls.tsx": $$2,
+    "./islands/SearchButton.tsx": $$3,
+    "./islands/SliderJS.tsx": $$4,
+    "./islands/TeamSlide.tsx": $$5,
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,
@@ -69,19 +72,20 @@ const manifest: DecoManifest = {
     "./sections/BlogHeader.tsx": $$$2,
     "./sections/BlogPostHeader.tsx": $$$3,
     "./sections/BlogPostList.tsx": $$$4,
-    "./sections/Edit.tsx": $$$5,
-    "./sections/Footer.tsx": $$$6,
-    "./sections/Head.tsx": $$$7,
-    "./sections/Header.tsx": $$$8,
-    "./sections/Hero.tsx": $$$9,
-    "./sections/Layout.tsx": $$$10,
-    "./sections/Markdown.tsx": $$$11,
-    "./sections/Newsletter.tsx": $$$12,
-    "./sections/Performance.tsx": $$$13,
-    "./sections/Platform.tsx": $$$14,
-    "./sections/Pricing.tsx": $$$15,
-    "./sections/QuillText.tsx": $$$16,
-    "./sections/TeamSection.tsx": $$$17,
+    "./sections/Carrousel.tsx": $$$5,
+    "./sections/Edit.tsx": $$$6,
+    "./sections/Footer.tsx": $$$7,
+    "./sections/Head.tsx": $$$8,
+    "./sections/Header.tsx": $$$9,
+    "./sections/Hero.tsx": $$$10,
+    "./sections/Layout.tsx": $$$11,
+    "./sections/Markdown.tsx": $$$12,
+    "./sections/Newsletter.tsx": $$$13,
+    "./sections/Performance.tsx": $$$14,
+    "./sections/Platform.tsx": $$$15,
+    "./sections/Pricing.tsx": $$$16,
+    "./sections/QuillText.tsx": $$$17,
+    "./sections/TeamSection.tsx": $$$18,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -290,6 +294,49 @@ const manifest: DecoManifest = {
         "required": [
           "postList",
           "categories",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Carrousel.tsx": {
+      "inputSchema": {
+        "title": " Carrousel",
+        "type": "object",
+        "properties": {
+          "cards": {
+            "title": "Cards",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "urlImage": {
+                  "type": "string",
+                  "title": "Url Image",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "author": {
+                  "type": "string",
+                  "title": "Author",
+                },
+                "date": {
+                  "type": "string",
+                  "title": "Date",
+                },
+              },
+              "required": [
+                "urlImage",
+                "title",
+                "author",
+                "date",
+              ],
+            },
+          },
+        },
+        "required": [
+          "cards",
         ],
       },
       "outputSchema": null,
@@ -533,9 +580,41 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Text",
           },
+          "cards": {
+            "title": "Cards",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "urlImage": {
+                  "type": "string",
+                  "title": "Url Image",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "author": {
+                  "type": "string",
+                  "title": "Author",
+                },
+                "date": {
+                  "type": "string",
+                  "title": "Date",
+                },
+              },
+              "required": [
+                "urlImage",
+                "title",
+                "author",
+                "date",
+              ],
+            },
+          },
         },
         "required": [
           "text",
+          "cards",
         ],
       },
       "outputSchema": null,

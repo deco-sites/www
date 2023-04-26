@@ -3,15 +3,6 @@ import { theme } from "twind";
 import typography from "twind-typography";
 
 const options: Omit<Options, "selfURL"> = {
-  preflight: (preflight) => ({
-    ...preflight,
-    html: {
-      "line-height": "1.5",
-      "-webkit-text-size-adjust": "100%",
-      "font-family": "Albert Sans,sans-serif",
-      "scroll-behavior": "smooth",
-    }}),
-    
   plugins: {
     "scroll-smoth": { "scroll-behavior": "smooth" },
     "scroll-snap-x": { "scroll-snap-type": "x mandatory" },
@@ -24,6 +15,11 @@ const options: Omit<Options, "selfURL"> = {
       "position-100": "100%",
       "position-0": "0%",
     },
+    fontFamily: {
+      sans: ["Albert Sans", "sans-serif"],
+      serif: ["serif"],
+      inter: ["Inter", "sans-serif"],
+    },
     extend: {
       typography: {
         DEFAULT: {
@@ -32,23 +28,20 @@ const options: Omit<Options, "selfURL"> = {
               color: "#FF4500",
               fontWeight: "700",
               fontSize: "52px",
-              fontFamily: ["Albert sans"] ,
+              fontFamily: "Albert sans"
             },
             h2: {
               marginTop: "28px",
               marginBottom: "28px",
               color: theme("colors", ["decorative-one"]),
-              fontFamily: ["Albert sans"] ,
-              fontWeight: "400",
+              fontWeight: "500",
               fontSize: "32px",
-              lineHeight: "38px",
-            
+              lineHeight: "38px",            
             },
             h3: {
               marginTop: "28px",
               marginBottom: "16px",
               color: theme("colors", ["decorative-one"]),
-              fontFamily: ["Albert sans"] ,
               fontWeight: "600",
             },
             color: theme("colors", ["primary-dark"]),
@@ -135,6 +128,8 @@ const options: Omit<Options, "selfURL"> = {
           "linear-gradient(to top, #06E474 0%, #06E474 43%, #FFFFFF 43%, #FFFFFF 100%)",
         "linear-white-green":
           "linear-gradient(90deg,  rgba(255,255,255,0.8) 0%, rgba(47,209,128,0.8) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%)",
+         "linear-green-footer":
+          "repeating-linear-gradient(to top, #02F67C 0, #02F67C 40%, #FFFFFF 40%, #FFFFFF 100%);" 
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -205,6 +200,7 @@ const options: Omit<Options, "selfURL"> = {
         /** New design system foundations */
 
         // Surfaces
+        "blackout": "#000000",
         "black": "#0A2121",
         "black-hover": "RGBA(1,0,0,0.76)",
         "default": "#FFFFFF",
@@ -309,11 +305,6 @@ const options: Omit<Options, "selfURL"> = {
         "dark-brand": "#2FD180",
       },
     },
-    fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
-      // serif: ["serif"],
-      // inter: ["Inter", "sans-serif"]
-    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -322,7 +313,28 @@ const options: Omit<Options, "selfURL"> = {
       "2xl": "1536px",
     },
   },
-  
+
+  preflight: (preflight) => ({
+    ...preflight,
+    '@import': `url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap')`,
+    
+    html: {
+      "line-height": "1.5",
+      "-webkit-text-size-adjust": "100%",
+      "scroll-behavior": "smooth",
+      "font-family": "Albert Sans, sans-serif",
+      "scrollbar-width": "none",
+      "-ms-overflow-style": "none"
+    },
+    ".hidden-scroll::-webkit-scrollbar": {
+      display: "none",
+    },
+    ".hidden-scroll": {
+      "-ms-overflow-style": "none", /* IE and Edge */
+      "scrollbar-width": "none", /* Firefox */
+    },
+  }),
+
   
 };
 

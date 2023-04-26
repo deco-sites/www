@@ -2,13 +2,11 @@ import { h } from "preact";
 import LogoDeco from "../components/ui/icons/LogoDeco.tsx";
 import ArrowDown from "../components/ui/icons/ArrowDown.tsx";
 import Button from "../components/ui/Button.tsx";
+import Switcher from "../islands/ChangeUser.tsx";
 
 export interface Item {
   label: string;
   href: string;
-}
-export interface Idioma{
-  label: string;
 }
 
 function NavAnchor({
@@ -56,9 +54,9 @@ export default function BlogHeader({
 }: Props) {
   return (
     //TODO: Traduções
-    <header class="bg-black flex justify-center relative">
+    <header class="bg-black relative w-full">
       <nav
-        class="container px-4 sm:mx-8 py-6 text-white"
+        class="px-4 sm:mx-8 py-6 text-white"
         aria-label="Deco Menu"
       >
         <ul
@@ -72,32 +70,29 @@ export default function BlogHeader({
                 <LogoDeco color="#2FD180" class="h-8" />
               </NavAnchor>
               <div class="hidden lg:block">
-                <div class="pt-2 pl-2 flex items-center gap-0.5">
-                  <small>for marketers</small>
-                  <ArrowDown />
-              </div>
+                <Switcher/>
               </div>
             </div>
           </li>
           <div>
-            <ul class="hidden md:block">
+            <ul class="hidden md:hidden lg:block md:pr-6">
             {sections && sections.map((section)=>
             (
-              <li class="pr-4 inline-block">
-                <a href={section.href} class="text-custom-white text-xl">{section.label}</a>
+              <li class="pr-12 inline-block">
+                <a href={section.href} class="text-custom-white text-xl hover:text-[#02F67C]">{section.label}</a>
               </li>
             ))}
             </ul>
           </div>
           <div class="flex items-center gap-4">
             <ul>
-              <li><a href=""class="text-custom-button">Log in</a></li>
+              <li><a href=""class="px-4 py-2 border-[transparent] text-[18px] text-[#58f3a6] hover:text-white rounded-full cursor-pointer border-1 md:hover:(border-[#2FD180] border-1 rounded-full) focus:outline-none">Login</a></li>
             </ul>
-            <Button variant="custom">Sign up</Button>
+            <Button variant="signup">Cadastrar-se</Button>
           </div>         
         </ul>
       </nav>
-          <div class=" absolute bg-gradient-to-r from-green-400 to-black h-1 w-1/2 bottom-0 left-0"></div>
+          <div class="absolute bg-gradient-to-r from-green-400 to-black h-1 w-1/2 bottom-0 left-0"></div>
     </header>
   );
 }

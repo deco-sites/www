@@ -11,7 +11,7 @@ export interface Props {
 }
 
 /**
- * @title GitHub Raw Loader
+  * @title GitHub Raw Loader
  * @description Grabs data from a GitHub repo
  */
 const gitHubRawLoader: LoaderFunction<Props, string> = async (

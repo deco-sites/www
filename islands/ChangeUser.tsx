@@ -4,18 +4,17 @@ function Switcher() {
     const options = ['Para negócios', 'Para desenvolvedores'];
     const [showOptions, setShowOptions] = useState(false);
     const [selectedOption, setSelectedOption] = useState(options[0]);
-    // const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  
+     
     const handleOptionClick = (option:string, index:number) => {
       setSelectedOption(option);
-    //   setSelectedOptionIndex(index);
+
       setShowOptions(false);
     };
   
     return (
       <div className="relative w-[240px]">
         <a
-          className="ml-2 mt-6 px-2 py-2 border-[transparent] rounded-full cursor-pointer border-1 md:hover:(border-[#2FD180] border-1 rounded-full) focus:outline-none md:transition md:ease-in-out md:duration-300"
+          className="ml-2 mt-6 px-2 py-2 text-white border-[transparent] rounded-full cursor-pointer border-1 md:hover:(border-[#2FD180] border-1 rounded-full) focus:outline-none md:transition md:ease-in-out md:duration-300"
           onClick={() => setShowOptions(!showOptions)}
         >
           {selectedOption}

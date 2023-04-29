@@ -1,11 +1,9 @@
 import { h } from "preact";
 import LogoDeco from "../components/ui/icons/LogoDeco.tsx";
-import ArrowDown from "../components/ui/icons/ArrowDown.tsx";
 import Button from "../components/ui/Button.tsx";
 import Switcher from "../islands/ChangeUser.tsx";
-import HeaderResponsive from "../islands/HeaderResponsive.tsx";
 
-export interface ItemHeader {
+export interface Item {
   label: string;
   href: string;
 }
@@ -21,9 +19,9 @@ function NavAnchor({
   );
 }
 
-export interface PropsHeader {
+export interface Props {
   logoAriaLabel: string;
-  sections: ItemHeader[];
+  sections: Item[];
  }
 
 const navAnchors = [
@@ -52,11 +50,10 @@ const navAnchors = [
 export default function BlogHeader({
   logoAriaLabel = "Logo da Deco na cor verde",
   sections =[],
-}: PropsHeader) {
+}: Props) {
   return (
     <div>
-      <HeaderResponsive logoAriaLabel={logoAriaLabel} sections={sections}/>
-    {/* <header class="bg-black relative w-full">
+    <header class="bg-black relative w-full">
       <nav
         class="px-4 sm:mx-8 py-6 text-white"
         aria-label="Deco Menu"
@@ -95,7 +92,7 @@ export default function BlogHeader({
         </ul>
       </nav>
           <div class="absolute bg-gradient-to-r from-green-400 to-black h-1 w-1/2 bottom-0 left-0"></div>
-    </header> */}
+    </header>
     </div>
   );
 }

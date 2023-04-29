@@ -16,7 +16,7 @@ export interface Section{
 
 export interface Props {
   copyright: string;
-   sections: Section[];
+  sections: Section[];
 }
 
 function NavAnchor(
@@ -36,7 +36,7 @@ export default function BlogFooter({ copyright, sections =[],  }: Props) {
   return (
     <footer class="bg-black w-full">
       <div class="pb-12 mx-auto">
-        <nav class="max-w-[1536px] mx-auto px-0 md:px-10 py-8 text-white text-sm" aria-label="Deco Menu">
+        <nav class="max-w-[1536px] mx-auto px-0 md:px-4 py-8 text-white text-sm" aria-label="Deco Menu">
           <ul role="menubar" aria-label="Deco Menu" class="flex flex-col md:flex-row md:justify-between p-4 relative">
             <li role="none" class="h-8 mb-2">
               <div class="mb-2">

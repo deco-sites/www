@@ -187,7 +187,6 @@ const options: Omit<Options, "selfURL"> = {
         "primary-red": "#D10923",
         "primary-red-light": "#DA262B",
         "primary-red-dark": "#A1061A",
-        "deco-black": "#252525",
         "deco-light-gray": "#F4F4F4",
         "deco-medium-gray": "#DFDFDF",
         "deco-dark-gray": "#898989",

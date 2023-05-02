@@ -37,7 +37,7 @@ export interface Props {
                            
                       />
                     </div>
-                    <div class="px-6 pt-12">
+                    <div class="px-6 pt-8">
                       <p class="bg-black text-white px-3 w-[105px] h-6 text-[14px]  rounded-[10px] flex items-center uppercase">
                             category
                       </p>
@@ -52,7 +52,7 @@ export interface Props {
                         <p class="text-[#66736C] text-left text-[18px]">
                          Written by {card.author}
                         </p>
-                        <p class="text-[#66736C] text-left text-[18px]">
+                        <p class="text-[#66736C] text-left text-[18px] ">
                           {card.date}
                         </p>
                       </div>

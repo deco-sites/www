@@ -20,13 +20,11 @@ import * as $$1 from "./islands/ChangeUser.tsx";
 import * as $$2 from "./islands/HeaderResponsive.tsx";
 import * as $$3 from "./islands/LiveControls.tsx";
 import * as $$4 from "./islands/SearchButton.tsx";
-import * as $$5 from "./islands/SlidePost.tsx";
-import * as $$6 from "./islands/SliderJS.tsx";
-import * as $$7 from "./islands/TeamSlide.tsx";
-import * as $$8 from "./islands/TesteIsland.tsx";
+import * as $$5 from "./islands/SliderJS.tsx";
+import * as $$6 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
 import * as $$$1 from "./sections/BlogFooter.tsx";
-import * as $$$2 from "./sections/BlogHeader.tsx";
+import * as $$$2 from "./sections/BlogHeaderResponsive.tsx";
 import * as $$$3 from "./sections/BlogPostHeader.tsx";
 import * as $$$4 from "./sections/BlogPostList.tsx";
 import * as $$$5 from "./sections/Carrousel.tsx";
@@ -43,7 +41,6 @@ import * as $$$15 from "./sections/Platform.tsx";
 import * as $$$16 from "./sections/Pricing.tsx";
 import * as $$$17 from "./sections/QuillText.tsx";
 import * as $$$18 from "./sections/TeamSection.tsx";
-import * as $$$19 from "./sections/Teste.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/LoadPageProps.ts";
 import * as $$$$2 from "./functions/MatchSiteParam.ts";
@@ -68,15 +65,13 @@ const manifest: DecoManifest = {
     "./islands/HeaderResponsive.tsx": $$2,
     "./islands/LiveControls.tsx": $$3,
     "./islands/SearchButton.tsx": $$4,
-    "./islands/SlidePost.tsx": $$5,
-    "./islands/SliderJS.tsx": $$6,
-    "./islands/TeamSlide.tsx": $$7,
-    "./islands/TesteIsland.tsx": $$8,
+    "./islands/SliderJS.tsx": $$5,
+    "./islands/TeamSlide.tsx": $$6,
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,
     "./sections/BlogFooter.tsx": $$$1,
-    "./sections/BlogHeader.tsx": $$$2,
+    "./sections/BlogHeaderResponsive.tsx": $$$2,
     "./sections/BlogPostHeader.tsx": $$$3,
     "./sections/BlogPostList.tsx": $$$4,
     "./sections/Carrousel.tsx": $$$5,
@@ -93,7 +88,6 @@ const manifest: DecoManifest = {
     "./sections/Pricing.tsx": $$$16,
     "./sections/QuillText.tsx": $$$17,
     "./sections/TeamSection.tsx": $$$18,
-    "./sections/Teste.tsx": $$$19,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -206,19 +200,15 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
-    "./sections/BlogHeader.tsx": {
+    "./sections/BlogHeaderResponsive.tsx": {
       "inputSchema": {
-        "title": " Blog Header",
+        "title": " Blog Header Responsive",
         "type": "object",
         "properties": {
-          "logoAriaLabel": {
-            "type": "string",
-            "title": "Logo Aria Label",
-          },
           "sections": {
             "type": "array",
             "items": {
-              "title": "ItemHeader",
+              "title": "Item",
               "type": "object",
               "properties": {
                 "label": {
@@ -239,7 +229,6 @@ const manifest: DecoManifest = {
           },
         },
         "required": [
-          "logoAriaLabel",
           "sections",
         ],
       },
@@ -844,40 +833,6 @@ const manifest: DecoManifest = {
           "highlight",
           "text1",
           "text2",
-        ],
-      },
-      "outputSchema": null,
-    },
-    "./sections/Teste.tsx": {
-      "inputSchema": {
-        "title": " Teste",
-        "type": "object",
-        "properties": {
-          "sections": {
-            "type": "array",
-            "items": {
-              "title": "Item",
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "title": "Label",
-                },
-                "href": {
-                  "type": "string",
-                  "title": "Href",
-                },
-              },
-              "required": [
-                "label",
-                "href",
-              ],
-            },
-            "title": "Sections",
-          },
-        },
-        "required": [
-          "sections",
         ],
       },
       "outputSchema": null,

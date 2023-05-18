@@ -47,7 +47,7 @@ export default function HeadComponent(props: Props) {
       <meta property="og:url" content={url.href} />
       <meta
         property="og:image"
-        content={_imageUrl}
+        content={imageUrl}
       />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />

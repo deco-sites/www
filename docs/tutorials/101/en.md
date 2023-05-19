@@ -20,8 +20,8 @@ connecting a CMS and deploy to the edge. This allows you to focus only on what
 matters: your website code.
 
 The first step is to have a _deco.cx_ account and website. Go to
-<https://deco.cx/onboarding>, login with your Github account and follow the
-step-by-step instructions on the page to create your developer account.
+<https://deco.cx/admin>, login with your Github account and follow the
+step-by-step instructions on the page to create your developer account and team.
 
 ## Clone your site repository
 
@@ -70,8 +70,8 @@ deno task start
 _deploy_ in production is very simple: just _push_ your changes on the _branch_
 _**main**_, which is the main branch.
 
-You can go to _site-name.deco.site_ to see the latest version of your site on
-air.
+You can go to your production domain (like _site-name.deco.site_) to see the
+latest version of your site on air.
 
 # Ready! You can now start creating amazing websites :)
 

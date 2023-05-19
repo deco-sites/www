@@ -103,8 +103,7 @@ no nosso componente. Perceba que agora, o que aparecerá parece ser configurado
 não será mais as props da section mas sim as props do seu loader.
 
 ```ts
-import type { LoaderContext } from "$live/types.ts";
-import type { SectionProps } from "$live/mod.ts";
+import type { LoaderContext, SectionProps } from "$live/types.ts";
 
 // Props type that will be configured in deco.cx's Admin
 export interface Props {

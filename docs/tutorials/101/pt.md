@@ -19,9 +19,9 @@ _deco.cx_ abstrai todas as complexidades de configurar um repositório, conectar
 um CMS e deployar na edge. Isso permite que você se concentre apenas no que
 importa: o código e conteúdo do seu Site.
 
-O primeiro passo é ter uma conta na _deco.cx_. Vá em
-<https://deco.cx/onboarding>, faça o login com sua conta do Github e siga as
-instruções passo a passo na página para criar sua conta de desenvolvedor.
+O primeiro passo é ter uma conta na _deco.cx_. Vá em <https://deco.cx/admin>,
+faça o login com sua conta do Github e siga as instruções passo a passo na
+página para criar sua conta de desenvolvedor e time.
 
 ## Clone o repositório do seu site
 
@@ -69,7 +69,8 @@ deno task start
 _Deploy_ em produção é muito simples: apenas fazer um _git push_ suas alterações
 na _branch_ _**main**_.
 
-Você pode ir para _site-name.deco.site_ para ver a versão mais recente do seu
+Você pode ir para o seu domínio em produção (um endereço como
+_site-name.deco.site_ indicado no home) para ver a versão mais recente do seu
 site em ar.
 
 # Preparar! Agora você pode começar a criar sites incríveis :)

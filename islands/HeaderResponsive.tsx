@@ -5,6 +5,7 @@ import LinkedInIcon from "$deco/components/ui/icons/LinkedInIcon.tsx";
 import DiscordIcon from "../components/ui/icons/DiscordIcon.tsx";
 import Switcher from "../islands/ChangeUser.tsx";
 import { h } from "preact";
+import { isNumberObject } from "https://deno.land/std@0.177.0/node/util/types.ts";
 
 export interface Item {
   label: string;
@@ -29,7 +30,8 @@ function NavAnchor({
 
 export default function HeaderResponsive({sections}: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(10);
+
 
   useEffect(() => {
     document.body.style.overflowY = isModalOpen ? 'hidden': 'auto';
@@ -38,13 +40,11 @@ export default function HeaderResponsive({sections}: Props) {
   function toggleModal() {
     setIsModalOpen(!isModalOpen);
   }
-  
-  const handleMouseOver = () => {
-    setHovered(true);
+  const handleMouseEnter = (index:number) => {
+    setHoveredIndex(index);
   };
-
   const handleMouseLeave = () => {
-    setHovered(false);
+    setHoveredIndex(10);
   };
 
   return (
@@ -52,7 +52,10 @@ export default function HeaderResponsive({sections}: Props) {
       <nav class="bg-black">
         <div class="flex justify-between items-center h-16 px-4">
           <div class="flex items-center">
-            <LogoDeco color="#2FD180" class="h-8" />
+            <div onMouseEnter={() => handleMouseEnter(10)} onMouseLeave={handleMouseLeave}>
+              <LogoDeco color="#2FD180" class="h-8" />
+              <div style="background-image: linear-gradient(270deg, rgba(0,0,0,0) 0%, #09ff00 100%);" class={` ${hoveredIndex === 10 ? "md:block w-[40vw] h-[4px] fixed top-[60px] transition ease-in-out duration-300 left-0" : ""}`}></div>
+            </div>
             {isModalOpen ? (
               <div class="hidden">
                 <Switcher/>
@@ -66,11 +69,13 @@ export default function HeaderResponsive({sections}: Props) {
           </div>
           <div class="md:hidden lg:block lg:mr-[60px] my-auto">
               <ul class="hidden md:flex flex-wrap mr-auto space-x-4 gap-6 box-border">
-              {sections && sections.map((section)=>
+              {sections && sections.map((section,index)=>
               (
-                <li class="h-[63px] flex items-center justify-center pt-2">
-                  <a href={section.href} class="text-custom-white text-[18px] hover:text-[#02F67C]">{section.label}</a>
-                  
+                <li class="h-[63px] flex items-center justify-center pt-2" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
+                  <a href={section.href} class={`text-custom-white text-[18px]  ${
+                hoveredIndex === index ? "text-[#02F67C]" : ""
+              }`}>{section.label}</a>
+                 <div style="background-image: linear-gradient(270deg, rgba(0,0,0,0.2) 0%, rgba(9, 255, 0, 1) 50%, rgba(0,0,0,0.2) 100%)" class={` ${hoveredIndex === index ? "md:block w-[8vw] h-[4px] fixed top-[60px] transition ease-in-out duration-300" : ""}`}></div>
                 </li>
               ))}
               </ul>
@@ -140,11 +145,11 @@ export default function HeaderResponsive({sections}: Props) {
             )}
           </div>
         </div>
+        <div style="background-image: linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(0,255,128,1) 100%);" class="md:hidden w-[100vw] h-[4px] fixed top-[60px] transition ease-in-out duration-300 left-0"></div>
       </nav>
       {isModalOpen && (
         <div class="fixed w-full bg-gray-800 bg-opacity-1 z-50 h-full " onClick={toggleModal}>
-         <div class="hidden">
-                
+         <div class="hidden">    
         </div> 
           <div class="flex flex-col gap-[180px]">
             <div>

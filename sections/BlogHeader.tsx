@@ -1,5 +1,14 @@
 import { h } from "preact";
 import LogoDeco from "../components/ui/icons/LogoDeco.tsx";
+import ArrowDown from "../components/ui/icons/ArrowDown.tsx";
+import Button from "../components/ui/Button.tsx";
+import Switcher from "../islands/ChangeUser.tsx";
+import HeaderResponsive from "../islands/HeaderResponsive.tsx";
+
+export interface ItemHeader {
+  label: string;
+  href: string;
+}
 
 function NavAnchor({
   children,
@@ -12,9 +21,10 @@ function NavAnchor({
   );
 }
 
-export interface Props {
+export interface PropsHeader {
   logoAriaLabel: string;
-}
+  sections: ItemHeader[];
+ }
 
 const navAnchors = [
   {
@@ -41,12 +51,14 @@ const navAnchors = [
 
 export default function BlogHeader({
   logoAriaLabel = "Logo da Deco na cor verde",
-}: Props) {
+  sections =[],
+}: PropsHeader) {
   return (
-    //TODO: Traduções
-    <header class="bg-[#113032] flex justify-center">
+    <div>
+      <HeaderResponsive logoAriaLabel={logoAriaLabel} sections={sections}/>
+    {/* <header class="bg-black relative w-full">
       <nav
-        class="container px-4 sm:mx-8 py-6 text-white"
+        class="px-4 sm:mx-8 py-6 text-white"
         aria-label="Deco Menu"
       >
         <ul
@@ -55,24 +67,35 @@ export default function BlogHeader({
           class="flex justify-between gap-4 items-center"
         >
           <li role="none">
-            <NavAnchor aria-label={logoAriaLabel} href="#">
-              <LogoDeco color="#2FD180" class="h-8" />
-            </NavAnchor>
-          </li>
-
-          <li role="none" class="hidden md:flex pr-10 items-center">
-            {navAnchors.map((nav) => (
-              <NavAnchor
-                class={nav.class}
-                href={nav.href}
-                target={nav.target || ""}
-              >
-                {nav.label}
+            <div class="flex items-center">
+              <NavAnchor aria-label={logoAriaLabel} href="#">
+                <LogoDeco color="#2FD180" class="h-8" />
               </NavAnchor>
-            ))}
+              <div class="hidden lg:block">
+                <Switcher/>
+              </div>
+            </div>
           </li>
+          <div>
+            <ul class="hidden md:hidden lg:block md:pr-6">
+            {sections && sections.map((section)=>
+            (
+              <li class="pr-12 inline-block">
+                <a href={section.href} class="text-custom-white text-xl hover:text-[#02F67C]">{section.label}</a>
+              </li>
+            ))}
+            </ul>
+          </div>
+          <div class="flex items-center gap-4">
+            <ul>
+              <li><a href=""class="px-4 py-2 border-[transparent] text-[18px] text-[#58f3a6] hover:text-white rounded-full cursor-pointer border-1 md:hover:(border-[#2FD180] border-1 rounded-full) focus:outline-none">Login</a></li>
+            </ul>
+            <Button variant="signup">Cadastrar-se</Button>
+          </div>         
         </ul>
       </nav>
-    </header>
+          <div class="absolute bg-gradient-to-r from-green-400 to-black h-1 w-1/2 bottom-0 left-0"></div>
+    </header> */}
+    </div>
   );
 }

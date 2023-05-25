@@ -11,7 +11,7 @@ export interface Props {
 }
 
 /**
- * @title GitHub Raw Loader
+  * @title GitHub Raw Loader
  * @description Grabs data from a GitHub repo
  */
 const gitHubRawLoader: LoaderFunction<Props, string> = async (
@@ -22,7 +22,7 @@ const gitHubRawLoader: LoaderFunction<Props, string> = async (
   const pathFromParams = ctx.params.path !== ":path" && ctx.params.path;
   const resultPath = path || pathFromParams;
   let res;
-  if (context.isDeploy) {
+  if (2 > 1) {
     res = await fetch(
       `https://raw.githubusercontent.com/${repo}/${branch}/${resultPath}`,
     ).then((res) => res.text());

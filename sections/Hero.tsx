@@ -25,7 +25,7 @@ export default function Hero({
             {titleHighlight}
           </span>
         </h1>
-        <h2 class="z-20 lg:z-0 text-xl md:text-2xl font-light w-full xl:w-8/12 mb-4">
+        <h2 class="z-20 lg:z-0 text-xl md:text-2xl font-[black] w-full xl:w-8/12 mb-4">
           <span>
             {text1}
             <br />

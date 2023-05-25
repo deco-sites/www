@@ -34,9 +34,11 @@ export default function Header({
   blogLabel = "Blog",
 }: Props) {
   return (
+    
     <header class="bg-primary-light flex justify-center">
+      {/* removi text-secondary-dark e primary-light-acima */}
       <nav
-        class="container px-4 sm:mx-8 py-8 text-secondary-dark"
+        class="container px-4  text-secondary-dark sm:mx-8 py-8"
         aria-label="Deco Menu"
       >
         <ul
@@ -84,8 +86,9 @@ export default function Header({
             </NavAnchor>
           </li>
           <li role="none" class="hidden md:block">
+            {/* removi border-secondary-dark */}
             <NavAnchor
-              class="block bg-white rounded-xl border border-secondary-dark px-6 py-2.5 w-full h-full hover:shadow-lg"
+              class="block bg-white rounded-xl border px-6 py-2.5 w-full h-full hover:shadow-lg"
               href="https://www.deco.cx/#scheduleDemo"
             >
               {scheduleLabel}

@@ -23,6 +23,10 @@ const variants = {
     "text-deco-black bg-transparent dark:text-white focus:outline-deco-green-light",
   danger:
     "text-white bg-deco-brand-red dark:text-white focus:outline-deco-red-light",
+  custom:
+      "text-black bg-custom-button rounded-full border-2 border-black",
+  signup:
+        "block md:hover:bg-[#0A2121] md:hover:border-1 md:hover:text-[#fff] border-[#02F67C] border-1 bg-[#02F67C] text-[20px] text-[#0A2121] px-3 md:py-1 rounded-[25px] md:transition md:ease-in-out md:duration-300"
 };
 
 const sizes = {

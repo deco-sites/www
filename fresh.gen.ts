@@ -15,27 +15,34 @@ import * as $7 from "./routes/docs/[...slug].tsx";
 import * as $8 from "./routes/gfm.css.ts";
 import * as $9 from "./routes/index.tsx";
 import * as $10 from "./routes/live/[...catchall].tsx";
-import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$1 from "./islands/SearchButton.tsx";
-import * as $$2 from "./islands/TeamSlide.tsx";
+import * as $$0 from "./islands/ChangeCategory.tsx";
+import * as $$1 from "./islands/ChangeUser.tsx";
+import * as $$2 from "./islands/HeaderResponsive.tsx";
+import * as $$3 from "./islands/LiveControls.tsx";
+import * as $$4 from "./islands/SearchButton.tsx";
+import * as $$5 from "./islands/SliderJS.tsx";
+import * as $$6 from "./islands/TeamSlide.tsx";
 import * as $$$0 from "./sections/Architecture.tsx";
-import * as $$$1 from "./sections/BlogHeader.tsx";
-import * as $$$2 from "./sections/BlogPostHeader.tsx";
-import * as $$$3 from "./sections/BlogPostList.tsx";
-import * as $$$4 from "./sections/Edit.tsx";
-import * as $$$5 from "./sections/Footer.tsx";
-import * as $$$6 from "./sections/Head.tsx";
-import * as $$$7 from "./sections/Header.tsx";
-import * as $$$8 from "./sections/Hero.tsx";
-import * as $$$9 from "./sections/Layout.tsx";
-import * as $$$10 from "./sections/Markdown.tsx";
-import * as $$$11 from "./sections/NewContactUs.tsx";
-import * as $$$12 from "./sections/Newsletter.tsx";
-import * as $$$13 from "./sections/Performance.tsx";
-import * as $$$14 from "./sections/Platform.tsx";
-import * as $$$15 from "./sections/Pricing.tsx";
-import * as $$$16 from "./sections/QuillText.tsx";
-import * as $$$17 from "./sections/TeamSection.tsx";
+import * as $$$1 from "./sections/BlogFooter.tsx";
+import * as $$$2 from "./sections/BlogHeader.tsx";
+import * as $$$3 from "./sections/BlogHeaderResponsive.tsx";
+import * as $$$4 from "./sections/BlogPostHeader.tsx";
+import * as $$$5 from "./sections/BlogPostList.tsx";
+import * as $$$6 from "./sections/Carrousel.tsx";
+import * as $$$7 from "./sections/Edit.tsx";
+import * as $$$8 from "./sections/Footer.tsx";
+import * as $$$9 from "./sections/Head.tsx";
+import * as $$$10 from "./sections/Header.tsx";
+import * as $$$11 from "./sections/Hero.tsx";
+import * as $$$12 from "./sections/Layout.tsx";
+import * as $$$13 from "./sections/Markdown.tsx";
+import * as $$$14 from "./sections/NewContactUs.tsx";
+import * as $$$15 from "./sections/Newsletter.tsx";
+import * as $$$16 from "./sections/Performance.tsx";
+import * as $$$17 from "./sections/Platform.tsx";
+import * as $$$18 from "./sections/Pricing.tsx";
+import * as $$$19 from "./sections/QuillText.tsx";
+import * as $$$20 from "./sections/TeamSection.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 import * as $$$$1 from "./functions/LoadPageProps.ts";
 import * as $$$$2 from "./functions/MatchSiteParam.ts";
@@ -55,29 +62,36 @@ const manifest: DecoManifest = {
     "./routes/live/[...catchall].tsx": $10,
   },
   islands: {
-    "./islands/LiveControls.tsx": $$0,
-    "./islands/SearchButton.tsx": $$1,
-    "./islands/TeamSlide.tsx": $$2,
+    "./islands/ChangeCategory.tsx": $$0,
+    "./islands/ChangeUser.tsx": $$1,
+    "./islands/HeaderResponsive.tsx": $$2,
+    "./islands/LiveControls.tsx": $$3,
+    "./islands/SearchButton.tsx": $$4,
+    "./islands/SliderJS.tsx": $$5,
+    "./islands/TeamSlide.tsx": $$6,
   },
   sections: {
     "./sections/Architecture.tsx": $$$0,
-    "./sections/BlogHeader.tsx": $$$1,
-    "./sections/BlogPostHeader.tsx": $$$2,
-    "./sections/BlogPostList.tsx": $$$3,
-    "./sections/Edit.tsx": $$$4,
-    "./sections/Footer.tsx": $$$5,
-    "./sections/Head.tsx": $$$6,
-    "./sections/Header.tsx": $$$7,
-    "./sections/Hero.tsx": $$$8,
-    "./sections/Layout.tsx": $$$9,
-    "./sections/Markdown.tsx": $$$10,
-    "./sections/NewContactUs.tsx": $$$11,
-    "./sections/Newsletter.tsx": $$$12,
-    "./sections/Performance.tsx": $$$13,
-    "./sections/Platform.tsx": $$$14,
-    "./sections/Pricing.tsx": $$$15,
-    "./sections/QuillText.tsx": $$$16,
-    "./sections/TeamSection.tsx": $$$17,
+    "./sections/BlogFooter.tsx": $$$1,
+    "./sections/BlogHeader.tsx": $$$2,
+    "./sections/BlogHeaderResponsive.tsx": $$$3,
+    "./sections/BlogPostHeader.tsx": $$$4,
+    "./sections/BlogPostList.tsx": $$$5,
+    "./sections/Carrousel.tsx": $$$6,
+    "./sections/Edit.tsx": $$$7,
+    "./sections/Footer.tsx": $$$8,
+    "./sections/Head.tsx": $$$9,
+    "./sections/Header.tsx": $$$10,
+    "./sections/Hero.tsx": $$$11,
+    "./sections/Layout.tsx": $$$12,
+    "./sections/Markdown.tsx": $$$13,
+    "./sections/NewContactUs.tsx": $$$14,
+    "./sections/Newsletter.tsx": $$$15,
+    "./sections/Performance.tsx": $$$16,
+    "./sections/Platform.tsx": $$$17,
+    "./sections/Pricing.tsx": $$$18,
+    "./sections/QuillText.tsx": $$$19,
+    "./sections/TeamSection.tsx": $$$20,
   },
   functions: {
     "./functions/LoadGitHubRaw.ts": $$$$0,
@@ -128,6 +142,68 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
+    "./sections/BlogFooter.tsx": {
+      "inputSchema": {
+        "title": " Blog Footer",
+        "type": "object",
+        "properties": {
+          "copyright": {
+            "type": "string",
+            "title": "Copyright",
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "title": "Section",
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+                "subList": {
+                  "type": "array",
+                  "items": {
+                    "title": "Item",
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "title": "Label",
+                      },
+                      "href": {
+                        "type": "string",
+                        "title": "Href",
+                      },
+                    },
+                    "required": [
+                      "label",
+                      "href",
+                    ],
+                  },
+                  "title": "Sub List",
+                },
+              },
+              "required": [
+                "label",
+                "href",
+                "subList",
+              ],
+            },
+            "title": "Sections",
+          },
+        },
+        "required": [
+          "copyright",
+          "sections",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/BlogHeader.tsx": {
       "inputSchema": {
         "title": " Blog Header",
@@ -137,9 +213,66 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Logo Aria Label",
           },
+          "sections": {
+            "type": "array",
+            "items": {
+              "title": "ItemHeader",
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+              },
+              "required": [
+                "label",
+                "href",
+              ],
+            },
+            "title": "Sections",
+          },
         },
         "required": [
           "logoAriaLabel",
+          "sections",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/BlogHeaderResponsive.tsx": {
+      "inputSchema": {
+        "title": " Blog Header Responsive",
+        "type": "object",
+        "properties": {
+          "sections": {
+            "type": "array",
+            "items": {
+              "title": "Item",
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+              },
+              "required": [
+                "label",
+                "href",
+              ],
+            },
+            "title": "Sections",
+          },
+        },
+        "required": [
+          "sections",
         ],
       },
       "outputSchema": null,
@@ -180,9 +313,70 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Post List",
           },
+          "categories": {
+            "type": "array",
+            "items": {
+              "title": "CategoryProps",
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "title": "Category",
+                },
+              },
+              "required": [
+                "category",
+              ],
+            },
+            "title": "Categories",
+          },
         },
         "required": [
           "postList",
+          "categories",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Carrousel.tsx": {
+      "inputSchema": {
+        "title": " Carrousel",
+        "type": "object",
+        "properties": {
+          "cards": {
+            "title": "Cards",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "urlImage": {
+                  "type": "string",
+                  "title": "Url Image",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "author": {
+                  "type": "string",
+                  "title": "Author",
+                },
+                "date": {
+                  "type": "string",
+                  "title": "Date",
+                },
+              },
+              "required": [
+                "urlImage",
+                "title",
+                "author",
+                "date",
+              ],
+            },
+          },
+        },
+        "required": [
+          "cards",
         ],
       },
       "outputSchema": null,
@@ -426,9 +620,41 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Text",
           },
+          "cards": {
+            "title": "Cards",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "urlImage": {
+                  "type": "string",
+                  "title": "Url Image",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "author": {
+                  "type": "string",
+                  "title": "Author",
+                },
+                "date": {
+                  "type": "string",
+                  "title": "Date",
+                },
+              },
+              "required": [
+                "urlImage",
+                "title",
+                "author",
+                "date",
+              ],
+            },
+          },
         },
         "required": [
           "text",
+          "cards",
         ],
       },
       "outputSchema": null,

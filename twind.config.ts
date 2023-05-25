@@ -15,28 +15,33 @@ const options: Omit<Options, "selfURL"> = {
       "position-100": "100%",
       "position-0": "0%",
     },
+    fontFamily: {
+      sans: ["Albert Sans", "sans-serif"],
+      serif: ["serif"],
+      inter: ["Inter", "sans-serif"],
+    },
     extend: {
       typography: {
         DEFAULT: {
           css: {
-            h1: {
+              h1: {
               color: "#FF4500",
               fontWeight: "700",
               fontSize: "52px",
-              fontFamily: theme("fontFamily", ["sans"]),
+              fontFamily: "Albert sans"
             },
             h2: {
               marginTop: "28px",
               marginBottom: "28px",
-              color: theme("colors", ["secondary-dark"]),
-              fontFamily: theme("fontFamily", ["sans"]),
+              color: theme("colors", ["decorative-one"]),
               fontWeight: "500",
+              fontSize: "32px",
+              lineHeight: "38px",            
             },
             h3: {
               marginTop: "28px",
               marginBottom: "16px",
-              color: theme("colors", ["secondary-dark"]),
-              fontFamily: theme("fontFamily", ["sans"]),
+              color: theme("colors", ["decorative-one"]),
               fontWeight: "600",
             },
             color: theme("colors", ["primary-dark"]),
@@ -47,7 +52,7 @@ const options: Omit<Options, "selfURL"> = {
               color: theme("colors", ["primary-dark"]),
             },
             span: {
-              color: theme("colors", ["secondary-dark"]),
+              color: theme("colors", ["decorative-one"]),
             },
             p: {
               lineHeight: "1.6rem",
@@ -82,13 +87,13 @@ const options: Omit<Options, "selfURL"> = {
         "caption-regular": ["12px", "120%"],
       },
       fontWeight: {
-        "hero-large": "600",
+        "hero-large": "700",
         "hero-medium": "500",
-        "hero-small": "600",
+        "hero-small": "400",
         "display": "600",
         "heading": "600",
         "title": "600",
-        "body-strong": "600",
+        "body-strong": "400",
         "body-regular": "400",
         "caption-strong": "600",
         "caption-regular": "400",
@@ -123,6 +128,8 @@ const options: Omit<Options, "selfURL"> = {
           "linear-gradient(to top, #06E474 0%, #06E474 43%, #FFFFFF 43%, #FFFFFF 100%)",
         "linear-white-green":
           "linear-gradient(90deg,  rgba(255,255,255,0.8) 0%, rgba(47,209,128,0.8) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%)",
+         "linear-green-footer":
+          "repeating-linear-gradient(to top, #02F67C 0, #02F67C 40%, #FFFFFF 40%, #FFFFFF 100%);" 
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -168,7 +175,7 @@ const options: Omit<Options, "selfURL"> = {
       },
       colors: {
         // TODO: Stop using these colors
-        primary: "#2FD180",
+        "primary": "#2FD180",
         "primary-dark": "#003232",
         "primary-darker": "#002020",
         "secondary-dark": "#113032",
@@ -180,7 +187,6 @@ const options: Omit<Options, "selfURL"> = {
         "primary-red": "#D10923",
         "primary-red-light": "#DA262B",
         "primary-red-dark": "#A1061A",
-        "deco-black": "#252525",
         "deco-light-gray": "#F4F4F4",
         "deco-medium-gray": "#DFDFDF",
         "deco-dark-gray": "#898989",
@@ -193,6 +199,9 @@ const options: Omit<Options, "selfURL"> = {
         /** New design system foundations */
 
         // Surfaces
+        "blackout": "#000000",
+        "black": "#0A2121",
+        "black-hover": "RGBA(1,0,0,0.76)",
         "default": "#FFFFFF",
         "subdued": "#F8F9F5",
         "critical": "#FFE9E6",
@@ -215,6 +224,9 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-special-hovered": "#145836",
         "interactive-critical-default": "#C64729",
         "interactive-critical-hovered": "#9E3C11",
+
+        "custom-button": "rgba(6, 228, 116, 1)",
+        "custom-white": "rgba(255, 255, 255, 0.8)",
 
         "selected-default": "#F8F9F5",
         "selected-hovered": "#EBEDE6",
@@ -292,10 +304,6 @@ const options: Omit<Options, "selfURL"> = {
         "dark-brand": "#2FD180",
       },
     },
-    fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
-      serif: ["serif"],
-    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -304,6 +312,30 @@ const options: Omit<Options, "selfURL"> = {
       "2xl": "1536px",
     },
   },
+
+  preflight: (preflight) => ({
+    ...preflight,
+    '@import': `url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap')`,
+    
+    html: {
+      "line-height": "1.5",
+      "-webkit-text-size-adjust": "100%",
+      "scroll-behavior": "smooth",
+      "font-family": "Albert Sans, sans-serif",
+      "scrollbar-width": "none",
+      "-ms-overflow-style": "none"
+    },
+    ".hidden-scroll::-webkit-scrollbar": {
+      display: "none",
+    },
+    ".hidden-scroll": {
+      "-ms-overflow-style": "none", /* IE and Edge */
+      "scrollbar-width": "none", /* Firefox */
+    },
+  }),
+
+  
 };
 
 export default options;
+

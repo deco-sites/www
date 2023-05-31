@@ -51,10 +51,10 @@ export default function HeaderResponsive({sections}: Props) {
     <header class="">
       <nav class="bg-black">
         <div class="flex justify-between items-center h-16 px-4">
-          <div class="flex items-center">
+          <div class="flex items-center relative">
             <div onMouseEnter={() => handleMouseEnter(10)} onMouseLeave={handleMouseLeave}>
               <LogoDeco color="#2FD180" class="h-8" />
-              <div style="background-image: linear-gradient(270deg, rgba(0,0,0,0) 0%, #09ff00 100%);" class={` ${hoveredIndex === 10 ? "md:block w-[40vw] h-[4px] fixed top-[60px] transition ease-in-out duration-300 left-0" : ""}`}></div>
+              <div style="background-image: linear-gradient(270deg, rgba(0,0,0,0) 0%, #09ff00 100%);" class={` ${hoveredIndex === 10 ? "absolute w-[40vw] h-[4px] top-[44px] transition ease-in-out duration-300 left-[-17px]" : ""}`}></div>
             </div>
             {isModalOpen ? (
               <div class="hidden">
@@ -145,7 +145,6 @@ export default function HeaderResponsive({sections}: Props) {
             )}
           </div>
         </div>
-        <div style="background-image: linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(0,255,128,1) 100%);" class="md:hidden w-[100vw] h-[4px] fixed top-[60px] transition ease-in-out duration-300 left-0"></div>
       </nav>
       {isModalOpen && (
         <div class="fixed w-full bg-gray-800 bg-opacity-1 z-50 h-full " onClick={toggleModal}>
@@ -163,7 +162,7 @@ export default function HeaderResponsive({sections}: Props) {
                 ))}
                 </ul>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col items-center justify-center gap-2">
                <a href="#" class="hover:(border-[#02F67C] border-1 text-[#fff]) border-[transparent] border-1  font-normal text-[16px] text-[#06E474] md:transition md:ease-in-out md:duration-300">Login</a>
                <a href="#" class="hover:(border-[#02F67C] border-1 text-[#fff]) border-[transparent] border-1  font-normal text-[16px] text-[#06E474] md:transition md:ease-in-out md:duration-300">Cadastrar-se</a>
             </div>

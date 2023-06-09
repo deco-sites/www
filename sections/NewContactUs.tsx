@@ -89,8 +89,6 @@ export default function ContactUs({ infor, formInfor }: Props) {
             {formInfor?.formTitle || "Ready to delight your customers?"}
           </span>
 
-          
-
           <input
             id="name"
             class="w-full h-[51px] border-1 border-dark-green p-4"

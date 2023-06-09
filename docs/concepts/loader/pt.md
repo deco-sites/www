@@ -9,8 +9,8 @@ executadas antes da renderização de cada página e seu principal objetivo é
 **buscar dados de fontes externas**, transformá-los se necessário e
 **fornecê-los às Seções do site que precisam.** Os Loaders podem ser usados para
 buscar dados de APIs, bancos de dados ou qualquer outra fonte externa. As
-implementações locais de Loaders vivem na pasta `/loaders` do seu projeto, porém
-é possível
+implementações locais de Loaders vivem na pasta `/functions` do seu projeto,
+porém é possível
 [importar Loaders de outros Sites](/docs/pt/tutorials/importing-other-sites).
 
 Além de buscar dados, os Loaders na _deco.cx_ **também podem exportar um tipo de
@@ -33,7 +33,9 @@ facilitando o gerenciamento e a escala do seu projeto.
 > [Fashion](https://github.com/deco-sites/fashion) usam um tipo de Produt
 > canônico e também cada Loader que se conecta às APIs dos _ecommerce
 > providers_. Isso significa que você pode reutilizar a mesma UI para mostrar
-> dados de diferentes locais, dependendo da configuração.
+> dados de diferentes locais, dependendo da configuração. Os Loaders da Fashion
+> são importados da biblioteca padrão de componentes deco, o **standard
+> library**, [std](https://github.com/deco-sites/std).
 
 <img width="1259" alt="image" src="https://user-images.githubusercontent.com/18706156/224897214-a45b2731-5799-4007-8084-a8a772ddf5d2.png">
 
@@ -42,11 +44,12 @@ facilitando o gerenciamento e a escala do seu projeto.
 Esta é a implementação do Loader `shopifyProductList.ts`:
 
 ```tsx
-import type { LoaderContext } from "$live/types.ts";
+import type { LoaderFunction } from "$live/types.ts";
+import type { LiveState } from "$live/types.ts";
 
-import { ConfigShopify, createClient } from "../commerce/shopify/client.ts";
 import { toProduct } from "../commerce/shopify/transform.ts";
-import { Product } from "../commerce/types.ts";
+import { ConfigShopify, createClient } from "../commerce/shopify/client.ts";
+import type { Product } from "../commerce/types.ts";
 
 export interface Props {
   /** @description search term to use on search */
@@ -55,18 +58,26 @@ export interface Props {
   count: number;
 }
 
-export default async function searchLoader(
-  _req: Request,
-  ctx: LoaderContext<Props, { configShopify: ConfigShopify }>,
-): Promise<Product[] | null> {
-  const props = ctx.state.$live;
-  const { configShopify } = ctx.state;
+/**
+ * @title Shopify - Search Products
+ * @description Usefull for shelves and static galleries.
+ */
+const searchLoader: LoaderFunction<
+  Props,
+  Product[] | null,
+  LiveState<{ configShopify: ConfigShopify }>
+> = async (
+  _req,
+  ctx,
+  props,
+) => {
+  const { configShopify } = ctx.state.global;
   const shopify = createClient(configShopify);
 
   const count = props.count ?? 12;
   const query = props.query || "";
 
-  // Fetch Shopify's API using deco's built-in Shopify Client
+  // search products on Shopify. Feel free to change any of these parameters
   const data = await shopify.products({
     first: count,
     query,
@@ -76,11 +87,15 @@ export default async function searchLoader(
   // If a property is missing from the final `products` array you can add
   // it in here
   const products = data?.products.nodes.map((p) =>
-    toProduct(p, p.variants.nodes[0])
+    toProduct(p, p.variants.nodes[0], new URL(_req.url))
   );
 
-  return products ?? [];
-}
+  return {
+    data: products ?? [],
+  };
+};
+
+export default searchLoader;
 ```
 
 [Fonte](https://github.com/deco-sites/std/blob/bedf496b7a2a480c1a9dfae477fe34020daae821/functions/shopifyProductList.ts)
